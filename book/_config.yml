@@ -53,7 +53,7 @@ html:
   favicon: "logo.jpg"
   use_issues_button: false
   use_repository_button: true
-  use_edit_page_button: false
+  use_edit_page_button: true
 
 repository:
   url: https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter  # The URL to your book's repository
