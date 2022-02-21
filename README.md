@@ -2,7 +2,7 @@
 [![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://computational-discovery-on-jupyter.github.io/Computational-Discovery-on-Jupyter/)
 
 ## About the book
-This is an open educational resource on Computational Discovery on Jupyter. This repository contains a series of Python-based Jupyter notebooks. The notebooks can be viewed online in a [Jupyter book](https://computational-discovery-on-jupyter.github.io/Computational-Discovery-on-Jupyter/), or can be run on a local machine using [Jupyter Notebook](https://jupyter.org/).
+This is an open educational resource on Computational Discovery on Jupyter, __in beta__. Comments welcome. This repository contains a series of Python-based Jupyter notebooks. The notebooks can be viewed online in a [Jupyter book](https://computational-discovery-on-jupyter.github.io/Computational-Discovery-on-Jupyter/), or can be run on a local machine using [Jupyter Notebook](https://jupyter.org/).
 
 ## Topics
 * Continued Fractions
@@ -13,7 +13,7 @@ This is an open educational resource on Computational Discovery on Jupyter. This
 * Chaos Game Representation
 
 ## About the authors
-[Neil J. Calkin](https://www.clemson.edu/science/departments/math-stat/directory/profiles/calkin) studied mathematics as an undergraduate at Trinity College, Cambridge, and received his Ph.D. in Combinatorics and Optimization from the University of Waterloo. In 1994, he co-founded the Electronic Journal of Combinatorics with Herbert S. Wilf. He is currently a Professor at Clemson University in the Department of Mathematical Sciences.
+[Neil J. Calkin](https://www.clemson.edu/science/departments/math-stat/directory/profiles/calkin) studied mathematics as an undergraduate at Trinity College, Cambridge, and received his Ph.D. in Combinatorics and Optimization from the University of Waterloo. In 1994, he co-founded the Electronic Journal of Combinatorics with Herbert S. Wilf. He is currently a Professor at Clemson University in the School of Mathematical and Statistical Sciences.
 
 [Eunice Y. S. Chan](https://med.cuhk.edu.cn/en/teacher/333) did her B.Sc., M.Sc., and Ph.D. in Applied Mathematics at Western University. She was a postdoctoral fellow at the Centre for Medical Evidence, Decision Integrity and Clinical Impact (MEDICI Centre), Department of Anesthesia and Perioperative Medicine, Schulich School of Medicine and Dentistry at Western University in London, Ontario. She is now Assistant Professor in the School of Medicine, The Chinese University of Hong Kong, Shenzhen, China.
 
