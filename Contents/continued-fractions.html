@@ -291,7 +291,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         
-        <a class="edit-button" href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter/edit/master/Contents/continued-fractions.ipynb"><button
+        <a class="edit-button" href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter/edit/master/book/Contents/continued-fractions.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -946,13 +946,13 @@ $$
 In other words, $\sqrt{\ \ }$ is a continuous function: if you change its argument only a little, then its output is only a little different. Thus, $\frac{17}{12}$, being the square root of $2 + \frac{1}{144}$, ought to be close to $\sqrt{2}\left(1 + \frac{1}{288}\right)$ or different to $\sqrt{2}$ only in the third decimal place.
  -->
 <p>We could use techniques from calculus to answer that last question, but let’s try just using inequalities (it’s good practice, anyway).  Suppose that <span class="math notranslate nohighlight">\(x^2 = 2+s\)</span> for some <span class="math notranslate nohighlight">\(s&gt;0\)</span>, and <span class="math notranslate nohighlight">\(y^2=2\)</span> exactly; so <span class="math notranslate nohighlight">\(y=\sqrt{2}\)</span> but we’ll try not to use any knowledge of that more than <span class="math notranslate nohighlight">\(1 &lt; y &lt; 2 \)</span>.  Then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-edae12cc-1612-4fbd-ae1e-e145fda17491">
-<span class="eqno">(1)<a class="headerlink" href="#equation-edae12cc-1612-4fbd-ae1e-e145fda17491" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1d578dad-7df1-447d-bfac-e4f609a8984f">
+<span class="eqno">(1)<a class="headerlink" href="#equation-1d578dad-7df1-447d-bfac-e4f609a8984f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
  x^2 - y^2 = (2+s) - 2 = s
 \end{equation}\]</div>
 <p>and, factoring the difference of squares,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-391512fe-925a-4e2f-904d-f12f999e7bd6">
-<span class="eqno">(2)<a class="headerlink" href="#equation-391512fe-925a-4e2f-904d-f12f999e7bd6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5095e85e-927a-4d84-9e94-9190f3b9f710">
+<span class="eqno">(2)<a class="headerlink" href="#equation-5095e85e-927a-4d84-9e94-9190f3b9f710" title="Permalink to this equation">¶</a></span>\[\begin{equation}
  x - y = \frac{s}{x+y} &lt; \frac{s}{2y} &lt; \frac{s}{2}
 \end{equation}\]</div>
 <p>where we have used the facts that <span class="math notranslate nohighlight">\(x&gt;y\)</span> (which is because <span class="math notranslate nohighlight">\(x^2\)</span> is greater than <span class="math notranslate nohighlight">\(2\)</span>, so naturally <span class="math notranslate nohighlight">\(x\)</span> must be greater than the square root of <span class="math notranslate nohighlight">\(2\)</span>) and <span class="math notranslate nohighlight">\(y &gt; 1\)</span>, and the ordinary rules for manipulating inequalities (which, admittedly, you might not have had a lot of practice with; they are a bit annoying and fussy).</p>
@@ -999,19 +999,19 @@ With any even number of twos?  With any odd number of twos?  If you see a patter
 <!--  Can we get them to guess that an odd number means x^2 > 2 and an even number means x^2 < 2, we are a long way towards proof of convergence; but even a bracketing theorem is valuable
   -->
 <p>Indeed for example we have <span class="math notranslate nohighlight">\((17/12)^2 = 2 + 1/144\)</span> so we expect that the difference between <span class="math notranslate nohighlight">\(17/12\)</span> and <span class="math notranslate nohighlight">\(\sqrt{2}\)</span> should be smaller than <span class="math notranslate nohighlight">\(1/288\)</span>.  By direct computation,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e746da49-a848-4a82-b373-8abffddd71f0">
-<span class="eqno">(3)<a class="headerlink" href="#equation-e746da49-a848-4a82-b373-8abffddd71f0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-748087c5-5852-45f2-a4a7-1e1d4d2500cb">
+<span class="eqno">(3)<a class="headerlink" href="#equation-748087c5-5852-45f2-a4a7-1e1d4d2500cb" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 	\dfrac{17}{12} = 1.416666\ldots
 \end{equation}\]</div>
 <p>while</p>
-<div class="amsmath math notranslate nohighlight" id="equation-91424825-e472-4e18-843c-a529971e800d">
-<span class="eqno">(4)<a class="headerlink" href="#equation-91424825-e472-4e18-843c-a529971e800d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d94eac21-5d30-455c-8fc3-70ce7c75e893">
+<span class="eqno">(4)<a class="headerlink" href="#equation-d94eac21-5d30-455c-8fc3-70ce7c75e893" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 	\sqrt{2} \approx 1.4142\ldots
 \end{equation}\]</div>
 <p>and <span class="math notranslate nohighlight">\(17/12-\sqrt{2} = 0.002453\ldots\)</span> while <span class="math notranslate nohighlight">\(1/288=0.00347\dot{2}\)</span> in agreement with our theorizing.</p>
 <p>Here’s another question. What is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-46f3643b-f1c3-4be6-be91-33311272f4ac">
-<span class="eqno">(5)<a class="headerlink" href="#equation-46f3643b-f1c3-4be6-be91-33311272f4ac" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4a8cafa6-79df-447a-8a1c-b6490af8eb8f">
+<span class="eqno">(5)<a class="headerlink" href="#equation-4a8cafa6-79df-447a-8a1c-b6490af8eb8f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 	1 + \cfrac{1}{2 + \cfrac{1}{2 + \cfrac{1}{2 + \cfrac{1}{2 + \substack{\ \ \\ \\ \ddots}}}}}
 \end{equation}\]</div>
 <p>where the 2’s continue forever? Does this make sense? At this point, many people are surprised at the perfect predictability, and repeating nature, of this continued fraction, because it is indeed true that with quite natural definitions, this infinite continued fraction can only be <span class="math notranslate nohighlight">\(\sqrt{2}\)</span>.</p>
@@ -1306,8 +1306,8 @@ Result of continued fraction: 26/15 or 1.73333333333333
 <h3>Working <em>forwards</em><a class="headerlink" href="#working-forwards" title="Permalink to this headline">¶</a></h3>
 <p>If you try to compute a continued fraction from the bottom up, and the continued fraction is infinite, you have to decide where to truncate and then work backwards as we have been doing above.  If you decide at the end that you aren’t happy with the accuracy you obtained, you have to go back, truncate the continued fraction farther down, and do it again.  This is annoying.</p>
 <p>There is also a better way.  If the simple continued fraction is [<span class="math notranslate nohighlight">\(a_0\)</span>; <span class="math notranslate nohighlight">\(a_1\)</span>, <span class="math notranslate nohighlight">\(a_2\)</span>, <span class="math notranslate nohighlight">\(\ldots\)</span> ] then the first two approximants are <span class="math notranslate nohighlight">\(a_0/1\)</span> and <span class="math notranslate nohighlight">\((a_0a_1 + 1)/a_1\)</span>, so we at least have something to start with.  Call the <span class="math notranslate nohighlight">\(n\)</span>th approximant <span class="math notranslate nohighlight">\(x_n\)</span> and write it as the rational number <span class="math notranslate nohighlight">\(p_n/q_n\)</span>.  So <span class="math notranslate nohighlight">\(x_0 = a_0/1\)</span> and so <span class="math notranslate nohighlight">\(p_0=a_0\)</span> and <span class="math notranslate nohighlight">\(q_0=1\)</span>.  Then <span class="math notranslate nohighlight">\(p_1 = a_1a_0 + 1\)</span> and <span class="math notranslate nohighlight">\(q_1 = a_1\)</span>.  “It can be shown that”</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b3e73551-6f02-4eeb-a17e-89e343a6a254">
-<span class="eqno">(6)<a class="headerlink" href="#equation-b3e73551-6f02-4eeb-a17e-89e343a6a254" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-65cbf6df-65c7-416a-81bf-2b1a418892df">
+<span class="eqno">(6)<a class="headerlink" href="#equation-65cbf6df-65c7-416a-81bf-2b1a418892df" title="Permalink to this equation">¶</a></span>\[\begin{align}
  p_{n+1} &amp;= a_{n+1}p_n + p_{n-1} \\
  q_{n+1} &amp;= a_{n+1}q_n + q_{n-1}
 \end{align}\]</div>
@@ -1447,8 +1447,8 @@ Result of continued fraction: 26/15 or 1.73333333333333
 \end{equation*}\]</div>
 <p>but is it? Using rational arithmetic, <span class="math notranslate nohighlight">\(3 + \left[7 \&gt;, 7\right]\)</span> is <span class="math notranslate nohighlight">\(3\frac{7}{50} = 3\frac{14}{100}\)</span> which is <span class="math notranslate nohighlight">\(3.14\)</span>. So, it worked!</p>
 <p>This kind of thing can get annoying. It’s not <em>much</em> of a problem if there are only human players, because they can argue a bit about when to stop, and reach sensible conclusions. The calculator if <em>it’s</em> playing can’t do that, and might return</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9cbaa60b-d4f1-4edc-b71a-b50d6d113866">
-<span class="eqno">(7)<a class="headerlink" href="#equation-9cbaa60b-d4f1-4edc-b71a-b50d6d113866" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4f6384e7-edd0-4ab0-bd55-1aaa3cc9831b">
+<span class="eqno">(7)<a class="headerlink" href="#equation-4f6384e7-edd0-4ab0-bd55-1aaa3cc9831b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 	3 + \left[7, 6, 1, 7142857142, 1, 6, 6, 1, 125313283, \ldots\right]
 \end{equation}\]</div>
 <p>and keep going from there, with the really large numbers indicating that something unexpected happened; to explain this, we’ll need a bit more theory. But first another example. We compute <span class="math notranslate nohighlight">\(\frac{10}{3}\)</span> on our calculator (an HP48G+, vintage 1995 or so: there are free simulators available, so you can play along):</p>
@@ -1547,8 +1547,8 @@ Result of continued fraction: 26/15 or 1.73333333333333
 <div class="section" id="euclid-s-algorithm-for-greatest-common-divisor">
 <h3>Euclid’s algorithm for greatest common divisor.<a class="headerlink" href="#euclid-s-algorithm-for-greatest-common-divisor" title="Permalink to this headline">¶</a></h3>
 <p>Suppose we compute the continued fraction for a rational number, <span class="math notranslate nohighlight">\(p/q\)</span>. It turns out the steps of the algorithm above—that is, applying the Gauss map and remembering the integer parts that arise—is exactly Euclid’s algorithm for finding the greatest common divisor of <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span>.  Take for instance <span class="math notranslate nohighlight">\(16/10\)</span>. The integer part is <span class="math notranslate nohighlight">\(1\)</span> and we have <span class="math notranslate nohighlight">\(6/10\)</span> as the fractional part; invert it to get <span class="math notranslate nohighlight">\(10/6\)</span> which has integral part <span class="math notranslate nohighlight">\(1\)</span> again and fractional part <span class="math notranslate nohighlight">\(4/6\)</span>; invert that to get <span class="math notranslate nohighlight">\(6/4\)</span> with integral part <span class="math notranslate nohighlight">\(1\)</span> again and fractional part <span class="math notranslate nohighlight">\(2/4\)</span>; invert again to get <span class="math notranslate nohighlight">\(4/2\)</span> and now we have an exact division to get <span class="math notranslate nohighlight">\(2\)</span> (which is the GCD).  We can also (according to our rule, we don’t do this, but this time we say that we can) write <span class="math notranslate nohighlight">\(2\)</span> as <span class="math notranslate nohighlight">\(1+1/1\)</span>.  This gives <span class="math notranslate nohighlight">\(16/10 = [1;1,1,2] = [1;1,1,1,1]\)</span>.  Working backwards, we have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3876bc63-3ab4-4764-afe0-fb34816d2315">
-<span class="eqno">(8)<a class="headerlink" href="#equation-3876bc63-3ab4-4764-afe0-fb34816d2315" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9d05f7bc-48a0-4794-934f-7e05153fad96">
+<span class="eqno">(8)<a class="headerlink" href="#equation-9d05f7bc-48a0-4794-934f-7e05153fad96" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 1 + \cfrac{1}{1+ \cfrac{1}{1 + \cfrac{1}{2}}} = 1 + \cfrac{1}{1+ \cfrac{2}{3}} = 1 + \cfrac{3}{5} = \frac{8}{5}
 \end{equation}\]</div>
 <p>which is obviously right.</p>
@@ -1556,13 +1556,13 @@ Result of continued fraction: 26/15 or 1.73333333333333
 <div class="section" id="the-continued-fraction-for-the-golden-ratio-and-its-connection-to-fibonacci-numbers">
 <h3>The continued fraction for the golden ratio and its connection to Fibonacci numbers<a class="headerlink" href="#the-continued-fraction-for-the-golden-ratio-and-its-connection-to-fibonacci-numbers" title="Permalink to this headline">¶</a></h3>
 <p>The continued fraction with all partial quotients equal to <span class="math notranslate nohighlight">\(1\)</span> gives the <em>golden ratio</em> <span class="math notranslate nohighlight">\(\phi = (1+\sqrt{5})/2 = 1.618\ldots\)</span>. This is so because</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8c70c246-57e5-43ad-a2d2-a24acb1a3ba8">
-<span class="eqno">(9)<a class="headerlink" href="#equation-8c70c246-57e5-43ad-a2d2-a24acb1a3ba8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-96533cea-9ff8-496a-9ff3-514cf9ed309c">
+<span class="eqno">(9)<a class="headerlink" href="#equation-96533cea-9ff8-496a-9ff3-514cf9ed309c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \phi = 1 + \frac{1}{\phi}
 \end{equation}\]</div>
 <p>and recursively substituting the equation into its own right hand side produces nothing but</p>
-<div class="amsmath math notranslate nohighlight" id="equation-aafb63eb-9bac-4653-b25a-b9fea6f402b2">
-<span class="eqno">(10)<a class="headerlink" href="#equation-aafb63eb-9bac-4653-b25a-b9fea6f402b2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c1e6674e-047c-4253-bec8-03c7fb302ac3">
+<span class="eqno">(10)<a class="headerlink" href="#equation-c1e6674e-047c-4253-bec8-03c7fb302ac3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \phi = [1;1,1,1,1,1,1\ldots]
 \end{equation}\]</div>
 <p>Truncating these gives approximations to <span class="math notranslate nohighlight">\(\phi\)</span> as ratios of Fibonacci numbers.  This continued fraction is interesting for several reasons, including the notion of “noble” numbers, which are all those numbers which have continued fractions <em>ending</em> in <span class="math notranslate nohighlight">\([\ldots, 1, 1, 1, \ldots]\)</span>, that is, ending with an infinite sequence of <span class="math notranslate nohighlight">\(1\)</span>s.  These somehow are the “least sensitive” to perturbations, and they show up in physical situations involving resonance (such as the rings around Saturn and Jupiter).</p>
@@ -1571,18 +1571,18 @@ Result of continued fraction: 26/15 or 1.73333333333333
 <h3>Inequalities<a class="headerlink" href="#inequalities" title="Permalink to this headline">¶</a></h3>
 <p>Because the partial quotients <span class="math notranslate nohighlight">\(a_k\)</span> of a simple continued fraction are positive integers, something interesting happens with sequential convergents <span class="math notranslate nohighlight">\(p_{2k-1}/q_{2k-1}\)</span>, <span class="math notranslate nohighlight">\(p_{2k}/q_{2k}\)</span>, and <span class="math notranslate nohighlight">\(p_{2k+1}/q_{2k+1}\)</span>.  Let’s consider it carefully.  We are indexing from zero for the first entry: suppose <span class="math notranslate nohighlight">\(x = [a_0; a_1, a_2, a_3, \ldots ]\)</span>. Then <span class="math notranslate nohighlight">\(x_0 = p_0/q_0 = a_0/1\)</span> is an integer. The next iterate <span class="math notranslate nohighlight">\(x_1 = a_0 + 1/a_1\)</span> is a positive quantity larger: <span class="math notranslate nohighlight">\(x_0 &lt; x_1\)</span>.  But then <span class="math notranslate nohighlight">\(x_2 = a_0 + 1/(a_1 + 1/a_2)\)</span> and (because the denominator is <em>bigger</em>) <span class="math notranslate nohighlight">\(1/(a_1+1/a_2) &lt; 1/a_1\)</span>.  But it’s still positive.  So <span class="math notranslate nohighlight">\(x_0 &lt; x_2 &lt; x_1\)</span>.</p>
 <p>Now it begins to get a little hairy, but <span class="math notranslate nohighlight">\(x_3 = a_0 + 1/(a_1 + 1/(a_2 + 1/a_3))\)</span>; now <span class="math notranslate nohighlight">\(a_2 + 1/a_3 &gt; a_2\)</span> so its reciprocals flip the inequality: <span class="math notranslate nohighlight">\(1/(a_2 + 1/a_3) &lt; 1/a_2\)</span> (this is just what we did with <span class="math notranslate nohighlight">\(a_1\)</span> and <span class="math notranslate nohighlight">\(a_2\)</span> before); now adding <span class="math notranslate nohighlight">\(a_1\)</span> we have <span class="math notranslate nohighlight">\(a_1 + 1/(a_2 + 1/a_3) &lt; a_1 + 1/a_2\)</span>.  Okay.  Now reciprocate again, and this flips the sign of the inequality again, and when we add <span class="math notranslate nohighlight">\(a_0\)</span> to both sides we have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-803c4391-5a4c-473e-a5ec-cd2a5a6763c6">
-<span class="eqno">(11)<a class="headerlink" href="#equation-803c4391-5a4c-473e-a5ec-cd2a5a6763c6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0b97dd1f-bef2-40d3-a3f8-341b00492aac">
+<span class="eqno">(11)<a class="headerlink" href="#equation-0b97dd1f-bef2-40d3-a3f8-341b00492aac" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 a_0 + \cfrac{1}{a_1 + \cfrac{1}{a_2 + \cfrac{1}{a_3}}} &gt; a_0 + \cfrac{1}{a_1 + \cfrac{1}{a_2}}\&gt;.
 \end{equation}\]</div>
 <p>We don’t know any “easy” way to just <em>see</em> that; we had to work it through.  But once we believe it, then we find <span class="math notranslate nohighlight">\(x_3 &gt; x_2\)</span>. What we have now is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b69494b4-317c-4c20-8cfc-a5b74dddba26">
-<span class="eqno">(12)<a class="headerlink" href="#equation-b69494b4-317c-4c20-8cfc-a5b74dddba26" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7bb68890-cd2e-471e-a0be-dff97d78e2c6">
+<span class="eqno">(12)<a class="headerlink" href="#equation-7bb68890-cd2e-471e-a0be-dff97d78e2c6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 x_0 &lt; x_2 &lt; x_3 &lt; x_1
 \end{equation}\]</div>
 <p>and perhaps you will believe that this process can be continued and <em>all</em> the even-numbered convergents will be smaller than <em>all</em> the odd-numbered convergents, and that <em>all</em> the even-numbered convergents increase and <em>all</em> the odd-numbered convergents decrease. We have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cf1471d7-7699-4c2e-a8cc-850eaabf3723">
-<span class="eqno">(13)<a class="headerlink" href="#equation-cf1471d7-7699-4c2e-a8cc-850eaabf3723" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d1cc08c6-93f5-4b13-ad1a-0f33be8b12b4">
+<span class="eqno">(13)<a class="headerlink" href="#equation-d1cc08c6-93f5-4b13-ad1a-0f33be8b12b4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 x_0 &lt; x_2 &lt; x_4 &lt; x_6 &lt; \cdots &lt; x &lt; \cdots &lt; x_7 &lt; x_5 &lt; x_3 &lt; x_1 \&gt;.
 \end{equation}\]</div>
 <p>Can you <em>prove</em> this?</p>
@@ -1590,25 +1590,25 @@ x_0 &lt; x_2 &lt; x_4 &lt; x_6 &lt; \cdots &lt; x &lt; \cdots &lt; x_7 &lt; x_5 
 <div class="section" id="differences-of-convergents">
 <h3>Differences of convergents<a class="headerlink" href="#differences-of-convergents" title="Permalink to this headline">¶</a></h3>
 <p>Theorem 1.4 of Olds (p. 27) states that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d25e84e3-ef79-47eb-a826-0925993cf6d7">
-<span class="eqno">(14)<a class="headerlink" href="#equation-d25e84e3-ef79-47eb-a826-0925993cf6d7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2fa32d96-4231-4362-a941-edfd3616dfa2">
+<span class="eqno">(14)<a class="headerlink" href="#equation-2fa32d96-4231-4362-a941-edfd3616dfa2" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 p_{n+1}q_n - p_nq_{n+1} = (-1)^{n}
 \end{equation}\]</div>
 <p>where we have changed the formula so it indexes from zero.  Let us verify this for <span class="math notranslate nohighlight">\(p_0/q_0 = a_0/1\)</span> and <span class="math notranslate nohighlight">\(p_1/q_1 = (a_0a_1+1)/a_1\)</span>: the case <span class="math notranslate nohighlight">\(n=0\)</span> gives</p>
-<div class="amsmath math notranslate nohighlight" id="equation-791b1a3b-c766-4907-8895-e51c7db70bfb">
-<span class="eqno">(15)<a class="headerlink" href="#equation-791b1a3b-c766-4907-8895-e51c7db70bfb" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c55e7746-5d64-41a1-a7fc-0b4459120902">
+<span class="eqno">(15)<a class="headerlink" href="#equation-c55e7746-5d64-41a1-a7fc-0b4459120902" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 p_1q_0 - p_0q_1 = (a_0a_1+1)\cdot 1 - a_0a_1 = 1 = (-1)^0
 \end{equation}\]</div>
 <p>so we have the indexing correct there, anyway.</p>
 <p>Dividing both sides of that equation by <span class="math notranslate nohighlight">\(q_nq_{n+1}\)</span> we have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-17a4122c-3890-418f-8294-2ea3ec9633f3">
-<span class="eqno">(16)<a class="headerlink" href="#equation-17a4122c-3890-418f-8294-2ea3ec9633f3" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-264f24d4-68c4-4aef-b49c-763e70093d02">
+<span class="eqno">(16)<a class="headerlink" href="#equation-264f24d4-68c4-4aef-b49c-763e70093d02" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{p_{n+1}}{q_{n+1}} - \frac{p_n}{q_n} = \frac{(-1)^n}{q_nq_{n+1}}\&gt;,
 \end{equation}\]</div>
 <p>which tells us something quite important: because the denominators <em>grow exponentially</em> with <span class="math notranslate nohighlight">\(n\)</span> (they grow at least as fast as Fibonacci numbers do), then the <em>difference between successive continued fractions</em> can be made as small as we please by taking <span class="math notranslate nohighlight">\(n\)</span> large enough.</p>
 <p>Let’s look at an example, with <span class="math notranslate nohighlight">\(n=2\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4b3a25dd-a5ee-4357-a1db-9c8a83cd0ab0">
-<span class="eqno">(17)<a class="headerlink" href="#equation-4b3a25dd-a5ee-4357-a1db-9c8a83cd0ab0" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9abfcd30-dfdb-4f7e-acd7-7e428fdac811">
+<span class="eqno">(17)<a class="headerlink" href="#equation-9abfcd30-dfdb-4f7e-acd7-7e428fdac811" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 x_3-x_2 = 1 + \cfrac{1}{2 + \cfrac{1}{3 + \cfrac{1}{4}}} - \left( 1 + \cfrac{1}{2 + \cfrac{1}{3}} \right)
 \end{equation}\]</div>
 <p>The code below shows that this is positive, and it should be <span class="math notranslate nohighlight">\(1/(30\cdot 7) = 1/210\)</span>. Computation shows that it is.</p>
@@ -1631,8 +1631,8 @@ x_3-x_2 = 1 + \cfrac{1}{2 + \cfrac{1}{3 + \cfrac{1}{4}}} - \left( 1 + \cfrac{1}{
 <div class="section" id="solving-diophantine-equations">
 <h3>Solving Diophantine equations<a class="headerlink" href="#solving-diophantine-equations" title="Permalink to this headline">¶</a></h3>
 <p>A <a class="reference external" href="https://en.wikipedia.org/wiki/Diophantine_equation">Diophantine equation</a> is an ancient type of equation, one where the solutions are desired to be <em>integers</em> (and usually <em>positive</em> integers).  They are named for <a class="reference external" href="https://en.wikipedia.org/wiki/Diophantus">Diophantus</a> who wrote a book about them.  Continued fractions (or, equivalently, Euclid’s algorithm) can be used to solve <em>linear</em> Diophantine equations in two variables, and can also be used to solve <em>Pell’s equation</em></p>
-<div class="amsmath math notranslate nohighlight" id="equation-f86aea22-24b8-4a46-8b89-1f03af86946b">
-<span class="eqno">(18)<a class="headerlink" href="#equation-f86aea22-24b8-4a46-8b89-1f03af86946b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c84c8262-a854-4994-9c19-4264d0d6a367">
+<span class="eqno">(18)<a class="headerlink" href="#equation-c84c8262-a854-4994-9c19-4264d0d6a367" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 x^2 - Ny^2 = 1
 \end{equation}\]</div>
 <p>Perhaps the most famous of this kind of equation is <a class="reference external" href="https://en.wikipedia.org/wiki/Archimedes%27s_cattle_problem">Archimedes’ “Cattle of the Sun”</a> problem from antiquity.</p>
@@ -1640,16 +1640,16 @@ x^2 - Ny^2 = 1
 <div class="section" id="generalized-continued-fractions">
 <h3>Generalized continued fractions<a class="headerlink" href="#generalized-continued-fractions" title="Permalink to this headline">¶</a></h3>
 <p>Continued fractions don’t have to have just the “simple” form used above, but can also have different things in the numerator. For example, <a class="reference external" href="https://en.wikipedia.org/wiki/William_Brouncker,_2nd_Viscount_Brouncker">Lord Brouncker</a> found the following continued fraction for <span class="math notranslate nohighlight">\(4/\pi\)</span>, at some time prior to 1656 when it was reported in a book by the mathematician <a class="reference external" href="https://en.wikipedia.org/wiki/John_Wallis">John Wallis</a>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5bb6d5d4-9c5b-4499-b826-618c8f4c43d9">
-<span class="eqno">(19)<a class="headerlink" href="#equation-5bb6d5d4-9c5b-4499-b826-618c8f4c43d9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-deb0270b-88b8-4725-bef3-7bcecb58baf6">
+<span class="eqno">(19)<a class="headerlink" href="#equation-deb0270b-88b8-4725-bef3-7bcecb58baf6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{4}{\pi} = 1+ \cfrac{1^2}{2 + \cfrac{3^2}{2 + \cfrac{5^2}{2 + \cfrac{7^2}{2 + \cfrac{9^2}{\ddots}}}}}.
 \end{equation}\]</div>
 </div>
 <div class="section" id="lambert-s-proof-of-the-irrationality-of-pi">
 <h3>Lambert’s proof of the irrationality of <span class="math notranslate nohighlight">\(\pi\)</span><a class="headerlink" href="#lambert-s-proof-of-the-irrationality-of-pi" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Johann_Heinrich_Lambert">Johann Heinrich Lambert</a> used the following continued fraction to prove that <span class="math notranslate nohighlight">\(\pi\)</span> <a class="reference external" href="https://en.wikipedia.org/wiki/Proof_that_%CF%80_is_irrational#Lambert%27s_proof">is irrational</a>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-90eb94dd-8260-4e15-9b70-c66c1907c92f">
-<span class="eqno">(20)<a class="headerlink" href="#equation-90eb94dd-8260-4e15-9b70-c66c1907c92f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-99851b81-52b8-4215-a007-3f913ec1d285">
+<span class="eqno">(20)<a class="headerlink" href="#equation-99851b81-52b8-4215-a007-3f913ec1d285" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \tan(x) = \cfrac{x}{1+\cfrac{x^{2}}{-3+\cfrac{x^{2}}{5+\cfrac{x^{2}}{-7+\cfrac{x^{2}}{9-\cfrac{x^{2}}{\ddots}}}}}}
 \end{equation}\]</div>
 <p>He first proved that if <span class="math notranslate nohighlight">\(x\)</span> was rational then <span class="math notranslate nohighlight">\(\tan(x)\)</span> must be irrational using this fraction; since <span class="math notranslate nohighlight">\(\tan(\pi/4) = 1\)</span> is rational, it must then be true that <span class="math notranslate nohighlight">\(\pi/4\)</span> is irrational, and hence <span class="math notranslate nohighlight">\(\pi\)</span> must be irrational.</p>
@@ -1815,18 +1815,18 @@ x^2 - Ny^2 = 1
 <h3>The astonishing continued fractions for e<a class="headerlink" href="#the-astonishing-continued-fractions-for-e" title="Permalink to this headline">¶</a></h3>
 <p>We need to talk about <a class="reference external" href="https://en.wikipedia.org/wiki/Leonhard_Euler">Leonhard Euler</a>, pronounced in English more like “Oiler” but the Russians, who have a great claim to him because of his years at St. Petersburg, say “euh-ler” with a vowel more like the French “oeuf”.  Euler was one of the greatest mathematicians—it’s sort of pointless to argue who was greater, Archimedes, Newton, Gauss, Euler, or Einstein; Leonardo da Vinci is a contender, too, and how could we compare them? We claim it is impossible to rank people who were clearly smarter than we are. We couldn’t even <em>see</em> the differences between them, much less judge them accurately.  And, all of them were rich and privileged in their own ways, and without doubt this list of the “greatest” is entirely Eurocentric; where does <a class="reference external" href="https://en.wikipedia.org/wiki/Nasir_al-Din_al-Tusi">Nasir al-Din al-Tusi</a> (who was the academic ancestor of almost every modern mathematics PhD holder, according to the <a class="reference external" href="https://genealogy.math.ndsu.nodak.edu/id.php?id=217509">Mathematics Geneology</a>) fit on this list, or Brahmagupta or Aryabhata or Liu Hui?  Anyway, pointless.  For any list of top ten, one could make a case that Euler belonged there.  His achievements and impact were astounding; one of the “minor” things is that he revolutionized mathematical notation and writing, and not just in English—he wrote mostly in Latin.  Reading mathematics before Euler is painful because everyone tried to put things into words; after Euler we are all comfortable reading equations as if they are part of the language, which they <em>are</em>.</p>
 <p>One of Euler’s “minor” technical achievements (well, in comparison to things like the Euler equations for fluid flow, or Euler’s method for solving differential equations, or the Euler–Lagrange equations of the calculus of variations) was unlocking many of the secrets of the number <span class="math notranslate nohighlight">\(e\)</span>, the base of the natural logarithms.  Euler defined this as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d5c38f06-9307-4020-a476-a8411398b46b">
-<span class="eqno">(21)<a class="headerlink" href="#equation-d5c38f06-9307-4020-a476-a8411398b46b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6548c1de-700f-44b4-8339-6ba49d50c369">
+<span class="eqno">(21)<a class="headerlink" href="#equation-6548c1de-700f-44b4-8339-6ba49d50c369" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 e := \lim_{n\to\infty} \left( 1 + \frac{1}{n}\right)^n
 \end{equation}\]</div>
 <p>but we are not going to pursue that here because that is properly part of modern Calculus.  Instead, we will display one of Euler’s continued fractions:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-411e70e8-48fb-4bc2-94aa-e3fd74761746">
-<span class="eqno">(22)<a class="headerlink" href="#equation-411e70e8-48fb-4bc2-94aa-e3fd74761746" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9baa2960-f418-4fb9-9810-46daca366fd5">
+<span class="eqno">(22)<a class="headerlink" href="#equation-9baa2960-f418-4fb9-9810-46daca366fd5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \nu = \frac{e+1}{e-1} = 2 + \cfrac{1}{6 + \cfrac{1}{10 + \cfrac{1}{14 + \cfrac{1}{18 + \cfrac{1}{\ddots}}}}}
 \end{equation}\]</div>
 <p>If we know <span class="math notranslate nohighlight">\(\nu\)</span>, then because <span class="math notranslate nohighlight">\((e-1)\nu = e+1\)</span> or <span class="math notranslate nohighlight">\(e(\nu-1) = \nu+1\)</span> we have</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c73a9955-17ee-4273-9f28-859005efee53">
-<span class="eqno">(23)<a class="headerlink" href="#equation-c73a9955-17ee-4273-9f28-859005efee53" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-17ac7f4f-f9d6-4e5b-a3be-a88b67ec08f4">
+<span class="eqno">(23)<a class="headerlink" href="#equation-17ac7f4f-f9d6-4e5b-a3be-a88b67ec08f4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 e = \frac{\nu + 1}{\nu - 1}\&gt;.
 \end{equation}\]</div>
 <p>Because the partial quotients in <span class="math notranslate nohighlight">\(\nu\)</span> grow so predictably—they increase by <span class="math notranslate nohighlight">\(4\)</span> every time—one gets very accurate approximations for <span class="math notranslate nohighlight">\(\nu\)</span> very quickly.</p>
@@ -1846,25 +1846,25 @@ e = \frac{\nu + 1}{\nu - 1}\&gt;.
 </div>
 </div>
 <p>Experiments show that the even-ending lists are always <em>increasing</em> while the odd-ending lists are always <em>decreasing</em>.  This means that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a984b327-4700-4fcf-8dbe-cca140c49d3e">
-<span class="eqno">(24)<a class="headerlink" href="#equation-a984b327-4700-4fcf-8dbe-cca140c49d3e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-56645610-9cab-42b3-bfcc-e931e482d11c">
+<span class="eqno">(24)<a class="headerlink" href="#equation-56645610-9cab-42b3-bfcc-e931e482d11c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{p_0}{q_0} &lt; \frac{p_2}{q_2} &lt; \frac{p_4}{q_4} &lt; \cdots &lt; \frac{p_5}{q_5} &lt;\frac{p_3}{q_3} &lt;\frac{p_1}{q_1}
 \end{equation}\]</div>
 <p>and our previous experiment suggested (which turns out to be true) that <em>all</em> odd-ending continued fractions are larger than <em>all</em> even-ending continued fractions, and moreover that the difference between them goes rapidly to zero.  This is the basis for the proof that the number <span class="math notranslate nohighlight">\(\nu\)</span> really is represented by the continued fraction.  We <em>won’t</em> fill in the details, although we are so very close: instead we will just claim that these experiments are pointing at true facts.</p>
 <p>The <em>practical</em> fact that comes out of this theorem is that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-22d98807-5263-408c-91c9-323f23213d1b">
-<span class="eqno">(25)<a class="headerlink" href="#equation-22d98807-5263-408c-91c9-323f23213d1b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f9b0c2e8-80e3-466c-924d-7334f1972188">
+<span class="eqno">(25)<a class="headerlink" href="#equation-f9b0c2e8-80e3-466c-924d-7334f1972188" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{33630}{15541} &lt; \nu &lt;  \frac{741721}{342762}
 \end{equation}\]</div>
 <p>which, when translated into much more intelligible decimals, says that <span class="math notranslate nohighlight">\(\nu = 2.163953413_{55}^{74}\)</span> where the curious subscripts/superscripts mean that the true answer is trapped somewhere between <span class="math notranslate nohighlight">\(2.163953413{55}\)</span> and <span class="math notranslate nohighlight">\(2.163953413{74}\)</span>. Welcome to the somewhat niche world of <a class="reference external" href="https://en.wikipedia.org/wiki/Interval_arithmetic">interval arithmetic</a>.</p>
 <p>This translates to a similar “trapping” of the value of <span class="math notranslate nohighlight">\(e\)</span>: we put the too-big rational in the numerator and the too-small rational in the denominator and get an <em>overestimate</em> of <span class="math notranslate nohighlight">\(e\)</span>, and put the too-small rational in the numerator and the too-big rational in the denominator and get an <em>underestimate</em> of <span class="math notranslate nohighlight">\(e\)</span>.  When we do this we get the <em>very curious</em> estimate, which surely would have pleased Euler,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-451fde6a-3c3e-4abb-b801-bd6335e6fbd4">
-<span class="eqno">(26)<a class="headerlink" href="#equation-451fde6a-3c3e-4abb-b801-bd6335e6fbd4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6f6b04c9-9513-404b-9c19-4c63fd13c011">
+<span class="eqno">(26)<a class="headerlink" href="#equation-6f6b04c9-9513-404b-9c19-4c63fd13c011" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \frac{16853950302}{6200221819} &lt; e &lt; \frac{16853950303}{6200221818}\&gt;.
 \end{equation}\]</div>
 <p>Translating this to decimals gives <span class="math notranslate nohighlight">\(e = 2.718281828_{29}^{89}\)</span> which again traps <span class="math notranslate nohighlight">\(e\)</span>.  Using <em>one</em> more partial quotient improves this to</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a41fedb8-89dc-4527-87da-734f1c7bd368">
-<span class="eqno">(27)<a class="headerlink" href="#equation-a41fedb8-89dc-4527-87da-734f1c7bd368" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c27f980f-ece5-4f4e-ac9c-cb6ebaa1da37">
+<span class="eqno">(27)<a class="headerlink" href="#equation-c27f980f-ece5-4f4e-ac9c-cb6ebaa1da37" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 {\frac{9681562563498}{3561647825527}} &lt; e &lt; {\frac{9681562563499}{3561647825526}}
 \end{equation}\]</div>
 <p>or <span class="math notranslate nohighlight">\(e = 2.71828182845_{82}^{94}\)</span>, which has two more decimal digits nailed down.</p>
@@ -1872,13 +1872,13 @@ e = \frac{\nu + 1}{\nu - 1}\&gt;.
 <div class="section" id="rational-approximation-to-the-exponential-function">
 <h3>Rational approximation to the exponential function<a class="headerlink" href="#rational-approximation-to-the-exponential-function" title="Permalink to this headline">¶</a></h3>
 <p>Lambert apparently discovered in 1766 that, if <span class="math notranslate nohighlight">\(x \ne 0\)</span>,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a68bedfa-e8fd-4db3-8f1d-53b3eb8dcb25">
-<span class="eqno">(28)<a class="headerlink" href="#equation-a68bedfa-e8fd-4db3-8f1d-53b3eb8dcb25" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-51f2d195-bbd8-4766-9754-786ae2e32aaf">
+<span class="eqno">(28)<a class="headerlink" href="#equation-51f2d195-bbd8-4766-9754-786ae2e32aaf" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \nu(x) = \frac{e^x+1}{e^x-1} = \frac{2}{x} + \cfrac{1}{\frac{6}{x} + \cfrac{1}{\frac{10}{x} + \cfrac{1}{\frac{14}{x} + \cfrac{1}{\frac{18}{x} + \cfrac{1}{\ddots}}}}}
 \end{equation}\]</div>
 <p>Again, if we know <span class="math notranslate nohighlight">\(\nu(x)\)</span>, then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-66e38ba0-5c67-4807-9e2d-3952e3e8af4c">
-<span class="eqno">(29)<a class="headerlink" href="#equation-66e38ba0-5c67-4807-9e2d-3952e3e8af4c" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d0271ec8-42a7-43ce-b4d0-049e1b61bc67">
+<span class="eqno">(29)<a class="headerlink" href="#equation-d0271ec8-42a7-43ce-b4d0-049e1b61bc67" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 e^x = \frac{\nu(x) + 1}{\nu(x) - 1}\&gt;.
 \end{equation}\]</div>
 <p>These give rather effective approximations of <span class="math notranslate nohighlight">\(e^x\)</span> by rational functions.</p>
@@ -2056,8 +2056,8 @@ One final point of this exercise: we did not ever compare <code class="docutils 
 rr<span class="math notranslate nohighlight">\((a\ op\ b) = (a\ op\ b)(1 + \delta)\)</span> where <span class="math notranslate nohighlight">\(\left|\delta\right|\)</span> is as small as possible given the restriction.  RMC did this years ago in a now-vanished language (which might come back).  You can find that source code in Chapter 22 of <a class="reference external" href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.196.3360&amp;rep=rep1&amp;type=pdf">The Aldor Manual</a>.</p></li>
 <li><p>Does the continued fraction for <a class="reference external" href="https://en.wikipedia.org/wiki/Khinchin%27s_constant">Khinchin’s constant</a> follow the Gauss–Kuzmin distribution? It’s a pretty puzzle to compute the constant quickly, by the way. See <a class="reference external" href="http://oeis.org/A002210">http://oeis.org/A002210</a>.</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-f2f54fc8-6317-4825-b6be-ce00189a0563">
-<span class="eqno">(30)<a class="headerlink" href="#equation-f2f54fc8-6317-4825-b6be-ce00189a0563" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b6d75996-e889-4a15-bfea-c91a063b6da6">
+<span class="eqno">(30)<a class="headerlink" href="#equation-b6d75996-e889-4a15-bfea-c91a063b6da6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 K = \prod_{k\ge 1} \left( 1 + \frac{1}{k(k+2)}\right)^{\log_2 k} \approx 2.685452001\ldots
 \end{equation}\]</div>
 <hr class="footnotes docutils" />

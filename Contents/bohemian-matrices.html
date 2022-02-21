@@ -291,7 +291,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         
-        <a class="edit-button" href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter/edit/master/Contents/bohemian-matrices.ipynb"><button
+        <a class="edit-button" href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter/edit/master/book/Contents/bohemian-matrices.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -1138,8 +1138,8 @@ B = \begin{bmatrix}
 <p>If a square matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> has entries <span class="math notranslate nohighlight">\(a_{i,j}\)</span>, then all eigenvalues <span class="math notranslate nohighlight">\(\lambda\)</span> of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> are contained in the union of the circles <span class="math notranslate nohighlight">\(| z - a_{i,i}| \le R_i\)</span> with radii <span class="math notranslate nohighlight">\(R_i = \sum_{j\ne i} |a_{i,j}|\)</span>. Furthermore, if a subset of <span class="math notranslate nohighlight">\(\ell\)</span> of the circles forms a region disconnected from the other circles, then <span class="math notranslate nohighlight">\(\ell\)</span> of the eigenvalues will be in that region.</p>
 </div>
 </div><p><strong>Fourth Activity</strong> Consider the matrix</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f25bf698-8cfe-4863-bf30-0652e8a21148">
-<span class="eqno">(65)<a class="headerlink" href="#equation-f25bf698-8cfe-4863-bf30-0652e8a21148" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0aaa79f7-92b0-4f05-9040-e25c0147566f">
+<span class="eqno">(65)<a class="headerlink" href="#equation-0aaa79f7-92b0-4f05-9040-e25c0147566f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{A} = \begin{bmatrix}
 -5 &amp; 1 &amp; 1 
 \\
@@ -1150,8 +1150,8 @@ B = \begin{bmatrix}
 \end{equation}\]</div>
 <p>Draw—by hand—the Gerschgorin circles for this matrix.  Then compute the eigenvalues (by any method, but using Python is certainly ok) and verify that all the eigenvalues are in the union of the circles, and indeed that the “furthermore” part of the theorem is satisfied.</p>
 <p><strong>Fifth Activity</strong> Consider the matrix</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fa1a5130-b339-47db-aff7-92df6ed020da">
-<span class="eqno">(66)<a class="headerlink" href="#equation-fa1a5130-b339-47db-aff7-92df6ed020da" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-245d0de8-228e-4163-8de6-987d60ff42cd">
+<span class="eqno">(66)<a class="headerlink" href="#equation-245d0de8-228e-4163-8de6-987d60ff42cd" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{A} = \begin{bmatrix}
 2 &amp; -1 &amp; 0 
 \\
@@ -1187,8 +1187,8 @@ B = \begin{bmatrix}
 <img alt="../_images/bohemian-matrices_20_0.png" src="../_images/bohemian-matrices_20_0.png" />
 </div>
 </div>
-<div class="amsmath math notranslate nohighlight" id="equation-6c24f400-788a-47de-9f1b-db101d9ba386">
-<span class="eqno">(67)<a class="headerlink" href="#equation-6c24f400-788a-47de-9f1b-db101d9ba386" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-da052238-bc11-4065-9668-fcd96435ad5e">
+<span class="eqno">(67)<a class="headerlink" href="#equation-da052238-bc11-4065-9668-fcd96435ad5e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 \mathbf{A} = \left[\begin{array}{ccc}
 -8 &amp; 11 &amp; -6 
 \\
@@ -1478,7 +1478,7 @@ Determinant: 2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Program took  0.05301189422607422  seconds 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Program took  0.051012277603149414  seconds 
 
 There are  68 distinct characteristic polynomials, vs  512 matrices
 A most common characteristic polynomial was  ((-0+0j), (-0+0j), (3-1j), (1+0j)) which occurred  18 times 
@@ -1523,14 +1523,11 @@ One of its matrices was  [[-1.-1.j -1.-1.j -1.-1.j]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25 33554432
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 33554432
-</pre></div>
-</div>
-<img alt="../_images/bohemian-matrices_44_2.png" src="../_images/bohemian-matrices_44_2.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Took 36.312264919281006 seconds to compute and plot 
+<img alt="../_images/bohemian-matrices_44_1.png" src="../_images/bohemian-matrices_44_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Took 36.20794320106506 seconds to compute and plot 
 </pre></div>
 </div>
 </div>
@@ -1645,7 +1642,7 @@ One of its matrices was  [[-1.-1.j -1.-1.j -1.-1.j]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Program took  13.640326261520386  seconds 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Program took  13.492595672607422  seconds 
 
 There are  489 distinct characteristic polynomials, vs  59049 matrices
 </pre></div>
@@ -1822,7 +1819,7 @@ There are  489 distinct characteristic polynomials, vs  59049 matrices
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Program took  0.2470557689666748  seconds 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Program took  0.2312312126159668  seconds 
 
 Found 35 nilpotent polynomial(s), vs  729 matrices
 Found 143 normal matrices
@@ -1980,7 +1977,7 @@ More generally “banded” matrices might have <span class="math notranslate no
 </pre></div>
 </div>
 <img alt="../_images/bohemian-matrices_66_1.png" src="../_images/bohemian-matrices_66_1.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Took 32.42627954483032 seconds to compute and plot 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Took 33.38298273086548 seconds to compute and plot 
 </pre></div>
 </div>
 </div>
@@ -2077,7 +2074,7 @@ Similarly, the radius of the next row (and all subsequent rows) is less than <sp
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21 2097152
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Took 93.55389761924744 seconds to compute the eigenvalues 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Took 92.41344499588013 seconds to compute the eigenvalues 
 </pre></div>
 </div>
 </div>
@@ -2096,7 +2093,7 @@ Similarly, the radius of the next row (and all subsequent rows) is less than <sp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Took 27.049379110336304 seconds to add eigenvalues to the image 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Took 26.738973140716553 seconds to add eigenvalues to the image 
 </pre></div>
 </div>
 </div>
@@ -2114,7 +2111,7 @@ Similarly, the radius of the next row (and all subsequent rows) is less than <sp
 </div>
 <div class="cell_output docutils container">
 <img alt="../_images/bohemian-matrices_71_0.png" src="../_images/bohemian-matrices_71_0.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Took 3.1488585472106934 seconds to colourize the image.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Took 3.1221296787261963 seconds to colourize the image.
 </pre></div>
 </div>
 </div>
@@ -2156,7 +2153,7 @@ Similarly, the radius of the next row (and all subsequent rows) is less than <sp
 </pre></div>
 </div>
 <img alt="../_images/bohemian-matrices_72_1.png" src="../_images/bohemian-matrices_72_1.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Took 24.22172737121582 seconds to compute and plot 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Took 24.010122776031494 seconds to compute and plot 
 </pre></div>
 </div>
 </div>
@@ -2356,7 +2353,7 @@ There are also <a class="reference external" href="https://en.wikipedia.org/wiki
 The number of matrices is 14348907 so the number of eigenvalues is 71744535
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Took  8.35434603691101  seconds to find all 377075 of the roots
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Took  8.579744338989258  seconds to find all 377075 of the roots
 There are  7575 characteristic polynomials with zero as a root
 There are  0 Characteristic polynomials with quadruple zero roots []
 </pre></div>
@@ -2400,7 +2397,7 @@ There are  0 Characteristic polynomials with quadruple zero roots []
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Took  5.636761903762817  seconds to recompute and make a density plot of the roots (including copies)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Took  5.745038270950317  seconds to recompute and make a density plot of the roots (including copies)
 </pre></div>
 </div>
 <img alt="../_images/bohemian-matrices_84_1.png" src="../_images/bohemian-matrices_84_1.png" />
@@ -2465,7 +2462,7 @@ There are  0 Characteristic polynomials with quadruple zero roots []
 </pre></div>
 </div>
 <img alt="../_images/bohemian-matrices_87_1.png" src="../_images/bohemian-matrices_87_1.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Took 5.122665643692017 seconds to compute and plot 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Took 5.151955604553223 seconds to compute and plot 
 </pre></div>
 </div>
 </div>
