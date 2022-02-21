@@ -1,0 +1,509 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preamble &#8212; Computational Discovery on Jupyter</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="_static/logo.jpg"/>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Continued Fractions" href="Contents/continued-fractions.html" />
+    <link rel="prev" title="Welcome to Computational Discovery on Jupyter" href="index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Computational Discovery on Jupyter</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   Welcome to Computational Discovery on Jupyter
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Preface
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Preamble
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Contents/continued-fractions.html">
+   Continued Fractions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Contents/rootfinding.html">
+   Rootfinding, Newton’s Method, and Dynamical Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Contents/fractals-and-julia-sets.html">
+   Fractals and Julia Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Contents/bohemian-matrices.html">
+   Bounded Height Matrices of Integers (Bohemian Matrices)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Contents/mandelbrot.html">
+   Mandelbrot Polynomials and Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Contents/chaos-game-representation.html">
+   Chaos Game Representation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix/floating-point.html">
+   The Bare Minimum about Floating-Point
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix/binomials-factorials-combinatorics.html">
+   Binomials, Factorials, and other Combinatorial Things
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix/complex-numbers.html">
+   Complex Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix/symbolic-computation.html">
+   Symbolic Computation: The Pitfalls
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Solutions
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Solutions/Solutions%20to%20Continued%20Fraction%20Exercises.html">
+   Solutions to Continued Fractions Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Solutions/Solutions%20to%20the%20Rootfinding%20Chapter%20Exercises.html">
+   Solutions to the Rootfinding Chapter Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Solutions/Solutions%20to%20the%20Julia%20Set%20Exercises.html">
+   Solutions to the Julia Set Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Solutions/Solutions%20to%20Exercises%20%28not%20Activities%29%20in%20the%20Bohemian%20Unit.html">
+   Solutions to Exercises (not Activities) in the Bohemian Unit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Solutions/Solutions%20to%20Mandelbrot%20Exercises.html">
+   Solutions to Mandelbrot Polynomials and Matrices Exercises
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Back Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="about.html">
+   About the authors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/preamble.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#guide-for-students-and-readers">
+   Guide for Students and Readers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#guidance-for-the-instructor">
+   Guidance for the Instructor
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-ask-your-own-questions">
+   How to ask your own questions
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Preamble</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#guide-for-students-and-readers">
+   Guide for Students and Readers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#guidance-for-the-instructor">
+   Guidance for the Instructor
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-ask-your-own-questions">
+   How to ask your own questions
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="preamble">
+<h1>Preamble<a class="headerlink" href="#preamble" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="guide-for-students-and-readers">
+<h2>Guide for Students and Readers<a class="headerlink" href="#guide-for-students-and-readers" title="Permalink to this headline">¶</a></h2>
+<p>This is a different sort of book (indeed, we’re a bit doubtful about calling it a “book”, even), intended for a different sort of course. The content is intended to be outside the normal mathematics curriculum. The book won’t teach calculus or linear algebra, for example, although it will reinforce, support, and illuminate those subjects, which we imagine you will be taking eventually (possibly even concurrently). We assume only high school mathematics to start, although we get pretty deep pretty quickly. What does this mean? We assume that you have been exposed to algebra, matrices, functions, and basic calculus (informal limits, continuity, some rules for taking derivatives and antiderivatives). We assume no prior programming knowledge. We assume you’ve met with mathematical induction. What we mostly assume is that you’re willing to take charge of your own learning. You should be prepared to actually do things as you read. There are exercises to do, ranging from simple (with answers in the “answers section”) through moderate (without answers given but that can be checked) to hard: projects that can be done by teams (and if you answer them, you could contribute a chapter to this book, maybe), and some actually open.  If you answer one of those, you should publish a paper in a journal.  <a class="reference external" href="https://mapletransactions.org">Maple Transactions</a> might be a good place.</p>
+<p><em>Students taking this course have solved some of these (formerly) open problems. You might solve others.</em> (Yes, that’s scary.)</p>
+<p>The example computer scripts in this book will help students to teach themselves how to use computer algebra systems to explore mathematical concepts on their own or in teams.</p>
+<p><em>Keep Good Notes!</em> If you make a discovery worth publishing, you’ll need to write it up so it can be reproduced.  Getting your programs to be so clean that they work, reliably, and reproducibly, is also critical.  Checkpoint your computations, for instance!</p>
+<blockquote class="epigraph">
+<div><p>The most important phrase in Science is not “Eureka!” but rather, “That’s weird…”</p>
+<p class="attribution">—Anonymous</p>
+</div></blockquote>
+<blockquote class="epigraph">
+<div><p>The difference between science and messing around is writing it down.</p>
+<p class="attribution">—Mythbusters</p>
+</div></blockquote>
+</div>
+<div class="section" id="guidance-for-the-instructor">
+<h2>Guidance for the Instructor<a class="headerlink" href="#guidance-for-the-instructor" title="Permalink to this headline">¶</a></h2>
+<p>Let go! Trust the students. Let them work together. Let them choose examples to work on. This was especially successful for us in the “Fractals” segment. Allow them to program in pairs, and occasionally move/swap one partner in each team and make them explain their code to each other. We did this with explorations from the paper <a class="reference external" href="https://www.jstor.org/stable/2324993">Strange series and high precision fraud</a> and it was a highlight that year. Encourage <em>active</em> learning. One day, we allowed only questions, no answers, and everyone had to contribute a question. Allow them to do projects of their own choosing. Use peer assessment. Consult the students as to  future content—the chapters in this book are models and templates, not prescriptions. <em>Don’t</em> try to prove things (unless they students express serious doubt). Programming largely plays the same developmental role as proof: it requires precisionist-grade thinking, which the students will have quite enough trouble with: it’s inhuman to have to match parentheses, or to remember <em>exactly</em> what they called the variable on the previous page. But using mathematical induction to prove a program correct fits well with the scope of the course, as we envisage it.</p>
+<p>RMC found it hard to refrain from solving the problems for the students. Some coding, especially at the start of the course, is okay; and the students need to feel that the instructor “knows what’s on the next page”, (mostly) although they got quite excited when RMC said he didn’t know, or that <em>nobody</em> knows.</p>
+</div>
+<div class="section" id="how-to-ask-your-own-questions">
+<h2>How to ask your own questions<a class="headerlink" href="#how-to-ask-your-own-questions" title="Permalink to this headline">¶</a></h2>
+<p>What makes a question a “good” question?  Ironically, that’s actually hard to answer.  We can point to examples: the fabulous book of Polya and Szego is nothing but a collection of good questions.  Polya wrote several books, containing some generically “good” questions, such as “Can you generalize this?” and “Can you find an interesting special case?”  But let’s approach this in a more modest way.</p>
+<p>Here’s a question: how do you learn to ask good questions?  The answer (our answer) is practice: start asking questions, do more of them, keep going, and eventually you will learn what kind of thing works and what doesn’t.  We’ll try to help with some guidance here (chiefly from the authorities mentioned above, plus some others we know), but the key is practice.  Practice, practice, practice!  If you ask enough bad questions then eventually a good one will slip in by accident!</p>
+<p>It is better to ask a <em>lot</em> of bad questions than it is <em>not</em> to ask a <em>good</em> question.  A bad question at least provides practice!</p>
+<p>Humans are social creatures.  Even mathematicians are social (yes, really).  One way to know a question is good or not is if a lot of people are already asking it.  Another way to know if it’s good is if <em>no one</em> has asked it yet—this is known as “finding blank spaces on the canvas”, and it’s both harder and riskier (socially) than asking questions that others are already asking. But this can really be worthwhile.</p>
+<p>Asking good questions is very hard.  But here is some guidance.  Take it with a grain of salt.</p>
+<p>A “good” question (mathematically speaking) is one that, when you answer it, illuminates more than just the immediate question. The answers should be like turning on a light switch in a dark room in that you should be able to see things (understand things) that you hadn’t, before.</p>
+<p>An example of a “bad” question is “what’s the use of this?” (somewhat ironically, we ask this question frequently ourselves).  The reason it’s a “bad” question is that it’s not usually effective immediately to say “I have this answer/idea, now let’s go look for a problem that this solves.”.  That’s not applied mathematics, that’s math in search of applications.  Sometimes this works, and works spectacularly, but it can take a very long time, perhaps centuries!</p>
+<p>As an aside, on the applied-vs-pure front, at least one of us is very much on the “applied” side; RMC believes that quite aside from the instrumental value of using mathematics to solve real problems, the best source of mathematics is the natural world, which contains challenges greater than any human can think of unaided. But he knows that for <em>teaching</em> mathematics, introducting too many applications can be distracting, while introducing just one will typically appeal to only a small segment of the population: he’s heard too many times “I hate biology” or “I hate physics” or “I hate chemistry,” generally not from the same student.  So for the most part we won’t talk about applications, although they creep in for the Chaos Game Representation unit because, really, they’re just too cool.</p>
+<p>Other kinds of “bad” questions include things like “Why did the computer use Times Roman font?”  (ie some things are just incidental, and don’t really matter).  Even this judgement can be called into question—sometimes the dumb details really matter.</p>
+<p>One of RMC’s favourite questions is “How do we know this computation is correct?”  This question will get a workout, here.  It’s especially important when one writes computer programs.</p>
+<p>Sometimes, bugs in the program can lead to other interesting new bits of knowledge.  Most of the time not, of course—a bug is a kind of mistake.  But we can learn from mistakes, too.</p>
+<p>Quite a good question is “can we draw a picture of this?”  We’ll be doing a lot of that in this course.</p>
+<ol class="simple">
+<li><p>What do you see?</p></li>
+<li><p>What do you notice?</p></li>
+<li><p>What do you wonder?</p></li>
+</ol>
+<p>NB: those last three can be treated as a kind of “sandbag” question, unfortunately; some people seem to interpret them as “do you see what I see?”, “Can you guess what I am noticing?”, and “Well obviously you have to wonder the same things as I do about this”.  That’s not <em>at all</em> what we mean here.  Different people could quite well look at the same picture and see different things, notice different patterns, and wonder about different paths to take.  In this course, all of that is good (of course, the cynical student says, you say that <em>now</em>, but when the rubber hits the road…).  Well, we do mean it.  For instance, several of the images at <a class="reference external" href="http://www.bohemianmatrices.com">www.bohemianmatrices.com</a> were created by students choosing completely unanticipated paths—paths unanticipated by us, we mean.  We liked that, a lot.  Anyway, let’s get back to “generic” good questions.</p>
+<p>Here are some other examples of “generic” good questions, mostly from NJC:</p>
+<p>What happens if we change the parameters in some way?
+If this works for the reals, can we make it work for the rationals? (NJC’s favourite example here is “continuity”!)
+What happens mod 2?
+Is there a better way to visualize this?</p>
+<p>When the program breaks (on the extreme cases), why does it break?
+Is this the best algorithm we can find?</p>
+<p>Can we prove it?</p>
+<p>Can we formulate a conjecture?
+Can we formulate a <em>good</em> conjecture?
+Can we tell if the conjecture was “good” or not?
+How could we test the conjecture?</p>
+<blockquote class="epigraph">
+<div><p>Don’t blow all your data on generating your conjecture.</p>
+<p class="attribution">—J. M. Borwein</p>
+</div></blockquote>
+<p>If we can’t solve this question, can we change it to a question that we <em>can</em> answer?  And then can that help us answer the original question?</p>
+<p>If the problem is continuous, can we solve the discrete analogue? (Is there a discrete analogue?)
+If the problem is discrete, can we solve the continuous analogue? (Is there a continuous analogue?)</p>
+<p>What happens if we take <span class="math notranslate nohighlight">\(n=1/2\)</span>?  (for a discrete problem)
+What happens as <span class="math notranslate nohighlight">\(n \to \infty\)</span>? as <span class="math notranslate nohighlight">\(n\to 0\)</span>? When <span class="math notranslate nohighlight">\(n &lt; 0\)</span>? When <span class="math notranslate nohighlight">\(n \in \mathbb{C}\)</span>?</p>
+<p>Can you solve the first few cases and guess a pattern? (This is kind of our “go-to” modus operandi)</p>
+<p>Can you write a program to solve larger cases?  (This is a very significant step)</p>
+<p>If there is a structure to the data, can you find a way to explain that structure?</p>
+<p>Why are we not seeing what we expected to see in this picture?</p>
+<p>If we generate an object “at random”, how does it behave?</p>
+<p>Does this look like a random process?</p>
+<p>There are many, many other questions of this sort and many, many other sorts of questions.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="index.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Welcome to Computational Discovery on Jupyter</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Contents/continued-fractions.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Continued Fractions</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Neil J. Calkin, Eunice Y.S. Chan, and Robert M. Corless<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,725 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Symbolic Computation: The Pitfalls &#8212; Computational Discovery on Jupyter</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.jpg"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Solutions to Continued Fractions Exercises" href="../Solutions/Solutions%20to%20Continued%20Fraction%20Exercises.html" />
+    <link rel="prev" title="Complex Numbers" href="complex-numbers.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Computational Discovery on Jupyter</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   Welcome to Computational Discovery on Jupyter
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Preface
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preamble.html">
+   Preamble
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/continued-fractions.html">
+   Continued Fractions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/rootfinding.html">
+   Rootfinding, Newton’s Method, and Dynamical Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/fractals-and-julia-sets.html">
+   Fractals and Julia Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/bohemian-matrices.html">
+   Bounded Height Matrices of Integers (Bohemian Matrices)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/mandelbrot.html">
+   Mandelbrot Polynomials and Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/chaos-game-representation.html">
+   Chaos Game Representation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="floating-point.html">
+   The Bare Minimum about Floating-Point
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="binomials-factorials-combinatorics.html">
+   Binomials, Factorials, and other Combinatorial Things
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="complex-numbers.html">
+   Complex Numbers
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Symbolic Computation: The Pitfalls
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Solutions
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Solutions%20to%20Continued%20Fraction%20Exercises.html">
+   Solutions to Continued Fractions Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Solutions%20to%20the%20Rootfinding%20Chapter%20Exercises.html">
+   Solutions to the Rootfinding Chapter Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Solutions%20to%20the%20Julia%20Set%20Exercises.html">
+   Solutions to the Julia Set Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Solutions%20to%20Exercises%20%28not%20Activities%29%20in%20the%20Bohemian%20Unit.html">
+   Solutions to Exercises (not Activities) in the Bohemian Unit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Solutions%20to%20Mandelbrot%20Exercises.html">
+   Solutions to Mandelbrot Polynomials and Matrices Exercises
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Back Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about.html">
+   About the authors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Appendix/symbolic-computation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#symbolic-computation-with-functions">
+   Symbolic computation with functions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#integrals-and-the-difference-between-computer-algebra-and-symbolic-computation">
+     Integrals, and the difference between Computer Algebra and Symbolic Computation
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Symbolic Computation: The Pitfalls</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#symbolic-computation-with-functions">
+   Symbolic computation with functions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#integrals-and-the-difference-between-computer-algebra-and-symbolic-computation">
+     Integrals, and the difference between Computer Algebra and Symbolic Computation
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="symbolic-computation-the-pitfalls">
+<h1>Symbolic Computation: The Pitfalls<a class="headerlink" href="#symbolic-computation-the-pitfalls" title="Permalink to this headline">¶</a></h1>
+<p>This collection of notebooks is mostly numerical, with not a lot of exact or symbolic computation, with the exception of polynomial computation done by computing with vectors of monomial basis coefficients, so it’s really numerical anyway.  Why not do symbolic computation?  And, for that matter, why is numerical computing (even with all the unexpected behaviour of floating-point arithmetic) so much more popular than symbolic or exact computing?</p>
+<p>This section explores symbolic computation and its pitfalls.  We do so from the point of view of experience and with some authority: we have used symbolic computation (usually in Maple, but also in other symbolic languages) for years (decades!) and know it and its benefits well. <b>Caveat: We do not know SymPy so well, and so if we say that SymPy <i>can’t</i> do something, we may well be wrong.</b> One of us knows Sage quite well, but we’re not using Sage here (yet).</p>
+<p>One of RMC’s earliest co-authors, Honglin Ye, put it well when he suggested that not everyone needs numerical methods but that <i>everyone</i> could use symbolic computation.</p>
+<p>Wait.  Isn’t that contradictory?  If everyone could use it, why aren’t they?</p>
+<p>There are, we think, a few main obstacles.</p>
+<ol class="simple">
+<li><p>Symbolic computation systems are hard to learn how to use well, because there’s a lot to learn (indeed, you kind of have to know the math first, too).  Look at the <A HREF="https://docs.sympy.org/latest/tutorial/index.html">SymPy Tutorial</A> for example. It has ten sections, one labeled “Gotchas”. The SAGEMATH system, which also works with Python, is both more powerful and more complicated: <A HREF="https://doc.sagemath.org/html/en/tutorial/">See the SAGEMATH Tutorial </A> to get started there.</p></li>
+<li><p>Some mathematical problems are inherently too expensive to solve in human lifetimes, even with today’s computers, and people unfairly blame symbolic computation systems for this.</p></li>
+<li><p>Even if you can solve a problem exactly, with extra effort, that effort might be wasted because the approximate answers are <i>also</i> the “exact” answers to similar problems, and those similar problems might be just as good a model of whatever system you were trying to understand.  This is especially true if the data is only known approximately.</p></li>
+<li><p>“Symbolic Computation” and “Computer Algebra” are related terms—about as close as “Numerical Analysis” and “Computational Science” if that comparison means anything—but the differences are remarkably important, because what gets <i>implemented</i> is usually a Computer Algebra system, whereas what people actually <i>want to use</i> is a symbolic computation system.  We’ll show you what that means.</p></li>
+<li><p>Symbolic computation systems are hard to implement well.  The major systems (Maple, Mathematica, and Matlab) charge money for their products, and get what they ask for; this is because their systems are better than the free ones in many respects, because they have invested significant programmer time to address the inherent difficulties.  Free systems, such as SymPy, will do the easy things for you; and we will see that they can be useful.  But in reality there’s no comparison (although we admit that the SAGEMATH people may well disagree with our opinion).</p></li>
+</ol>
+<p>All that said, symbolic computation <i>can</i> be extremely useful (and interesting), and is sometimes worth all the bother. Let’s look first at what Python and SymPy can do.  Later we’ll look at what the difficulties are.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span> 
+    <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">n</span><span class="p">,</span> <span class="s1">&#39; factorial is &#39;</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;The floating point value of p is &#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">*</span><span class="n">p</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100  factorial is  93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000
+The floating point value of p is  9.332621544394415e+157
+</pre></div>
+</div>
+</div>
+</div>
+<p>The first thing we see is that Python has, built-in, arbitrary precision integer arithmetic.  Yay?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">720</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span> 
+    <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">n</span><span class="p">,</span> <span class="s1">&#39; factorial is &#39;</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+<span class="c1"># print( &#39;The floating point value of p is &#39;, 1.0*p )  # Causes OverflowError</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>720  factorial is  2601218943565795100204903227081043611191521875016945785727541837850835631156947382240678577958130457082619920575892247259536641565162052015873791984587740832529105244690388811884123764341191951045505346658616243271940197113909845536727278537099345629855586719369774070003700430783758997420676784016967207846280629229032107161669867260548988445514257193985499448939594496064045132362140265986193073249369770477606067680670176491669403034819961881455625195592566918830825514942947596537274845624628824234526597789737740896466553992435928786212515967483220976029505696699927284670563747137533019248313587076125412683415860129447566011455420749589952563543068288634631084965650682771552996256790845235702552186222358130016700834523443236821935793184701956510729781804354173890560727428048583995919729021726612291298420516067579036232337699453964191475175567557695392233803056825308599977441675784352815913461340394604901269542028838347101363733824484506660093348484440711931292537694657354337375724772230181534032647177531984537341478674327048457983786618703257405938924215709695994630557521063203263493209220738320923356309923267504401701760572026010829288042335606643089888710297380797578013056049576342838683057190662205291174822510536697756603029574043387983471518552602805333866357139101046336419769097397432285994219837046979109956303389604675889865795711176566670039156748153115943980043625399399731203066490601325311304719028898491856203766669164468791125249193754425845895000311561682974304641142538074897281723375955380661719801404677935614793635266265683339509760000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+</pre></div>
+</div>
+</div>
+</div>
+<p>Large integers cost more to manipulate—the above number is pretty long.  But SymPy will do it if you ask.  One thing you might want to do is <i>factor</i> those numbers.  Or one might just want to know the prime factors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">primefactors</span> 
+
+<span class="n">primefactors_n</span> <span class="o">=</span> <span class="n">primefactors</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>  
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The prime factors of </span><span class="si">{}</span><span class="s2"> : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">primefactors_n</span><span class="p">))</span> 
+
+<span class="n">primefactors_p</span> <span class="o">=</span> <span class="n">primefactors</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>  
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The prime factors of </span><span class="si">{}</span><span class="s2"> : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">primefactors_p</span><span class="p">))</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The prime factors of 720 : [2, 3, 5]
+The prime factors of 2601218943565795100204903227081043611191521875016945785727541837850835631156947382240678577958130457082619920575892247259536641565162052015873791984587740832529105244690388811884123764341191951045505346658616243271940197113909845536727278537099345629855586719369774070003700430783758997420676784016967207846280629229032107161669867260548988445514257193985499448939594496064045132362140265986193073249369770477606067680670176491669403034819961881455625195592566918830825514942947596537274845624628824234526597789737740896466553992435928786212515967483220976029505696699927284670563747137533019248313587076125412683415860129447566011455420749589952563543068288634631084965650682771552996256790845235702552186222358130016700834523443236821935793184701956510729781804354173890560727428048583995919729021726612291298420516067579036232337699453964191475175567557695392233803056825308599977441675784352815913461340394604901269542028838347101363733824484506660093348484440711931292537694657354337375724772230181534032647177531984537341478674327048457983786618703257405938924215709695994630557521063203263493209220738320923356309923267504401701760572026010829288042335606643089888710297380797578013056049576342838683057190662205291174822510536697756603029574043387983471518552602805333866357139101046336419769097397432285994219837046979109956303389604675889865795711176566670039156748153115943980043625399399731203066490601325311304719028898491856203766669164468791125249193754425845895000311561682974304641142538074897281723375955380661719801404677935614793635266265683339509760000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 : [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199, 211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293, 307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373, 379, 383, 389, 397, 401, 409, 419, 421, 431, 433, 439, 443, 449, 457, 461, 463, 467, 479, 487, 491, 499, 503, 509, 521, 523, 541, 547, 557, 563, 569, 571, 577, 587, 593, 599, 601, 607, 613, 617, 619, 631, 641, 643, 647, 653, 659, 661, 673, 677, 683, 691, 701, 709, 719]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Factoring seems like such a simple problem, and it’s so natural to have it implemented in a symbolic computation system.  The number 720! is 1747 digits long.  Maybe all 1700–odd digits long integers are so easy to factor?</p>
+<p>Um, no.  See the discussion <a class="reference external" href="https://en.wikipedia.org/wiki/Integer_factorization">here</a> to get started.  Let’s take a modest problem and time it here.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">funny</span> <span class="o">=</span> <span class="mi">3000000000238000000004719</span>
+<span class="c1">#notfunny = 45000000000000000057990000000000000024761900000000000003506217</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">factorint</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">factordict</span> <span class="o">=</span> <span class="n">factorint</span><span class="p">(</span><span class="n">funny</span><span class="p">)</span>  
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The prime factors of </span><span class="si">{}</span><span class="s2"> : </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">funny</span><span class="p">,</span> <span class="n">factordict</span><span class="p">))</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- </span><span class="si">%s</span><span class="s2"> seconds ---&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The prime factors of 3000000000238000000004719 : {1000000000039: 1, 3000000000121: 1}
+--- 0.410092830657959 seconds ---
+</pre></div>
+</div>
+</div>
+</div>
+<p>That factoring of <span class="math notranslate nohighlight">\(3000000000238000000004719\)</span> took between 8 and 11 seconds on this machine (different times if executed more than once); on this very same machine, Maple’s “ifactor” command succeeded so quickly that it registered no time taken at all, possibly because it was using a very specialized method; factoring integers is an important feature of symbolic computation and Maple’s procedures for it have been a subject of serious research for a long time.  Maple’s help pages cite three important papers, and tell you that it uses an algorithm called the quadratic sieve.  Maple can factor <span class="math notranslate nohighlight">\(45000000000000000057990000000000000024761900000000000003506217\)</span> into its three prime factors in about 7.5 seconds on this machine; in contrast, after fifty minutes running trying to factor that with factorint as above, RMC had to hard-restart to get Python’s attention.</p>
+<p>That SymPy takes so long to factor integers, in comparsion, suggests that it isn’t using the best methods (the documentation says that it switches between three methods, trial division, Pollard rho, and Pollard p-1) ; and because factoring is such a basic algorithm (an even more basic one is GCD or Greatest Common Divisor) this will have important knock-on effects.</p>
+<p>But factoring, as old an idea as it is, is complicated enough to be used as a basic idea in modern cryptography.  The slowness of SymPy is not completely its fault: the problem is hard.</p>
+<p>Let’s move on to computing with functions.  As previously stated, most supposedly “symbolic” systems are really “algebra” systems: this means that they work well with polynomials (even multivariate polynomials).  A polynomial considered as an algebraic object is isomorphic to a polynomial considered as a function—but the difference in viewpoint can alter the affordances.  An “affordance” is a word meaning “something can happen with it”: for instance, you can pick out a lowest-degree term; or you can add it to another polynomial; or you can square it; and so on.  As a function, you can evaluate it at a particular value for the symbols (variables).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+
+<span class="n">solveset</span><span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left\{- \sqrt{3}, \sqrt{3}\right\}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solveset</span><span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="o">+</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left\{- \frac{1}{3 \sqrt[3]{\frac{1}{2} + \frac{\sqrt{93}}{18}}} + \sqrt[3]{\frac{1}{2} + \frac{\sqrt{93}}{18}}, - \frac{\sqrt[3]{\frac{1}{2} + \frac{\sqrt{93}}{18}}}{2} + \frac{1}{6 \sqrt[3]{\frac{1}{2} + \frac{\sqrt{93}}{18}}} + i \left(\frac{\sqrt{3}}{6 \sqrt[3]{\frac{1}{2} + \frac{\sqrt{93}}{18}}} + \frac{\sqrt{3} \sqrt[3]{\frac{1}{2} + \frac{\sqrt{93}}{18}}}{2}\right), - \frac{\sqrt[3]{\frac{1}{2} + \frac{\sqrt{93}}{18}}}{2} + \frac{1}{6 \sqrt[3]{\frac{1}{2} + \frac{\sqrt{93}}{18}}} + i \left(- \frac{\sqrt{3} \sqrt[3]{\frac{1}{2} + \frac{\sqrt{93}}{18}}}{2} - \frac{\sqrt{3}}{6 \sqrt[3]{\frac{1}{2} + \frac{\sqrt{93}}{18}}}\right)\right\}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="c1">#solveset(Eq(x**4+x-1, 0), x) # Interrupted after about two hours: the code did not succeed</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- </span><span class="si">%s</span><span class="s2"> seconds ---&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- 0.0 seconds ---
+</pre></div>
+</div>
+</div>
+</div>
+<p>In those two hours, RMC went and had his dinner; then downloaded <A HREF="https://www.tandfonline.com/doi/pdf/10.1080/00029890.2007.11920389">a paper by Dave Auckly from the American Mathematical Monthly 2007 </A> which talks about solving the quartic with a pencil (an algebraic geometer’s pencil!), read it, and solved the problem by hand, including solving the resolvent cubic by hand, which he already knew how to do.  And got it right, too. So there.</p>
+<p>In contrast, Maple (nearly instantaneously) returns—if you force it to by saying you want the explicit solution—the answer</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\sqrt{6}\, \sqrt{\frac{\left(108+12 \sqrt{849}\right)^{\frac{2}{3}}-48}{\left(108+12 \sqrt{849}\right)^{\frac{1}{3}}}}}{12}+\frac{\mathrm{I} \sqrt{6}\, \sqrt{\frac{\left(108+12 \sqrt{849}\right)^{\frac{2}{3}} \sqrt{\frac{\left(108+12 \sqrt{849}\right)^{\frac{2}{3}}-48}{\left(108+12 \sqrt{849}\right)^{\frac{1}{3}}}}+12 \sqrt{6}\, \left(108+12 \sqrt{849}\right)^{\frac{1}{3}}-48 \sqrt{\frac{\left(108+12 \sqrt{849}\right)^{\frac{2}{3}}-48}{\left(108+12 \sqrt{849}\right)^{\frac{1}{3}}}}}{\left(108+12 \sqrt{849}\right)^{\frac{1}{3}} \sqrt{\frac{\left(108+12 \sqrt{849}\right)^{\frac{2}{3}}-48}{\left(108+12 \sqrt{849}\right)^{\frac{1}{3}}}}}}}{12}
+, 
+\frac{\sqrt{6}\, \sqrt{\frac{\left(108+12 \sqrt{849}\right)^{\frac{2}{3}}-48}{\left(108+12 \sqrt{849}\right)^{\frac{1}{3}}}}}{12}-\frac{\mathrm{I} \sqrt{6}\, \sqrt{\frac{\left(108+12 \sqrt{849}\right)^{\frac{2}{3}} \sqrt{\frac{\left(108+12 \sqrt{849}\right)^{\frac{2}{3}}-48}{\left(108+12 \sqrt{849}\right)^{\frac{1}{3}}}}+12 \sqrt{6}\, \left(108+12 \sqrt{849}\right)^{\frac{1}{3}}-48 \sqrt{\frac{\left(108+12 \sqrt{849}\right)^{\frac{2}{3}}-48}{\left(108+12 \sqrt{849}\right)^{\frac{1}{3}}}}}{\left(108+12 \sqrt{849}\right)^{\frac{1}{3}} \sqrt{\frac{\left(108+12 \sqrt{849}\right)^{\frac{2}{3}}-48}{\left(108+12 \sqrt{849}\right)^{\frac{1}{3}}}}}}}{12}
+, 
+-\frac{\sqrt{6}\, \sqrt{\frac{\left(108+12 \sqrt{849}\right)^{\frac{2}{3}}-48}{\left(108+12 \sqrt{849}\right)^{\frac{1}{3}}}}}{12}+\frac{\sqrt{6}\, \sqrt{\frac{-\left(108+12 \sqrt{849}\right)^{\frac{2}{3}} \sqrt{\frac{\left(108+12 \sqrt{849}\right)^{\frac{2}{3}}-48}{\left(108+12 \sqrt{849}\right)^{\frac{1}{3}}}}+12 \sqrt{6}\, \left(108+12 \sqrt{849}\right)^{\frac{1}{3}}+48 \sqrt{\frac{\left(108+12 \sqrt{849}\right)^{\frac{2}{3}}-48}{\left(108+12 \sqrt{849}\right)^{\frac{1}{3}}}}}{\left(108+12 \sqrt{849}\right)^{\frac{1}{3}} \sqrt{\frac{\left(108+12 \sqrt{849}\right)^{\frac{2}{3}}-48}{\left(108+12 \sqrt{849}\right)^{\frac{1}{3}}}}}}}{12}
+, 
+-\frac{\sqrt{6}\, \sqrt{\frac{\left(108+12 \sqrt{849}\right)^{\frac{2}{3}}-48}{\left(108+12 \sqrt{849}\right)^{\frac{1}{3}}}}}{12}-\frac{\sqrt{6}\, \sqrt{\frac{-\left(108+12 \sqrt{849}\right)^{\frac{2}{3}} \sqrt{\frac{\left(108+12 \sqrt{849}\right)^{\frac{2}{3}}-48}{\left(108+12 \sqrt{849}\right)^{\frac{1}{3}}}}+12 \sqrt{6}\, \left(108+12 \sqrt{849}\right)^{\frac{1}{3}}+48 \sqrt{\frac{\left(108+12 \sqrt{849}\right)^{\frac{2}{3}}-48}{\left(108+12 \sqrt{849}\right)^{\frac{1}{3}}}}}{\left(108+12 \sqrt{849}\right)^{\frac{1}{3}} \sqrt{\frac{\left(108+12 \sqrt{849}\right)^{\frac{2}{3}}-48}{\left(108+12 \sqrt{849}\right)^{\frac{1}{3}}}}}}}{12}
+\]</div>
+<p>This is an example of what Velvel Kahan calls a “wallpaper expression.”  He also famously said, “Have you ever asked a computer algebra system a question, and then, as the screensful of answer whizzed past your eyes, said “I wish I hadn’t asked?””</p>
+<p>The use of that exact answer (quickly obtained or not) is questionable.  Then, of course, the Abel-Ruffini theorem says that there is <i>no</i> general formula for solving polynomials of degree <span class="math notranslate nohighlight">\(5\)</span> or higher <i>in terms of radicals</i>.  For degree <span class="math notranslate nohighlight">\(5\)</span> polynomials, there <i>is</i> a solution in terms of elliptic functions; again, it’s complicated enough that it’s of questionable use.  Then there is Galois theory which describes the algebraic structures of polynomials.  See the interesting historical essay by Nick Trefethen on <A HREF="https://people.maths.ox.ac.uk/trefethen/galois.pdf"> What we learned from Galois </A>.</p>
+<p>The lesson here is that even when you <i>can</i> solve something exactly, maybe you shouldn’t.</p>
+<p>There are some interesting things you can do with univariate polynomials of high degree, including with the algebraic numbers that are their roots.  But computation with them isn’t so easy.  SymPy actually has some quite advanced features for polynomials, including multivariate polynomials.</p>
+<div class="section" id="symbolic-computation-with-functions">
+<h2>Symbolic computation with functions<a class="headerlink" href="#symbolic-computation-with-functions" title="Permalink to this headline">¶</a></h2>
+<p>Let’s try some calculus-like things.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+
+<span class="n">solveset</span><span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">x</span><span class="p">),</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left\{i \left(2 n \pi + \arg{\left(x \right)}\right) + \log{\left(\left|{x}\right| \right)}\; \middle|\; n \in \mathbb{Z}\right\}\]</div>
+</div>
+</div>
+<p>RMC <b>really</b> doesn’t like that “solution”!  It has separated the real and imaginary parts without needing to.  A perfectly good answer would be <span class="math notranslate nohighlight">\(\ln_n(x)\)</span>, which looks a lot simpler.</p>
+<p><span class="math notranslate nohighlight">\(\ln_k(z)\)</span>, which might not look familiar to you, means <span class="math notranslate nohighlight">\(\ln(z) + 2\pi i k\)</span>.  Also, SymPy has chosen to emulate Maple and use I for the square root of <span class="math notranslate nohighlight">\(-1\)</span>, which made a kind of sense in the 1980’s when Maple chose to do it that way, but given all the fonts we have nowadays that doesn’t seem sensible at all.</p>
+<p>Fine.  We will live with it.  The solution is not actually <i>wrong</i>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solveset</span><span class="p">(</span><span class="n">Eq</span><span class="p">(</span> <span class="n">y</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">x</span><span class="p">),</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left\{y\; \middle|\; y \in \mathbb{C} \wedge - x + y e^{y} = 0 \right\}\]</div>
+</div>
+</div>
+<p>Oh, that’s disappointing.  See <A HREF="https://en.wikipedia.org/wiki/Lambert_W_function"> the Wikipedia article on Lambert W</A> to see what that should have been.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solve</span><span class="p">(</span> <span class="n">Eq</span><span class="p">(</span> <span class="n">y</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">x</span> <span class="p">),</span> <span class="n">y</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[LambertW(x)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>That’s better, but—like the logarithm above—there should be multiple branches.</p>
+<div class="section" id="integrals-and-the-difference-between-computer-algebra-and-symbolic-computation">
+<h3>Integrals, and the difference between Computer Algebra and Symbolic Computation<a class="headerlink" href="#integrals-and-the-difference-between-computer-algebra-and-symbolic-computation" title="Permalink to this headline">¶</a></h3>
+<p>We’ll start with a nasty example.  You can find nice examples of SymPy and integration in many places, so we will assume that you have seen instances of computer implementations of the fundamental theorem of calculus: to find areas under curves by using antiderivatives.  The nasty integral that we will use is, if <span class="math notranslate nohighlight">\(x \ne 0\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = \frac{e^{-1/x}}{x^2(1+e^{-1/x})^2}
+\]</div>
+<p>with the removal of the discontinuity at <span class="math notranslate nohighlight">\(x=0\)</span> by defining <span class="math notranslate nohighlight">\(f(0)=0\)</span>.</p>
+<p>We will try to use both NumPy and SymPy to integrate this (infinitely smooth! Just check the derivatives at zero—the function is <em>infinitely flat</em> there) function on various intervals in the real axis.  The function has <span class="math notranslate nohighlight">\(f(x)\ge 0\)</span>, and is zero only at <span class="math notranslate nohighlight">\(x=0\)</span>.  Therefore the integral of <span class="math notranslate nohighlight">\(f(x)\)</span> from any <span class="math notranslate nohighlight">\(a\)</span> to any <span class="math notranslate nohighlight">\(b &gt; a\)</span> will be positive.  Essentially positive functions have positive area underneath them, end of story.  See the figure below.  We do avoid computing the function at exactly zero; but that’s just laziness on our part.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plt imported in a previous cell.</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">212</span> <span class="c1"># Even, so we don&#39;t include zero</span>
+<span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">yi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="mi">2</span><span class="o">/</span><span class="n">n</span>
+<span class="n">area</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">yi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="o">/</span><span class="n">xi</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">xi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">xi</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">area</span> <span class="o">+=</span> <span class="n">yi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">dx</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;Using a Riemann sum, the area under the curve from -1 to 1 is approximately &#39;</span><span class="p">,</span> <span class="n">area</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span><span class="n">yi</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span> <span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using a Riemann sum, the area under the curve from -1 to 1 is approximately  0.5371959827682197
+</pre></div>
+</div>
+<img alt="../_images/symbolic-computation_23_1.png" src="../_images/symbolic-computation_23_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">F</span> <span class="o">=</span> <span class="n">integrate</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;The integral from SymPy is &#39;</span><span class="p">,</span> <span class="n">F</span> <span class="p">)</span>
+<span class="n">FTOC</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">F</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;The area under the curve from -1 to 1 is positive, not &#39;</span><span class="p">,</span> <span class="n">FTOC</span> <span class="p">)</span>
+<span class="n">defint</span> <span class="o">=</span> <span class="n">integrate</span><span class="p">(</span> <span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;Using definite integration gets the same &#39;</span><span class="p">,</span> <span class="n">simplify</span><span class="p">(</span><span class="n">defint</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">answe</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">E</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">E</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;That numerically evaluates to &quot;</span><span class="p">,</span> <span class="n">answe</span><span class="p">,</span> <span class="s2">&quot;which is negative.  Oops.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The integral from SymPy is  -1/(1 + exp(-1/x))
+The area under the curve from -1 to 1 is positive, not  -1/(exp(-1) + 1) + 1/(1 + E)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using definite integration gets the same  (1 - E)/(1 + E)
+That numerically evaluates to  -0.4621171572600098 which is negative.  Oops.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">YI</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">YI</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">xi</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span><span class="n">YI</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span> <span class="p">,</span> <span class="o">-</span><span class="mf">1.25</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/symbolic-computation_25_0.png" src="../_images/symbolic-computation_25_0.png" />
+</div>
+</div>
+<p>Without calling “simplify,” SymPy didn’t recognize that <code class="docutils literal notranslate"><span class="pre">1/(1+E)-1/(exp(-1)+1)</span> <span class="pre">=</span> <span class="pre">(1-E)/(1+E)</span></code> (if by <code class="docutils literal notranslate"><span class="pre">E</span></code> Sympy means exp(1)).  But that’s a smaller problem.  The computed answer has missed the discontinuity in the antiderivative at zero.</p>
+<p>As of this writing, many computer algebra systems (not just SymPy) are broken by this example.  Maple’s indefinite integral returns exactly the same wrong answer.  Matlab’s Symbolic Toolbox gets it right!</p>
+<p>There is something very important happening in that expression, though.  The computer algebra system has returned a <i>discontinuous</i> function as an antiderivative of a <i>continuous</i> function.</p>
+<p>Anyone remember the tl;dr of the Fundamental Theorem of Calculus?  Likely not.  Even we have to look it up before we teach it, to be sure we have the fine details right.  The basic idea is, though, that integration <i>smooths</i> things out: integrate a continuous function, you get a <i>continuously differentiable</i> function, which is smoother.  Jump discontinuities spuriously introduced are <i>right out</i>.</p>
+<p>So, what the computer algebra system is doing there <i>is not integration</i>.  Anyone get their knuckles rapped for not adding the “constant of integration” when you integrated on a test?  Lost a mark or two, maybe?</p>
+<p>Turns out that’s what’s going on here.  By adding <i>different constants</i> in <i>different intervals</i> to this purported antiderivative, we can find a smooth antiderivative of <span class="math notranslate nohighlight">\(f(x)\)</span>.  The answer returned by SymPy (and Maple) is “correct” from the point of view of differential algebra, where constants are things that differentiate to zero and don’t have “values” as such.</p>
+<p>Many people who implement computer algebra systems (even some of our friends at Maple) argue that they are right and we are wrong, and don’t see the point.  But they are wrong, and one day they’ll get it.  Now, they do have a fix-up in their <i>definite</i> integration code: if you ask Maple int( f, x=-1..1) you will get the correct answer <span class="math notranslate nohighlight">\(\frac{2}{{\mathrm e}+1} \approx 0.53788\ldots\)</span> after simplification.  But you have to ask Maple the right way, by using the syntax for definite integrals (as you see above, SymPy is different, and does not give the right answer that way).</p>
+<p>Matlab gets it.  Matlab’s Symbolic Toolbox works quite hard to get continuous antiderivatives.  So we have confidence that Maple will one day get it. But Wolfram Alpha gets a discontinuous antiderivative, too, at this time of writing, so there’s only a <i>little</i> pressure from the competition.</p>
+<p>These facts have been known for quite a while now.  See <a class="reference external" href="https://www.tandfonline.com/doi/abs/10.1080/0025570X.1994.11996235">The Importance of Being Continuous</a> by David Jeffrey, a paper that was written in 1994 (long predating Python or SymPy).  See also <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0747717197901528">Rectifying Transformations for Trigonometric Integrals</a> by the same author.</p>
+<p>The disagreement amongst mathematicians—algebra versus analysis—has been going on for much longer, and goes at least back to Cauchy.  We are on Cauchy’s side, here.  But there are lots of people who just want formulas, and don’t care if they are discontinuous.</p>
+<p>RMC retweeted something apropos this morning: Prof Michael Kinyon said “I used to think it was weird when people disagreed with me, but now I understand that some people just enjoy the feeling of being wrong.”</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Appendix"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="complex-numbers.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Complex Numbers</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../Solutions/Solutions%20to%20Continued%20Fraction%20Exercises.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Solutions to Continued Fractions Exercises</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Neil J. Calkin, Eunice Y.S. Chan, and Robert M. Corless<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

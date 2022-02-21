@@ -1,0 +1,722 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Binomials, Factorials, and other Combinatorial Things &#8212; Computational Discovery on Jupyter</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.jpg"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Complex Numbers" href="complex-numbers.html" />
+    <link rel="prev" title="The Bare Minimum about Floating-Point" href="floating-point.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Computational Discovery on Jupyter</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   Welcome to Computational Discovery on Jupyter
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Preface
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preamble.html">
+   Preamble
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/continued-fractions.html">
+   Continued Fractions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/rootfinding.html">
+   Rootfinding, Newton’s Method, and Dynamical Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/fractals-and-julia-sets.html">
+   Fractals and Julia Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/bohemian-matrices.html">
+   Bounded Height Matrices of Integers (Bohemian Matrices)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/mandelbrot.html">
+   Mandelbrot Polynomials and Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/chaos-game-representation.html">
+   Chaos Game Representation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="floating-point.html">
+   The Bare Minimum about Floating-Point
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Binomials, Factorials, and other Combinatorial Things
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="complex-numbers.html">
+   Complex Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="symbolic-computation.html">
+   Symbolic Computation: The Pitfalls
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Solutions
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Solutions%20to%20Continued%20Fraction%20Exercises.html">
+   Solutions to Continued Fractions Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Solutions%20to%20the%20Rootfinding%20Chapter%20Exercises.html">
+   Solutions to the Rootfinding Chapter Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Solutions%20to%20the%20Julia%20Set%20Exercises.html">
+   Solutions to the Julia Set Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Solutions%20to%20Exercises%20%28not%20Activities%29%20in%20the%20Bohemian%20Unit.html">
+   Solutions to Exercises (not Activities) in the Bohemian Unit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Solutions%20to%20Mandelbrot%20Exercises.html">
+   Solutions to Mandelbrot Polynomials and Matrices Exercises
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Back Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about.html">
+   About the authors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Appendix/binomials-factorials-combinatorics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Binomials, Factorials, and other Combinatorial Things</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="binomials-factorials-and-other-combinatorial-things">
+<h1>Binomials, Factorials, and other Combinatorial Things<a class="headerlink" href="#binomials-factorials-and-other-combinatorial-things" title="Permalink to this headline">¶</a></h1>
+<p>In this appendix we will play with permutations in Python, take care with combinations, and give you facts about factorials.  We’ll try not to step on material from existing courses, and instead play with facts that are fun but not covered elsewhere. Mostly we will stick to native Python and its arbitrary precision <em>integer</em> arithmetic.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">fact</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">fact</span> <span class="o">=</span> <span class="n">j</span><span class="o">*</span><span class="n">fact</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">n</span><span class="p">,</span><span class="s1">&#39;! = &#39;</span><span class="p">,</span> <span class="n">fact</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5 ! =  120
+</pre></div>
+</div>
+</div>
+</div>
+<p>Factorials are encountered in combinatorial (counting) problems.  If you have five different shaped blocks, how many different towers can you make with them, assuming that each can be stacked on top of any other?  Well, you have five choices for the bottom block; once you have chosen the bottom block you have four to choose for the next level; then three to choose for the next; then two for the next; then the last block left you put on top, you have no choices left.  This gives 5 times 4 times 3 times 2 times 1 different possible towers; this is 5! or 120, as computed above.</p>
+<p>Yawn.</p>
+<p>Well, factorials are so useful that we should spend a <em>little</em> time with them before going on to more fun things.  One neat/annoying feature is how fast they grow.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">):</span>
+    <span class="n">fact</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">fact</span> <span class="o">=</span> <span class="n">j</span><span class="o">*</span><span class="n">fact</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="n">n</span><span class="p">,</span> <span class="s1">&#39;! = &#39;</span><span class="p">,</span> <span class="n">fact</span> <span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 ! =  1
+1 ! =  1
+2 ! =  2
+3 ! =  6
+4 ! =  24
+5 ! =  120
+6 ! =  720
+7 ! =  5040
+8 ! =  40320
+9 ! =  362880
+10 ! =  3628800
+11 ! =  39916800
+12 ! =  479001600
+13 ! =  6227020800
+14 ! =  87178291200
+</pre></div>
+</div>
+</div>
+</div>
+<p>The programmers among you might be screaming at us for the inefficiency in that double loop up above.  We can get the same table with just a single loop, and the cost will be significantly less.  This is worth exploring, as a fundamental lesson of programming: if you can avoid nesting loops, do so!  First let’s time that one.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">strt</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">):</span>
+    <span class="n">fact</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">fact</span> <span class="o">=</span> <span class="n">j</span><span class="o">*</span><span class="n">fact</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="n">n</span><span class="p">,</span> <span class="s1">&#39;! = &#39;</span><span class="p">,</span> <span class="n">fact</span> <span class="p">)</span>
+
+<span class="n">fin</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">strt</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;total time taken &#39;</span><span class="p">,</span> <span class="n">fin</span><span class="p">,</span> <span class="s1">&#39;seconds&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 ! =  1
+1 ! =  1
+2 ! =  2
+3 ! =  6
+4 ! =  24
+5 ! =  120
+6 ! =  720
+7 ! =  5040
+8 ! =  40320
+9 ! =  362880
+10 ! =  3628800
+11 ! =  39916800
+12 ! =  479001600
+13 ! =  6227020800
+14 ! =  87178291200
+total time taken  0.0 seconds
+</pre></div>
+</div>
+</div>
+</div>
+<p>Eh, not so much time at all, really.  But let’s probe a <em>bit</em> harder, and try to look at how the needed time <em>grows</em> with n.</p>
+<p>Note added after editing: we had nmax=1500 in the loop below, but this was a disaster—not for Jupyter notebooks which happily put the 2.8 million characters of the result in a neat box, but for Jupyter Book when we tried to convert to PDF.  This tried to make a couple of thousand pages of nothing but numbers.  Um, no.  Let’s not do that.</p>
+<p>It is a bit ironic because we have frequently told students not to print huge tables of numbers.  Oops, shuffle feet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">nmax</span> <span class="o">=</span> <span class="mi">15</span>  <span class="c1"># Really, don&#39;t try 1500 here if you want to make a PDF.</span>
+<span class="n">individual_times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nmax</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nmax</span><span class="p">):</span>
+    <span class="n">strt</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">fact</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">fact</span> <span class="o">=</span> <span class="n">j</span><span class="o">*</span><span class="n">fact</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="n">n</span><span class="p">,</span> <span class="s1">&#39;! = &#39;</span><span class="p">,</span> <span class="n">fact</span><span class="p">)</span>
+    <span class="n">individual_times</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">strt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="n">nmax</span><span class="o">+</span><span class="mi">1</span><span class="p">)],</span> <span class="n">individual_times</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 ! =  1
+1 ! =  1
+2 ! =  2
+3 ! =  6
+4 ! =  24
+5 ! =  120
+6 ! =  720
+7 ! =  5040
+8 ! =  40320
+9 ! =  362880
+10 ! =  3628800
+11 ! =  39916800
+12 ! =  479001600
+13 ! =  6227020800
+14 ! =  87178291200
+</pre></div>
+</div>
+<img alt="../_images/binomials-factorials-combinatorics_9_1.png" src="../_images/binomials-factorials-combinatorics_9_1.png" />
+</div>
+</div>
+<p>Well, that didn’t turn out the way I expected, at all, at all.  The graph of times doesn’t show much growth at all; indeed the time taken seems to be largest for some n less than the max.  Blink, blink.  The issue is likely to do with memory management; but we don’t really know.  The other thing is that you can just barely discern a <em>trend</em> in the thick line at the bottom; it looks like it’s taking more time for larger n, <em>usually</em>.  But never very much time.  This problem is just too easy for modern computers (it’s running on a Tablet PC, in fact: a vintage 2017 Microsoft Surface Pro).  But something different happens if we change that 1500 above to be a 2000: Python stops, refusing to send so much data to the screen, and prints the message below.</p>
+<p>IOPub data rate exceeded.
+The notebook server will temporarily stop sending output
+to the client in order to avoid crashing it.
+To change this limit, set the config variable
+<code class="docutils literal notranslate"><span class="pre">--NotebookApp.iopub_data_rate_limit</span></code>.</p>
+<p>Current values:
+NotebookApp.iopub_data_rate_limit=1000000.0 (bytes/sec)
+NotebookApp.rate_limit_window=3.0 (secs)</p>
+<p>Well, ok then.  1500! is already ludicrously large.  2000! could probably be printed in <em>plaid</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nmax</span> <span class="o">=</span> <span class="mi">15</span>  <span class="c1"># No, do not do 1500.</span>
+<span class="n">strt</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">fact</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">nmax</span><span class="p">):</span>
+    <span class="n">fact</span> <span class="o">=</span> <span class="n">j</span><span class="o">*</span><span class="n">fact</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="n">j</span><span class="p">,</span> <span class="s1">&#39;! = &#39;</span><span class="p">,</span> <span class="n">fact</span><span class="p">)</span>
+<span class="n">total_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">strt</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total time taken is &#39;</span><span class="p">,</span> <span class="n">total_time</span><span class="p">,</span> <span class="s1">&#39; seconds &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 ! =  1
+2 ! =  2
+3 ! =  6
+4 ! =  24
+5 ! =  120
+6 ! =  720
+7 ! =  5040
+8 ! =  40320
+9 ! =  362880
+10 ! =  3628800
+11 ! =  39916800
+12 ! =  479001600
+13 ! =  6227020800
+14 ! =  87178291200
+Total time taken is  0.0  seconds 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Crazy big numbers.  And Python is pretty fast with them.  Fine.  This raises a question: how big <em>are</em> those numbers, and can we predict their behaviour?  Yes, after a fashion, and pretty accurately.  Most reference books will tell you that there is something called <em>Stirling’s Formula</em> that makes factorials more intelligible:</p>
+<div class="math notranslate nohighlight">
+\[
+n! \simeq \sqrt{2\pi n} n^n e^{-n}
+\]</div>
+<p>Well, ok.  Where does that come from?  How do we know it’s true?  What does the squiggly equals sign mean?  Well, it means “is approximately equal to ” which is clear enough in intent.  How approximate, though?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">fact</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">fact</span> <span class="o">=</span> <span class="n">j</span><span class="o">*</span><span class="n">fact</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="n">n</span><span class="p">,</span> <span class="s1">&#39;! = &#39;</span><span class="p">,</span> <span class="n">fact</span><span class="p">,</span> <span class="s1">&#39;which is approximately &#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">*</span><span class="n">fact</span> <span class="p">)</span>
+
+<span class="n">stirl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span> <span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="n">n</span><span class="o">**</span><span class="n">n</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">n</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;Stirling</span><span class="se">\&#39;</span><span class="s1">s approximation gives &#39;</span><span class="p">,</span> <span class="n">stirl</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100 ! =  93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000 which is approximately  9.332621544394415e+157
+Stirling&#39;s approximation gives  9.324847625269344e+157
+</pre></div>
+</div>
+</div>
+</div>
+<p>It’s fun to know a fact about Stirling’s formula that most people don’t know:  That formula above is actually due to DeMoivre, and it is <em>less</em> accurate than Stirling’s original formula (which Stirling found first, before DeMoivre found the other)! Here is Stirling’s original, more accurate, formula:</p>
+<div class="math notranslate nohighlight">
+\[
+n! \simeq \sqrt{2\pi} \left(n+\frac12\right)^{(n+1/2)}e^{-(n+1/2)}
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">original_Stirling</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mf">0.5</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mf">0.5</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">n</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;Stirling</span><span class="se">\&#39;</span><span class="s1">s Original approximation gives &#39;</span><span class="p">,</span> <span class="n">original_Stirling</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Stirling&#39;s Original approximation gives  9.336491570312413e+157
+</pre></div>
+</div>
+</div>
+</div>
+<p>The true value is between those two estimates: DeMoivre’s formula (which is called Stirling’s formula) gives a slight lower bound on <span class="math notranslate nohighlight">\(n!\)</span>, while Stirling’s original formula (which, no lie, is beginning to be called De Moivre’s formula!) gives a slight upper bound, which is about twice as accurate.  We can take a weighted average of the two and get an even better estimate:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">better</span> <span class="o">=</span> <span class="p">(</span><span class="n">stirl</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">original_Stirling</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A better estimate is &#39;</span><span class="p">,</span> <span class="n">better</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A better estimate is  9.332610255298058e+157
+</pre></div>
+</div>
+</div>
+</div>
+<p>For n=100, we see that it gets <span class="math notranslate nohighlight">\(9.33261025..\)</span> whereas the true value is <span class="math notranslate nohighlight">\(9.332621544..\)</span> (both times <span class="math notranslate nohighlight">\(10^{157}\)</span>), so (mentally estimating, think think think) a relative error of roughly <span class="math notranslate nohighlight">\(10^{-6}\)</span> whereas each of DeMoivre’s and Stirling’s formula is accurate only to about <span class="math notranslate nohighlight">\(10^{-3}\)</span>, in a relative sense.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reference_value</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">*</span><span class="n">fact</span>
+<span class="n">stirl_rel_error</span> <span class="o">=</span> <span class="p">(</span><span class="n">stirl</span> <span class="o">-</span> <span class="n">reference_value</span><span class="p">)</span><span class="o">/</span><span class="n">reference_value</span>
+<span class="n">orig_rel_error</span> <span class="o">=</span> <span class="p">(</span><span class="n">original_Stirling</span> <span class="o">-</span> <span class="n">reference_value</span><span class="p">)</span><span class="o">/</span><span class="n">reference_value</span>
+<span class="n">better_error</span> <span class="o">=</span> <span class="p">(</span><span class="n">better</span> <span class="o">-</span> <span class="n">reference_value</span><span class="p">)</span><span class="o">/</span><span class="n">reference_value</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;Stirling relative error = &#39;</span><span class="p">,</span> <span class="n">stirl_rel_error</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;Original Stirling relative error = &#39;</span><span class="p">,</span> <span class="n">orig_rel_error</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;Error in the weighted average = &#39;</span><span class="p">,</span> <span class="n">better_error</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Stirling relative error =  -0.0008329834321569032
+Original Stirling relative error =  0.0004146772586447313
+Error in the weighted average =  -1.2096382890597644e-06
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s look at binomial coefficients ” n choose k “.  It turns out that there are several implementations in Python already.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">mth</span>
+<span class="c1"># factorial is &quot;factorial&quot;</span>
+<span class="c1"># binomial coefficient is &quot;comb&quot; (short for &quot;combinations&quot; we suppose)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">mth</span><span class="o">.</span><span class="n">factorial</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">mth</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">mth</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">mth</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">mth</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">mth</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">mth</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">mth</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">mth</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">mth</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">mth</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">big</span> <span class="o">=</span> <span class="n">mth</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">big</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5040
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+1 1
+1 2 1
+1 3 3 1
+90548514656103281165404177077484163874504589675413336841320
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>If we average Stirling’s original formula (weight 2/3) with the formula popularly known as Stirling’s formula (weight 1/3) we saw that we got more accurate answers.  Find weights of the form <span class="math notranslate nohighlight">\(2/3 + u_1/z + u_2/z^2\)</span> and <span class="math notranslate nohighlight">\(1/3 + v_1/z + v_/z^2\)</span> (that should add up to 1) which are even more accurate, for larger z. Is the formula simpler if you use powers of <span class="math notranslate nohighlight">\((z+1/2)\)</span> instead?</p></li>
+<li><p>How quickly does math.comb(2n,n) grow as n grows? (Answer: like <span class="math notranslate nohighlight">\(2^{2n}/\sqrt{\pi n}\)</span>; demonstrate that graphically or experimentally)</p></li>
+<li><p>Is there a Python implementation of “permutations” <span class="math notranslate nohighlight">\(P^n_k = n!/k!\)</span> ?</p></li>
+<li><p>The venerable book <a class="reference external" href="https://link.springer.com/book/10.1007/978-3-642-61983-0">Problems and Theorems in Analysis</a> by Pólya and Szegő opens with the following problem: “In how many different ways can you change one dollar?  That is, in how many different ways can you pay 100 cents using five different kinds of coins, cents, nickels, dimes, quarters, and half-dollars (worth 1, 5, 10, 25, and 50 cents respectively)?</p></li>
+<li><p>Updating that problem for Canada today: In how many different ways can you change a one hundred dollar bill?  That is, in how many different ways can you pay 100 dollars using four different kinds of bills (50, 20, 10, and 5) and two types of coin (the 1 dollar coin called a “Loonie” because it has a loon on it, and the 2 dollar coin called a “Toonie” because, well, why not).</p></li>
+<li><p>Another Pólya and Szegő problem: “There are <span class="math notranslate nohighlight">\(p\)</span> persons sharing <span class="math notranslate nohighlight">\(n\)</span> dollars.  In how many ways can they distribute the money?”</p></li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Appendix"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="floating-point.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">The Bare Minimum about Floating-Point</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="complex-numbers.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Complex Numbers</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Neil J. Calkin, Eunice Y.S. Chan, and Robert M. Corless<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

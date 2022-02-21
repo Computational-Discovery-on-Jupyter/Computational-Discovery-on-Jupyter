@@ -1,0 +1,507 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>References &#8212; Computational Discovery on Jupyter</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="_static/logo.jpg"/>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="About the authors" href="about.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Computational Discovery on Jupyter</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   Welcome to Computational Discovery on Jupyter
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Preface
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="preamble.html">
+   Preamble
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Contents/continued-fractions.html">
+   Continued Fractions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Contents/rootfinding.html">
+   Rootfinding, Newton’s Method, and Dynamical Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Contents/fractals-and-julia-sets.html">
+   Fractals and Julia Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Contents/bohemian-matrices.html">
+   Bounded Height Matrices of Integers (Bohemian Matrices)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Contents/mandelbrot.html">
+   Mandelbrot Polynomials and Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Contents/chaos-game-representation.html">
+   Chaos Game Representation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix/floating-point.html">
+   The Bare Minimum about Floating-Point
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix/binomials-factorials-combinatorics.html">
+   Binomials, Factorials, and other Combinatorial Things
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix/complex-numbers.html">
+   Complex Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix/symbolic-computation.html">
+   Symbolic Computation: The Pitfalls
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Solutions
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Solutions/Solutions%20to%20Continued%20Fraction%20Exercises.html">
+   Solutions to Continued Fractions Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Solutions/Solutions%20to%20the%20Rootfinding%20Chapter%20Exercises.html">
+   Solutions to the Rootfinding Chapter Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Solutions/Solutions%20to%20the%20Julia%20Set%20Exercises.html">
+   Solutions to the Julia Set Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Solutions/Solutions%20to%20Exercises%20%28not%20Activities%29%20in%20the%20Bohemian%20Unit.html">
+   Solutions to Exercises (not Activities) in the Bohemian Unit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Solutions/Solutions%20to%20Mandelbrot%20Exercises.html">
+   Solutions to Mandelbrot Polynomials and Matrices Exercises
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Back Matter
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="about.html">
+   About the authors
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/references.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>References</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="references">
+<h1>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h1>
+<p id="id1"><dl class="citation">
+<dt class="label" id="id7"><span class="brackets">ALavrentev+99</span></dt>
+<dd><p>A. D. Aleksandrov, M. A. Lavrentév, and others. <em>Mathematics: Its content, methods and meaning</em>. Courier Corporation, 1999.</p>
+</dd>
+<dt class="label" id="id9"><span class="brackets">AV09</span></dt>
+<dd><p>J. S. Almeida and S. Vinga. Biological sequences as pictures–a generic two dimensional solution for iterated maps. <em>BMC Bioinformatics</em>, 10(1):100, 2009.</p>
+</dd>
+<dt class="label" id="id14"><span class="brackets">Bar14</span></dt>
+<dd><p>M. F. Barnsley. <em>Fractals everywhere</em>. Academic press, 2014.</p>
+</dd>
+<dt class="label" id="id13"><span class="brackets">BV11</span></dt>
+<dd><p>M. F. Barnsley and A. Vince. The chaos game on a general iterated function system. <em>Ergodic Theory and Dynamical Systems</em>, 31(4):1073–1079, 2011.</p>
+</dd>
+<dt class="label" id="id15"><span class="brackets">BPDD97</span></dt>
+<dd><p>S. Basu, A. Pan, C. Dutta, and J. Das. Chaos game representation of proteins. <em>Journal of Molecular Graphics and Modelling</em>, 15(5):279–289, 1997.</p>
+</dd>
+<dt class="label" id="id16"><span class="brackets">BG05</span></dt>
+<dd><p>I. Borg and P. J. F. Groenen. <em>Modern multidimensional scaling: Theory and applications</em>. Springer Science &amp; Business Media, 2005.</p>
+</dd>
+<dt class="label" id="id5"><span class="brackets">BJorgenson01</span></dt>
+<dd><p>P. Borwein and L. Jörgenson. Visible structures in number theory. <em>The American Mathematical Monthly</em>, 108(10):897–910, 2001.</p>
+</dd>
+<dt class="label" id="id6"><span class="brackets">BP97</span></dt>
+<dd><p>P. Borwein and C. Pinner. Polynomials with (0,+1,-1) coefficients and a root close to a given point. <em>Canadian Journal of Mathematics</em>, 49(5):887–915, 1997.</p>
+</dd>
+<dt class="label" id="id17"><span class="brackets">CC20</span></dt>
+<dd><p>E. Y. S. Chan and R. M. Corless. A random walk through experimental mathematics. In <em>Springer Proceedings in Mathematics &amp; Statistics</em>, pages 203–226. Springer International Publishing, 2020. URL: <a class="reference external" href="https://doi.org/10.1007/978-3-030-36568-4_14">https://doi.org/10.1007/978-3-030-36568-4_14</a>, <a class="reference external" href="https://doi.org/10.1007/978-3-030-36568-4_14">doi:10.1007/978-3-030-36568-4_14</a>.</p>
+</dd>
+<dt class="label" id="id4"><span class="brackets">CCGV+20</span></dt>
+<dd><p>E. Y. S. Chan, R. M. Corless, L. Gonzalez-Vega, J. R. Sendra, J. Sendra, and S. E. Thornton. Upper Hessenberg and Toeplitz Bohemians. <em>Linear Algebra and its Applications</em>, 601:72–100, 2020.</p>
+</dd>
+<dt class="label" id="id3"><span class="brackets">Cor92</span></dt>
+<dd><p>R. M. Corless. Continued fractions and chaos. <em>The American Mathematical Monthly</em>, 99(3):203–215, March 1992. <a class="reference external" href="https://doi.org/10.1080/00029890.1992.11995835">doi:10.1080/00029890.1992.11995835</a>.</p>
+</dd>
+<dt class="label" id="id18"><span class="brackets">DGM+15</span></dt>
+<dd><p>M. R. Dennis, P. Glendinning, P. A Martin, F. Santosa, and J. Tanner. <em>The Princeton companion to applied mathematics</em>. Princeton University Press, 2015.</p>
+</dd>
+<dt class="label" id="id21"><span class="brackets">Fel12</span></dt>
+<dd><p>D. P. Feldman. <em>Chaos and fractals: an elementary introduction</em>. Oxford University Press, 2012.</p>
+</dd>
+<dt class="label" id="id22"><span class="brackets">FTS94</span></dt>
+<dd><p>A. Fiser, G. E. Tusnady, and I. Simon. Chaos game representation of protein structures. <em>Journal of molecular graphics</em>, 12(4):302–304, 1994.</p>
+</dd>
+<dt class="label" id="id23"><span class="brackets">FMV+12</span></dt>
+<dd><p>Y. l. Fisher, M. McGuire, R. F. Voss, M. F. Barnsley, R. L. Devaney, and B. B. Mandelbrot. <em>The science of fractal images</em>. Springer Science &amp; Business Media, 2012.</p>
+</dd>
+<dt class="label" id="id24"><span class="brackets">Gol93</span></dt>
+<dd><p>N. Goldman. Nucleotide, dinucleotide and trinucleotide frequencies explain patterns observed in chaos game representations of DNA sequences. <em>Nucleic Acids Research</em>, 21(10):2487–2491, 1993.</p>
+</dd>
+<dt class="label" id="id25"><span class="brackets">Ham91</span></dt>
+<dd><p>R. W. Hamming. <em>Art of Probability</em>. Addison Wesley Publishing Company, 1991.</p>
+</dd>
+<dt class="label" id="id8"><span class="brackets">Hig02</span></dt>
+<dd><p>N. J. Higham. <em>Accuracy and Stability of Numerical Algorithms</em>. Society for Industrial and Applied Mathematics, January 2002. <a class="reference external" href="https://doi.org/10.1137/1.9780898718027">doi:10.1137/1.9780898718027</a>.</p>
+</dd>
+<dt class="label" id="id43"><span class="brackets">Inc19</span></dt>
+<dd><p>OEIS Foundation Inc. The on-line encyclopedia of integer sequences. https://oeis.org/, 2019.</p>
+</dd>
+<dt class="label" id="id27"><span class="brackets">Jef90</span></dt>
+<dd><p>H. J. Jeffrey. Chaos game representation of gene structure. <em>Nucleic Acids Research</em>, 18(8):2163–2170, 1990.</p>
+</dd>
+<dt class="label" id="id28"><span class="brackets">Jef92</span></dt>
+<dd><p>H. J. Jeffrey. Chaos game visualization of sequences. <em>Computers &amp; Graphics</em>, 16(1):25–33, 1992.</p>
+</dd>
+<dt class="label" id="id29"><span class="brackets">Kac59</span></dt>
+<dd><p>M. Kac. <em>Probability and related topics in physical sciences</em>. Volume 1. AMS, 1959.</p>
+</dd>
+<dt class="label" id="id30"><span class="brackets">KKKK15</span></dt>
+<dd><p>R. Karamichalis, L. Kari, S. Konstantinidis, and S. Kopecki. An investigation into inter-and intragenomic variations of graphic genomic signatures. <em>BMC Bioinformatics</em>, 16(1):246, 2015.</p>
+</dd>
+<dt class="label" id="id32"><span class="brackets">KHS+13</span></dt>
+<dd><p>L. Kari, K. A. Hill, A. S. Sayem, N. Bryans, K. Davis, and N. S. Dattani. Map of life: measuring and visualizing species' relatedness with &quot;molecular distance maps&quot;. <em>arXiv preprint arXiv:1307.3755</em>, 2013.</p>
+</dd>
+<dt class="label" id="id33"><span class="brackets">KHS+15</span></dt>
+<dd><p>L. Kari, K. A. Hill, A. S. Sayem, R. Karamichalis, N. Bryans, K. Davis, and N. S. Dattani. Mapping the space of genomic signatures. <em>PloS one</em>, 10(5):e0119815, 2015.</p>
+</dd>
+<dt class="label" id="id34"><span class="brackets">KT64</span></dt>
+<dd><p>A. Y. Khinchin and T. Teichmann. Continued fractions. <em>Physics Today</em>, 17:70, 1964.</p>
+</dd>
+<dt class="label" id="id35"><span class="brackets">Knu97</span></dt>
+<dd><p>D. E. Knuth. <em>Seminumerical Algorithms</em>. Volume 2 of The Art of Computer Programming. Addison Wesley, Reading, MA, 3 edition, 1997.</p>
+</dd>
+<dt class="label" id="id36"><span class="brackets">Kol83</span></dt>
+<dd><p>A. N. Kolmogorov. On logical foundations of probability theory. In <em>Probability theory and mathematical statistics</em>, pages 1–5. Springer, 1983.</p>
+</dd>
+<dt class="label" id="id11"><span class="brackets">Lit86</span></dt>
+<dd><p>J. E. Littlewood. <em>Littlewood's miscellany</em>. Cambridge University Press, 1986.</p>
+</dd>
+<dt class="label" id="id12"><span class="brackets">Man04</span></dt>
+<dd><p>B. B. Mandelbrot. <em>Fractals and Chaos</em>. Springer New York, New York, 2004. URL: <a class="reference external" href="https://doi.org/10.1007/978-1-4757-4017-2">https://doi.org/10.1007/978-1-4757-4017-2</a>, <a class="reference external" href="https://doi.org/10.1007/978-1-4757-4017-2">doi:10.1007/978-1-4757-4017-2</a>.</p>
+</dd>
+<dt class="label" id="id37"><span class="brackets">MN98</span></dt>
+<dd><p>M. Matsumoto and T. Nishimura. Mersenne twister: a 623-dimensionally equidistributed uniform pseudo-random number generator. <em>ACM Transactions on Modeling and Computer Simulation (TOMACS)</em>, 8(1):3–30, 1998.</p>
+</dd>
+<dt class="label" id="id38"><span class="brackets">Mol15</span></dt>
+<dd><p>C. B. Moler. Random number generators, Mersenne Twiser. In Cleve's Corner: Cleve Moler on Mathematics and Computing, 2015. URL: <a class="reference external" href="https://blogs.mathworks.com/cleve/2015/04/17/random-number-generator-mersenne-twister/">https://blogs.mathworks.com/cleve/2015/04/17/random-number-generator-mersenne-twister/</a>.</p>
+</dd>
+<dt class="label" id="id2"><span class="brackets">Old63a</span></dt>
+<dd><p>C. D. Olds. <em>Continued Fractions</em>. The Mathematical Association of America, January 1963. <a class="reference external" href="https://doi.org/10.5948/upo9780883859261">doi:10.5948/upo9780883859261</a>.</p>
+</dd>
+<dt class="label" id="id39"><span class="brackets">Old63b</span></dt>
+<dd><p>C. D. Olds. <em>Continued fractions</em>. Volume 18. Random House New York, 1963.</p>
+</dd>
+<dt class="label" id="id40"><span class="brackets">Old70</span></dt>
+<dd><p>C. D. Olds. The simple continued fraction expansion of e. <em>American Mathematical Monthly</em>, pages 968–974, 1970.</p>
+</dd>
+<dt class="label" id="id47"><span class="brackets">SGS91</span></dt>
+<dd><p>I. Simon, L. Glasser, and H. A. Scheraga. Calculation of protein conformation as an assembly of stable overlapping segments: application to bovine pancreatic trypsin inhibitor. <em>Proceedings of the National Academy of Sciences</em>, 88(9):3661–3665, 1991.</p>
+</dd>
+<dt class="label" id="id42"><span class="brackets">Ste12</span></dt>
+<dd><p>B. P. Stein. Dice rolls are not completely random. 2012. URL: <a class="reference external" href="https://www.insidescience.org/news/dice-rolls-are-not-completely-random">https://www.insidescience.org/news/dice-rolls-are-not-completely-random</a>.</p>
+</dd>
+<dt class="label" id="id44"><span class="brackets">WP17</span></dt>
+<dd><p>L. M. Wahl and T. Pattenden. Prophage provide a safe haven for adaptive exploration in temperate viruses. <em>Genetics</em>, 206(1):407–416, 2017.</p>
+</dd>
+<dt class="label" id="id45"><span class="brackets">WBSS04</span></dt>
+<dd><p>Z. Wang, A. C. Bovik, H. R. Sheikh, and E. P. Simoncelli. Image quality assessment: from error visibility to structural similarity. <em>IEEE trans. image process.</em>, 13(4):600–612, 2004.</p>
+</dd>
+<dt class="label" id="id46"><span class="brackets">Wic03</span></dt>
+<dd><p>F. Wickelmaier. An introduction to MDS. <em>Sound Quality Research Unit, Aalborg University, Denmark</em>, 2003.</p>
+</dd>
+</dl>
+</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="about.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">About the authors</p>
+        </div>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Neil J. Calkin, Eunice Y.S. Chan, and Robert M. Corless<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

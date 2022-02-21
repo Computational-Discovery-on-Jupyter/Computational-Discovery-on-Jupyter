@@ -1,0 +1,721 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Complex Numbers &#8212; Computational Discovery on Jupyter</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.jpg"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Symbolic Computation: The Pitfalls" href="symbolic-computation.html" />
+    <link rel="prev" title="Binomials, Factorials, and other Combinatorial Things" href="binomials-factorials-combinatorics.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Computational Discovery on Jupyter</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   Welcome to Computational Discovery on Jupyter
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Preface
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preamble.html">
+   Preamble
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/continued-fractions.html">
+   Continued Fractions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/rootfinding.html">
+   Rootfinding, Newton’s Method, and Dynamical Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/fractals-and-julia-sets.html">
+   Fractals and Julia Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/bohemian-matrices.html">
+   Bounded Height Matrices of Integers (Bohemian Matrices)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/mandelbrot.html">
+   Mandelbrot Polynomials and Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/chaos-game-representation.html">
+   Chaos Game Representation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="floating-point.html">
+   The Bare Minimum about Floating-Point
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="binomials-factorials-combinatorics.html">
+   Binomials, Factorials, and other Combinatorial Things
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Complex Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="symbolic-computation.html">
+   Symbolic Computation: The Pitfalls
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Solutions
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Solutions%20to%20Continued%20Fraction%20Exercises.html">
+   Solutions to Continued Fractions Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Solutions%20to%20the%20Rootfinding%20Chapter%20Exercises.html">
+   Solutions to the Rootfinding Chapter Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Solutions%20to%20the%20Julia%20Set%20Exercises.html">
+   Solutions to the Julia Set Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Solutions%20to%20Exercises%20%28not%20Activities%29%20in%20the%20Bohemian%20Unit.html">
+   Solutions to Exercises (not Activities) in the Bohemian Unit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Solutions%20to%20Mandelbrot%20Exercises.html">
+   Solutions to Mandelbrot Polynomials and Matrices Exercises
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Back Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about.html">
+   About the authors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Appendix/complex-numbers.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#polar-coordinates-for-complex-numbers">
+   Polar Coordinates for Complex Numbers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#complex-weirdness">
+   Complex Weirdness
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Complex Numbers</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#polar-coordinates-for-complex-numbers">
+   Polar Coordinates for Complex Numbers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#complex-weirdness">
+   Complex Weirdness
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="complex-numbers">
+<h1>Complex Numbers<a class="headerlink" href="#complex-numbers" title="Permalink to this headline">¶</a></h1>
+<p>Many high school programs omit complex numbers, and some treatments even in university are bad (bad pedagogically and sometimes even bad logically). So it’s quite possible that a student in this course or a reader of this book will need an upgrade of their skills and understanding. Luckily, looked at the right way, the basics are very simple, and there is some amazing new pedagogy made possible by use of computer graphics.</p>
+<p>We should point out that most of the hate directed at complex numbers is because arithmetic by hand is a bit more involved than that for real arithmetic, especially division.  But, really, nobody has to do complex arithmetic by hand more than a few times to get the hang of it, anymore.  The drudgery is quite usefully relegated to a computer.</p>
+<p>Let’s begin by clearing out some logical `underbrush’ in order to clarify the issues. Plot <span class="math notranslate nohighlight">\(y = x^2 + 1\)</span> on, say, <span class="math notranslate nohighlight">\(-2 \leq x \leq 2\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">*</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/complex-numbers_2_0.png" src="../_images/complex-numbers_2_0.png" />
+</div>
+</div>
+<p>Very clearly there <em>is no real <span class="math notranslate nohighlight">\(x\)</span></em> where <span class="math notranslate nohighlight">\(x^2 + 1  = 0\)</span>. Said another way, there is no <em>real number</em> which, when multiplied by itself, gives <span class="math notranslate nohighlight">\(-1\)</span>.</p>
+<p>Because mathematicians use the words “real number” to mean numbers that are the limits of converging sequences of rational numbers (which gives a solid definition to them), and in the meantime the word “real” has an entirely different meaning in the “real world”, we have an unfortunate opportunity for miscommunication.  The phrase “there is no <em>real number</em> which when squared gives <span class="math notranslate nohighlight">\(-1\)</span>” sounds almost <em>exactly</em> like “There is <em>no such thing</em> as the square root of <span class="math notranslate nohighlight">\(-1\)</span>” and this misconception lies at the heart of most people’s difficulty with <span class="math notranslate nohighlight">\(i\)</span>.  This is compounded by calling <span class="math notranslate nohighlight">\(i\)</span> an “imaginary” number, because it’s “not real” (<span class="math notranslate nohighlight">\(\equiv\)</span> “not a real number”).  Funny joke! Gah!  Mathematicians.</p>
+<p>Even the word “number” has different meanings in math than in real life.  If your partner says “I have a number of things to talk to  you about” it certainly doesn’t mean they have nothing to say!  Whereas to a mathematician, zero is a perfectly good number.  The collision between math language and ordinary language really does cause problems sometimes.</p>
+<p>This is quite unfortunate, because as we will now show concretely, <span class="math notranslate nohighlight">\(i\)</span> actually <em>does</em> exist; there’s nothing imaginary about it. It’s a real thing, but for sure it <em>isn’t a “real number”</em>.</p>
+<p>What is it? The complex number <span class="math notranslate nohighlight">\(i\)</span> is defined to be the <em>pair</em> of real numbers <span class="math notranslate nohighlight">\((0, 1)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[	i := (0, 1) \&gt;.\]</div>
+<p>The rules for adding and subtracting complex numbers (pairs of real numbers) are easy:</p>
+<div class="math notranslate nohighlight">
+\[	(a, b) \pm (c, d) = \left(a \pm c, b \pm d\right)\]</div>
+<p>(just add or subtract component-wise, like vectors). Multiplication has a funny rule:</p>
+<div class="math notranslate nohighlight">
+\[	(a, b) \cdot (c, d) = (ac - bd, ad+bc)\&gt;.\]</div>
+<p>We will see shortly that this rule makes more sense in polar coordinates. For now, note that <span class="math notranslate nohighlight">\((a, 0)\cdot(c, 0) = (ac, 0)\)</span> so that if the second component is zero, these complex numbers act just like real numbers. Mathematicians say that the set of complex numbers contain an isomorphic copy of the real numbers. The complex number <span class="math notranslate nohighlight">\((-1, 0)\)</span> is the copy of the real number <span class="math notranslate nohighlight">\(-1\)</span>. Notice now <span class="math notranslate nohighlight">\((0, 1)\cdot(0, 1) = (0\cdot 0 - 1\cdot 1, 0\cdot 1 + 0\cdot 1) = (-1, 0)\)</span> or <span class="math notranslate nohighlight">\(i^2 = (-1, 0)\)</span>, the copy of <span class="math notranslate nohighlight">\(-1\)</span>.</p>
+<p>At this point most people’s brains go, Click! “Why didn’t teachers just <em>say</em> this?” Well, two reasons.  First, most people will just want to “get on with it” and go, and it all works, so why fuss? Second, it actually took a long time for this simple idea to be thought of. People were just say “Well, let <span class="math notranslate nohighlight">\(i\)</span> be the square root of <span class="math notranslate nohighlight">\(-1\)</span> even if there’s no such thing, and then the following computation is easy.” The French mathematician Argand was apparently the first to think of <span class="math notranslate nohighlight">\(i = (0, 1)\)</span>, over nearly two hundred years after <span class="math notranslate nohighlight">\(i\)</span> had been used to find (real!) roots of cubic equations. The great C. F. Gauss, revered as one of the best mathematicians and physicists ever, took the idea further and gave the first proof of the “Fundamental Theorem of Algebra,” namely that a polynomial of degree <span class="math notranslate nohighlight">\(n\)</span> has exactly <span class="math notranslate nohighlight">\(n\)</span> roots, counting multiplicities.</p>
+<div class="section" id="polar-coordinates-for-complex-numbers">
+<h2>Polar Coordinates for Complex Numbers<a class="headerlink" href="#polar-coordinates-for-complex-numbers" title="Permalink to this headline">¶</a></h2>
+<p>When the famous physicist Richard Feynman talked about multiplication of complex numbers, he didn’t use the Cartesian rule <span class="math notranslate nohighlight">\((a, b)\cdot (c, d) = (ac - bd, ad + bc)\)</span> but rather said, in words, “multiply the magnitudes and add the angles.” This is much simpler to understand geometrically and much more believable that such a rule could be useful in real (physical) life. So, how does it work?</p>
+<div class="figure align-default" id="polarcoordinates">
+<img alt="../_images/polar_coordinates.png" src="../_images/polar_coordinates.png" />
+</div>
+<p>To get to the point <span class="math notranslate nohighlight">\(P = (a, b)\)</span> from the origin, one needn’t walk <span class="math notranslate nohighlight">\(a\)</span> units in the <span class="math notranslate nohighlight">\(\operatorname{Re}\)</span> direction, turn left <span class="math notranslate nohighlight">\(90\)</span>° and walk <span class="math notranslate nohighlight">\(b\)</span> units. Instead, one can head off at angle <span class="math notranslate nohighlight">\(\theta\)</span> and walk <span class="math notranslate nohighlight">\(r\)</span> units. By trigonometry,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+	b &amp;= r\sin\theta \\
+	a &amp;= r\cos\theta
+\end{align*}\end{split}\]</div>
+<p>and by Pythagoras’ Theorem</p>
+<div class="math notranslate nohighlight">
+\[	r^2 = a^2 + b^2 \quad \text{so} \quad r = \sqrt{a^2 + b^2} \&gt;.\]</div>
+<p>Computing <span class="math notranslate nohighlight">\(\theta\)</span> from <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> is a little more awkward than the usual high school treatment, and for many purposes all we need are (if <span class="math notranslate nohighlight">\(r\neq 0\)</span>)</p>
+<div class="math notranslate nohighlight">
+\[	\sin\theta = \dfrac{b}{r} = \dfrac{b}{\sqrt{a^2 + b^2}}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[	\cos\theta = \dfrac{a}{r} = \dfrac{a}{\sqrt{a^2 + b^2}} \&gt;.\]</div>
+<p>\textsl{Taking the ratio loses one important bit of information}, namely the quadrant:</p>
+<div class="math notranslate nohighlight">
+\[	\dfrac{\sin\theta}{\cos\theta} = \tan\theta = \dfrac{b}{a} \&gt;.\]</div>
+<div class="figure align-default" id="polarcoordinates1">
+<img alt="../_images/polar_coordinates1.png" src="../_images/polar_coordinates1.png" />
+</div>
+<p>Since <span class="math notranslate nohighlight">\(\frac{-b}{-a} = \frac{b}{a}\)</span>, once we’ve computed the ratio, there’s no way to detect the quadrant: is it I or III? If <span class="math notranslate nohighlight">\(\frac{b}{a}\)</span> is negative, is it II or IV? To get around this, most computer languages define a <em>two-argument</em> arctan function:</p>
+<div class="math notranslate nohighlight">
+\[	\theta = \operatorname{arctan}\left(b, a\right) \&gt;.\]</div>
+<p>Moreover, we take conventionally <span class="math notranslate nohighlight">\(-\pi &lt; \theta \leq \pi\)</span>, so if <span class="math notranslate nohighlight">\((a, b) = (-1, 0)\)</span> then <span class="math notranslate nohighlight">\(\theta = \pi\)</span>. Since <span class="math notranslate nohighlight">\(\sin \pi = 0\)</span> and <span class="math notranslate nohighlight">\(\cos \pi = -1\)</span>, this agrees with experience.</p>
+<div class="proof theorem admonition" id="multiplication">
+<p class="admonition-title"><span class="caption-number">Theorem 2 </span> (The multiplication rule in polar coordinates)</p>
+<div class="theorem-content section" id="proof-content">
+<p>If <span class="math notranslate nohighlight">\(z_1 = (a_1, b_1) = r_1\angle\theta_1\)</span> is one number and <span class="math notranslate nohighlight">\(z_2 = (a_2, b_2) = r_2 \angle \theta_2\)</span> is another, then their product is</p>
+<div class="math notranslate nohighlight">
+\[	z_3 = (r_1r_2)\angle \theta_1 + \theta_2 \&gt;.\]</div>
+<p>That is,</p>
+<div class="math notranslate nohighlight">
+\[	r_3 = r_1r_2 \quad \text{multiply the magnitudes}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[	\theta_3 = \theta_1 + \theta_2 \quad \text{add the angles.}\]</div>
+<div class="figure align-default" id="polarcoordinates2">
+<img alt="../_images/polar_coordinates2.png" src="../_images/polar_coordinates2.png" />
+</div>
+<p>If <span class="math notranslate nohighlight">\(\theta_1 + \theta_2\)</span> lies outside <span class="math notranslate nohighlight">\(-\pi &lt; \theta_3 \leq \pi\)</span>, add or subtract <span class="math notranslate nohighlight">\(2\pi\)</span> until it is; that doesn’t change <span class="math notranslate nohighlight">\(\sin\theta_3\)</span> or <span class="math notranslate nohighlight">\(\cos\theta_3\)</span>, which is all we care about.</p>
+</div>
+</div><div class="proof admonition" id="proof">
+<p>Proof. Use</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}	\begin{align*}
+		\cos\left(\theta_1 + \theta_2\right) &amp;= \cos\theta_1\cos\theta_2 - \sin\theta_1\sin\theta_2 \\
+		\sin\left(\theta_1 + \theta_2\right) &amp;= \sin\theta_1\cos\theta_2 + \sin\theta_2\cos\theta_1
+	\end{align*}\end{split}\]</div>
+<p>and prove it yourself.</p>
+</div>
+<div class="proof example admonition" id="example-1">
+<p class="admonition-title"><span class="caption-number">Example 1 </span></p>
+<div class="example-content section" id="proof-content">
+<p>Multiply <span class="math notranslate nohighlight">\(a + ib\)</span> by <span class="math notranslate nohighlight">\(a - ib\)</span>.</p>
+<div class="figure align-default" id="polarcoordinates3">
+<img alt="../_images/polar_coordinates3.png" src="../_images/polar_coordinates3.png" />
+</div>
+<p>Pretty clearly the angle for <span class="math notranslate nohighlight">\((a, -b)\)</span> is the negative of that for <span class="math notranslate nohighlight">\((a, b)\)</span>. Also the magnitudes are the same:</p>
+<div class="math notranslate nohighlight">
+\[	r = \sqrt{a^2 + b^2} = \sqrt{a^2 + (-b)^2} \&gt;.\]</div>
+<p>Therefore</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+	\left(a + ib\right) \cdot \left(a - ib\right) &amp;= r \cdot r \angle \theta - \theta \\
+	&amp;= r^2 \angle 0 \\
+	&amp;= a^2 + b^2 \angle 0
+\end{align*}\end{split}\]</div>
+<p>which is a real nonnegative number!</p>
+<p>Check in Cartesian:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+	(a, b) \cdot (a, -b) &amp;= (a\cdot a - b\cdot(-b), a\cdot(-b) + b\cdot a) \\
+	&amp;= (a^2 + b^2, 0)
+\end{align*}\end{split}\]</div>
+<p>just the same. The number <span class="math notranslate nohighlight">\(\bar{z} = a - ib = (a, -b)\)</span> is called the <em>conjugate</em> of <span class="math notranslate nohighlight">\(z = a + ib = (a, b)\)</span>.</p>
+</div>
+</div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If <span class="math notranslate nohighlight">\(r = 0\)</span>, <span class="math notranslate nohighlight">\(\theta\)</span> is not defined. If you have to walk zero steps does it matter which direction you have to walk them in?</p>
+</div>
+<div class="proof theorem admonition" id="euler">
+<p class="admonition-title"><span class="caption-number">Theorem 3 </span> (Euler’s Theorem: <span class="math notranslate nohighlight">\(e^{i\theta} = \cos\theta + i\sin\theta\)</span>)</p>
+<div class="theorem-content section" id="proof-content">
+<p>The notation <span class="math notranslate nohighlight">\(r\angle \theta\)</span> is rarely seen, not because it’s so ugly but because there’s something better: <span class="math notranslate nohighlight">\(z = r\angle \theta = re^{i\theta}\)</span> where <span class="math notranslate nohighlight">\(e = 2.7182818284\ldots\)</span> is the base of the natural logarithm. This is because of Euler’s theorem, which states <span class="math notranslate nohighlight">\(e^{i\theta} = \cos\theta + i\sin\theta\)</span>. Then</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+	z = a + ib &amp;= r\cos\theta + ir\sin\theta \\
+	&amp;= r\left(\cos\theta + i\sin\theta\right) = re^{i\theta} \&gt;.
+\end{align}\end{split}\]</div>
+<p>Then the multiplication rule fits the addition law of multiplying exponentials:</p>
+<div class="math notranslate nohighlight">
+\[	r_1e^{i\theta_1} \cdot r_2 e^{i\theta_2} = r_1r_2 e^{i\left(\theta_1 + \theta_2\right)} \&gt;.\]</div>
+</div>
+</div><p>Why is <span class="math notranslate nohighlight">\(e^{i\theta} = \cos\theta + i\sin\theta\)</span>? Sometimes this is just taken as a <em>definition</em> of <span class="math notranslate nohighlight">\(e^{i\theta}\)</span>. That may not satisfy. Another proof uses Taylor series, which is convincing in this case if one is comfortable with the Taylor series</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{alignat*}{24}
+	e^{i\theta} &amp;= &amp;&amp;1 &amp;&amp;+ &amp;&amp;\left(i\theta\right) &amp;&amp;+ &amp;&amp;\dfrac{\left(i\theta\right)^2}{2!} &amp;&amp;+ &amp;&amp;\dfrac{\left(i\theta\right)^3}{3!} &amp;&amp;+ &amp;&amp;\dfrac{\left(i\theta\right)^4}{4!} &amp;&amp;+ &amp;&amp;\cdots \\
+	\cos\theta &amp;= &amp;&amp;1 &amp;&amp;&amp;&amp;&amp;&amp;- &amp;&amp;\dfrac{\theta^2}{2!}&amp;&amp;&amp;&amp;&amp;&amp;+ &amp;&amp;\dfrac{\theta^4}{4!}&amp;&amp;-&amp;&amp;\cdots \\
+	\sin\theta &amp;= &amp;&amp;&amp;&amp;&amp;&amp;&amp;\theta &amp;&amp;&amp;&amp;&amp;-&amp;&amp;\dfrac{\theta^3}{3!} &amp; &amp;&amp;&amp;&amp; &amp;+&amp;&amp;\cdots
+\end{alignat*}\end{split}\]</div>
+<p>Another way is by differential equation: <span class="math notranslate nohighlight">\(e^{at}\)</span> solves</p>
+<div class="math notranslate nohighlight">
+\[	\dfrac{\text{d}y}{\text{d}t} = ay\]</div>
+<p>and so one expects <span class="math notranslate nohighlight">\(e^{i\theta}\)</span> to solve <span class="math notranslate nohighlight">\(\frac{\text{d}y}{\text{d}\theta} = iy\)</span>. But if <span class="math notranslate nohighlight">\(Y = \cos\theta + i\sin\theta\)</span> then</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+	\dfrac{\text{d}Y}{\text{d}\theta} &amp;= -\sin\theta + i\cos\theta \\
+	&amp;= i\left(\cos\theta + i\sin\theta\right) \quad \text{because } i^2 = -1
+\end{align*}\end{split}\]</div>
+<p>so <span class="math notranslate nohighlight">\(Y\)</span> also solves this; since <span class="math notranslate nohighlight">\(\cos 0 = 1\)</span>, <span class="math notranslate nohighlight">\(\sin 0 = 0\)</span>, <span class="math notranslate nohighlight">\(e^{i\cdot 0} = 1\)</span>, by uniqueness of solutions of this DE, we must have <span class="math notranslate nohighlight">\(e^{i\theta} = y = Y = \cos\theta + i\sin\theta\)</span>. There are other proofs: people are keen to prove it in different ways because it’s such a strange result. One can use trig identities to show that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+	&amp;\left(\cos\theta_1 + i\sin\theta_1\right)\left(\cos\theta_2 + i\sin\theta_2\right) \\
+	&amp;= \left(\cos\theta_1\cos\theta_2 - \sin\theta_1\sin\theta_2\right) + i\left(\cos\theta_1\sin\theta_2 + \sin\theta_1\cos\theta_2\right) \\
+	&amp;= \cos\left(\theta_1 + \theta_2\right) + i\sin\left(\theta_1 + \theta_2\right)
+\end{align*}\end{split}\]</div>
+<p>which satisfies the same functional equation as <span class="math notranslate nohighlight">\(e^{i\theta_1}\cdot e^{i\theta_2} = e^{i\left(\theta_1 + \theta_2\right)}\)</span>, and maybe this proof scratches the deepest itch.</p>
+<p>One can run this backwards, like so</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+	e^{i\theta} &amp;= \cos\theta + i\sin\theta \\
+	e^{-i\theta} &amp;= \cos\left(-\theta\right) + i\sin\left(-\theta\right) = \cos\theta - i\sin\theta
+\end{align*}\end{split}\]</div>
+<p>because cosine is even and sine is odd.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+	\therefore \text{ adding gives} \quad e^{i\theta} + e^{-i\theta} &amp;= 2\cos\theta \\
+	\text{subtracting gives} \quad e^{i\theta} - e^{-i\theta} &amp;= 2i\sin\theta
+\end{align*}\end{split}\]</div>
+<p>so</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+	\cos\theta &amp;= \dfrac{e^{i\theta} + e^{-i\theta}}{2} \\
+	\sin\theta &amp;= \dfrac{e^{i\theta} - e^{-i\theta}}{2i} \&gt;.
+\end{align*}\end{split}\]</div>
+<p>These lovely formulae make trig identities simpler, like so:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+	\cos^3\theta &amp;= \left(\dfrac{e^{i\theta} + e^{-i\theta}}{2}\right)^{3} \\
+	&amp;= \dfrac{e^{i\cdot3\theta} + 3e^{i\cdot2\theta}\cdot e^{-i\theta} + 3\cdot e^{i\theta}\cdot e^{-2i\theta} + e^{-i\cdot 3\theta}}{8} \\
+	&amp;= \dfrac{e^{i\cdot 3\theta} + e^{-i\cdot 3\theta}}{8} + \frac{3}{4}\left(\dfrac{e^{i\theta} + e^{-i\theta}}{2}\right) \\
+	&amp;= \dfrac{1}{4} \cos 3\theta + \frac{3}{4}\cos\theta \&gt;.
+\end{align*}\end{split}\]</div>
+<!-- In Maple:\
+<span style='color:red'>
+\MapleInput{convert(cos($\theta$, exp)}
+\MapleOutput{$\dfrac{e^{I\theta}}{2} + \dfrac{e^{-I\theta}}{2}$}
+\MapleInput{convert(exp(I*t), trig)}
+\MapleOutput{$\cos(t) + \text{I}\sin(t)$}
+</span> --></div>
+<div class="section" id="complex-weirdness">
+<h2>Complex Weirdness<a class="headerlink" href="#complex-weirdness" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have <span class="math notranslate nohighlight">\(e^{i\theta}\)</span> we can define <span class="math notranslate nohighlight">\(e^z\)</span>: if <span class="math notranslate nohighlight">\(z = x + iy\)</span>, we define it as <span class="math notranslate nohighlight">\(e^{x + iy} = e^{x}\cdot e^{iy} = e^{x}\left(\cos y + i\sin y\right)\)</span>.</p>
+<p>So what?</p>
+<p>…so for instance defining <span class="math notranslate nohighlight">\(z^b\)</span> as <span class="math notranslate nohighlight">\(e^{b\ln z}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{alignat*}{4}
+	i^i &amp;= e^{i\ln i} &amp;&amp;= e^{i\left(\ln 1 + i\cdot\frac{\pi}{2}\right)} \\
+	&amp;= e^{i\left(\frac{i\pi}{2}\right)} &amp;&amp;= e^{-\frac{\pi}{2}} \in \mathbb{R} \&gt;.
+\end{alignat*}\end{split}\]</div>
+<p>Say what?</p>
+<p>Well, if <span class="math notranslate nohighlight">\(w = e^{z} = e^{x + iy}\)</span> then <span class="math notranslate nohighlight">\(\left|w\right|\)</span> is the magnitude of</p>
+<div class="math notranslate nohighlight">
+\[w = \left|\left(e^x\cos y, e^{x}\sin y\right)\right| = \sqrt{e^{2x}\cos^2y + e^{2x}\sin^2y}= e^x\cdot\sqrt{\cos^2y + \sin^2y} = e^x \&gt;,\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\operatorname{arg} w = \operatorname{arctan}\left(e^x\sin y, e^x\cos y\right) = y\]</div>
+<p>if <span class="math notranslate nohighlight">\(-\pi &lt; y \leq \pi\)</span> so we can define <span class="math notranslate nohighlight">\(\ln w = x + iy\)</span> if <span class="math notranslate nohighlight">\(-\pi &lt; y \leq y\)</span> so <span class="math notranslate nohighlight">\(\ln\left(i\right) = \ln\left(e^{\frac{i\pi}{2}}\right) = \frac{i\pi}{2}\)</span> so <span class="math notranslate nohighlight">\(i^i = e^{-\frac{\pi}{2}}\)</span> is real.</p>
+<p>… If you say so</p>
+<!-- Look, let's do this in Maple.
+
+<span style='color:red'>
+\MapleInput{I\string^I;}
+\MapleOutput{$\text{I}^\text{I}$}
+</span>
+    
+That didn't do much.
+
+<span style='color:red'>
+\MapleInput{simplify(\%);}
+\MapleOutput{$e^{-\frac{\pi}{2}}$}
+\MapleInput{evalf(\%);}
+\MapleOutput{0.2078795763}
+\MapleInput{Complex(0, 1.0)\string^Complex(0, 1.0);}
+\MapleOutput{0.2078795764+0.~I}
+</span> -->
+<p>But there’s more to this</p>
+<div class="math notranslate nohighlight">
+\[	\ln\left(1\right) = 2\pi ik\]</div>
+<p>for any integer <span class="math notranslate nohighlight">\(k\)</span> because</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+	e^{2\pi ik} &amp;= \cos\left(2\pi k\right) + i\cdot \sin\left(2\pi k\right) \\
+	&amp;= 1 + i\cdot 0 = 1 \&gt;.
+\end{align*}\end{split}\]</div>
+<p>So, actually, <span class="math notranslate nohighlight">\(i\)</span> has an <em>infinite number</em> of logarithms:</p>
+<div class="math notranslate nohighlight">
+\[	\ln i ?= \dfrac{i\pi}{2} + 2i\pi k\]</div>
+<p>for any integer <span class="math notranslate nohighlight">\(k\)</span>’:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+	e^{\frac{i\pi}{2} + 2\pi ik} &amp;= \cos\left(\frac{\pi}{2} + 2\pi k\right) + i\sin\left(\frac{\pi}{2} + 2\pi k\right) \\
+	&amp;= \cos\frac{\pi}{2} + i\sin\frac{\pi}{2} = 0 + i\cdot 1 = i
+\end{align*}\end{split}\]</div>
+<p>because <span class="math notranslate nohighlight">\(\cos\)</span> and <span class="math notranslate nohighlight">\(\sin\)</span> are periodic with period <span class="math notranslate nohighlight">\(2\pi\)</span>.</p>
+<p>Let’s use David Jeffrey’s notation and say</p>
+<div class="math notranslate nohighlight">
+\[	\ln_k z = \ln z + 2\pi k \&gt;.\]</div>
+<p>Therefore, we <em>could have</em> (but didn’t) define</p>
+<div class="math notranslate nohighlight">
+\[	i^{i} ?= e^{i \ln_k i} = e^{i\left(\frac{i\pi}{2} + 2\pi ik\right)} = e^{-\frac{\pi}{2} - 2\pi k}\]</div>
+<p>an infinite number of possible real values. This isn’t the weirdest thing about complex numbers; but following the rules, it will all make sense, and some of it will be very useful indeed.</p>
+<p>We just have to share an interesting new fact from Twitter. Christopher D. Long (<a class="reference external" href="https://twitter.com/octonion">&#64;octonion</a>) asked about the infinite tower of powers</p>
+<div class="math notranslate nohighlight">
+\[c = i^{i^{i^{\cdot^{\cdot^{\cdot}}}}}\]</div>
+<p>and was surprised to learn that this thing has a <em>known value</em> (well, for a certain value of “known”).  Actually, we were surprised, too, at how simple it turned out to be.
+The answer involves the Lambert W function: see <a class="reference external" href="http://www.orcca.on.ca/LambertW">The Lambert W Function Poster</a> for a picture.  The answer is that</p>
+<div class="math notranslate nohighlight">
+\[c = \frac{2i}{\pi} W\left( \frac{\pi}{2i} \right)\]</div>
+<p>To prove that, we have to carefully define that tower.  We do so this way: put <span class="math notranslate nohighlight">\(c_0 = 0\)</span>, and <span class="math notranslate nohighlight">\(c_{n+1} = i^{c_n}\)</span> for <span class="math notranslate nohighlight">\(n\ge 0\)</span>. This can be implemented in Python, and we do so now. The approach to the limit is a bit slow, but <span class="math notranslate nohighlight">\(1000\)</span> terms are enough.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">special</span> <span class="k">as</span> <span class="n">spc</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">mth</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mf">2.0</span><span class="n">j</span><span class="o">*</span><span class="n">spc</span><span class="o">.</span><span class="n">lambertw</span><span class="p">(</span> <span class="n">mth</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="p">(</span><span class="mf">2.0</span><span class="n">j</span><span class="p">)</span> <span class="p">)</span><span class="o">/</span><span class="n">mth</span><span class="o">.</span><span class="n">pi</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">c</span> <span class="p">)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+<span class="n">xi</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># we already knew this</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">xi</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="n">j</span><span class="o">**</span><span class="n">xi</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">xi</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="nb">abs</span><span class="p">(</span> <span class="n">c</span> <span class="o">-</span> <span class="n">xi</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span><span class="o">/</span><span class="nb">abs</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.4382829367270321+0.3605924718713855j)
+(0.4382829367270323+0.3605924718713857j)
+4.890374964418661e-16
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Appendix"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="binomials-factorials-combinatorics.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Binomials, Factorials, and other Combinatorial Things</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="symbolic-computation.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Symbolic Computation: The Pitfalls</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Neil J. Calkin, Eunice Y.S. Chan, and Robert M. Corless<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

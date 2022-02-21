@@ -1,0 +1,1148 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rootfinding, Newton’s Method, and Dynamical Systems &#8212; Computational Discovery on Jupyter</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.jpg"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Fractals and Julia Sets" href="fractals-and-julia-sets.html" />
+    <link rel="prev" title="Continued Fractions" href="continued-fractions.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Computational Discovery on Jupyter</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   Welcome to Computational Discovery on Jupyter
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Preface
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preamble.html">
+   Preamble
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="continued-fractions.html">
+   Continued Fractions
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Rootfinding, Newton’s Method, and Dynamical Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="fractals-and-julia-sets.html">
+   Fractals and Julia Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bohemian-matrices.html">
+   Bounded Height Matrices of Integers (Bohemian Matrices)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mandelbrot.html">
+   Mandelbrot Polynomials and Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chaos-game-representation.html">
+   Chaos Game Representation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/floating-point.html">
+   The Bare Minimum about Floating-Point
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/binomials-factorials-combinatorics.html">
+   Binomials, Factorials, and other Combinatorial Things
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/complex-numbers.html">
+   Complex Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/symbolic-computation.html">
+   Symbolic Computation: The Pitfalls
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Solutions
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Solutions%20to%20Continued%20Fraction%20Exercises.html">
+   Solutions to Continued Fractions Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Solutions%20to%20the%20Rootfinding%20Chapter%20Exercises.html">
+   Solutions to the Rootfinding Chapter Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Solutions%20to%20the%20Julia%20Set%20Exercises.html">
+   Solutions to the Julia Set Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Solutions%20to%20Exercises%20%28not%20Activities%29%20in%20the%20Bohemian%20Unit.html">
+   Solutions to Exercises (not Activities) in the Bohemian Unit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Solutions%20to%20Mandelbrot%20Exercises.html">
+   Solutions to Mandelbrot Polynomials and Matrices Exercises
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Back Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about.html">
+   About the authors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Contents/rootfinding.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#euler-again">
+   Euler again
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#newton-s-method">
+   Newton’s Method
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#derivatives">
+     Derivatives
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exercises">
+       Exercises
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-railway-pranksters-problem">
+     The Railway Pranksters Problem
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-more-serious-application">
+     A more serious application
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-useful-interpretation">
+     A useful interpretation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#things-that-can-go-wrong">
+     Things that can go wrong
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-really-useful-trick-to-find-initial-guesses">
+   A
+   <em>
+    Really Useful
+   </em>
+   trick to find initial guesses
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-problem-with-multiple-roots">
+     The problem with multiple roots
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-happens-if-we-get-the-derivative-wrong">
+     What happens if we get the derivative wrong?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-if-there-is-more-than-one-root">
+     What if there is more than one root?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#complex-initial-approximations-fractal-boundaries-julia-sets-and-chaos">
+     Complex initial approximations, fractal boundaries, Julia sets, and chaos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Rootfinding, Newton’s Method, and Dynamical Systems</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#euler-again">
+   Euler again
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#newton-s-method">
+   Newton’s Method
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#derivatives">
+     Derivatives
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#exercises">
+       Exercises
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-railway-pranksters-problem">
+     The Railway Pranksters Problem
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-more-serious-application">
+     A more serious application
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-useful-interpretation">
+     A useful interpretation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#things-that-can-go-wrong">
+     Things that can go wrong
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-really-useful-trick-to-find-initial-guesses">
+   A
+   <em>
+    Really Useful
+   </em>
+   trick to find initial guesses
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-problem-with-multiple-roots">
+     The problem with multiple roots
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-happens-if-we-get-the-derivative-wrong">
+     What happens if we get the derivative wrong?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-if-there-is-more-than-one-root">
+     What if there is more than one root?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#complex-initial-approximations-fractal-boundaries-julia-sets-and-chaos">
+     Complex initial approximations, fractal boundaries, Julia sets, and chaos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="rootfinding-newton-s-method-and-dynamical-systems">
+<h1>Rootfinding, Newton’s Method, and Dynamical Systems<a class="headerlink" href="#rootfinding-newton-s-method-and-dynamical-systems" title="Permalink to this headline">¶</a></h1>
+<p>In the Continued Fractions unit, we met with the sequence</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8d679a2b-3582-4dce-b659-1c649a13a033">
+<span class="eqno">(31)<a class="headerlink" href="#equation-8d679a2b-3582-4dce-b659-1c649a13a033" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+	1, \frac{3}{2}, \frac{17}{12}, \frac{577}{408}, \frac{665857}{470832}, \ldots
+\end{equation}\]</div>
+<p>which was generated by <span class="math notranslate nohighlight">\(x_{n+1} = \frac12{\left(x_{n} + \frac{2}{x_n}\right)}\)</span>; in words, the average of the number and two divided by the number. This unit explores where that sequence came from, and its relationship to <span class="math notranslate nohighlight">\(\sqrt{2}\)</span>. We’ll approach this algebraically, as Newton did. Consider the equation</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6e922eac-3231-403e-8f57-b5f66efdc85f">
+<span class="eqno">(32)<a class="headerlink" href="#equation-6e922eac-3231-403e-8f57-b5f66efdc85f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+	x^2 - 2 = 0.
+\end{equation}\]</div>
+<p>Clearly the solutions to this equation are <span class="math notranslate nohighlight">\(x = \sqrt{2}\)</span> and <span class="math notranslate nohighlight">\(x = -\sqrt{2}\)</span>. Let us <em>shift the origin</em> by putting <span class="math notranslate nohighlight">\(x = 1 + s\)</span>; so <span class="math notranslate nohighlight">\(s = 0\)</span> corresponds to <span class="math notranslate nohighlight">\(x = 1\)</span>.</p>
+<p>We draw the vertical part of the new axis that we will shift to, in red. Notice that we use the labels and tickmarks from the old axis, in black.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">501</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">-</span><span class="mi">2</span><span class="p">;</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>   <span class="c1"># x^2-2 is in blue</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="c1"># The new axis is in red</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/rootfinding_2_0.png" src="../_images/rootfinding_2_0.png" />
+</div>
+</div>
+<p>Then</p>
+<div class="amsmath math notranslate nohighlight" id="equation-45c7dd31-1f11-440b-8313-a8f83a900bcc">
+<span class="eqno">(33)<a class="headerlink" href="#equation-45c7dd31-1f11-440b-8313-a8f83a900bcc" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+	\left(1 + s\right)^2 - 2 = 1 + 2s + s^2 - 2 = -1 + 2s + s^2 = 0.
+\end{equation}\]</div>
+<p>we now make the surprising assumption that <span class="math notranslate nohighlight">\(s\)</span> is so small that we may ignore <span class="math notranslate nohighlight">\(s^2\)</span> in comparison to <span class="math notranslate nohighlight">\(2s\)</span>. If it turned out that <span class="math notranslate nohighlight">\(s = 10^{-6}\)</span>, then <span class="math notranslate nohighlight">\(s^2 = 10^{-12}\)</span>, very much smaller than <span class="math notranslate nohighlight">\(2s = 2\cdot10^{-6}\)</span>; so there are small numbers <span class="math notranslate nohighlight">\(s\)</span> for which this is true; but we don’t know that this is true, here. We just hope.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">501</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">s</span><span class="o">+</span><span class="n">s</span><span class="o">*</span><span class="n">s</span><span class="p">;</span>  <span class="c1"># Newton would have written s^2 as s*s, too</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>   <span class="c1"># equation in blue again</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span> <span class="c1"># The new axis is in black</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/rootfinding_4_0.png" src="../_images/rootfinding_4_0.png" />
+</div>
+</div>
+<p>Then if <span class="math notranslate nohighlight">\(s^2\)</span> can be ignored, our equation becomes</p>
+<div class="amsmath math notranslate nohighlight" id="equation-dbeb83de-6ee0-4971-85e3-505dda686c5e">
+<span class="eqno">(34)<a class="headerlink" href="#equation-dbeb83de-6ee0-4971-85e3-505dda686c5e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+	-1 + 2s = 0
+\end{equation}\]</div>
+<p>or <span class="math notranslate nohighlight">\(s = \frac{1}{2}\)</span>. This means <span class="math notranslate nohighlight">\(x = 1 + s = 1 + \frac{1}{2} = \frac{3}{2}\)</span>.</p>
+<p>We now repeat the process: shift the origin to <span class="math notranslate nohighlight">\(\frac{3}{2}\)</span>, not <span class="math notranslate nohighlight">\(1\)</span>: put now</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7644bb4b-34fd-4f00-b114-116b761fd6b7">
+<span class="eqno">(35)<a class="headerlink" href="#equation-7644bb4b-34fd-4f00-b114-116b761fd6b7" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+	x = \frac{3}{2} +t
+\end{equation}\]</div>
+<p>which is equivalent to <span class="math notranslate nohighlight">\(s = 1/2 + t\)</span>, so</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0ea9a067-543d-40dd-aa4a-d6e65d2d7f78">
+<span class="eqno">(36)<a class="headerlink" href="#equation-0ea9a067-543d-40dd-aa4a-d6e65d2d7f78" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+	\left(\frac{3}{2} + t\right)^2 = \frac{9}{4} + 3t + t^2 - 2 = \frac{1}{4} + 3t + t^2 = 0.
+\end{equation}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">501</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">4</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">t</span><span class="o">+</span><span class="n">t</span><span class="o">*</span><span class="n">t</span><span class="p">;</span>  <span class="c1"># Newton would have written s^2 as s*s, too</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>   <span class="c1"># equation in blue again</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=-</span><span class="mi">1</span><span class="o">/</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="c1"># The new axis will be red again</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/rootfinding_6_0.png" src="../_images/rootfinding_6_0.png" />
+</div>
+</div>
+<p>This gives <span class="math notranslate nohighlight">\(3t + t^2 + \frac{1}{4} = 0\)</span> and again we ignore <span class="math notranslate nohighlight">\(t^2\)</span> and hope it’s smaller than <span class="math notranslate nohighlight">\(3t\)</span>. This gives</p>
+<div class="amsmath math notranslate nohighlight" id="equation-bdacb912-ba0e-4e1e-aee3-d18f77d1fbee">
+<span class="eqno">(37)<a class="headerlink" href="#equation-bdacb912-ba0e-4e1e-aee3-d18f77d1fbee" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+	3t + \frac{1}{4} = 0
+\end{equation}\]</div>
+<p>or <span class="math notranslate nohighlight">\(t = -\frac{1}{12}\)</span>. This means <span class="math notranslate nohighlight">\(x = \frac{3}{2} - \frac{1}{12}\)</span> or <span class="math notranslate nohighlight">\(x = \frac{17}{12}\)</span>. Now we see the process.</p>
+<p>Again, shift the origin: <span class="math notranslate nohighlight">\(x = \frac{17}{12} + u\)</span>. Now</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d823d53c-440d-488d-a0a9-7c759a9584c9">
+<span class="eqno">(38)<a class="headerlink" href="#equation-d823d53c-440d-488d-a0a9-7c759a9584c9" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+	\left(\dfrac{17}{12} + u\right)^2 = \dfrac{289}{144} + \dfrac{17}{6}u + u^2 - 2 = 0.
+\end{equation}\]</div>
+<p>Ignoring <span class="math notranslate nohighlight">\(u^2\)</span>,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c0cfd5c5-713c-4ab9-aeb6-1b20205ef474">
+<span class="eqno">(39)<a class="headerlink" href="#equation-c0cfd5c5-713c-4ab9-aeb6-1b20205ef474" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+	\dfrac{17}{6}u + \dfrac{1}{144} = 0
+\end{equation}\]</div>
+<p>or</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2932c35f-a635-4dae-8d77-ea0392b52aea">
+<span class="eqno">(40)<a class="headerlink" href="#equation-2932c35f-a635-4dae-8d77-ea0392b52aea" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+	u = \dfrac{-6}{17\cdot144} = \dfrac{-1}{17\cdot24} = \dfrac{-1}{408}.
+\end{equation}\]</div>
+<p>Thus,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6ca83b2e-a72a-48fa-8ff8-23ce2350b441">
+<span class="eqno">(41)<a class="headerlink" href="#equation-6ca83b2e-a72a-48fa-8ff8-23ce2350b441" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+	x = \dfrac{17}{12} - \dfrac{1}{408} = \dfrac{577}{408}.
+\end{equation}\]</div>
+<p>As we saw in the Continued Fractions unit, these are the exact square roots of numbers ever more close to 2. For instance,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a738d251-3299-46c2-8a51-fe21a9828a18">
+<span class="eqno">(42)<a class="headerlink" href="#equation-a738d251-3299-46c2-8a51-fe21a9828a18" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+	\dfrac{577}{408} = \sqrt{2 + \dfrac{1}{408^2}}.
+\end{equation}\]</div>
+<div class="section" id="euler-again">
+<h2>Euler again<a class="headerlink" href="#euler-again" title="Permalink to this headline">¶</a></h2>
+<p>It was Euler who took Newton’s “shift the origin” strategy and made a general method—which we call Newton’s method—out of it. In modern notation, Euler considered solving <span class="math notranslate nohighlight">\(f(x) = 0\)</span> for a differentiable function <span class="math notranslate nohighlight">\(f(x)\)</span>, and used the tangent line approximation near an initial approximation <span class="math notranslate nohighlight">\(x_0\)</span>: if <span class="math notranslate nohighlight">\(x = x_0 + s\)</span> then, using <span class="math notranslate nohighlight">\(f'(x_0)\)</span> to denote the slope at <span class="math notranslate nohighlight">\(x_0\)</span>, <span class="math notranslate nohighlight">\(0 = f(x) = f(x_0 + s) \approx f(x_0) + f'(x_0)s\)</span> ignoring terms of order <span class="math notranslate nohighlight">\(s^2\)</span> or higher. Then</p>
+<div class="amsmath math notranslate nohighlight" id="equation-20baae45-c881-4dfb-8be5-4c9a4ecf234b">
+<span class="eqno">(43)<a class="headerlink" href="#equation-20baae45-c881-4dfb-8be5-4c9a4ecf234b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+	s = -\dfrac{f(x_0)}{f'(x_0)}
+\end{equation}\]</div>
+<p>so</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c885376c-7870-4a6d-bd5d-d75271bb1acf">
+<span class="eqno">(44)<a class="headerlink" href="#equation-c885376c-7870-4a6d-bd5d-d75271bb1acf" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+	x \approx x_0 + s = x - \dfrac{f(x_0)}{f'(x_0)}.
+\end{equation}\]</div>
+<p>The fundamental idea of Newton’s method is that, if it worked once, we can do it again: pass the parcel! Put</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+	x_1 &amp;= x_0 - \dfrac{f(x_0)}{f'(x_0)} \\
+	x_2 &amp;= x_1 - \dfrac{f(x_1)}{f'(x_1)} \\
+	x_3 &amp;= x_2 - \dfrac{f(x_2)}{f'(x_2)}
+\end{align}
+\end{split}\]</div>
+<p>and keep going, until <span class="math notranslate nohighlight">\(f(x_k)\)</span> is so small that you’re happy to stop.</p>
+<p>Notice that each <span class="math notranslate nohighlight">\(x_k\)</span> solves</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5984a726-e295-4dce-8b78-69e2ba2a8aae">
+<span class="eqno">(45)<a class="headerlink" href="#equation-5984a726-e295-4dce-8b78-69e2ba2a8aae" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+	f(x) - f(x_k) = 0
+\end{equation}\]</div>
+<p>not <span class="math notranslate nohighlight">\(f(x) = 0\)</span>. But if <span class="math notranslate nohighlight">\(f(x_k)\)</span> is really small, you’ve solved “almost as good” an equation, like finding <span class="math notranslate nohighlight">\(\sqrt{2 + \frac{1}{408^2}}\)</span> instead of <span class="math notranslate nohighlight">\(\sqrt{2}\)</span>. So where did <span class="math notranslate nohighlight">\(\frac12{\left(x_n + \frac{2}{x_n}\right)}\)</span> come from?</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ae0f9a5a-aa91-4d18-ae84-4b1846541762">
+<span class="eqno">(46)<a class="headerlink" href="#equation-ae0f9a5a-aa91-4d18-ae84-4b1846541762" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+	x_{n+1} = x_n - \dfrac{f(x_n)}{f'(x_n)} = x_n - \dfrac{\left(x_n^2 - 2\right)}{2x_n}
+\end{equation}\]</div>
+<p>because if <span class="math notranslate nohighlight">\(f(x) = x^2 - 2\)</span>, <span class="math notranslate nohighlight">\(f'(x) = 2x - 0 = 2x\)</span>. Therefore,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+	x_{n+1} &amp;= x_n - \dfrac{\left(x_n^2 - 2\right)}{2x_n} \\
+    &amp;= \dfrac{2x_n^2 - x_n^2 + 2}{2x_n} \\
+	&amp;= \dfrac{x_n^2 + 2}{2x_n} \\
+    &amp;= \dfrac{1}{2}\left(x_n + \dfrac{2}{x_n}\right)
+\end{align}
+\end{split}\]</div>
+<p>as claimed. (For more complicated functions one <em>shouldn’t</em> simplify. But for <span class="math notranslate nohighlight">\(x^2 - a\)</span>, it’s okay.)</p>
+<p>Executing this process in decimals, using a calculator (our handy HP48G+ again), with <span class="math notranslate nohighlight">\(x_0 = 1\)</span>, we get</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+	x_0 &amp;= 1 \nonumber \\
+	x_1 &amp;= \underline{1}.5 \nonumber \\
+	x_2 &amp;= \underline{1.4}1666\ldots \nonumber \\
+	x_3 &amp;= \underline{1.41421}568628 \nonumber \\
+	x_4 &amp;= \underline{1.41421356238} \nonumber \\
+	x_5 &amp;= x_4 \text{ to all 11 places in the calculator}
+\end{align}
+\end{split}\]</div>
+<p>Now <span class="math notranslate nohighlight">\(\sqrt{2} = 1.41421356237\)</span> on this calculator. We see (approximately) 1, 2, 5 then 10 correct digits. The convergence behaviour is clearer in the continued fraction representation:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c9ab8dc5-bfb9-41e4-9da3-a67137c9168f">
+<span class="eqno">(47)<a class="headerlink" href="#equation-c9ab8dc5-bfb9-41e4-9da3-a67137c9168f" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+	1, 1 + \left[2\right], 1 + \left[2, 2, 2\right], 1 + \left[2, 2, 2, 2, 2, 2, 2 \right],
+	1 + \left[2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2\right]
+\end{equation}\]</div>
+<p>with 0, 1, 3, 7, 15 twos in the fraction part: each time doubling the previous plus 1, giving <span class="math notranslate nohighlight">\(2^0 - 1\)</span>, <span class="math notranslate nohighlight">\(2^1 - 1\)</span>, <span class="math notranslate nohighlight">\(2^2 - 1\)</span>, <span class="math notranslate nohighlight">\(2^3 - 1\)</span>, <span class="math notranslate nohighlight">\(2^4 - 1\)</span> correct entries. This “almost doubling the number of correct digits with each iteration” is quite characteristic of Newton’s method.</p>
+</div>
+<div class="section" id="newton-s-method">
+<h2>Newton’s Method<a class="headerlink" href="#newton-s-method" title="Permalink to this headline">¶</a></h2>
+<p>In the <a class="reference internal" href="continued-fractions.html"><span class="doc std std-doc">Continued Fractions</span></a> unit, we saw Newton’s method to extract square roots: <span class="math notranslate nohighlight">\(x_{n+1} = (x_n + a/x_n)/2\)</span>. That is, we simply took the average of our previous approximation with the result of dividing our approximation into what we wanted to extract the square root of.  We saw rapid convergence, in that the number of correct entries in the continued fraction for <span class="math notranslate nohighlight">\(\sqrt{a}\)</span> roughly doubled with each iteration.  This simple iteration comes from a more general technique for finding zeros of nonlinear equations, such as <span class="math notranslate nohighlight">\(f(x) = x^5 + 3x + 2 = 0\)</span>. As we saw above, for general <span class="math notranslate nohighlight">\(f(x)\)</span>, Newton’s method is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-23523e86-994c-41bf-9ad1-8bb67b293b12">
+<span class="eqno">(48)<a class="headerlink" href="#equation-23523e86-994c-41bf-9ad1-8bb67b293b12" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}\&gt;,
+\end{equation}\]</div>
+<p>where the notation <span class="math notranslate nohighlight">\(f'(x_n)\)</span> means the <em>derivative</em> of <span class="math notranslate nohighlight">\(f(x)\)</span> evaluated at <span class="math notranslate nohighlight">\(x=x_n\)</span>.  In the special case <span class="math notranslate nohighlight">\(f(x) = x^2-a\)</span>, whose roots are <span class="math notranslate nohighlight">\(\pm \sqrt{a}\)</span>, the general Newton iteration above reduces to the simple formula we used before, because <span class="math notranslate nohighlight">\(f'(x) = 2x\)</span>.</p>
+<div class="section" id="derivatives">
+<h3>Derivatives<a class="headerlink" href="#derivatives" title="Permalink to this headline">¶</a></h3>
+<p>We’re not assuming that you know so much calculus that you can take derivatives of general functions, although if you do, great.  We <em>could</em> show a Python method to get the computer to do it, and we might (or we might leave it to the exercises; it’s kind of fun).  But we do assume that you know that derivatives of polynomials are easy: for instance, if <span class="math notranslate nohighlight">\(f(x) = x^3\)</span> then <span class="math notranslate nohighlight">\(f'(x) = 3x^2\)</span>, and similarly if <span class="math notranslate nohighlight">\(f(x) = x^n\)</span> for some integer <span class="math notranslate nohighlight">\(n\)</span> then <span class="math notranslate nohighlight">\(f'(x) = n x^{n-1}\)</span> (which holds true even if <span class="math notranslate nohighlight">\(n\)</span> is zero or a negative integer—or, for that matter, if <span class="math notranslate nohighlight">\(n\)</span> is any constant).  Then by the <em>linearity</em> of the derivative, we can compute the derivative of a polynomial expressed in the monomial basis.  For instance, if <span class="math notranslate nohighlight">\(f(x) = x^5 + 3x + 2\)</span> then <span class="math notranslate nohighlight">\(f'(x) = 5x^4 + 3\)</span>. It turns out that the Python implementation of polynomials knows how to do this as well (technically, polynomials <em>know how to differentiate themselves</em>), as we will see.  For this example we can use this known derivative in the Newton formula to get the iteration</p>
+<div class="amsmath math notranslate nohighlight" id="equation-50bd1800-de81-4ae8-871e-034ba97b997d">
+<span class="eqno">(49)<a class="headerlink" href="#equation-50bd1800-de81-4ae8-871e-034ba97b997d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+x_{n+1} = x_n - \frac{x^5 + 3x + 2}{5x^4+3}\&gt;.
+\end{equation}\]</div>
+<div class="section" id="exercises">
+<h4>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h4>
+<p>Write Newton’s method iterations for the following functions, and estimate the desired root(s).</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(f(x) = x^2 - 3\)</span> with <span class="math notranslate nohighlight">\(x_0 = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(f(x) = x^3 - 2\)</span> with <span class="math notranslate nohighlight">\(x_0 = 1\)</span></p></li>
+<li><p>Newton’s original example, <span class="math notranslate nohighlight">\(f(x) = x^3 - 2x - 5 = 0\)</span>. Since <span class="math notranslate nohighlight">\(f(0) = -5\)</span>, <span class="math notranslate nohighlight">\(f(1) = -6\)</span>, <span class="math notranslate nohighlight">\(f(2) = -1\)</span>, and <span class="math notranslate nohighlight">\(f(3) = 16\)</span>, we see there is a root between <span class="math notranslate nohighlight">\(x=2\)</span> and <span class="math notranslate nohighlight">\(x=3\)</span>.  Use that knowledge to choose your initial estimate.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="the-railway-pranksters-problem">
+<h3>The Railway Pranksters Problem<a class="headerlink" href="#the-railway-pranksters-problem" title="Permalink to this headline">¶</a></h3>
+<p>Late one night, some pranksters weld a <span class="math notranslate nohighlight">\(2\)</span>cm piece of steel into a train track <span class="math notranslate nohighlight">\(2\)</span>km long, sealing the gaps meant to allow for heat expansion.  In the morning as the temperature rises, the train track expands and bows up into a perfectly circular arc. How high is the arc in the middle?</p>
+<p>The fun part of this problem is setting it up and drawing it. We should let you do it, so we will hide our drawing and set-up.  The solution, using Newton’s method, is below.  Our solution won’t make sense until you do your own drawing.  We used a symbol <span class="math notranslate nohighlight">\(R\)</span> for the radius of the circular arc, and <span class="math notranslate nohighlight">\(s\)</span> for the small increment in the length of the track.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="mf">1.0e-5</span>
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">R</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">((</span><span class="mi">1</span><span class="o">+</span><span class="n">s</span><span class="p">)</span><span class="o">/</span><span class="n">R</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">R</span>
+<span class="n">df</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">R</span><span class="p">:</span> <span class="o">-</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s</span><span class="p">)</span> <span class="o">/</span> <span class="n">R</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s</span><span class="p">)</span> <span class="o">/</span> <span class="n">R</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">R</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">Ar</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1000.0</span><span class="o">/</span><span class="mf">9.0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">nxt</span> <span class="o">=</span> <span class="n">Ar</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">Ar</span><span class="p">[</span><span class="n">k</span><span class="p">])</span><span class="o">/</span><span class="n">df</span><span class="p">(</span><span class="n">Ar</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+    <span class="n">Ar</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nxt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">Ar</span><span class="p">,</span> <span class="p">[</span> <span class="n">f</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span> <span class="k">for</span> <span class="n">rho</span> <span class="ow">in</span> <span class="n">Ar</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[111.11111111111111, 123.86244904780746, 128.59835439622927, 129.09631810259108, 129.10118725925943, 129.10118771897493] [-3.1503152937012446e-08, -6.973718736161261e-09, -6.092985586556021e-10, -5.843914761827218e-12, -5.516420653606247e-16, 8.673617379884035e-19]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The convergence there was a <em>bit</em> slow; the residual was already pretty small with our initial estimate (we explain below where we got it) but Newton’s method got us there in the end.  The difficulty is that the root is <em>nearly</em> a multiple root.  We talk a little about that, below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">Ar</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Ar</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Height in is </span><span class="si">{}</span><span class="s2"> km or </span><span class="si">{}</span><span class="s2"> feet&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">height</span><span class="p">,</span><span class="mf">3280.84</span><span class="o">*</span><span class="n">height</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Height in is 0.0038729891556916357 km or 12.706657741559347 feet
+</pre></div>
+</div>
+</div>
+</div>
+<p>That might seem ridiculous.  Consider the related problem, where instead of bowing up in a perfect circular arc, the track bows up into two straight lines meeting in the middle, making an isosceles triangle with base <span class="math notranslate nohighlight">\(2\)</span>km long and sides <span class="math notranslate nohighlight">\(1+s\)</span>.  The height satisfies <span class="math notranslate nohighlight">\(h^2 +1 = (1+s)^2\)</span> by Pythagoras; since <span class="math notranslate nohighlight">\(s=10^{-5}\)</span>km, we find pretty rapidly that <span class="math notranslate nohighlight">\(h = \sqrt{(1+s)^2-1} = \sqrt{2s + s^2}\)</span> or <span class="math notranslate nohighlight">\(0.00447\)</span>km or about <span class="math notranslate nohighlight">\(14.7\)</span> feet.</p>
+<p>Okay, then.  Inserting one extra centimeter in a kilometer gives a height of 4.47m or 14.7 feet if we make a triangle; or 3.9 meters (12.7 feet) if it makes a semicircular arc.  This is kind of wild, but would be true if our crazed assumptions were true.  By the way, we used the height estimate from the triangle problem to give us an <span class="math notranslate nohighlight">\(R\)</span> estimate for the circular arc problem; that <span class="math notranslate nohighlight">\(1000/9\)</span> didn’t come out of nowhere!</p>
+</div>
+<div class="section" id="a-more-serious-application">
+<h3>A more serious application<a class="headerlink" href="#a-more-serious-application" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Kepler%27s_equation">Kepler’s equation</a> is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b870bbc3-2b62-438a-a543-b215b6c0d4fb">
+<span class="eqno">(50)<a class="headerlink" href="#equation-b870bbc3-2b62-438a-a543-b215b6c0d4fb" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+M = E - e\sin E
+\end{equation}\]</div>
+<p>where the <em>mean anomaly</em> <span class="math notranslate nohighlight">\(M = n(t-t_0)\)</span> where <span class="math notranslate nohighlight">\(t\)</span> is time, <span class="math notranslate nohighlight">\(t_0\)</span> is the starting time, <span class="math notranslate nohighlight">\(n = 2\pi/T\)</span> is the sweep speed for a circular orbit with period <span class="math notranslate nohighlight">\(T\)</span>, and the <em>eccentricity</em> <span class="math notranslate nohighlight">\(e\)</span> of the (elliptical) orbit are all known, and one wants to compute the <em>eccentric anomaly</em> <span class="math notranslate nohighlight">\(E\)</span> by solving that nonlinear equation for <span class="math notranslate nohighlight">\(E\)</span>.  Since we typically want to do this for a succession of times <span class="math notranslate nohighlight">\(t\)</span>, initial estimates are usually handy to the purpose (just use the <span class="math notranslate nohighlight">\(E\)</span> from the previous instant of time), and typically only one Newton correction is needed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># Period of one Jupiter year, say (equal to 11.8618 earth years)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">T</span>
+<span class="c1"># At t=t_0, which we may as well take to be zero, M=0 and so E = 0 as well.</span>
+<span class="n">nsamples</span> <span class="o">=</span> <span class="mi">12</span> <span class="c1"># Let&#39;s take 13 sample positions including 0.</span>
+<span class="n">e</span> <span class="o">=</span> <span class="mf">0.0487</span> <span class="c1"># Jupiter has a slightly eccentric orbit; not really visible to the eye here</span>
+<span class="n">E</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">]</span> 
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">ee</span><span class="p">:</span> <span class="n">ee</span><span class="o">-</span><span class="n">e</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">ee</span><span class="p">)</span><span class="o">-</span><span class="n">M</span>
+<span class="n">df</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">ee</span><span class="p">:</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">e</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">ee</span><span class="p">)</span> 
+<span class="n">newtonmax</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nsamples</span><span class="p">):</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="n">n</span><span class="o">*</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">nsamples</span> <span class="c1"># measuring time in Jupiter years</span>
+    <span class="n">EE</span> <span class="o">=</span> <span class="n">E</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+    <span class="n">newtoniters</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">newtonmax</span><span class="p">):</span>
+        <span class="n">residual</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">EE</span><span class="p">);</span>
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">residual</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mf">1.0e-12</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">EE</span> <span class="o">=</span> <span class="n">EE</span> <span class="o">-</span> <span class="n">residual</span><span class="o">/</span><span class="n">df</span><span class="p">(</span><span class="n">EE</span><span class="p">)</span>
+    <span class="n">E</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">EE</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">ee</span><span class="p">)</span><span class="o">-</span><span class="n">e</span> <span class="k">for</span> <span class="n">ee</span> <span class="ow">in</span> <span class="n">E</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">e</span><span class="o">*</span><span class="n">e</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">ee</span><span class="p">)</span> <span class="k">for</span> <span class="n">ee</span> <span class="ow">in</span> <span class="n">E</span><span class="p">]</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>  
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/rootfinding_19_0.png" src="../_images/rootfinding_19_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="a-useful-interpretation">
+<h3>A useful interpretation<a class="headerlink" href="#a-useful-interpretation" title="Permalink to this headline">¶</a></h3>
+<p>When we were looking at square roots, we noticed that each iteration (say <span class="math notranslate nohighlight">\(17/12\)</span>) could be considered the <em>exact</em> square root of something near to what we wanted to extract the root of; this kind of interpretation is possible for general functions as well.  Each iterate <span class="math notranslate nohighlight">\(x_n\)</span>, when we are trying to solve <span class="math notranslate nohighlight">\(f(x) = 0\)</span>, can be considered to be the <em>exact</em> zero of <span class="math notranslate nohighlight">\(g(x) = f(x)-r_n\)</span>, where <span class="math notranslate nohighlight">\(r_n = f(x_n)\)</span> is the so-called <em>residual</em>.  The equation is so simple that it’s slippery: <span class="math notranslate nohighlight">\(x_n\)</span> solves <span class="math notranslate nohighlight">\(f(x) - f(x_n) = 0\)</span>.  Of course it does.  No matter what you put in for <span class="math notranslate nohighlight">\(x_n\)</span>, so long as <span class="math notranslate nohighlight">\(f(x)\)</span> was defined there, you would have a zero.  The key of course is the question of whether or not the residual is small enough to ignore.  There are two issues with that idea.</p>
+<ol class="simple">
+<li><p>The function <span class="math notranslate nohighlight">\(f(x)\)</span> might be sensitive to changes (think of <span class="math notranslate nohighlight">\(f(x) = (x-\pi)^2\)</span>, for instance; adding just a bit to it makes both roots complex, and the change is quite sudden).</p></li>
+<li><p>The change might not make sense in the physical/chemical/biological context in which <span class="math notranslate nohighlight">\(f(x)\)</span> arose.</p></li>
+</ol>
+<p>This second question is not mathematical in nature: it depends on the context of the problem.  Nevertheless, as we saw for the square roots, this is <em>often</em> a very useful look at our computations.</p>
+<p>To answer the question of sensitivity, we need calculus, and the general notion of derivative:</p>
+<p><span class="math notranslate nohighlight">\(f(x)+s = 0\)</span> makes some kind of change to the zero of <span class="math notranslate nohighlight">\(f(x)=0\)</span>, say <span class="math notranslate nohighlight">\(x=r\)</span>.  If the new root is <span class="math notranslate nohighlight">\(x=r+t\)</span> where <span class="math notranslate nohighlight">\(t\)</span> is tiny (just like <span class="math notranslate nohighlight">\(s\)</span> is small) then calculus says <span class="math notranslate nohighlight">\(0 = f(r+t) + s = f(r)+f'(r)t+s + O(t^2)\)</span> where we have used the tangent-line approximation (which is, in fact, where Newton iteration comes from).  Solving for this we have that <span class="math notranslate nohighlight">\(t = -s/f'(r)\)</span>, because of course <span class="math notranslate nohighlight">\(f(r)=0\)</span>.</p>
+<p>This is nothing more (or less!) than the calculus derivation of Newton’s method, but that’s not what we are using it for here.  We are using it to <em>estimate</em> the sensitivity of the root to changes in the function.  We see that if <span class="math notranslate nohighlight">\(f'(r)\)</span> is small, then <span class="math notranslate nohighlight">\(t\)</span> will be much larger than <span class="math notranslate nohighlight">\(s\)</span>; in this case we say that the zero of <span class="math notranslate nohighlight">\(f(x)\)</span> is <em>sensitive</em>.  If <span class="math notranslate nohighlight">\(f'(r)=0\)</span> we are kind of out of luck with Newton’s method, as it is; it needs to be fixed up.</p>
+</div>
+<div class="section" id="things-that-can-go-wrong">
+<h3>Things that can go wrong<a class="headerlink" href="#things-that-can-go-wrong" title="Permalink to this headline">¶</a></h3>
+<p>Newton’s method is a workhorse of science, there’s no question.  There are multidimensional versions, approximate versions, faster versions, slower versions, applications to just about everything, especially optimization.  But it is not a perfect method.  Solving nonlinear equations is <em>hard</em>. Here are some kinds of things that can go wrong.</p>
+<ol class="simple">
+<li><p>The method can converge to the wrong root.  If there’s more than one root, then this can happen.</p></li>
+<li><p>The method can divide by zero (if you happen to hit a place where the derivative is zero).  Even just with <span class="math notranslate nohighlight">\(f(x)=x^2-2\)</span> this can happen if you choose your initial guess as <span class="math notranslate nohighlight">\(x_0 = 0\)</span>. (See if you can either find other <span class="math notranslate nohighlight">\(x_0\)</span> that would lead to zero, or else prove it couldn’t happen for this function).</p></li>
+<li><p>If the derivative is <em>small</em> but not zero the convergence can be very, very slow.  This is related to the sensitivity issue.</p></li>
+<li><p>You might get caught in a <em>cycle</em> (see the animated GIF as the header of this chapter).  That is, like with the game of pass the parcel with the Gauss map, we may eventually hit the initial point we started with.</p></li>
+<li><p>The iteration may take a very long time to settle down before converging.</p></li>
+<li><p>The iteration may go off to infinity.</p></li>
+</ol>
+<p>Let’s take Cleve Moler’s “perverse example”, from section 4.3 of <a class="reference external" href="https://www.mathworks.com/moler/chapters.html">Numerical Computing with Matlab</a>, namely</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7394e4ed-6217-4230-b903-02f6da2fa5f5">
+<span class="eqno">(51)<a class="headerlink" href="#equation-7394e4ed-6217-4230-b903-02f6da2fa5f5" title="Permalink to this equation">¶</a></span>\[\begin{align}
+   f(x) &amp;= \sqrt{x-r} \mathrm{\ if\ } x \ge r \nonumber\\
+        &amp;= -\sqrt{r-x} \mathrm{\ if\ } x \le r
+\end{align}\]</div>
+<p>We will draw this in the next cell, for some harmless <span class="math notranslate nohighlight">\(r\)</span>.  This peculiar function was chosen so that <em>every</em> initial estimate (that wasn’t exactly right, i.e. <span class="math notranslate nohighlight">\(x=r\)</span>) would create a two-cycle:  pretty mean.</p>
+<p>Let’s check.  The derivative is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2c22c83c-83ab-4347-add6-6a4c3402d0be">
+<span class="eqno">(52)<a class="headerlink" href="#equation-2c22c83c-83ab-4347-add6-6a4c3402d0be" title="Permalink to this equation">¶</a></span>\[\begin{align}
+   f(x) &amp;= \frac12\left(x-r\right)^{-1/2} \mathrm{\ if\ } x &gt; r \nonumber\\
+        &amp;= -\frac12\left(r-x\right)^{-1/2} \mathrm{\ if\ } x &lt; r
+\end{align}\]</div>
+<p>So the Newton iteration is, if <span class="math notranslate nohighlight">\(x_n &gt; r\)</span>,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-db9ee88e-63ef-4bd0-bfa5-5ea1a955be75">
+<span class="eqno">(53)<a class="headerlink" href="#equation-db9ee88e-63ef-4bd0-bfa5-5ea1a955be75" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+x_{n+1} = x_n - \frac{ (x_n-r)^{1/2} }{ (x_n-r)^{-1/2}/2 } = x_n - 2(x_n-r) = 2r - x_n
+\end{equation}\]</div>
+<p>which can be rewritten to be <span class="math notranslate nohighlight">\(x_{n+1}-r = r -x_n\)</span>, so the distance to <span class="math notranslate nohighlight">\(r\)</span> is exactly the same but now we are on the other side. If instead <span class="math notranslate nohighlight">\(x_n &lt; r\)</span>,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7d369403-bd5b-402b-b1ba-dc83b73d216a">
+<span class="eqno">(54)<a class="headerlink" href="#equation-7d369403-bd5b-402b-b1ba-dc83b73d216a" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+x_{n+1} = x_n - \frac{ -(r-x_n)^{1/2} }{ +(r-x_n)^{-1/2}/2 } = x_n + 2(r-x_n) = 2r - x_n
+\end{equation}\]</div>
+<p>which again says <span class="math notranslate nohighlight">\(x_{n+1}-r = r -x_n\)</span>.</p>
+<p>In particular, take <span class="math notranslate nohighlight">\(x_0 = 0\)</span>.  Then <span class="math notranslate nohighlight">\(x_1 = 2r\)</span>.  Then <span class="math notranslate nohighlight">\(x_2 = 0\)</span> again.</p>
+<p>Obviously this example was contrived to show peculiar behaviour; but these things really can happen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="mf">0.73</span>  <span class="c1"># Some more or less random number</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">501</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">+</span><span class="n">r</span><span class="p">,</span><span class="mi">1</span><span class="o">+</span><span class="n">r</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">r</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">r</span><span class="p">))</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Cleve Moler&#39;s really mean example&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/rootfinding_23_0.png" src="../_images/rootfinding_23_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="a-really-useful-trick-to-find-initial-guesses">
+<h2>A <em>Really Useful</em> trick to find initial guesses<a class="headerlink" href="#a-really-useful-trick-to-find-initial-guesses" title="Permalink to this headline">¶</a></h2>
+<p>One of our “generic good questions” was “can you find an easier question to solve?” and “does answering that easier question help you to to solve this one?”  This gives an amazing method, called <em>continuation</em> or <em>homotopy continuation</em> for solving many equations, such as polynomial equations.  The trick is easily stated.  Suppose you want to solve <span class="math notranslate nohighlight">\(H(x) = 0\)</span> (H for “Hard”) and you have no idea where the roots are.  You might instead be able to solve <span class="math notranslate nohighlight">\(E(x) = 0\)</span>, a similar equation but one you know the roots of already (E for “Easy”, of course).  Then consider blending them: <span class="math notranslate nohighlight">\(F(x,t) = (1-t)E(x) + tH(x)\)</span> for some parameter <span class="math notranslate nohighlight">\(t\)</span>, which we take to be a real number between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<p>You start by solving the Easy problem, at <span class="math notranslate nohighlight">\(t=0\)</span>, because <span class="math notranslate nohighlight">\(F(x,0) = E(x)\)</span>.  Then increase <span class="math notranslate nohighlight">\(t\)</span> a little bit, say to <span class="math notranslate nohighlight">\(t=0.1\)</span>; use the roots of <span class="math notranslate nohighlight">\(E(x)\)</span> as your initial estimate of the roots of <span class="math notranslate nohighlight">\(F(x,0.1) = 0.9E(x) + 0.1H(x)\)</span>.  If it works, great; increase <span class="math notranslate nohighlight">\(t\)</span> again, and use those recently-computed roots of <span class="math notranslate nohighlight">\(F(x,0.1)\)</span> as the initial estimates for (say) <span class="math notranslate nohighlight">\(F(x,0.2)\)</span>.  Continue on until either the method breaks down (it can, the root paths can cross, which is annoying, or go off to infinity, which is worse) or you reach the end.</p>
+<p>As an example, suppose you want to solve <span class="math notranslate nohighlight">\(h(x) = x e^x - 2.0 = 0\)</span>.  (This isn’t a very hard problem at all, but it’s a nice example).  If we were trying to solve <span class="math notranslate nohighlight">\(e(x) = e^x - 2.0 = 0\)</span>, then we already know the answer: <span class="math notranslate nohighlight">\(x=\ln(2.0) = 0.69314718056\ldots\)</span>. So <span class="math notranslate nohighlight">\(f(x,t) = (1-t)(e^x - 2) + t(xe^x -2) = (1-t+tx)e^x - 2 = (1+t(x-1))e^x - 2\)</span>.  Newton’s method for this is straightforward (this is the first non-polynomial function we’ve used, but we bet that you know that the derivative of <span class="math notranslate nohighlight">\(e^x\)</span> is <span class="math notranslate nohighlight">\(e^x\)</span>, and that you know the product rule as well).  So our iteration is (for a fixed <span class="math notranslate nohighlight">\(t\)</span>)</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a6647552-3f38-4c48-8e30-043d8a2bdb08">
+<span class="eqno">(55)<a class="headerlink" href="#equation-a6647552-3f38-4c48-8e30-043d8a2bdb08" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+x_{n+1} = x_n - \frac{ (1+t(x_n-1))e^{x_n} - 2 }{(1-t+t(x_n+1))e^{x_n}}
+\end{equation}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nt</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">newtonmax</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">nt</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nt</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span> <span class="c1"># Like all snobs, Python insists on log rather than ln</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">nt</span><span class="p">):</span>
+    <span class="n">xi</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">newtonmax</span><span class="p">):</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span>
+        <span class="n">ft</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">t</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">xi</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="n">y</span><span class="o">-</span><span class="mi">2</span><span class="p">;</span>
+        <span class="n">dft</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">t</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">t</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">xi</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="n">y</span>
+        <span class="n">xi</span> <span class="o">=</span> <span class="n">xi</span> <span class="o">-</span> <span class="n">ft</span><span class="o">/</span><span class="n">dft</span>
+    <span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">xi</span>
+    
+<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;The solution is </span><span class="si">{}</span><span class="s1"> and the residual is </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">xi</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span><span class="o">-</span><span class="mf">2.0</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The solution is 0.8526055020137254 and the residual is -2.220446049250313e-16
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">special</span>
+<span class="n">reference</span> <span class="o">=</span> <span class="n">special</span><span class="o">.</span><span class="n">lambertw</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The reference value is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">reference</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The reference value is (0.8526055020137254+0j)
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can learn more about the <a class="reference external" href="https://orcca.on.ca/LambertW/">Lambert W function here</a> or at the <a class="reference external" href="https://en.wikipedia.org/wiki/Lambert_W_function">Wikipedia link</a>.</p>
+<div class="section" id="the-problem-with-multiple-roots">
+<h3>The problem with multiple roots<a class="headerlink" href="#the-problem-with-multiple-roots" title="Permalink to this headline">¶</a></h3>
+<p>Newton’s iteration divides by <span class="math notranslate nohighlight">\(f'(x_n)\)</span>, and if the root <span class="math notranslate nohighlight">\(r\)</span> we are trying to find happens to be a <em>multiple</em> root, that is, both <span class="math notranslate nohighlight">\(f(r) = 0\)</span> and <span class="math notranslate nohighlight">\(f'(r)=0\)</span>, then the <span class="math notranslate nohighlight">\(f'(x_n)\)</span> we are dividing by will get smaller and smaller the closer we get to <span class="math notranslate nohighlight">\(r\)</span>. This slows Newton iteration to a crawl.  Consider <span class="math notranslate nohighlight">\(f(x) = W(x^3)\)</span> where <span class="math notranslate nohighlight">\(W(s)\)</span> is the <a class="reference external" href="https://orcca.on.ca/LambertW/">Lambert W function</a>.  Then since <span class="math notranslate nohighlight">\(W(0)=0\)</span> we have <span class="math notranslate nohighlight">\(f'(x) = 3x^2 W'(x^3)\)</span> so <span class="math notranslate nohighlight">\(f'(0)=0\)</span> as well.  Let’s look at how this slows us down.  Notice that <span class="math notranslate nohighlight">\(W(s)\)</span> is itself <em>defined</em> to be the root of the equation <span class="math notranslate nohighlight">\(y\exp(y)-s = 0\)</span>, and it itself is usually evaluated by an iterative method (in Maple, Halley’s method is used because the derivatives are cheap).  But let’s just let python evaluate it for us here. We can evaluate <span class="math notranslate nohighlight">\(W'(x)\)</span> by implicit differentiation: <span class="math notranslate nohighlight">\(W(x)\exp W(x) = x\)</span> so <span class="math notranslate nohighlight">\(W'(x)\exp W(x) + W(x) W'(x) \exp W(x) = 1\)</span> and therefore <span class="math notranslate nohighlight">\(W'(x) = 1/(\exp W(x)(1+ W(x)))\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">special</span><span class="o">.</span><span class="n">lambertw</span><span class="p">(</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+<span class="n">SirIsaac</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">df</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">hex</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">]</span> <span class="c1"># We pretend that we don&#39;t know the root is 0</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">nxt</span> <span class="o">=</span> <span class="n">SirIsaac</span><span class="p">(</span> <span class="nb">hex</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="p">)</span>
+    <span class="nb">hex</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nxt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="nb">hex</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.1, (0.06663336661675538+0j), (0.04441567513800068+0j), (0.029609152955240532+0j), (0.019739179108047573+0j), (0.013159402133893341+0j), (0.008772924760017682+0j), (0.005848614532183306+0j), (0.003899075964765479+0j), (0.002599383899468682+0j), (0.001732922584427688+0j)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that the iterates are <em>decreasing</em> but the turtle imitation is absurd.</p>
+<p>There is an <em>almost useless</em> trick to speed this up.  If we “just happen to know” the multiplicity <span class="math notranslate nohighlight">\(\mu\)</span> of the root, then we can speed things up.  Here the multiplicity is <span class="math notranslate nohighlight">\(\mu=3\)</span>.  Then we can <em>modify</em> Newton’s iteration to speed it up, like so:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-10512010-db92-4aec-a2c1-c804b9516732">
+<span class="eqno">(56)<a class="headerlink" href="#equation-10512010-db92-4aec-a2c1-c804b9516732" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+x_{n+1} = x_n - \mu\frac{f(x_n)}{f'(x_n)}
+\end{equation}\]</div>
+<p>Let’s try it out.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">ModSirIsaac</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">-</span> <span class="n">mu</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">df</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="nb">hex</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">nxt</span> <span class="o">=</span> <span class="n">ModSirIsaac</span><span class="p">(</span> <span class="nb">hex</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="p">)</span>
+    <span class="nb">hex</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nxt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="nb">hex</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.2, (-0.0015873514490433727+0j), (-6.348810149478523e-12+0j), (8.077935669463161e-28+0j)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>So, it <em>does</em> work; instead of hardly getting anywhere in ten iterations, it got the root in three.  <strong>NB: The first time we tried this, we had a bug in our derivative and the iterates did not approach zero with the theoretical speed: so we deduced that there must have been a bug in the derivative, and indeed there was.</strong></p>
+<p>But this trick is (as we said) almost useless; because if we don’t know the root, how do we know its multiplicity?</p>
+</div>
+<div class="section" id="what-happens-if-we-get-the-derivative-wrong">
+<h3>What happens if we get the derivative wrong?<a class="headerlink" href="#what-happens-if-we-get-the-derivative-wrong" title="Permalink to this headline">¶</a></h3>
+<p>Let’s suppose that we get the derivative wrong—maybe deliberately, to save some computation, and we only use the original estimate <span class="math notranslate nohighlight">\(f'(x_0)\)</span>.  This can be useful in some circumstances.  In this case, we don’t get such rapid approach to the zero, but we can get the iterates to approach the root, if not very fast.  Let’s try.  Take <span class="math notranslate nohighlight">\(f(x) = x^2-2\)</span>, and our initial estimate <span class="math notranslate nohighlight">\(x_0 = 1\)</span> so <span class="math notranslate nohighlight">\(f'(x_0) = 2\)</span>. This “approximate Newton” iteration then becomes</p>
+<div class="amsmath math notranslate nohighlight" id="equation-79cf98bf-b102-47d7-bf1b-364240474495">
+<span class="eqno">(57)<a class="headerlink" href="#equation-79cf98bf-b102-47d7-bf1b-364240474495" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+x_{n+1} = x_n - \frac{1}{2}f(x_n)
+\end{equation}\]</div>
+<p>or <span class="math notranslate nohighlight">\(x_{n+1} = x_n - (x_n^2-2)/2\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">hex</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">]</span>
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">-</span><span class="mi">2</span>
+<span class="n">df</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">quasi</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">df</span><span class="p">;</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">nxt</span> <span class="o">=</span> <span class="n">quasi</span><span class="p">(</span> <span class="nb">hex</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="p">)</span>
+    <span class="nb">hex</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nxt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="nb">hex</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.0, 1.5, 1.375, 1.4296875, 1.407684326171875, 1.4168967450968921, 1.4130985519638084, 1.4146747931827024, 1.4140224079494415, 1.4142927228578732, 1.4141807698935047]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that the iterates are getting closer to the root, but quite slowly.</p>
+<p>To be honest, this happens more often when someone codes the derivative incorrectly than it does by deliberate choice to save the effort of computing the derivative.  It has to be one ridiculously costly derivative before this slow approach is considered worthwhile (it looks like we get about one more digit of accuracy after two iterations).</p>
+</div>
+<div class="section" id="what-if-there-is-more-than-one-root">
+<h3>What if there is more than one root?<a class="headerlink" href="#what-if-there-is-more-than-one-root" title="Permalink to this headline">¶</a></h3>
+<p>A polynomial of degree <span class="math notranslate nohighlight">\(n\)</span> has <span class="math notranslate nohighlight">\(n\)</span> roots (some or all of which may be complex, and some of which may be multiple).  It turns out to be important in practice to solve polynomial equations.  John McNamee wrote a bibliography in the late nineties that had about <em>ten thousand</em> entries in it—that is, the bibliography listed ten thousand published works on methods for the solution of polynomials. It was later published as a book, but would be best as a computer resource.  Unfortunately, we can’t find this online anywhere now, which is a great pity.  But in any case ten thousand papers is a bit too much to expect anyone to digest.  So we will content ourselves with a short discussion.</p>
+<p>First, Newton’s method is not very satisfactory for solving polynomials.  It only finds one root at a time; you need to supply an initial estimate; and then you need to “deflate” each root as you find it, so you don’t find it again by accident.  This turns out to introduce numerical instability (sometimes).  This all <em>can</em> be done but it’s not so simple.  We will see better methods in the Mandelbrot unit.</p>
+<p>But we really don’t have to do anything: we can use Maple’s <code class="docutils literal notranslate"><span class="pre">fsolve</span></code>, which is robust and fast enough for most purposes. In Python, we can use the similarly-named routine <code class="docutils literal notranslate"><span class="pre">fsolve</span></code> from SciPy, if we only want one root: there are other facilities in NumPy for polynomial rootfinding, which we will meet in a later unit.</p>
+<p>We do point out that the “World Champion” polynomial solver is a program called MPSolve, written by Dario Bini and Leonardo Robol.  It is freely available at <a class="reference external" href="https://github.com/robol/MPSolve">this GitHub link</a>. The paper describing it is <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S037704271300232X">here</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">fsolve</span>
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">x</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span>
+<span class="n">oneroot</span> <span class="o">=</span> <span class="n">fsolve</span><span class="p">(</span> <span class="n">f</span><span class="p">,</span> <span class="mf">0.5</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">oneroot</span><span class="p">,</span> <span class="n">oneroot</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">oneroot</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">oneroot</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.72048399] [-2.44249065e-15]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="complex-initial-approximations-fractal-boundaries-julia-sets-and-chaos">
+<h3>Complex initial approximations, fractal boundaries, Julia sets, and chaos<a class="headerlink" href="#complex-initial-approximations-fractal-boundaries-julia-sets-and-chaos" title="Permalink to this headline">¶</a></h3>
+<p>Using Newton’s method to extract square roots (when you have a calculator, or Google) is like growing your own wheat, grinding it to flour by hand, and then baking bread, when you live a block away from a good bakery. It’s kind of fun, but faster to do it the modern way. But even for <em>cube</em> roots, the story gets more interesting when complex numbers enter the picture.</p>
+<p>Consider finding all <span class="math notranslate nohighlight">\(z\)</span> with</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4c77e574-73cc-4f5a-8294-c0ca10feca15">
+<span class="eqno">(58)<a class="headerlink" href="#equation-4c77e574-73cc-4f5a-8294-c0ca10feca15" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+	z^3 - 8 = 0 .
+\end{equation}\]</div>
+<p>The results are <span class="math notranslate nohighlight">\(z = 2\)</span>, <span class="math notranslate nohighlight">\(z = 2\cdot e^{\frac{i\cdot2\pi}{3}}\)</span>, and <span class="math notranslate nohighlight">\(z = 2\cdot e^{\frac{-i2\pi}{3}}\)</span>.</p>
+<p>See our <a class="reference internal" href="../Appendix/complex-numbers.html"><span class="doc std std-doc">Appendix on complex numbers</span></a>.</p>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Exercises<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p>Write down as many questions as you can, about this section.</p></li>
+<li><p>Sometimes Newton iteration is “too expensive”; a cheaper alternative is the so-called <em>secant iteration</em>, which goes as follows: <span class="math notranslate nohighlight">\(z_{n+1} = z_n - f(z_n)(z_{n}-z_{n-1})/(f(z_n) - f(z_{n-1}))\)</span>. You need not one, but <em>two</em> initial approximations for this.  Put <span class="math notranslate nohighlight">\(f(z) = z^2-2\)</span> and start with the two initial approximations <span class="math notranslate nohighlight">\(z_0  = 1\)</span>, <span class="math notranslate nohighlight">\(z_1 = 3/2\)</span>.  Carry out several steps of this (in exact arithmetic is better).  Convert each rational <span class="math notranslate nohighlight">\(z_n\)</span> to continued fraction form.  Discuss what you find.</p></li>
+<li><p>Try Newton and secant iteration on some functions of your own choosing.  You should see that Newton iteration usually takes fewer iterations to converge, but since it needs a derivative evaluation while the secant method does not, each iteration is “cheaper” in terms of computational cost (if <span class="math notranslate nohighlight">\(f(z)\)</span> is at all expensive to evaluate, <span class="math notranslate nohighlight">\(f'(z)\)</span> usually is too; there are exceptions, of course).  The consensus seems to be that the secant method is a bit more practical; but in some sense it is just a variation on Newton’s method.</p></li>
+<li><p>Both the Newton iteration and the secant iteration applied to <span class="math notranslate nohighlight">\(f(z) = z^2-a^2\)</span> can be <em>solved analytically</em> by the transformation <span class="math notranslate nohighlight">\(z = a\coth \theta\)</span>.  <a class="reference external" href="https://en.wikipedia.org/wiki/Hyperbolic_functions">Hyperbolic functions</a>  The iteration <span class="math notranslate nohighlight">\(z_{n+1} = (z_n + a^2/z_n)/2\)</span> becomes (you can check this) <span class="math notranslate nohighlight">\(\coth \theta_{n+1} = \cosh 2\theta_n/\sinh 2\theta_n = \coth 2\theta_n\)</span>, and so we may take <span class="math notranslate nohighlight">\(\theta_{n+1} = 2\theta_n\)</span>.  This can be solved to get <span class="math notranslate nohighlight">\(\theta_n = 2^n\theta_0\)</span> and so we have an analytical formula for each <span class="math notranslate nohighlight">\(z_n = a \coth( 2^n \theta_0 )\)</span>.  Try this on <span class="math notranslate nohighlight">\(a^2=2\)</span>; you should find that <span class="math notranslate nohighlight">\(\theta_0 = \mathrm{invcoth}(1/\sqrt{2})\)</span>.  By “invcoth” we mean the functional inverse of coth, i.e.: <span class="math notranslate nohighlight">\(\coth\theta_0 = 1/\sqrt{2}\)</span>. It may surprise you that that number is complex.  Nevertheless, you will find that all subsequent iterates are real, and <span class="math notranslate nohighlight">\(\coth 2^n\theta_0\)</span> goes to <span class="math notranslate nohighlight">\(1\)</span> very quickly.
+NB This was inadvertently difficult.  Neither numpy nor scipy has an invcoth (or arccoth) function. The Digital Library of Mathematical Functions says (equation 4.37.6) that arccoth(z) = arctanh(1/z).  Indeed we had to go to Maple to find out that invcoth<span class="math notranslate nohighlight">\((1/\sqrt{2}) = \ln(1+\sqrt{2}) - i\pi/2\)</span>.</p></li>
+<li><p>Try the above with <span class="math notranslate nohighlight">\(a^2=-1\)</span>.  NB the initial estimate <span class="math notranslate nohighlight">\(z_0 = 1\)</span> fails! Try <span class="math notranslate nohighlight">\(z_0 = e = \exp(1) = 2.71828...\)</span> instead. For this, the <span class="math notranslate nohighlight">\(\theta_0 = 1j\arctan(e^{-1})\)</span>. Then you might enjoy reading Gil Strang’s lovely article <a class="reference external" href="https://www.jstor.org/stable/2686733">A Chaotic Search for <span class="math notranslate nohighlight">\(i\)</span></a>.</p></li>
+<li><p>Try to solve the <em>secant</em> iteration for <span class="math notranslate nohighlight">\(z^2-a^2\)</span> analytically.  You should eventually find a connection to Fibonacci numbers.</p></li>
+<li><p>People keep inventing new rootfinding iterations.  Usually they are reinventions of methods that others have invented before, such as so-called <em>Schroeder</em> iteration and <em>Householder</em> iteration.  One step along the way is the method known as <em>Halley iteration</em>, which looks like this:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+    z_{n+1} = z_n - \frac{f(z_n)}{f'(z_n) - \frac{f(z_n)f''(z_n)}{2f'(z_n)}} 
+    \end{equation*}\]</div>
+<p>which, as you can see, also involves the <em>second</em> derivative of <span class="math notranslate nohighlight">\(f\)</span>.  When it works, it works quickly, typically converging in fewer iterations than Newton (although, typically, each step is more expensive computationally).  Try the method out on some examples.  It may help you to reuse your code (or Maple’s code) if you are told that Newton iteration on <span class="math notranslate nohighlight">\(F(z) = f(z)/\sqrt{f'(z)}\)</span> turns out to be identical to Halley iteration on <span class="math notranslate nohighlight">\(f(z)\)</span>. <strong>NB: this trick helps you to “re-use” code, but it doesn’t generate a particularly efficient iteration. In particular, the square roots muck up the formula for the derivatives, and simplification beforehand makes a big difference to program speed.  So if you want speed, you should program Halley’s method directly.</strong></p>
+</li>
+<li><p>Try to solve Halley’s iteration  for <span class="math notranslate nohighlight">\(x^2-a\)</span> analytically.  Then you might enjoy reading <a class="reference external" href="https://doi.org/10.1145/3363520.3363521">Revisiting Gilbert Strang’s “A Chaotic Search for i”</a> by Ao Li and Rob Corless; Ao was a (graduate) student in the first iteration of this course at Western, and she solved—in class!—what was then an <em>open</em> problem (this problem!).</p></li>
+<li><p>Let’s revisit question 4.  It turns out that we don’t need to use hyperbolic functions. In the OEIS when searching for the numerators of our original sequence <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(3/2\)</span>, <span class="math notranslate nohighlight">\(17/12\)</span> and so on, and also in the paper <a class="reference external" href="https://doi.org/10.1080/00029890.2021.1964274">What Newton Might Have Known</a>, we find the formulas <span class="math notranslate nohighlight">\(x_n = r_n/s_n\)</span> where</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+    r_n &amp;= \frac{1}{2}\left( (1+\sqrt2)^{2^n} + (1-\sqrt2)^{2^n}\right) \\
+    s_n &amp;= \frac{1}{2\sqrt2}\left( (1+\sqrt2)^{2^n} - (1-\sqrt2)^{2^n}\right)
+    \end{align*}\]</div>
+<p>Verify that this formula gives the same answers (when <span class="math notranslate nohighlight">\(a=2\)</span>) as the formula in question 4.  Try to generalize this formula for other integers <span class="math notranslate nohighlight">\(a\)</span>.  Discuss the growth of <span class="math notranslate nohighlight">\(r_n\)</span> and <span class="math notranslate nohighlight">\(s_n\)</span>: it is termed <em>doubly exponential</em>. Show that the error <span class="math notranslate nohighlight">\(x_n - \sqrt2\)</span> goes to zero like <span class="math notranslate nohighlight">\(1/(3+2\sqrt2)^{2^n}\)</span>.  How many iterations would you need to get ten thousand digits of accuracy? Do you need to calculate the <span class="math notranslate nohighlight">\((1-\sqrt2)^{2^n}\)</span> part?</p>
+</li>
+<li><p>Do the other results of <a class="reference external" href="https://doi.org/10.1145/3363520.3363521">Revisiting Gilbert Strang’s “A Chaotic Search for i”</a> on secant iteration, Halley’s iteration, Householder iteration, and so on, translate to a form like that of question 9?  (We have not tried this ourselves yet).</p></li>
+<li><p>Solve the Schroeder iteration problem of the paper <a class="reference external" href="https://doi.org/10.1145/3363520.3363521">Revisiting Gilbert Strang’s “A Chaotic Search for i”</a>.  This iteration generates the image of the “infinite number of infinity symbols” used in the Preamble, by the way.  We don’t know how to solve this problem (we mean, analytically, the way Newton, Secant, Halley, and Householder iterations were solved).  We’d be interested in your solution.</p></li>
+<li><p>A farmer has a goat, a rope, a circular field, and a pole fixed firmly at the <em>edge</em> of the field.  How much rope should the farmer allow so that the goat, tied to the pole, can eat the grass on exactly half the field? Discuss your assumptions a bit, and indicate how much precision in your solution is reasonable.</p></li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Contents"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="continued-fractions.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Continued Fractions</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="fractals-and-julia-sets.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Fractals and Julia Sets</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Neil J. Calkin, Eunice Y.S. Chan, and Robert M. Corless<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

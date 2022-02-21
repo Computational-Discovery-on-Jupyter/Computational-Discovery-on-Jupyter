@@ -1,0 +1,503 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solutions to the Rootfinding Chapter Exercises &#8212; Computational Discovery on Jupyter</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.jpg"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Solutions to the Julia Set Exercises" href="Solutions%20to%20the%20Julia%20Set%20Exercises.html" />
+    <link rel="prev" title="Solutions to Continued Fractions Exercises" href="Solutions%20to%20Continued%20Fraction%20Exercises.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Computational Discovery on Jupyter</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   Welcome to Computational Discovery on Jupyter
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Preface
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preamble.html">
+   Preamble
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/continued-fractions.html">
+   Continued Fractions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/rootfinding.html">
+   Rootfinding, Newton’s Method, and Dynamical Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/fractals-and-julia-sets.html">
+   Fractals and Julia Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/bohemian-matrices.html">
+   Bounded Height Matrices of Integers (Bohemian Matrices)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/mandelbrot.html">
+   Mandelbrot Polynomials and Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/chaos-game-representation.html">
+   Chaos Game Representation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/floating-point.html">
+   The Bare Minimum about Floating-Point
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/binomials-factorials-combinatorics.html">
+   Binomials, Factorials, and other Combinatorial Things
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/complex-numbers.html">
+   Complex Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/symbolic-computation.html">
+   Symbolic Computation: The Pitfalls
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Solutions
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Solutions%20to%20Continued%20Fraction%20Exercises.html">
+   Solutions to Continued Fractions Exercises
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Solutions to the Rootfinding Chapter Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Solutions%20to%20the%20Julia%20Set%20Exercises.html">
+   Solutions to the Julia Set Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Solutions%20to%20Exercises%20%28not%20Activities%29%20in%20the%20Bohemian%20Unit.html">
+   Solutions to Exercises (not Activities) in the Bohemian Unit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Solutions%20to%20Mandelbrot%20Exercises.html">
+   Solutions to Mandelbrot Polynomials and Matrices Exercises
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Back Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about.html">
+   About the authors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Solutions/Solutions to the Rootfinding Chapter Exercises.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Solutions to the Rootfinding Chapter Exercises</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="solutions-to-the-rootfinding-chapter-exercises">
+<h1>Solutions to the Rootfinding Chapter Exercises<a class="headerlink" href="#solutions-to-the-rootfinding-chapter-exercises" title="Permalink to this headline">¶</a></h1>
+<p>1: Write down as many questions as you can, about this section.</p>
+<p>What is the oldest method for finding roots of equations?  What is the best way to solve polynomials? Can you solve them analytically? <em>Is</em> there a best way to solve them? How do you solve multivariate polynomials (more than one equation in more than one unknown)? Can you <em>count</em> the number of solutions independently so that you know when you have found them all?  What’s the difference between an equation and an identity? Can there be infinitely many solutions to a single equation? (Sure: <span class="math notranslate nohighlight">\(\sin(x)=0\)</span> has solutions <span class="math notranslate nohighlight">\(k\pi\)</span> for any integer <span class="math notranslate nohighlight">\(k\)</span>) Can an equation have no solutions? (Sure: <span class="math notranslate nohighlight">\(\exp(z) = 0\)</span> has no finite solutions). Can an equation have <em>accumulation points</em> of solutions? (An accumulation point is a place where things pile up infinitely; an example is the set <span class="math notranslate nohighlight">\(1/k\)</span> for integers <span class="math notranslate nohighlight">\(k\)</span>, which has an accumulation point at <span class="math notranslate nohighlight">\(0\)</span>). Can we solve every polynomial equation in terms of continued fractions? Are there polynomial matrix equations, and can they be solved by Newton’s method? What happens with <em>multiple</em> roots, such as <span class="math notranslate nohighlight">\(z^2-2z+1=0\)</span>? If there are two solutions to an equation, which one is the right one? Can you find a formula for the <em>integer</em> solutions of an equation?</p>
+<p>2: Sometimes Newton iteration is “too expensive”; a cheaper alternative is the so-called <em>secant iteration</em>, which goes as follows: <span class="math notranslate nohighlight">\(z_{n+1} = z_n - f(z_n)(z_{n}-z_{n-1})/(f(z_n) - f(z_{n-1}))\)</span>. You need not one, but <em>two</em> initial approximations for this.  Put <span class="math notranslate nohighlight">\(f(z) = z^2-2\)</span> and start with the two initial approximations <span class="math notranslate nohighlight">\(z_0  = 1\)</span>, <span class="math notranslate nohighlight">\(z_1 = 3/2\)</span>.  Carry out several steps of this (in exact arithmetic is better).  Convert each rational <span class="math notranslate nohighlight">\(z_n\)</span> to continued fraction form.  Discuss what you find.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">niter</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">niter</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">niter</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mf">2.0</span>
+
+<span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">z</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.5</span>
+<span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">niter</span><span class="p">):</span>
+    <span class="n">z</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">z</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">z</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span> <span class="n">z</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span> <span class="n">z</span><span class="p">,</span> <span class="n">y</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.         1.5        1.4        1.4137931  1.41421569 1.41421356
+ 1.41421356 1.41421356 1.41421356 1.41421356] [-1.00000000e+00  2.50000000e-01 -4.00000000e-02 -1.18906064e-03
+  6.00730488e-06 -8.93145558e-10 -8.88178420e-16 -4.44089210e-16
+  4.44089210e-16 -4.44089210e-16]
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you do this problem using exact arithmetic, and convert the rational answers to continued fraction form, you get <span class="math notranslate nohighlight">\([1]\)</span>, <span class="math notranslate nohighlight">\([1;2]\)</span>, <span class="math notranslate nohighlight">\([1;2,2]\)</span>, <span class="math notranslate nohighlight">\([1;2,2,2,2]\)</span>, and so on, similar to Newton’s method.  But there are <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(2\)</span>, <span class="math notranslate nohighlight">\(3\)</span>, <span class="math notranslate nohighlight">\(5\)</span>, <span class="math notranslate nohighlight">\(8\)</span>, <span class="math notranslate nohighlight">\(13\)</span>, <span class="math notranslate nohighlight">\(21\)</span>, and so on partial quotients—these are Fibonacci numbers!  Newton’s method converges <em>quadratically</em> in that the number of correct entries in the continued fraction doubles every time (or nearly; it’s off by one, maybe).  The secant method converges at the rate of <span class="math notranslate nohighlight">\(\phi = (1+\sqrt{5})/2 \approx 1.618\)</span> because the ratio of successive Fibonacci numbers approaches <span class="math notranslate nohighlight">\(\phi\)</span> (quite quickly, really).</p>
+<p>3: Try Newton and secant iteration on some functions of your own choosing.  You should see that Newton iteration usually takes fewer iterations to converge, but since it needs a derivative evaluation while the secant method does not, each iteration is “cheaper” in terms of computational cost(if <span class="math notranslate nohighlight">\(f(z)\)</span> is at all expensive to evaluate, <span class="math notranslate nohighlight">\(f'(z)\)</span> usually is too; there are exceptions, of course).  The consensus seems to be that the secant method is a bit more practical; but in some sense it is just a variation on Newton’s method.</p>
+<p>This question doesn’t need an <em>answer</em> per se, because there are lots of examples all over the place, but perhaps your solutions need someone to look at them.  Things that can happen: first, and most usual, your code works and the roots get approximated well quite quickly, and the residuals behave something like <span class="math notranslate nohighlight">\(r_n = f(z_n) \approx C r_{n-1}^2\)</span> where <span class="math notranslate nohighlight">\(C\)</span> is some constant.  This is usually visible.  If your residuals do <em>not</em> get small quickly, then you might have a bug in your code, or you might have a multiple root.  Sometimes you can divide by zero (if <span class="math notranslate nohighlight">\(f'(z)=0\)</span> anywhere near), and sometimes the iteration can go off to infinity or minus infinity (if <span class="math notranslate nohighlight">\(f(z) = \exp(z)\)</span> then it could well go to <span class="math notranslate nohighlight">\(-\infty\)</span>).</p>
+<p>4: Both the Newton iteration and the secant iteration applied to <span class="math notranslate nohighlight">\(f(z) = z^2-a^2\)</span> can be <em>solved analytically</em> by the transformation <span class="math notranslate nohighlight">\(z = a\coth \theta\)</span>.  <a class="reference external" href="https://en.wikipedia.org/wiki/Hyperbolic_functions">Hyperbolic functions</a>  The iteration <span class="math notranslate nohighlight">\(z_{n+1} = (z_n + a^2/z_n)/2\)</span> becomes (you can check this) <span class="math notranslate nohighlight">\(\coth \theta_{n+1} = \cosh 2\theta_n/\sinh 2\theta_n = \coth 2\theta_n\)</span>, and so we may take <span class="math notranslate nohighlight">\(\theta_{n+1} = 2\theta_n\)</span>.  This can be solved to get <span class="math notranslate nohighlight">\(\theta_n = 2^n\theta_0\)</span> and so we have an analytical formula for each <span class="math notranslate nohighlight">\(z_n = a \coth( 2^n \theta_0 )\)</span>.  Try this on <span class="math notranslate nohighlight">\(a^2=2\)</span>; you should find that <span class="math notranslate nohighlight">\(\theta_0 = \mathrm{invcoth}(1/\sqrt{2})\)</span>.  By “invcoth” we mean the functional inverse of coth, i.e.: <span class="math notranslate nohighlight">\(\coth\theta_0 = 1/\sqrt{2}\)</span>. It may surprise you that that number is complex.  Nevertheless, you will find that all subsequent iterates are real, and <span class="math notranslate nohighlight">\(\coth 2^n\theta_0\)</span> goes to <span class="math notranslate nohighlight">\(1\)</span> very quickly.</p>
+<p>NB This was inadvertently difficult.  Neither numpy nor scipy has an invcoth (or arccoth) function. The Digital Library of Mathematical Functions says (equation 4.37.6) that arccoth(z) = arctanh(1/z).  Indeed we had to go to Maple to find out that invcoth<span class="math notranslate nohighlight">\((1/\sqrt{2}) = \ln(1+\sqrt{2}) - i\pi/2\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">niter</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="c1">#theta0 = np.arctanh(r2)  # Apparently this is real only?</span>
+<span class="n">theta0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">r2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span>
+<span class="n">coth</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cosh</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sinh</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>  <span class="c1"># Amazing that even this has to be defined</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">r2</span><span class="o">*</span><span class="n">coth</span><span class="p">(</span><span class="n">theta0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">r2</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">theta0</span><span class="p">,</span> <span class="n">z</span> <span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">niter</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="o">/</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">r2</span><span class="o">*</span><span class="n">coth</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">theta0</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.4142135623730951 1 (0.8813735870195429-1.5707963267948966j) (1.0000000000000002+4.329780281177466e-17j)
+1.5 (1.5000000000000002-2.164890140588737e-17j)
+1.4166666666666665 (1.4166666666666667-1.2027167447714604e-18j)
+1.4142156862745097 (1.4142156862745097-2.0808248176151256e-21j)
+1.4142135623746899 (1.41421356237469-3.124994721214149e-27j)
+1.414213562373095 (1.414213562373095+0j)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see numerically that the formula matches the iteration, up to rounding error.</p>
+<p>5: Try the above with <span class="math notranslate nohighlight">\(a^2=-1\)</span>.  NB the initial guess <span class="math notranslate nohighlight">\(z_0 = 1\)</span> fails! Try <span class="math notranslate nohighlight">\(z_0 = e = \exp(1) = 2.71828...\)</span> instead. For this, the <span class="math notranslate nohighlight">\(\theta_0 = 1j\arctan(e^{-1})\)</span>. Then you might enjoy reading Gil Strang’s lovely article <a class="reference external" href="https://www.jstor.org/stable/2686733">A Chaotic Search for <span class="math notranslate nohighlight">\(i\)</span></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">niter</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="c1">#theta0 = np.arctanh(r2)  # Apparently this is real only?</span>
+<span class="n">theta0</span> <span class="o">=</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># strange initial guess</span>
+<span class="n">coth</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cosh</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sinh</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>  <span class="c1"># Amazing that even this has to be defined</span>
+<span class="n">z</span> <span class="o">=</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">coth</span><span class="p">(</span><span class="n">theta0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="mi">1</span><span class="n">j</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">theta0</span><span class="p">,</span> <span class="n">z</span> <span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">niter</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">coth</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">theta0</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">z</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1j 2.718281828459045 0.352513421777619j (2.7182818284590446+0j)
+1.1752011936438014 (1.1752011936438014+0j)
+0.1621415327022399 (0.1621415327022399+0j)
+-3.0026548631469705 (-3.0026548631469714+0j)
+-1.334808126895235 (-1.3348081268952354+0j)
+-0.29281839085136163 (-0.2928183908513621+0j)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again we see that the formula matches the iteration up to roundoff error, although it’s working with complex numbers.  If we went for a few more iterations, though, we would see the rounding errors take over—this is a case where the iteration <em>depends sensitively on initial conditions</em>.  This is a hallmark of <a class="reference external" href="https://en.wikipedia.org/wiki/Chaos_theory">chaos</a>.</p>
+<p>6: Try to solve the <em>secant</em> iteration for <span class="math notranslate nohighlight">\(z^2-a^2\)</span> analytically.  You should eventually find a connection to Fibonacci numbers.</p>
+<p>This is a fun exercise in trig identities.  The solution can be found in the paper cited in problem 8 below.</p>
+<p>7: People keep inventing new rootfinding iterations.  Usually they are reinventions of methods that others have invented before, such as so-called <em>Schroeder</em> iteration and <em>Householder</em> iteration.  One step along the way is the method known as <em>Halley iteration</em>, which looks like this:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+z_{n+1} = z_n - \frac{f(z_n)}{f'(z_n) - \frac{f(z_n)f''(z_n)}{2f'(z_n)}} 
+\end{equation*}\]</div>
+<p>which, as you can see, also involves the <em>second</em> derivative of <span class="math notranslate nohighlight">\(f\)</span>.  When it works, it works quickly, typically converging in fewer iterations than Newton (although, typically, each step is more expensive computationally).  Try the method out on some examples.  It may help you to reuse your code (or Maple’s code) if you are told that Newton iteration on <span class="math notranslate nohighlight">\(F(z) = f(z)/\sqrt{f'(z)}\)</span> turns out to be identical to Halley iteration on <span class="math notranslate nohighlight">\(f(z)\)</span>.</p>
+<p>We’ve done a lot of these.  In the next unit, you will see fractal images from both Newton’s method and from Halley’s method. Here is Eunice with the resulting pictures from twenty functions, solved using Newton’s method and using Halley’s method.</p>
+<a class="reference internal image-reference" href="../_images/FortyFractals.jpg"><img alt="Eunice and the Forty Fractals." class="align-center" src="../_images/FortyFractals.jpg" style="height: 300px;" /></a>
+<p>8: Try to solve Halley’s iteration for <span class="math notranslate nohighlight">\(x^2-a\)</span> analytically.  Then you might enjoy reading <a class="reference external" href="https://doi.org/10.1145/3363520.3363521">Revisiting Gilbert Strang’s “A Chaotic Search for i”</a> by Ao Li and Rob Corless; Ao was a (graduate) student in the first iteration of this course at Western, and she solved—in class!—what was then an <em>open</em> problem (this problem!).</p>
+<p>The complete solution is in the paper linked above.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Solutions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Solutions%20to%20Continued%20Fraction%20Exercises.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Solutions to Continued Fractions Exercises</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Solutions%20to%20the%20Julia%20Set%20Exercises.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Solutions to the Julia Set Exercises</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Neil J. Calkin, Eunice Y.S. Chan, and Robert M. Corless<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

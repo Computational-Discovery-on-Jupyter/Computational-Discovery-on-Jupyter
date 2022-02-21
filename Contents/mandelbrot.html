@@ -1,0 +1,1155 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mandelbrot Polynomials and Matrices &#8212; Computational Discovery on Jupyter</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.jpg"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chaos Game Representation" href="chaos-game-representation.html" />
+    <link rel="prev" title="Bounded Height Matrices of Integers (Bohemian Matrices)" href="bohemian-matrices.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Computational Discovery on Jupyter</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   Welcome to Computational Discovery on Jupyter
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Preface
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preamble.html">
+   Preamble
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="continued-fractions.html">
+   Continued Fractions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="rootfinding.html">
+   Rootfinding, Newton’s Method, and Dynamical Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="fractals-and-julia-sets.html">
+   Fractals and Julia Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bohemian-matrices.html">
+   Bounded Height Matrices of Integers (Bohemian Matrices)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Mandelbrot Polynomials and Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chaos-game-representation.html">
+   Chaos Game Representation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/floating-point.html">
+   The Bare Minimum about Floating-Point
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/binomials-factorials-combinatorics.html">
+   Binomials, Factorials, and other Combinatorial Things
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/complex-numbers.html">
+   Complex Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/symbolic-computation.html">
+   Symbolic Computation: The Pitfalls
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Solutions
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Solutions%20to%20Continued%20Fraction%20Exercises.html">
+   Solutions to Continued Fractions Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Solutions%20to%20the%20Rootfinding%20Chapter%20Exercises.html">
+   Solutions to the Rootfinding Chapter Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Solutions%20to%20the%20Julia%20Set%20Exercises.html">
+   Solutions to the Julia Set Exercises
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Solutions%20to%20Exercises%20%28not%20Activities%29%20in%20the%20Bohemian%20Unit.html">
+   Solutions to Exercises (not Activities) in the Bohemian Unit
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Solutions%20to%20Mandelbrot%20Exercises.html">
+   Solutions to Mandelbrot Polynomials and Matrices Exercises
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Back Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about.html">
+   About the authors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Contents/mandelbrot.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-mandelbrot-set-and-mandelbrot-polynomials">
+   The Mandelbrot Set and Mandelbrot Polynomials
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Mandelbrot Polynomials and Matrices</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-mandelbrot-set-and-mandelbrot-polynomials">
+   The Mandelbrot Set and Mandelbrot Polynomials
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercises">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="mandelbrot-polynomials-and-matrices">
+<h1>Mandelbrot Polynomials and Matrices<a class="headerlink" href="#mandelbrot-polynomials-and-matrices" title="Permalink to this headline">¶</a></h1>
+<a class="reference internal image-reference" href="../_images/explosion32comp.gif"><img alt="Exploding Mandelbrot 32" class="align-center" src="../_images/explosion32comp.gif" style="height: 400px;" /></a>
+<p>This unit uses some ideas of the late <a class="reference external" href="https://en.wikipedia.org/wiki/Benoit_Mandelbrot">Benoit Mandelbrot</a> and some known facts about the so-called <em>Mandelbrot Set</em>, together with some of our own ideas, to help you to learn the following:</p>
+<ol class="simple">
+<li><p>A bit more Python programming, including more about <em>iteration</em>, <em>recursion</em>, <em>loop invariants</em>, <em>automatic differentiation</em>, <em>symbolic computation</em>, the use of <em>numerical libraries</em> from NumPy, and a bit more about graphics.</p></li>
+<li><p>A bit more about polynomials: the <em>cubic formula</em> (we won’t need the quartic formula, and even our use of the cubic formula is a bit contrived; but we think it’s fun), the <em>cost of numerical solution of polynomials</em> (we will point you to the current numerical champion polynomial solver, <a class="reference external" href="https://en.wikipedia.org/wiki/MPSolve">MPSolve</a>), and the rather necessary-to-know notions of <em>numerical stability</em> and <em>conditioning</em>.  Most of these topics are not taught as thoroughly as they should be, in one’s first numerical analysis course; so this material here should strengthen the results when you do encounter them.</p></li>
+<li><p>The surprising use of <em>eigenvalues</em> to find roots of polynomials.  The first treatment of eigenvalues (typically in a Linear Algebra course, even though the problem is not, strictly speaking, linear) usually runs the other way around, and defines the eigenvalues of a matrix in terms of the <em>characteristic polynomial</em> of the matrix. Indeed, we will teach you a concept not in the textbooks: namely, the concept of a <em>minimal height companion matrix</em> and we will show you one such for the Mandelbrot polynomials.</p></li>
+<li><p>A bit of <em>dynamical systems</em>, especially about <em>iteration</em> and <em>composition</em>.</p></li>
+<li><p>An excellent approximate formula for the <em>largest magnitude root</em> of the Mandelbrot polynomial.</p></li>
+<li><p>An honest-to-goodness analytic solution to the Mandelbrot iteration (this is a very new result, published only in 2021), valid for all <span class="math notranslate nohighlight">\(c\)</span> <em>outside</em> the Mandelbrot set.</p></li>
+<li><p>That we don’t know everything about Mandelbrot polynomials and matrices, and that you might be able to answer some open questions.</p></li>
+</ol>
+<div class="section" id="the-mandelbrot-set-and-mandelbrot-polynomials">
+<h2>The Mandelbrot Set and Mandelbrot Polynomials<a class="headerlink" href="#the-mandelbrot-set-and-mandelbrot-polynomials" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Mandelbrot_set">Wikipedia article on the Mandelbrot Set</a> is pretty comprehensive, and readable. We’ll sum up the definition here, and try to flesh it out a bit.  The definition is based on the following, apparently very simple, function:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+f(z) = z^2 + c 
+\end{equation*}\]</div>
+<p>This is apparently only a simple quadratic in <span class="math notranslate nohighlight">\(z\)</span>, and depends linearly on the constant <span class="math notranslate nohighlight">\(c\)</span>.  We now consider <em>what happens when we repeatedly apply this function</em>, starting at 0 (an apparently simple point).  That is, put</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+z_0 = 0
+\end{equation*}\]</div>
+<p>and then define <span class="math notranslate nohighlight">\(z_k\)</span> for <span class="math notranslate nohighlight">\(k=1\)</span>, <span class="math notranslate nohighlight">\(k=2\)</span>, <span class="math notranslate nohighlight">\(k=3\)</span>, and so on in turn by the iterative formula (or recursive formula, or <em>dynamical</em> formula)</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+z_{n+1} = f(z_n) = z_n^2 + c .
+\end{equation*}\]</div>
+<p>This gives us <span class="math notranslate nohighlight">\(z_1 = z_0^2 + c = 0^2 + c = c\)</span>, and then subsequently <span class="math notranslate nohighlight">\(z_2 = z_1^2 + c = c^2 + c\)</span>, and then <span class="math notranslate nohighlight">\(z_3 = (c^2+c)^2 + c = c^4 + 2c^3 + c^2 + c\)</span>, and so on.</p>
+<p>Several important things are going on here: this looks simple, and in one sense it is, but we will see some surprising things from this.  This is an example of a <em>nonlinear dynamical system</em> (perhaps the “most famous” example of a nonlinear dynamical system).  We are repeatedly composing the function <span class="math notranslate nohighlight">\(f(z) = z^2+c\)</span> with itself: <span class="math notranslate nohighlight">\(z_2 = f(c)\)</span> and <span class="math notranslate nohighlight">\(z_3 = f(f(c))\)</span> and <span class="math notranslate nohighlight">\(z_4 = f(f(f(c))\)</span>. Sometimes repeated composition is written with a power in brackets: <span class="math notranslate nohighlight">\(f^{(n)}(c)\)</span> means <span class="math notranslate nohighlight">\(f(f(f(\cdots(f(c))\cdots)))\)</span> where there are <span class="math notranslate nohighlight">\(n\)</span> copies of <span class="math notranslate nohighlight">\(f\)</span> used; this is where the pernicious notation <span class="math notranslate nohighlight">\(f^{(-1)}(c)\)</span> comes from, by the way. We will try to avoid this confusing notation.  Several things can be deduced about repeated composition.  For instance, the result of composing two polynomials together is another polynomial.  If <span class="math notranslate nohighlight">\(f(c)\)</span> is of degree <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(g(c)\)</span> is of degree <span class="math notranslate nohighlight">\(m\)</span> then <span class="math notranslate nohighlight">\(f(g(c))\)</span> is of degree <span class="math notranslate nohighlight">\(mn\)</span>, and so is <span class="math notranslate nohighlight">\(g(f(c))\)</span>.  If we were working with non-polynomials then we would also have to worry about matching up the domains and ranges, but polynomials are great because they always give a finite result output for any finite value input, and so composition always works.</p>
+<p>We have written <span class="math notranslate nohighlight">\(z_3\)</span> out above as an explicit degree <span class="math notranslate nohighlight">\(4\)</span> polynomial (in the variable <span class="math notranslate nohighlight">\(c\)</span>), but if we actually want to compute a numerical value of <span class="math notranslate nohighlight">\(z_3\)</span> given a numerical value for <span class="math notranslate nohighlight">\(c\)</span> (say, <span class="math notranslate nohighlight">\(c=-1.2\)</span>) then it turns out to be better in several ways to just use the iterative formula itself and not the explicit polynomial. This is true even though we could write that explicit polynomial somewhat more efficiently in what is known as <a class="reference external" href="https://en.wikipedia.org/wiki/Horner%27s_method">Horner form</a>: <span class="math notranslate nohighlight">\(z_3 = c\cdot(1 + c\cdot(1 + c\cdot(2 + c)))\)</span>, which can be evaluated using only three floating-point multiplications and three floating-point additions. Using the iterative formula directly, though, there is no work to compute <span class="math notranslate nohighlight">\(z_0\)</span>, there is no floating-point work to compute <span class="math notranslate nohighlight">\(z_1 = c\)</span>, there is one multiplication and one addition to compute <span class="math notranslate nohighlight">\(z_2\)</span>, and one more multiplication and one more addition to compute <span class="math notranslate nohighlight">\(z_3\)</span>, showing that <span class="math notranslate nohighlight">\(z_3\)</span> can be computed in only two “flops” instead of three.  Note: one “flop” is <em>defined to be</em> one floating-point multiplication (or division) together with one floating-point addition (or subtraction).  It’s not a fine-tuned measure; it was meant for use in older analyses of the cost of computation.  On modern architectures, the notion is not really all that helpful; but you can see here that no matter what, the cost is less if we use the iteration directly.  This advantage only increases as the iteration proceeds: to compute <span class="math notranslate nohighlight">\(z_4\)</span> you only need one more “flop,” i.e. <span class="math notranslate nohighlight">\(3\)</span> flops, whereas from its polynomial form you need <span class="math notranslate nohighlight">\(2^3 = 8\)</span> flops (even ignoring the work that has to be done simply to write the polynomial out).  For <span class="math notranslate nohighlight">\(z_{30}(c)\)</span> the iteration takes only 29 flops; but the explicit polynomial is degree <span class="math notranslate nohighlight">\(2^{29}\)</span> and would take <span class="math notranslate nohighlight">\(2^{29}\)</span> flops to evaluate (actually, it’s worse: we would have to use multiple precision to deal with the big integer coefficients).  Thus, somehow, the iteration has <em>compressed</em> a very high degree polynomial into a very efficient box.</p>
+<p>Another important thing to notice in the above is that by leaving <span class="math notranslate nohighlight">\(c\)</span> symbolic, we have turned Mandelbrot’s iteration formula (or recursion formula) into some kind of generator for certain polynomials.  These are called (naturally enough) <em>Mandelbrot polynomials</em>.  We list the first few here, or at least their coefficients.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpy.polynomial</span> <span class="kn">import</span> <span class="n">Polynomial</span> <span class="k">as</span> <span class="n">Poly</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">8</span>
+
+<span class="n">z0</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">z0</span> <span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># We can do &quot;symbolic polynomial arithmetic&quot; just with these coefficient vectors in Python</span>
+<span class="n">z1</span> <span class="o">=</span> <span class="n">z0</span><span class="o">*</span><span class="n">z0</span> <span class="o">+</span> <span class="n">c</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">z1</span> <span class="p">)</span>
+<span class="n">z2</span> <span class="o">=</span> <span class="n">z1</span><span class="o">*</span><span class="n">z1</span> <span class="o">+</span> <span class="n">c</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">z2</span> <span class="p">)</span>
+<span class="n">z3</span> <span class="o">=</span> <span class="n">z2</span><span class="o">*</span><span class="n">z2</span> <span class="o">+</span> <span class="n">c</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">z3</span> <span class="p">)</span>
+<span class="n">z4</span> <span class="o">=</span> <span class="n">z3</span><span class="o">*</span><span class="n">z3</span> <span class="o">+</span> <span class="n">c</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">z4</span> <span class="p">)</span>
+<span class="n">z5</span> <span class="o">=</span> <span class="n">z4</span><span class="o">*</span><span class="n">z4</span> <span class="o">+</span> <span class="n">c</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">z5</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
+0.0 + 1.0 x**1
+0.0 + 1.0 x**1 + 1.0 x**2
+0.0 + 1.0 x**1 + 1.0 x**2 + 2.0 x**3 + 1.0 x**4
+0.0 + 1.0 x**1 + 1.0 x**2 + 2.0 x**3 + 5.0 x**4 + 6.0 x**5 + 6.0 x**6 +
+4.0 x**7 + 1.0 x**8
+0.0 + 1.0 x**1 + 1.0 x**2 + 2.0 x**3 + 5.0 x**4 + 14.0 x**5 + 26.0 x**6 +
+44.0 x**7 + 69.0 x**8 + 94.0 x**9 + 114.0 x**10 + 116.0 x**11 +
+94.0 x**12 + 60.0 x**13 + 28.0 x**14 + 8.0 x**15 + 1.0 x**16
+</pre></div>
+</div>
+</div>
+</div>
+<p>Translating that Python notation for polynomials back into something standard, we have</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2e862fe8-e19b-4dee-b21d-86a14c3d5e6a">
+<span class="eqno">(68)<a class="headerlink" href="#equation-2e862fe8-e19b-4dee-b21d-86a14c3d5e6a" title="Permalink to this equation">¶</a></span>\[\begin{align}
+z_0 &amp;= 0 \\
+z_1 &amp;= c \\
+z_2 &amp;= c + c^2 \\
+z_3 &amp;= c + c^2 + 2c^3 + c^4\\
+z_4 &amp;= c + c^2 + 2c^3 + 5c^4 + 6c^5 + 6c^6 + 4c^7 + c^8 \\
+z_5 &amp;= c + c^2 + 2c^3 + 5c^4 + 14c^5 + 26c^6 + 44c^7 + 69c^8 + 94c^9 + 114c^{10} + 116c^{11} + 94c^{12} + 60c^{13} + 28c^{14} + 8c^{15} + c^{16} 
+\end{align}\]</div>
+<p>The Mandelbrot set is <em>defined to be</em> the set of <span class="math notranslate nohighlight">\(c\)</span> for which this iteration remains bounded for all <span class="math notranslate nohighlight">\(n\)</span>: that is, everything <em>except</em> those values of <span class="math notranslate nohighlight">\(c\)</span> for which <span class="math notranslate nohighlight">\(|z_n| \to \infty\)</span>.  That’s a weird sort of definition, and you have to first reassure yourself that there really are values of <span class="math notranslate nohighlight">\(c\)</span> for which the <span class="math notranslate nohighlight">\(z_n\)</span> do <em>not</em> remain bounded.  Indeed, almost the first thing you would try was <span class="math notranslate nohighlight">\(c=1\)</span>: then <span class="math notranslate nohighlight">\(z_0 = 0\)</span>, <span class="math notranslate nohighlight">\(z_1 = 1\)</span>, <span class="math notranslate nohighlight">\(z_2 = 2\)</span>, <span class="math notranslate nohighlight">\(z_3 = 5\)</span>, <span class="math notranslate nohighlight">\(z_4 = 26\)</span>, and so on; each succeeding number is one more than the square of the previous, and this goes to infinity rapidly, in some sense.</p>
+<p>Let us write a short program to evaluate Mandelbrot polynomials of arbitrary order.  This code shows several features: how to define a procedure (function); how to set a type for a parameter (more of a hint than a requirement, sadly); the use of keyword arguments; and the use of comments.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This short program will evaluate Mandelbrot polynomials at a given point,</span>
+<span class="c1"># or else it will compute the coefficient vector of a Mandelbrot polynomial.</span>
+<span class="c1"># Which it will do depends on the type of the argument &quot;c.&quot;</span>
+<span class="k">def</span> <span class="nf">Mandelbrot</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="mi">0</span><span class="o">*</span><span class="n">c</span> <span class="c1"># try to inherit the type of c</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">z</span><span class="o">*</span><span class="n">z</span> <span class="o">+</span> <span class="n">c</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+
+<span class="n">z</span> <span class="o">=</span> <span class="n">Mandelbrot</span><span class="p">(</span> <span class="mi">4</span><span class="p">,</span> <span class="n">Poly</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="p">)</span> <span class="c1"># The above code works with Polys (defined in previous cell)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">z</span> <span class="p">)</span>
+
+<span class="n">z</span> <span class="o">=</span> <span class="n">Mandelbrot</span><span class="p">(</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.2</span> <span class="p">)</span> <span class="c1"># The code also works with numeric input</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">z</span> <span class="p">)</span>
+
+<span class="n">z</span> <span class="o">=</span> <span class="n">Mandelbrot</span><span class="p">(</span> <span class="mi">21</span><span class="p">,</span> <span class="mf">1.0</span><span class="n">j</span> <span class="p">)</span> <span class="c1"># Will work with complex numbers also</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">z</span> <span class="p">)</span>
+
+<span class="n">z</span> <span class="o">=</span> <span class="n">Mandelbrot</span><span class="p">(</span> <span class="mi">30</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.2</span> <span class="p">)</span> <span class="c1"># Since it is iterative, we can ask for high iteration numbers on numerical input</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">z</span> <span class="p">)</span>
+
+<span class="c1"># Don&#39;t try that with c = Poly([0,1]) though; the result would be a vector of length half a billion or so</span>
+
+<span class="n">zbig</span> <span class="o">=</span> <span class="n">Mandelbrot</span><span class="p">(</span> <span class="mi">8</span><span class="p">,</span> <span class="n">Poly</span><span class="p">(</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="p">)</span> <span class="c1"># n=8 is ghastly already; n=9 is twice as ghastly</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">zbig</span> <span class="p">)</span>
+
+<span class="c1"># If you forget the ordering, you can use keyword arguments (&quot;kwargs&quot;)</span>
+<span class="n">zforgot</span> <span class="o">=</span> <span class="n">Mandelbrot</span><span class="p">(</span> <span class="n">c</span><span class="o">=</span><span class="n">Poly</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]),</span> <span class="n">n</span><span class="o">=</span><span class="mi">5</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">zforgot</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0 + 1.0 x**1 + 1.0 x**2 + 2.0 x**3 + 5.0 x**4 + 6.0 x**5 + 6.0 x**6 +
+4.0 x**7 + 1.0 x**8
+0.10507775999999969
+-1j
+0.17381269635430296
+0.0 + 1.0 x**1 + 1.0 x**2 + 2.0 x**3 + 5.0 x**4 + 14.0 x**5 + 42.0 x**6 +
+132.0 x**7 + 429.0 x**8 + 1302.0 x**9 + 3774.0 x**10 + 10652.0 x**11 +
+29538.0 x**12 + 80812.0 x**13 + 218324.0 x**14 + 582408.0 x**15 +
+1534301.0 x**16 + 3993030.0 x**17 + 10269590.0 x**18 + 26108844.0 x**19 +
+65626918.0 x**20 + 163107044.0 x**21 + 400844588.0 x**22 +
+974083128.0 x**23 + 2340595778.0 x**24 + 5560968284.0 x**25 +
+13062923500.0 x**26 + 30336029592.0 x**27 + 69640352964.0 x**28 +
+158015533208.0 x**29 + 354347339496.0 x**30 + 785248461712.0 x**31 +
+1719477330477.0 x**32 + 3720187393990.0 x**33 + 7952125694214.0 x**34 +
+16792863663700.0 x**35 + 35031835376454.0 x**36 + 72188854953372.0 x**37 +
+146932182777116.0 x**38 + 295372837865192.0 x**39 +
+586400982013486.0 x**40 + 1149605839249820.0 x**41 +
+2225301467579844.0 x**42 + 4252710138415640.0 x**43 +
+8022825031835276.0 x**44 + 1.493886254800156e+16 x**45 +
+2.74522110625734e+16 x**46 + 4.977884824296494e+16 x**47 +
+8.905447314769734e+16 x**48 + 1.5716052351565462e+17 x**49 +
+2.735517215808004e+17 x**50 + 4.6954064603904256e+17 x**51 +
+7.946434187602729e+17 x**52 + 1.3257523767902403e+18 x**53 +
+2.1800537744427668e+18 x**54 + 3.532711259225507e+18 x**55 +
+5.640327912922026e+18 x**56 + 8.870996681171368e+18 x**57 +
+1.374124652961244e+19 x**58 + 2.095927615188073e+19 x**59 +
+3.1472438318100877e+19 x**60 + 4.651494458339959e+19 x**61 +
+6.764924725333256e+19 x**62 + 9.679171961159197e+19 x**63 +
+1.3621049366959063e+20 x**64 + 1.88481251186354e+20 x**65 +
+2.5638622825000108e+20 x**66 + 3.4274362981108246e+20 x**67 +
+4.501599369559944e+20 x**68 + 5.8070677903005843e+20 x**69 +
+7.355370500364919e+20 x**70 + 9.144707579144346e+20 x**71 +
+1.1155975817333279e+21 x**72 + 1.3349570927521004e+21 x**73 +
+1.566365198635996e+21 x**74 + 1.8014527514029557e+21 x**75 +
+2.0299665953207946e+21 x**76 + 2.240353897304462e+21 x**77 +
+2.4206096463352514e+21 x**78 + 2.5593202759882837e+21 x**79 +
+2.6467918122462075e+21 x**80 + 2.676118542978973e+21 x**81 +
+2.6440369709363086e+21 x**82 + 2.5514255916439574e+21 x**83 +
+2.4033544189438906e+21 x**84 + 2.2086534878322604e+21 x**85 +
+1.9790454080732723e+21 x**86 + 1.727958521630465e+21 x**87 +
+1.469189341596552e+21 x**88 + 1.2156044111615272e+21 x**89 +
+9.780579233191515e+20 x**90 + 7.646558443405198e+20 x**91 +
+5.804305658425433e+20 x**92 + 4.2741735387408826e+20 x**93 +
+3.0506058020522374e+20 x**94 + 2.108359213615056e+20 x**95 +
+1.4096018354614474e+20 x**96 + 9.107194359314248e+19 x**97 +
+5.679679982609654e+19 x**98 + 3.4150590308701282e+19 x**99 +
+1.9772322481956975e+19 x**100 + 1.1008161481780603e+19 x**101 +
+5.884917700519129e+18 x**102 + 3.0161914185066373e+18 x**103 +
+1.4795944964627564e+18 x**104 + 6.934349554985459e+17 x**105 +
+3.098816487096832e+17 x**106 + 1.3176077015760622e+17 x**107 +
+5.3181959591958024e+16 x**108 + 2.0324543852025936e+16 x**109 +
+7333879739219600.0 x**110 + 2490875091238112.0 x**111 +
+793548088258508.0 x**112 + 236221241425176.0 x**113 +
+65418624260840.0 x**114 + 16771945556496.0 x**115 +
+3958458557608.0 x**116 + 854515874096.0 x**117 + 167453394320.0 x**118 +
+29524775520.0 x**119 + 4634116312.0 x**120 + 639097008.0 x**121 +
+76185104.0 x**122 + 7685024.0 x**123 + 637360.0 x**124 + 41696.0 x**125 +
+2016.0 x**126 + 64.0 x**127 + 1.0 x**128
+0.0 + 1.0 x**1 + 1.0 x**2 + 2.0 x**3 + 5.0 x**4 + 14.0 x**5 + 26.0 x**6 +
+44.0 x**7 + 69.0 x**8 + 94.0 x**9 + 114.0 x**10 + 116.0 x**11 +
+94.0 x**12 + 60.0 x**13 + 28.0 x**14 + 8.0 x**15 + 1.0 x**16
+</pre></div>
+</div>
+</div>
+</div>
+<p>One advantage of using Polynomials from NumPy is that they “know how to find their own roots”.  Let’s test that out; the Mandelbrot polynomials turn out to be tough customers, though (which is why they are used as test problems for <a class="reference external" href="https://en.wikipedia.org/wiki/MPSolve">MPSolve</a>, not at all coincidentally—we learned about them first from the MPSolve test suite).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Mandelbrot</span><span class="p">(</span> <span class="n">N</span><span class="p">,</span> <span class="n">Poly</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">rts</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">roots</span><span class="p">()</span>
+<span class="c1"># print( rts )</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">rt</span><span class="o">.</span><span class="n">real</span> <span class="k">for</span> <span class="n">rt</span> <span class="ow">in</span> <span class="n">rts</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">rt</span><span class="o">.</span><span class="n">imag</span> <span class="k">for</span> <span class="n">rt</span> <span class="ow">in</span> <span class="n">rts</span><span class="p">]</span>
+<span class="n">rootplot</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/mandelbrot_7_0.png" src="../_images/mandelbrot_7_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Great.  Are those roots correct?</span>
+<span class="n">residuals</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="p">(</span><span class="n">rt</span><span class="p">)</span> <span class="k">for</span> <span class="n">rt</span> <span class="ow">in</span> <span class="n">rts</span><span class="p">]</span>
+<span class="c1"># print( residuals ) shows them all, and it&#39;s a confusing mess</span>
+<span class="n">absresiduals</span> <span class="o">=</span> <span class="p">[</span><span class="nb">abs</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">residuals</span> <span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span> <span class="nb">max</span><span class="p">(</span><span class="n">absresiduals</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.889475739712785e-11
+</pre></div>
+</div>
+</div>
+</div>
+<p>That’s, that’s ok; it looks like we have in every case found the exact root of a polynomial different from <span class="math notranslate nohighlight">\(z_5(c)\)</span> by no more than <span class="math notranslate nohighlight">\(3\cdot 10^{-11}\)</span>.  Wait, what?  Well, putting in a computed root back to the polynomial (assuming it evaluates correctly) gives us a residual, say <span class="math notranslate nohighlight">\(r\)</span>.  That is <span class="math notranslate nohighlight">\(p(c^*) = r\)</span>, some (hopefully small) complex number.  But then <span class="math notranslate nohighlight">\(c^*\)</span> is the <em>exact</em> root of the following polynomial: <span class="math notranslate nohighlight">\(p(c) - r\)</span>.</p>
+<p>Two questions: Did Python evaluate the polynomial well? That is, are the residuals accurate?  And second, what happens to a root if we slightly change a polynomial?  We’ve just wandered into numerical analysis territory.  Let’s first compare the built-in evaluation of a polynomial by its coefficients to our iterative code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r1</span> <span class="o">=</span> <span class="n">rts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">residual1byPython</span> <span class="o">=</span> <span class="n">p</span><span class="p">(</span> <span class="n">r1</span> <span class="p">)</span>
+<span class="n">residual1byIteration</span> <span class="o">=</span> <span class="n">Mandelbrot</span><span class="p">(</span> <span class="n">n</span><span class="o">=</span><span class="n">N</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">r1</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Using n = &quot;</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">For the computed root &quot;</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="s2">&quot;The residual by Python is &quot;</span><span class="p">,</span> <span class="n">residual1byPython</span><span class="p">,</span> 
+      <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">while the residual by iteration is &quot;</span><span class="p">,</span> <span class="n">residual1byIteration</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using n =  5 
+For the computed root  (-1.9854242530538484+0j) The residual by Python is  (-4.889475739712785e-11+0j) 
+while the residual by iteration is  (-3.8020031567498336e-11+0j)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see some minor difference in that computation.  But it seems nothing to worry about.  Perhaps we should try a larger N, just to be sure?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Mandelbrot</span><span class="p">(</span> <span class="n">N</span><span class="p">,</span> <span class="n">Poly</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">rts</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">roots</span><span class="p">()</span>
+<span class="n">residuals</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="p">(</span><span class="n">rt</span><span class="p">)</span> <span class="k">for</span> <span class="n">rt</span> <span class="ow">in</span> <span class="n">rts</span><span class="p">]</span>
+<span class="c1"># print( residuals ) shows them all, and it&#39;s a confusing mess</span>
+<span class="n">absresiduals</span> <span class="o">=</span> <span class="p">[</span><span class="nb">abs</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">residuals</span> <span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span> <span class="nb">max</span><span class="p">(</span><span class="n">absresiduals</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">r1</span> <span class="o">=</span> <span class="n">rts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">residual1byPython</span> <span class="o">=</span> <span class="n">p</span><span class="p">(</span> <span class="n">r1</span> <span class="p">)</span>
+<span class="n">residual1byIteration</span> <span class="o">=</span> <span class="n">Mandelbrot</span><span class="p">(</span> <span class="n">n</span><span class="o">=</span><span class="n">N</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">r1</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Using n = &quot;</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="s2">&quot;and degree d = &quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">degree</span><span class="p">(),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">For the computed root &quot;</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="s2">&quot;The residual by Python is &quot;</span><span class="p">,</span> <span class="n">residual1byPython</span><span class="p">,</span> 
+      <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">while the residual by iteration is &quot;</span><span class="p">,</span> <span class="n">residual1byIteration</span> <span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">rt</span><span class="o">.</span><span class="n">real</span> <span class="k">for</span> <span class="n">rt</span> <span class="ow">in</span> <span class="n">rts</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">rt</span><span class="o">.</span><span class="n">imag</span> <span class="k">for</span> <span class="n">rt</span> <span class="ow">in</span> <span class="n">rts</span><span class="p">]</span>
+<span class="n">rootplot</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.00048239985171521035
+Using n =  6 and degree d =  32 
+For the computed root  (-1.996377400742004+0j) The residual by Python is  (0.00048239985171521035+0j) 
+while the residual by iteration is  (0.00054560657695224+0j)
+</pre></div>
+</div>
+<img alt="../_images/mandelbrot_12_1.png" src="../_images/mandelbrot_12_1.png" />
+</div>
+</div>
+<p>Ooh, that’s not very good.  Try n=7 and see it get much worse; n=8 and worse yet (ridiculously worse). The issue seems to either be Python’s polynomial rootfinder (we kind of thought it would be bad, but were hoping it was better than that), or its evaluation of the polynomial from its coefficients.  Of course the two things are connected.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Mandelbrot</span><span class="p">(</span> <span class="n">N</span><span class="p">,</span> <span class="n">Poly</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">rts</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">roots</span><span class="p">()</span>
+<span class="n">residuals</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="p">(</span><span class="n">rt</span><span class="p">)</span> <span class="k">for</span> <span class="n">rt</span> <span class="ow">in</span> <span class="n">rts</span><span class="p">]</span>
+<span class="c1"># print( residuals ) shows them all, and it&#39;s a confusing mess</span>
+<span class="n">absresiduals</span> <span class="o">=</span> <span class="p">[</span><span class="nb">abs</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">residuals</span> <span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span> <span class="nb">max</span><span class="p">(</span><span class="n">absresiduals</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">r1</span> <span class="o">=</span> <span class="n">rts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">residual1byPython</span> <span class="o">=</span> <span class="n">p</span><span class="p">(</span> <span class="n">r1</span> <span class="p">)</span>
+<span class="n">residual1byIteration</span> <span class="o">=</span> <span class="n">Mandelbrot</span><span class="p">(</span> <span class="n">n</span><span class="o">=</span><span class="n">N</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">r1</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Using n = &quot;</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="s2">&quot;and degree d = &quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">degree</span><span class="p">(),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">For the computed root &quot;</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="s2">&quot;The residual by Python is &quot;</span><span class="p">,</span> <span class="n">residual1byPython</span><span class="p">,</span> 
+      <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">while the residual by iteration is &quot;</span><span class="p">,</span> <span class="n">residual1byIteration</span> <span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">rt</span><span class="o">.</span><span class="n">real</span> <span class="k">for</span> <span class="n">rt</span> <span class="ow">in</span> <span class="n">rts</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">rt</span><span class="o">.</span><span class="n">imag</span> <span class="k">for</span> <span class="n">rt</span> <span class="ow">in</span> <span class="n">rts</span><span class="p">]</span>
+<span class="n">rootplot</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1293246553086.163
+Using n =  7 and degree d =  64 
+For the computed root  (-2.2533988762880446-0.0973039259450382j) The residual by Python is  (816864027405.8179-1002606506960.5269j) 
+while the residual by iteration is  (751291033921.9681-922289671539.1459j)
+</pre></div>
+</div>
+<img alt="../_images/mandelbrot_14_1.png" src="../_images/mandelbrot_14_1.png" />
+</div>
+</div>
+<p>The fact that the roots near <span class="math notranslate nohighlight">\(-2\)</span> have <em>exploded</em> (see the fireworks GIF at the beginning) can be explained using what are known as <em>pseudozeros</em>.</p>
+<p>Instead of pursuing that now, though, let us do something different. Namely, let us introduce an approximate formula for the <em>largest magnitude root</em>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\rho_k \approx -2 + \frac32 \pi^2 4^{-k} + O(4^{-2k}) .
+\end{equation*}\]</div>
+<p>This formula was published in 2013 by one of us (RMC) and his then-student Piers W. Lawrence, and with the help of another of us (NJC).  We (the present authors, including EYSC) discuss it a bit in our paper <a class="reference external" href="https://doi.org/10.5206/mt.v1i1.14037">Some Facts and Conjectures on Mandelbrot Polynomials</a> but for now let’s just use it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="mi">4</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">k</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">rho</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">-</span> <span class="o">-</span><span class="mf">1.9854242530543296</span> <span class="p">)</span> <span class="c1"># Was -1.9854242530543296 above</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">rho</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">-</span> <span class="o">-</span><span class="mf">1.9963773629263977</span> <span class="p">)</span> <span class="c1"># Was -1.9963773629263977+0j above</span>
+<span class="nb">print</span><span class="p">(</span> <span class="mi">4</span><span class="o">**</span><span class="mi">6</span><span class="o">*</span><span class="n">Mandelbrot</span><span class="p">(</span> <span class="n">n</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">rho</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="c1"># Like 4 times 4 (pattern observed experimentally)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="mi">4</span><span class="o">**</span><span class="mi">7</span><span class="o">*</span><span class="n">Mandelbrot</span><span class="p">(</span> <span class="n">n</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">rho</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="c1"># Like 4 times 5</span>
+<span class="nb">print</span><span class="p">(</span> <span class="mi">4</span><span class="o">**</span><span class="mi">8</span><span class="o">*</span><span class="n">Mandelbrot</span><span class="p">(</span> <span class="mi">8</span><span class="p">,</span> <span class="n">rho</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="p">))</span> <span class="c1"># Like 4 times 6</span>
+<span class="nb">print</span><span class="p">(</span> <span class="mi">4</span><span class="o">**</span><span class="mi">9</span><span class="o">*</span><span class="n">Mandelbrot</span><span class="p">(</span> <span class="mi">9</span><span class="p">,</span> <span class="n">rho</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span> <span class="p">))</span>  <span class="c1"># Like 4 times 7</span>
+<span class="nb">print</span><span class="p">(</span> <span class="mi">4</span><span class="o">**</span><span class="mi">13</span><span class="o">*</span><span class="n">Mandelbrot</span><span class="p">(</span> <span class="mi">13</span><span class="p">,</span> <span class="n">rho</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="p">))</span> <span class="c1"># Like 4 times 11</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.00011831862376210367
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-8.279993125359653e-06
+16.828183511695897
+20.712561469499633
+24.591600405416102
+28.468529149366077
+44.025735571980476
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we see something interesting (to a numerical analyst).  The largest root (computed by Python) is actually better than its residual indicates!  We also see something interesting to an analyst: there is apparently a pattern in the residual: the experiments above predict that</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+z( \rho_k ) = \frac{4(k-2)}{4^k} + \cdots
+\end{equation*}\]</div>
+<p>and if this were true in general then this would be enough to deduce that there really is a root nearby: one Newton correction from here will help as we will see below (but this turns out to be tricky because the <em>second</em> derivatives are so <em>large</em> in this area; this fact interferes with the theory of Newton iteration, as you may eventually see in your numerical analysis class).</p>
+<p>Now let us see a nifty way to compute derivatives of the iteration: just differentiate the loop!  But we have to be careful to do it in the right order (this is quite weird).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">MandelbrotWithDerivative</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="n">dz</span> <span class="o">=</span> <span class="mi">0</span><span class="o">*</span><span class="n">c</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="mi">0</span><span class="o">*</span><span class="n">c</span> <span class="c1"># try to inherit the type of c</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">dz</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="o">*</span><span class="n">dz</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># A bit iffy to add constants to Polynomials in Python, but maybe it works. Yes! It does!</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">z</span><span class="o">*</span><span class="n">z</span> <span class="o">+</span> <span class="n">c</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">dz</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">MandelbrotWithDerivative</span><span class="p">(</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.2</span> <span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">MandelbrotWithDerivative</span><span class="p">(</span> <span class="mi">3</span><span class="p">,</span> <span class="n">Poly</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-1.1423999999999999, 0.32800000000000007)
+(Polynomial([0., 1., 1., 2., 1.], domain=[-1.,  1.], window=[-1.,  1.]), Polynomial([1., 2., 6., 4.], domain=[-1.,  1.], window=[-1.,  1.]))
+</pre></div>
+</div>
+</div>
+</div>
+<p>The output there is a bit hard to read, but it <em>looks</em> like it worked; the derivative of <span class="math notranslate nohighlight">\(z_3 = c + c^2 + 2c^3 + c^4\)</span> is indeed <span class="math notranslate nohighlight">\(1 + 2c + 6c^2 + 4c^3\)</span>.  We don’t really know what all that “domain” and “window” stuff is, but let’s just use the numerical part: if we plug in <span class="math notranslate nohighlight">\(c=-1.2\)</span> into <span class="math notranslate nohighlight">\(1 + 2c + 6c^2 + 4c^3\)</span> we should get <span class="math notranslate nohighlight">\(0.328\)</span>.  Let’s try it and see.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">pd</span><span class="p">(</span><span class="o">-</span><span class="mf">1.2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3280000000000002
+</pre></div>
+</div>
+</div>
+</div>
+<p>That looks good.  On this machine at the time of writing, the final digits are different (2 vs 7 from before) but it’s convincing.  That code computes both <span class="math notranslate nohighlight">\(z(c)\)</span> and <span class="math notranslate nohighlight">\(z'(c)\)</span>, with the same loop. So we can now take a Newton step. Or two.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pdp</span> <span class="o">=</span> <span class="n">MandelbrotWithDerivative</span><span class="p">(</span> <span class="mi">6</span><span class="p">,</span> <span class="n">rho</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">improved</span> <span class="o">=</span> <span class="n">rho</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span> <span class="o">-</span> <span class="n">pdp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">pdp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">rho</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span> <span class="n">pdp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">pdp</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">improved</span><span class="p">,</span> <span class="n">Mandelbrot</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="n">improved</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">pdp2</span> <span class="o">=</span> <span class="n">MandelbrotWithDerivative</span><span class="p">(</span> <span class="mi">6</span><span class="p">,</span> <span class="n">improved</span> <span class="p">)</span>
+<span class="n">better</span> <span class="o">=</span> <span class="n">improved</span> <span class="o">-</span> <span class="n">pdp2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">pdp2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">better</span><span class="p">,</span> <span class="n">Mandelbrot</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="n">better</span> <span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.996385642919523 0.004108443240160131 -432.51765820326005 -1.9963761440166177 2.7235905697420293e-06
+-1.9963761377111966 1.2387868508767497e-12
+</pre></div>
+</div>
+</div>
+</div>
+<p>Good!  Now we can (maybe) check Python’s rootfinder for larger <span class="math notranslate nohighlight">\(N\)</span>.  Let’s try <span class="math notranslate nohighlight">\(N=8\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">Mandelbrot</span><span class="p">(</span> <span class="n">N</span><span class="p">,</span> <span class="n">Poly</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">z</span><span class="o">.</span><span class="n">degree</span><span class="p">()</span> <span class="p">)</span>
+<span class="n">rts</span> <span class="o">=</span> <span class="n">z</span><span class="o">.</span><span class="n">roots</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">rts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span>  <span class="c1"># Hopelessly wrong (can&#39;t be smaller than -2)</span>
+<span class="n">rho8</span> <span class="o">=</span> <span class="n">rho</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">z</span><span class="p">(</span> <span class="n">rho8</span> <span class="p">)</span> <span class="p">)</span> <span class="c1"># Disaster has struck the polynomial evaluation</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">Mandelbrot</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">N</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">rho8</span><span class="p">))</span> <span class="c1"># The iteration is better; *much* better</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>128
+(-3.623436352843406+0j)
+5.240549270312891e+33
+0.0003752380432955338
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that the built-in Python rootfinder has failed hopelessly, already at <span class="math notranslate nohighlight">\(N=8\)</span> (when there are only <span class="math notranslate nohighlight">\(128\)</span> roots to compute). There is a technical issue here: this polynomial is what is known as <em>ill-conditioned</em>. That means that it is <em>sensitive to changes in its input</em>.  We could pursue that, with the notion of <em>pseudozeros</em> (and that’s what leads to the fireworks GIF that we opened this section with), but for the moment we will try another tack: instead of working with Mandelbrot polynomials, we will work with Mandelbrot <em>matrices</em>, which turn out to be much better behaved.</p>
+<div class="proof remark admonition" id="eigenvalue_remark">
+<p class="admonition-title"><span class="caption-number">Remark 1 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>It may seem silly, and wasteful*, to solve polynomials by finding eigenvalues of matrices.  Against that, we actually have software for eigenvalue problems that is <em>really good</em> in the sense that it is robust, accurate, and efficient.  So we are “reducing the problem to a previously solved problem” which is like recycling, and so is not wasteful in that sense.  However, at some point the wastefulness (we store <span class="math notranslate nohighlight">\(d^2\)</span> numbers, or sometimes even more, to attack a polynomial of degree <span class="math notranslate nohighlight">\(d\)</span>) will catch up to us.  But it turns out that this “wasteful” approach gets us <em>farther</em> than trying to solve the polynomials directly does.</p>
+</div>
+</div><p><em>Any</em> guesses as to how NumPy’s “roots” command works?  —Heh.</p>
+<p>Let <span class="math notranslate nohighlight">\(\mathbf{M}_1 = [c]\)</span> be the <span class="math notranslate nohighlight">\(1\)</span>-by-<span class="math notranslate nohighlight">\(1\)</span> matrix whose determinant is <span class="math notranslate nohighlight">\(z_1(c)\)</span>. Now define</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+    \mathbf{M}_{k+1} = 
+    \begin{bmatrix}
+    \mathbf{M}_k &amp; -c \mathbf{e}_1\mathbf{e}_{d_k}^T \\
+    \mathbf{e}_1\mathbf{e}_{d_k}^T &amp; \mathbf{M}_k
+    \end{bmatrix} .
+\end{equation*}\]</div>
+<p>Here the <span class="math notranslate nohighlight">\(\mathbf{e}_j\)</span>’s are the unit elementary vectors of dimension <span class="math notranslate nohighlight">\(d_k=2^{k-1}\)</span>; all they do here is put a <span class="math notranslate nohighlight">\(1\)</span> in the top right corner of the relevant blocks. The next two matrices are then</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+    \left[\begin{array}{cc}
+c  &amp; -c  
+\\
+ 1 &amp; c  
+\end{array}\right]
+\end{equation*}\]</div>
+<p>and</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+    \left[\begin{array}{cccc}
+c  &amp; -c  &amp; 0 &amp; \mathbf{-{c}}  
+\\
+ 1 &amp; c  &amp; 0 &amp; 0 
+\\
+ 0 &amp; \mathbf{1} &amp; c  &amp; -c  
+\\
+ 0 &amp; 0 &amp; 1 &amp; c  
+\end{array}\right]
+\end{equation*}\]</div>
+<p>where we have bold-faced the two new entries that connect the two copies of <span class="math notranslate nohighlight">\(\mathbf{M}_2\)</span> that lie in the upper left corner and bottom right corner.</p>
+<p>We can write this matrix as <span class="math notranslate nohighlight">\(\mathbf{A} + c\mathbf{B}\)</span> where</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\mathbf{A} = \begin{bmatrix}
+0 &amp; 0 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 
+\end{bmatrix}
+\end{equation*}\]</div>
+<p>and</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\mathbf{B} = \begin{bmatrix}
+1 &amp; -1 &amp; \phantom{-}0 &amp; -1 \\
+0 &amp; \phantom{-}1 &amp; \phantom{-}0 &amp; \phantom{-}0 \\
+0 &amp; \phantom{-}0 &amp; \phantom{-}1 &amp; -1\\
+0 &amp; \phantom{-}0 &amp; \phantom{-}0 &amp; \phantom{-}1 
+\end{bmatrix} .
+\end{equation*}\]</div>
+<p>Finding values of <span class="math notranslate nohighlight">\(c\)</span> which make the determinant of <span class="math notranslate nohighlight">\(\mathbf{A} + c \mathbf{B}\)</span> equal to zero is an example of what is called a <em>generalized</em> eigenvalue problem, and <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.eigvals.html#scipy.linalg.eigvals">SciPy’s linalg routine eigvals</a> is set up do do this already, except that it solves problems of the form <span class="math notranslate nohighlight">\(\det( \mathbf{A} - \lambda \mathbf{B} ) = 0\)</span> so we will have to change the sign of our matrix <span class="math notranslate nohighlight">\(\mathbf{B}\)</span>.</p>
+<p>The matrix <span class="math notranslate nohighlight">\(\mathbf{A_k}\)</span> is analogous at every dimension <span class="math notranslate nohighlight">\(k\)</span>: it is zero except for the subdiagonal which is all <span class="math notranslate nohighlight">\(1\)</span>s.  The matrix <span class="math notranslate nohighlight">\(\mathbf{B}_k\)</span> is very simply constructed from two copies of the matrix <span class="math notranslate nohighlight">\(\mathbf{B}_{k-1}\)</span> (if <span class="math notranslate nohighlight">\(k&gt;1\)</span>), with an additional <span class="math notranslate nohighlight">\(-1\)</span> tucked into the upper right corner.  We might as well build <span class="math notranslate nohighlight">\(-\mathbf{B}_k\)</span> instead of building <span class="math notranslate nohighlight">\(\mathbf{B}_k\)</span> while we are at it.  We will do this <em>recursively</em>.  See the code below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <span class="n">eigvals</span><span class="p">,</span> <span class="n">tri</span>
+
+<span class="k">def</span> <span class="nf">getMinusBmatrix</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span> 
+        <span class="n">minusB</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">return</span><span class="p">(</span> <span class="n">minusB</span> <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">zeroBlock</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="p">[</span><span class="n">d</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span><span class="n">d</span><span class="o">//</span><span class="mi">2</span><span class="p">]</span> <span class="p">)</span>
+        <span class="n">smallerB</span>  <span class="o">=</span> <span class="n">getMinusBmatrix</span><span class="p">(</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span> <span class="p">)</span>  <span class="c1"># This is a recursive program: it calls itself.</span>
+        <span class="n">minusB</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bmat</span><span class="p">(</span> <span class="s1">&#39;smallerB, zeroBlock; zeroBlock, smallerB&#39;</span><span class="p">)</span>
+        <span class="n">minusB</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># Glue the two blocks together with a 1 in the upper right corner</span>
+        <span class="k">return</span><span class="p">(</span> <span class="n">minusB</span> <span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">getAmatrix</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">d</span><span class="p">,</span><span class="n">d</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="p">):</span>
+        <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">A</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">getAmatrix</span><span class="p">(</span> <span class="n">N</span>  <span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">getMinusBmatrix</span><span class="p">(</span> <span class="n">N</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">N</span><span class="p">,</span> <span class="n">A</span> <span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">B</span> <span class="p">)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">getAmatrix</span><span class="p">(</span> <span class="n">N</span>  <span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">getMinusBmatrix</span><span class="p">(</span> <span class="n">N</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">N</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">B</span> <span class="p">)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">getAmatrix</span><span class="p">(</span> <span class="n">N</span>  <span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">getMinusBmatrix</span><span class="p">(</span> <span class="n">N</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">N</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">B</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 [[0. 0.]
+ [1. 0.]] 
+ [[-1.  1.]
+ [ 0. -1.]]
+3 [[0. 0. 0. 0.]
+ [1. 0. 0. 0.]
+ [0. 1. 0. 0.]
+ [0. 0. 1. 0.]] 
+ [[-1.  1.  0.  1.]
+ [ 0. -1.  0.  0.]
+ [ 0.  0. -1.  1.]
+ [ 0.  0.  0. -1.]]
+4 [[0. 0. 0. 0. 0. 0. 0. 0.]
+ [1. 0. 0. 0. 0. 0. 0. 0.]
+ [0. 1. 0. 0. 0. 0. 0. 0.]
+ [0. 0. 1. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 1. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 1. 0. 0. 0.]
+ [0. 0. 0. 0. 0. 1. 0. 0.]
+ [0. 0. 0. 0. 0. 0. 1. 0.]] 
+ [[-1.  1.  0.  1.  0.  0.  0.  1.]
+ [ 0. -1.  0.  0.  0.  0.  0.  0.]
+ [ 0.  0. -1.  1.  0.  0.  0.  0.]
+ [ 0.  0.  0. -1.  0.  0.  0.  0.]
+ [ 0.  0.  0.  0. -1.  1.  0.  1.]
+ [ 0.  0.  0.  0.  0. -1.  0.  0.]
+ [ 0.  0.  0.  0.  0.  0. -1.  1.]
+ [ 0.  0.  0.  0.  0.  0.  0. -1.]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">getAmatrix</span><span class="p">(</span> <span class="n">N</span>  <span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">getMinusBmatrix</span><span class="p">(</span> <span class="n">N</span> <span class="p">)</span>
+<span class="c1"># Now compute the generalized eigenvalues</span>
+<span class="n">E</span> <span class="o">=</span> <span class="n">eigvals</span><span class="p">(</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">real</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">E</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">imag</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">E</span> <span class="p">]</span>
+<span class="n">residuals</span> <span class="o">=</span> <span class="p">[</span> <span class="n">Mandelbrot</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">e</span><span class="p">)</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">E</span><span class="p">]</span>
+<span class="n">absresiduals</span> <span class="o">=</span> <span class="p">[</span><span class="nb">abs</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">residuals</span> <span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span> <span class="nb">max</span><span class="p">(</span><span class="n">absresiduals</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">rootplot</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.287747934483832e-11
+</pre></div>
+</div>
+<img alt="../_images/mandelbrot_29_1.png" src="../_images/mandelbrot_29_1.png" />
+</div>
+</div>
+<p>This shows that (at least for <span class="math notranslate nohighlight">\(N=8\)</span>) solving the (generalized) eigenvalue problem is <em>much</em> more accurate than trying to solve the explicit Mandelbrot polynomial at the same dimension.</p>
+<p>Now it turns out that the matrix method will also (eventually) run into trouble, at about <span class="math notranslate nohighlight">\(N=17\)</span> (when RMC’s computer tries to store all the zeros in the <span class="math notranslate nohighlight">\(d\)</span> by <span class="math notranslate nohighlight">\(d\)</span> matrix, and runs out of memory); the dimension of the matrix for <span class="math notranslate nohighlight">\(N=14\)</span> is already <span class="math notranslate nohighlight">\(16384\)</span> by <span class="math notranslate nohighlight">\(16384\)</span>, using about sixteen thousand times too much memory, and so this isn’t that surprising.</p>
+<p>Here are some results of running this code on a 2019 Microsoft Surface Pro (1.3GHz, 4 cores; not that the 4 cores are specially used by Python).  We report the Mandelbrot index, the dimension, the time taken in seconds, and the maximum absolute value of the residual.  We see that in all the cases we get accurate roots, but we also see that as the dimension doubles the cost increases by <em>more</em> than a factor of <span class="math notranslate nohighlight">\(2^3=8\)</span>, consistently; we do not know why.  We estimated that running this for <span class="math notranslate nohighlight">\(N=14\)</span> would take about <span class="math notranslate nohighlight">\(3\)</span> hours (it took <span class="math notranslate nohighlight">\(2\)</span> hours and <span class="math notranslate nohighlight">\(22\)</span> minutes), and would return all roots to about single precision accuracy, which it did (we are working in double precision, of course).  We could use a supposedly faster language (Julia, for instance: except that, ironically, Python seems to be faster for generalized eigenvalues) to speed the computation up, but the <em>condition number</em> of these eigenvalues also seems to be growing; this means the accuracy will diminish.  Another approach seems needed: see MPSolve, and see <a class="reference external" href="https://ir.lib.uwo.ca/etd/4028/">Eunice Chan’s Master’s thesis</a>.  Also, <em>generalized</em> eigenvalue code is (quite a bit!) slower than code for the simple eigenvalue problem <span class="math notranslate nohighlight">\(\mathbf{A}\mathbf{x} = \lambda \mathbf{x}\)</span> and we could convert our generalized eigenvalue problem to a simple one by postmultiplying by <span class="math notranslate nohighlight">\(\mathbf{B}^{-1}\)</span> (we can even do that analytically, and this works <em>very</em> well: see the exercises) but for now we will step away from the keyboard, happy with accurately computing the roots of the degree <span class="math notranslate nohighlight">\(8192\)</span> Mandelbrot polynomial by means of a generalized eigenvalue problem.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>n</p></th>
+<th class="head"><p>d</p></th>
+<th class="head"><p>time(s)</p></th>
+<th class="head"><p>slowdown</p></th>
+<th class="head"><p>max residual</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>256</p></td>
+<td><p>0.06</p></td>
+<td><p></p></td>
+<td><p><span class="math notranslate nohighlight">\(2.8\cdot 10^{-11}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>512</p></td>
+<td><p>0.6</p></td>
+<td><p>10.</p></td>
+<td><p><span class="math notranslate nohighlight">\(1.8\cdot 10^{-10}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>1024</p></td>
+<td><p>6</p></td>
+<td><p>10.</p></td>
+<td><p><span class="math notranslate nohighlight">\(1.6\cdot 10^{-9}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>2048</p></td>
+<td><p>78</p></td>
+<td><p>13.</p></td>
+<td><p><span class="math notranslate nohighlight">\(3.5\cdot 10^{-9}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>4096</p></td>
+<td><p>850</p></td>
+<td><p>11.</p></td>
+<td><p><span class="math notranslate nohighlight">\(2.0\cdot 10^{-8}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>14</p></td>
+<td><p>8192</p></td>
+<td><p>8512</p></td>
+<td><p>10.</p></td>
+<td><p><span class="math notranslate nohighlight">\(4.0\cdot 10^{-7}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<div class="proof remark admonition" id="memory_remark">
+<p class="admonition-title"><span class="caption-number">Remark 2 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>If we are more careful with memory and use what are known as <em>sparse</em> matrices, then we can go a lot farther.  Using sparse matrices, and special algorithms for finding eigenvalues of sparse matrices, Piers Lawrence was able to take this approach up to about a half a million eigenvalues (<span class="math notranslate nohighlight">\(n=19\)</span>); it was a bit awkward to make sure that we got all the eigenvalues once and only once, but it worked.  Eunice Chan got up over two million eigenvalues with a different method (homotopy continuation), but the champion is still MPSolve; Dario Bini and Leonard Robol used their software to compute over four million roots of Mandelbrot polynomials.</p>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">N</span><span class="o">=</span><span class="mi">9</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">getAmatrix</span><span class="p">(</span> <span class="n">N</span>  <span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">getMinusBmatrix</span><span class="p">(</span> <span class="n">N</span> <span class="p">)</span>
+<span class="c1"># print( A, &quot;\n&quot;, B )</span>
+<span class="n">built</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">E</span> <span class="o">=</span> <span class="n">eigvals</span><span class="p">(</span> <span class="n">A</span><span class="p">,</span> <span class="n">B</span> <span class="p">)</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">real</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">E</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">imag</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">E</span> <span class="p">]</span>
+<span class="n">residuals</span> <span class="o">=</span> <span class="p">[</span> <span class="n">Mandelbrot</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">e</span><span class="p">)</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">E</span><span class="p">]</span>
+<span class="n">absresiduals</span> <span class="o">=</span> <span class="p">[</span><span class="nb">abs</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">residuals</span> <span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span> <span class="nb">max</span><span class="p">(</span><span class="n">absresiduals</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Time taken was &quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">-</span><span class="n">built</span><span class="p">,</span> <span class="s2">&quot;seconds to find d=&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> 
+      <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">generalized eigenvalues of matrices that took &quot;</span><span class="p">,</span> <span class="n">built</span><span class="o">-</span><span class="n">start</span><span class="p">,</span> <span class="s2">&quot;seconds to build&quot;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.678724488537682e-11
+Time taken was  0.06501507759094238 seconds to find d= 256 
+generalized eigenvalues of matrices that took  0.0010001659393310547 seconds to build
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rootplot</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/mandelbrot_33_0.png" src="../_images/mandelbrot_33_0.png" />
+</div>
+</div>
+<p>The following is the resulting image from the case <span class="math notranslate nohighlight">\(N=14\)</span>:</p>
+<a class="reference internal image-reference" href="../_images/MandelbrotZ14.png"><img alt="Our best eigenvalue image of the roots of a Mandelbrot polynomial of degree 8192" class="align-center" src="../_images/MandelbrotZ14.png" style="height: 400px;" /></a>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Write down as many questions as you can, about this section.</p></li>
+<li><p>Read the Wikipedia entry on the Mandelbrot set, and the entry on Mandelbrot.  Mandelbrot’s <em>educational</em> books and papers are amazing, and amazingly clearly written.  If you don’t come back from this exercise, well, at least you left going in a good direction.</p></li>
+<li><p>Prove by induction that the degree of the <span class="math notranslate nohighlight">\(n\)</span>th Mandelbrot polynomial is <span class="math notranslate nohighlight">\(2^{n-1}\)</span>, and that the leading coefficient is <span class="math notranslate nohighlight">\(1\)</span>.</p></li>
+<li><p>Prove that <span class="math notranslate nohighlight">\(c=-2\)</span> and <span class="math notranslate nohighlight">\(c=0\)</span> are both in the Mandelbrot set. Show that all zeros of Mandelbrot polynomials give <em>periodic orbits</em> under the Mandelbrot iteration and are thus in the Mandelbrot set.</p></li>
+<li><p>Is <span class="math notranslate nohighlight">\(i = \sqrt{-1}\)</span> in the Mandelbrot set?</p></li>
+<li><p>Prove that the Mandelbrot polynomials are <em>unimodal</em>.  At the time we write this, this question is open: solve it, and you could publish a paper with your proof (<a class="reference external" href="https://www.mapletransactions.org">Maple Transactions</a> would be a good place).  The word “unimodal” just means that the size of the coefficients increases to a peak, and then decays again.  As in <span class="math notranslate nohighlight">\(z_4\)</span>, the peak might be attained by two coefficients, not just one.  Seriously, we don’t know how to prove this.  We think it’s true, though.</p></li>
+<li><p>Solve <span class="math notranslate nohighlight">\(z_3 = 0\)</span> by hand, as follows.  First, divide out the visible root, <span class="math notranslate nohighlight">\(c=0\)</span>, to get the cubic equation <span class="math notranslate nohighlight">\(0 = 1 + c + 2c^2 + c^3\)</span>.  Then put <span class="math notranslate nohighlight">\(c = \xi - 2/3\)</span> so <span class="math notranslate nohighlight">\(c^3 = (\xi -2/3)^3 = \xi^3 - 2\xi^2 + 4\xi/9 - 8/27\)</span> which will transform the equation into a cubic in <span class="math notranslate nohighlight">\(\xi\)</span> of the form <span class="math notranslate nohighlight">\(0 = q + p\xi + \xi^3\)</span>.  Then put <span class="math notranslate nohighlight">\(\xi = u + v\)</span> (introducing two new variables seems like the opposite of progress, but trust us, it will help).  This transforms the equation to <span class="math notranslate nohighlight">\((u+v)^3 + p(u+v) + q = 0\)</span>, or <span class="math notranslate nohighlight">\(u^3 + 3uv(u+v) + p(u+v) + q = 0\)</span>.  Show that if you can find <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> that simultaneously solve <span class="math notranslate nohighlight">\(3uv + p = 0\)</span> and <span class="math notranslate nohighlight">\(u^3 + v^3 + q = 0\)</span> then you can solve the original equation.  Do so.  Your formula at the end should give you three, and only three, roots. Write out your answer explicitly, and compare it with (say) the answer from Wolfram Alpha. There is an analogous formula for quartics, but even teaching this cubic formula is considered cruel and inhumane; well, it would be if you were to be tested on it.  But maybe a <a class="reference external" href="https://en.wikipedia.org/wiki/Cubic_equation">public competition for solving cubics</a> might be entertaining for the spectators, as it seems to have been in 1530.  Quite amazingly, at least to him, RMC had recent recourse to this method in order to write a very fast program to evaluate the cube roots of an equation that depended on a parameter, except that the equation was of the form <span class="math notranslate nohighlight">\(x^3 + mx^2 + n=0\)</span> (which was apparently the type that defeated Fior in the contest—but just solve for <span class="math notranslate nohighlight">\(1/x\)</span> instead, and that puts it into the previous form).  All modern computer algebra systems know how to solve cubics and quartics in terms of radicals; quintics cannot, in general, be solved in terms of radicals, but they can be solved in terms of <em>elliptic functions</em>.  Now there’s a rabbit hole for you.</p></li>
+<li><p>Prove by induction that the code MandelbrotWithDerivative computes the correct derivative of every Mandelbrot polynomial. Rather, that it <em>would</em> compute the correct derivative if the underlying arithmetic were exact. You might need what is known as a <em>loop invariant</em>: something that is true before the loop starts, and is true at the start of every iteration, and at the end of every iteration (though not necessarily true after each intermediate step of the iteration). But this loop is simple enough that a direct induction also works.</p></li>
+<li><p>Are the zeros of the derivatives of the Mandelbrot polynomials in the Mandelbrot set? We think so, but we don’t know.</p></li>
+<li><p>“A good numerical method gives you the exact solution to a nearby problem”.  This is an informal definition of <em>numerical stability</em>.  An <em>algorithm</em> is “numerically stable” if it gives you the exact solution, not to the problem you were trying to solve (say the polynomial <span class="math notranslate nohighlight">\(z(c) = 0\)</span>) but instead to a <em>nearby</em> problem, say <span class="math notranslate nohighlight">\(z(c) - 10^{-16}i = 0\)</span>.  Some problems, however, are <em>sensitive to changes</em> (in the vernacular of numerical analysis, <em>ill-conditioned</em>).  Consider the polynomial
+<span class="math notranslate nohighlight">\(z(c) = \sum_{k=0}^d a_k c^k\)</span>
+and a <em>perturbed</em> (changed) polynomial
+<span class="math notranslate nohighlight">\(z(c) + \Delta(c) = \sum_{k=0}^d a_k(1+s_k) c^k\)</span>
+where the coefficients <span class="math notranslate nohighlight">\(a_k\)</span> have all been changed by small relative amounts <span class="math notranslate nohighlight">\(s_k\)</span>.  Suppose further that all <span class="math notranslate nohighlight">\(|s_k| \le t\)</span>, some tiny number. By using the triangle inequality, show that
+<span class="math notranslate nohighlight">\(
+| \Delta(c) | \le K(c) t
+\)</span>
+where
+<span class="math notranslate nohighlight">\(
+K(c) = \sum_{k=0}^d |a_k| |c|^k
+\)</span>
+This number <span class="math notranslate nohighlight">\(K(c)\)</span> serves as a kind of <em>condition number</em> for the polynomial: the larger it is, the more sensitive the polynomial is.  Plot the condition numbers (on a log scale!) of the Mandelbrot polynomials <span class="math notranslate nohighlight">\(z_6(c)\)</span> and <span class="math notranslate nohighlight">\(z_7(c)\)</span> on <span class="math notranslate nohighlight">\(-2 \le c \le 0\)</span>.</p></li>
+<li><p><strong>Pseudozeros</strong>.  The zeros of <span class="math notranslate nohighlight">\(z(c) - 10^{-k}\exp(i\theta)\)</span> for <span class="math notranslate nohighlight">\(k=6\)</span>, say, represent a <em>curve</em> in <span class="math notranslate nohighlight">\(c\)</span> space (let <span class="math notranslate nohighlight">\(\theta\)</span> vary from <span class="math notranslate nohighlight">\(-\pi\)</span> to <span class="math notranslate nohighlight">\(\pi\)</span> so the tiny perturbation <span class="math notranslate nohighlight">\(10^{-6}\exp(i\theta)\)</span> turns a full circle in the complex plane). As <span class="math notranslate nohighlight">\(k\)</span> is taken larger, one expects these curves to surround the zeros of <span class="math notranslate nohighlight">\(z(c)\)</span> itself.  Graph some pseudozeros of a Mandelbrot polynomial.  Animate them.</p></li>
+<li><p>Write <span class="math notranslate nohighlight">\(\mathbf{C} = \mathbf{A}\mathbf{B}^{-1}\)</span> and show that the generalized eigenvalues of <span class="math notranslate nohighlight">\(\mathbf{A}-\lambda\mathbf{B}\)</span> are the simple eigenvalues of <span class="math notranslate nohighlight">\(\mathbf{C} - \lambda\mathbf{I}\)</span>.  Find <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> for the Mandelbrot matrices above, and code it up and compare the times to compute simple eigenvalues versus generalized eigenvalues. How high a degree can you get to?  We stopped at <span class="math notranslate nohighlight">\(N=16\)</span>, where the computation took about an hour and a half, and the residual was about <span class="math notranslate nohighlight">\(4.0e-5\)</span>.  The current record is held by <a class="reference external" href="https://numpi.dm.unipi.it/software/mpsolve">MPSolve</a> with <span class="math notranslate nohighlight">\(k=23\)</span>, so over <span class="math notranslate nohighlight">\(4\)</span> million roots (using multiple precision); we don’t think eigenvalue methods can get that high, but we think <a class="reference external" href="https://ir.lib.uwo.ca/etd/4028/">homotopy methods</a> can, although they haven’t yet.</p></li>
+<li><p>Other families of polynomials like the Mandelbrot polynomials can be defined: Fibonacci–Mandelbrot polynomials defined by <span class="math notranslate nohighlight">\(q_{n+1}(z) = z q_n(z) q_{n-1}(z) + 1\)</span> and <span class="math notranslate nohighlight">\(q_0(z)=0\)</span> and <span class="math notranslate nohighlight">\(q_1(z) = 1\)</span>, for instance; or Fibonacci–Narayana polynomials.  Define your own polynomials by recurrence relation, and find your own matrices whose eigenvalues are their roots, and draw their eigenvalues.  We have only done a few of these, and there are infinitely many to choose from.  It’s possible your results will be completely new (and therefore publishable).</p></li>
+<li><p>The paper <a class="reference external" href="https://doi.org/10.5206/mt.v1i1.14037">Some Facts and Conjectures on Mandelbrot Polynomials</a> contains a formula for the <em>Mandelbrot Generating Function</em> MGF(k,c), which <em>analytically solves</em> the Mandelbrot iteration <span class="math notranslate nohighlight">\(z_{n+1} = z_n^2 + c\)</span>, at least for <span class="math notranslate nohighlight">\(c\)</span> <em>outside</em> the Mandelbrot set.  This means that we could (say) take half an iteration—and find <span class="math notranslate nohighlight">\(z_{1/2}(c)\)</span> or <span class="math notranslate nohighlight">\(z_{3/2}(c)\)</span>.  As with <a class="reference external" href="https://youtu.be/ghxQA3vvhsk">Stand-Up Math’s Video on Complex Fibonacci Numbers</a> these are likely to be <em>complex numbers</em>.  So far as we know, no-one (not even us) has computed these.  Do so, for (say) <span class="math notranslate nohighlight">\(c=1\)</span> or <span class="math notranslate nohighlight">\(c=2\)</span>.  Plot the results.  This, also, might be publishable (again, <a class="reference external" href="https://www.mapletransactions.org">Maple Transactions</a> might be a good place).</p></li>
+<li><p>A <a class="reference external" href="https://en.wikipedia.org/wiki/Companion_matrix">companion matrix</a> for a polynomial (say <span class="math notranslate nohighlight">\(P(\lambda)\)</span>) is simply a matrix <span class="math notranslate nohighlight">\(C\)</span> whose eigenvalues are the roots of <span class="math notranslate nohighlight">\(P(\lambda)\)</span>.  Every matrix has a characteristic polynomial whose roots are its eigenvalues; what’s interesting is that this can be run the other way (it’s a bit more complicated because “Frobenius companion matrices” as in the link above have special properties).  But companion matrices are not unique: any matrix similar to a companion matrix <span class="math notranslate nohighlight">\(\mathbf{S}\mathbf{C}\mathbf{S}^{-1}\)</span> is also a companion matrix for that same <span class="math notranslate nohighlight">\(P(\lambda)\)</span>.  Suppose that you have a polynomial with <em>integer</em> coefficients.  Then the Frobenius companion matrix has (those same) integers as entries, together with ones and zeros.  Therefore, out of all integer companion matrices for <span class="math notranslate nohighlight">\(P(\lambda)\)</span>, there must be one with <em>minimal height</em>: the height of the matrix is the size of the largest absolute value of any entry in the matrix.  Mandelbrot matrices as defined above have height <span class="math notranslate nohighlight">\(1\)</span>, which is the smallest possible for integer companions, and are therefore “minimal height”.  Note that the size of the coefficients of the polynomial are exponential in the degree! So the height of the Frobenius companion matrix of Mandelbrot polynomials is likewise exponential.  Not much is known about <a class="reference external" href="https://link.springer.com/article/10.1007/s11786-018-0364-2">minimal height companion matrices</a> (see also <a class="reference external" href="https://journals.uwyo.edu/index.php/ela/article/view/1781">our first paper</a>); we do not have an algorithm for finding one for a given integer polynomial, for instance. We <em>believe</em> that minimal height companion matrices are generally better-conditioned as far as their eigenvalues, but we have no proof.  Find a minimal height companion matrix for (say) <span class="math notranslate nohighlight">\(\lambda^3 + 5\lambda^2 + 3\lambda + 1\)</span>.  Find a general algorithm for computing minimal height companions.  Prove that they’re useful.  If you succeed at this problem, you should certainly publish your results; a good venue might be the <a class="reference external" href="https://journals.uwyo.edu/index.php/ela">Electronic Journal of Linear Algebra</a>.</p></li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Contents"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="bohemian-matrices.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Bounded Height Matrices of Integers (Bohemian Matrices)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="chaos-game-representation.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chaos Game Representation</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Neil J. Calkin, Eunice Y.S. Chan, and Robert M. Corless<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
