@@ -57,7 +57,7 @@ html:
 
 repository:
   url: https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter  # The URL to your book's repository
-  path_to_book: ""  # A path to your book's folder, relative to the repository root.
+  path_to_book: "book"  # A path to your book's folder, relative to the repository root.
   branch: master  # Which branch of the repository should be used when creating links
 
 sphinx:
