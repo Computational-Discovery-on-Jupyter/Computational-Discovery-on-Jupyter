@@ -2,7 +2,7 @@
 [![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://computational-discovery-on-jupyter.github.io/Computational-Discovery-on-Jupyter/)
 
 ## About the book
-This is an open educational resource on Computational Discovery on Jupyter. This repository contains a series of Python-based Jupyter notebooks. The notebooks can be viewed online in a [Jupyter book](https://computational-discovery-on-jupyter.github.io/Computational-Discovery-on-Jupyter/), or can be run on a local machine using Jupyter notebooks.
+This is an open educational resource on Computational Discovery on Jupyter. This repository contains a series of Python-based Jupyter notebooks. The notebooks can be viewed online in a [Jupyter book](https://computational-discovery-on-jupyter.github.io/Computational-Discovery-on-Jupyter/), or can be run on a local machine using [Jupyter Notebook](https://jupyter.org/).
 
 ## Topics
 * Continued Fractions
