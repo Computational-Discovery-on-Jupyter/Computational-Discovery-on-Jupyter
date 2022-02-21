@@ -291,7 +291,9 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         
-        
+        <a class="edit-button" href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter/edit/master/Contents/fractals-and-julia-sets.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
 </div>
 
@@ -631,26 +633,26 @@ x_{n+1} = x_n - \frac{x_n^2+1}{2x_n} = \frac12\left( x_n - \frac{1}{x_n}\right)
 <div class="section" id="variations-halley-s-method-secant-method-infinitely-many-others">
 <h2>Variations: Halley’s Method, Secant Method, Infinitely Many Others<a class="headerlink" href="#variations-halley-s-method-secant-method-infinitely-many-others" title="Permalink to this headline">¶</a></h2>
 <p>Newton’s method can be understood as replacing the nonlinear equation <span class="math notranslate nohighlight">\(f(x)=0\)</span> with a <em>linear approximation</em> <span class="math notranslate nohighlight">\(f(a) + f'(a)(x-a) = 0\)</span> and solving that instead; if one starts with <span class="math notranslate nohighlight">\(x=a\)</span> as an initial approximation to the root of <span class="math notranslate nohighlight">\(f(x)=0\)</span> then hopefully the solution of the linear approximation, namely <span class="math notranslate nohighlight">\(x = a - f(a)/f'(a)\)</span>, would be an improved approximation to the root.  But there are other methods.  As discussed in the Exercises in the <a class="reference internal" href="rootfinding.html"><span class="doc std std-doc">Rootfinding unit</span></a>, there is also the <strong>secant method</strong> which uses <em>two</em> initial estimates of the root, say <span class="math notranslate nohighlight">\(x_0\)</span> and <span class="math notranslate nohighlight">\(x_1\)</span>, to generate</p>
-<div class="amsmath math notranslate nohighlight" id="equation-001e1e6d-d2b9-4cd4-bbd2-f2988fd6b393">
-<span class="eqno">(59)<a class="headerlink" href="#equation-001e1e6d-d2b9-4cd4-bbd2-f2988fd6b393" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-28e3dba3-9c3d-4c3e-98da-7b614c6f4ff5">
+<span class="eqno">(59)<a class="headerlink" href="#equation-28e3dba3-9c3d-4c3e-98da-7b614c6f4ff5" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 x_{n+1} = x_n - \frac{ f(x_n)(x_n-x_{n-1})}{f(x_n)-f(x_{n-1})}
 \end{equation}\]</div>
 <p>and you can see that instead of having <span class="math notranslate nohighlight">\(f'(x_n)\)</span> we instead have the difference quotient—the slope of the secant line—</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0c6d30f1-4184-41d5-9f24-317237d14b9d">
-<span class="eqno">(60)<a class="headerlink" href="#equation-0c6d30f1-4184-41d5-9f24-317237d14b9d" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4767ec93-72eb-4461-a3d4-a24f06666eea">
+<span class="eqno">(60)<a class="headerlink" href="#equation-4767ec93-72eb-4461-a3d4-a24f06666eea" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 f'(x_n) \approx \frac{ f(x_n)-f(x_{n-1}) }{x_{n}-x_{n-1}}
 \end{equation}\]</div>
 <p>playing the same role.  We save the values of <span class="math notranslate nohighlight">\(f(x_0)\)</span>, <span class="math notranslate nohighlight">\(f(x_1)\)</span>, <span class="math notranslate nohighlight">\(\ldots\)</span> as we go along so we don’t have to recompute them; and each iteration costs us only one new evaluation of the function (which can serve as a check on our errors as well) each time.  Newton’s method, in contrast, needs an evaluation of <span class="math notranslate nohighlight">\(f(x)\)</span> <em>and</em> an evaluation of <span class="math notranslate nohighlight">\(f'(x)\)</span> for each iteration, so it costs more per iteration.  The secant method tends to be take more iterations but be faster to compute on each step, so it is frequently faster overall.  We can study “secant fractals” in the same way we studied Newton fractals if we insist on a rule for generating <span class="math notranslate nohighlight">\(x_1\)</span> from <span class="math notranslate nohighlight">\(x_0\)</span>; for instance, we could always take <span class="math notranslate nohighlight">\(x_1 = x_0 - f(x_0)/f'(x_0)\)</span> so we would use one Newton iteration to get started.  Frequently this information is available at the beginning, so it isn’t much of a “cheat”.</p>
 <p>We can go the other way: also as discussed in the exercises in the rootfinding unit, there is something known as <a class="reference external" href="https://en.wikipedia.org/wiki/Halley%27s_method"><em>Halley’s method</em></a>, named after the astronomer <a class="reference external" href="https://en.wikipedia.org/wiki/Edmond_Halley">Edmond Halley</a>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-34b8a3da-46df-45ca-b6d2-9e7428dfd706">
-<span class="eqno">(61)<a class="headerlink" href="#equation-34b8a3da-46df-45ca-b6d2-9e7428dfd706" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b80c29e6-f2d9-41fa-b6d1-2a6cd13603d6">
+<span class="eqno">(61)<a class="headerlink" href="#equation-b80c29e6-f2d9-41fa-b6d1-2a6cd13603d6" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 z_{n+1} = z_n - \frac{f(z_n)}{f'(z_n) - \frac{f(z_n)f''(z_n)}{2f'(z_n)}}
 \end{equation}\]</div>
 <p>This requires <em>two</em> derivatives; if one derivative is too expensive, then two is twice too much.  But sometimes derivatives are cheap and this method becomes practical.  Consider for example the task of inverting the function
 <span class="math notranslate nohighlight">\(f(w) = w\exp(w)-z = 0\)</span>; that is, given a value for <span class="math notranslate nohighlight">\(z\)</span>, find a value of <span class="math notranslate nohighlight">\(w\)</span> for which the equation is true. We are computing the <a class="reference external" href="http://www.orcca.on.ca/LambertW">Lambert W function</a> of z. Since the “expensive” part of the computation of <span class="math notranslate nohighlight">\(f(w)\)</span> is the exponential, <span class="math notranslate nohighlight">\(\exp(w)\)</span>, the derivatives <span class="math notranslate nohighlight">\(f'(w) = (1+w)\exp(w)\)</span> and <span class="math notranslate nohighlight">\(f''(w) = (2+w)\exp(w)\)</span> are essentially free thereafter; so Halley’s method becomes quite attractive, <em>because it takes even fewer iterations than Newton’s method</em> (typically) for this function.</p>
 <p>An interesting trick (dating at least back to the 1920’s) converts Halley’s method for <span class="math notranslate nohighlight">\(f(z)=0\)</span> into Newton’s method for a different function <span class="math notranslate nohighlight">\(F(z) = 0\)</span>:  put <span class="math notranslate nohighlight">\(F(z) = f(z)/\sqrt{f'(z)}\)</span>.  Then some algebra shows that Newton’s iteration on <span class="math notranslate nohighlight">\(F(z)\)</span>, namely</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cd43d258-f25d-4a77-8c42-db527dc583a8">
-<span class="eqno">(62)<a class="headerlink" href="#equation-cd43d258-f25d-4a77-8c42-db527dc583a8" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3ab1ec17-9062-4ae8-8215-869b3fb875e1">
+<span class="eqno">(62)<a class="headerlink" href="#equation-3ab1ec17-9062-4ae8-8215-869b3fb875e1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 z_{n+1} = z_n - \frac{F(z_n)}{F'(z_n)}
 \end{equation}\]</div>
 <p>is converted (by use of the chain rule to compute <span class="math notranslate nohighlight">\(F'(z)\)</span>) <em>exactly</em> into Halley’s method for <span class="math notranslate nohighlight">\(f(z)=0\)</span>.
@@ -664,8 +666,8 @@ It is quite instructive to compute the Newton fractal for a function, and then c
 <div class="section" id="julia-sets">
 <h2>Julia sets<a class="headerlink" href="#julia-sets" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Julia_set">technical definition given in Wikipedia of a “Julia set”</a>, named after the mathematician <a class="reference external" href="https://en.wikipedia.org/wiki/Gaston_Julia">Gaston Julia</a>, is pretty opaque.  We will take an explicitly <em>oversimplified</em> view here and not worry about technicalities; we’re just going to compute things that are sort of like Julia sets. The basic idea is pretty simple.  If we are given an iteration</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f546bcf2-0f1e-457d-8e5d-a12667c62710">
-<span class="eqno">(63)<a class="headerlink" href="#equation-f546bcf2-0f1e-457d-8e5d-a12667c62710" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-15307e08-ef1c-4272-8d0d-04dd4346fa5b">
+<span class="eqno">(63)<a class="headerlink" href="#equation-15307e08-ef1c-4272-8d0d-04dd4346fa5b" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 z_{n+1} = F(z_n)
 \end{equation}\]</div>
 <p>starting with <span class="math notranslate nohighlight">\(z_0 = \)</span> some critical point (typically <span class="math notranslate nohighlight">\(z_0 = 0\)</span>) then to find our “Julia sets” we will <em>run the iteration backwards</em>.  In the aforementioned technical Wikipedia article this algorithm is mentioned, and the reader is cautioned against it owing to its exponential cost; there are other problems with it as well, but for our purposes—exploration!—we will just implement it and try it out.  We will be able to generate several interesting pictures this way, and begin to develop some insight.</p>
@@ -723,8 +725,8 @@ z_{n+1} = F(z_n)
 <p>In truth the story is more complicated than that, but we will save that for your numerical analysis class.</p>
 <p>We now see that the <code class="docutils literal notranslate"><span class="pre">Polynomial</span></code> convenience class is supposed to be used instead of <code class="docutils literal notranslate"><span class="pre">poly1d</span></code>.  Fine.  This means writing the coefficients in reverse order, but that is also fine.</p>
 <p>What we will do here to run the iteration backward is to take the equation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-beca5347-6ae9-4fea-87fb-ceb72e515133">
-<span class="eqno">(64)<a class="headerlink" href="#equation-beca5347-6ae9-4fea-87fb-ceb72e515133" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9149499b-7ec9-4236-bf5d-89a429c86449">
+<span class="eqno">(64)<a class="headerlink" href="#equation-9149499b-7ec9-4236-bf5d-89a429c86449" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 z_{n+1} = F(z_n)
 \end{equation}\]</div>
 <p>and <em>solve</em> it (using <code class="docutils literal notranslate"><span class="pre">roots</span></code>) for <span class="math notranslate nohighlight">\(z_n\)</span>, when we are given <span class="math notranslate nohighlight">\(z_{n+1}\)</span>.  We’ll start with the same <span class="math notranslate nohighlight">\(z_0\)</span> that we were using before, and compute all possible <span class="math notranslate nohighlight">\(z_{-1}\)</span> values which would give us <span class="math notranslate nohighlight">\(z_0 = F( z_{-1} )\)</span>.  This will be clearer with an example.</p>

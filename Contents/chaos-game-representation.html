@@ -291,7 +291,9 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         
-        
+        <a class="edit-button" href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter/edit/master/Contents/chaos-game-representation.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
 </div>
 
@@ -2036,13 +2038,13 @@ This is known as the secondary structure. The two most common structures that ap
 <div class="section" id="partial-quotients-of-continued-fractions">
 <h3>Partial Quotients of Continued Fractions<a class="headerlink" href="#partial-quotients-of-continued-fractions" title="Permalink to this headline">¶</a></h3>
 <p>We then explored visualizing the sequences taken from the partial quotients of continued fractions, which were taught at the beginning of the course. Continued fractions are fractions written in the following general form <span id="id50">[<a class="reference internal" href="../references.html#id3">Corless, 1992</a>, <a class="reference internal" href="../references.html#id39">Olds, 1963</a>]</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-73a44e9e-6e8d-4910-b541-88003fd03b90">
-<span class="eqno">(71)<a class="headerlink" href="#equation-73a44e9e-6e8d-4910-b541-88003fd03b90" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b597651a-d241-4ba7-835a-b618f90e2cdb">
+<span class="eqno">(71)<a class="headerlink" href="#equation-b597651a-d241-4ba7-835a-b618f90e2cdb" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 	a_0 + \cfrac{1}{a_{1} + \cfrac{1}{a_{2} + \cfrac{1}{a_{3} + \cfrac{1}{a_{4} + \cfrac{1}{\ddots}}}}} ,
 \end{equation}\]</div>
 <p>which produces a sequence of numbers, <span class="math notranslate nohighlight">\(a_{0} + \left[ a_{1}, a_{2}, a_{3}, a_{4}, \cdots\right]\)</span>, called the partial quotients of the continued fraction. This can be demonstrated with an example: we can rewrite <span class="math notranslate nohighlight">\(\frac{9}{7}\)</span> in the form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e71c8e5e-5a15-46eb-b672-31705e34c4bb">
-<span class="eqno">(72)<a class="headerlink" href="#equation-e71c8e5e-5a15-46eb-b672-31705e34c4bb" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-060d616b-3375-4ddb-a838-82c4c6a9d5d4">
+<span class="eqno">(72)<a class="headerlink" href="#equation-060d616b-3375-4ddb-a838-82c4c6a9d5d4" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 	\dfrac{9}{7} = 1 + \dfrac{2}{7} = 1 + \dfrac{1}{\frac{7}{2}} = 1 + \cfrac{1}{3 + \frac{1}{2}} = 1 + \dfrac{1}{3 + \cfrac{1}{1 + \frac{1}{1}}} .
 	\label{eqn:cfrac}
 \end{equation}\]</div>
@@ -2110,8 +2112,8 @@ This is known as the secondary structure. The two most common structures that ap
 </div>
 </div>
 <p>In fact, the distribution of partial quotients is very well known, owing to the results of Khinchin <span id="id52">[<a class="reference internal" href="../references.html#id34">Khinchin and Teichmann, 1964</a>]</span>. As a very startling aside, recently, Bill Gosper has remarked on an amazing identity</p>
-<div class="amsmath math notranslate nohighlight" id="equation-77f961d3-68b3-4a01-9615-620e70a2b6b1">
-<span class="eqno">(73)<a class="headerlink" href="#equation-77f961d3-68b3-4a01-9615-620e70a2b6b1" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-aaa73219-b349-471a-b67c-6e1da9277871">
+<span class="eqno">(73)<a class="headerlink" href="#equation-aaa73219-b349-471a-b67c-6e1da9277871" title="Permalink to this equation">¶</a></span>\[\begin{equation}
 	\prod k!^{\Delta_{3}\ln k} = K^{\ln 2} ,
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(K\)</span> is Khinchin’s constant. We did not inform our students of Khinchin’s remarkable results because CGR was only done at the end of the course. Next time, perhaps!</p>
