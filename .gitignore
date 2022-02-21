@@ -1,0 +1,10 @@
+book/.ipynb_checkpoints/
+book/Appendix/.ipynb_checkpoints/
+book/Contents/.ipynb_checkpoints/
+book/Solutions/.ipynb_checkpoints/
+book/__pycache__/
+book/Contents/__pycache__/
+book/_build
+book/_build/.doctrees/
+book/_build/jupyter_execute/
+code/__pycache__/

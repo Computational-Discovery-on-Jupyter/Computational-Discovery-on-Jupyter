@@ -1,0 +1,32 @@
+format: jb-book
+root: index
+parts:
+  - caption: Preface
+    chapters:
+    - file: preamble
+  - caption: Contents
+    chapters:
+    - file: Contents/continued-fractions
+    - file: Contents/rootfinding
+    - file: Contents/fractals-and-julia-sets
+    - file: Contents/bohemian-matrices
+    - file: Contents/mandelbrot
+    - file: Contents/chaos-game-representation
+  - caption: Appendix
+    chapters:
+    - file: Appendix/floating-point
+    - file: Appendix/binomials-factorials-combinatorics
+    - file: Appendix/complex-numbers
+    - file: Appendix/symbolic-computation
+  - caption: Solutions
+    chapters:
+    - file: Solutions/Solutions to Continued Fraction Exercises
+    - file: Solutions/Solutions to the Rootfinding Chapter Exercises
+    - file: Solutions/Solutions to the Julia Set Exercises
+    - file: Solutions/Solutions to Exercises (not Activities) in the Bohemian Unit
+    - file: Solutions/Solutions to Mandelbrot Exercises
+  - caption: Back Matter
+    chapters:
+    - file: acknowledgements
+    - file: about
+    - file: references
