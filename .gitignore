@@ -8,3 +8,7 @@ book/_build
 book/_build/.doctrees/
 book/_build/jupyter_execute/
 code/__pycache__/
+.DS_Store
+book/.DS_Store
+code/Bohemian Matrices/__pycache__/bohemian.cpython-310.pyc
+code/Bohemian Matrices/__pycache__/densityPlot.cpython-310.pyc
