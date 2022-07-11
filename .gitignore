@@ -8,4 +8,3 @@ book/_build
 book/_build/.doctrees/
 book/_build/jupyter_execute/
 code/__pycache__/
-book/Supplementary\ Material/CGR/Data\ Files/DSSIM_matrix.dat
