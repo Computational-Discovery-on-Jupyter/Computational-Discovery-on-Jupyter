@@ -21,7 +21,7 @@ parts:
     - file: Appendix/symbolic-computation
   - caption: Solutions
     chapters:
-    - file: Solutions/Solutions to Intro to Programming
+    - file: Solutions/Activity Reports for Intro to Programming--Fibonacci
     - file: Solutions/Solutions to Continued Fraction Exercises
     - file: Solutions/Solutions to the Rootfinding Chapter Exercises
     - file: Solutions/Solutions to the Julia Set Exercises
