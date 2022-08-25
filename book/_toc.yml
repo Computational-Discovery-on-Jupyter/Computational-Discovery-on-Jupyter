@@ -24,7 +24,7 @@ parts:
     - file: Solutions/Activity Reports for Intro to Programming--Fibonacci
     - file: Solutions/Activity Reports for Continued Fractions
     - file: Solutions/Reports on Rootfinding Activities
-    - file: Solutions/Solutions to the Julia Set Exercises
+    - file: Solutions/Reports on Julia Set Activities
     - file: Solutions/Solutions to Exercises (not Activities) in the Bohemian Unit
     - file: Solutions/Solutions to Mandelbrot Exercises
     - file: Solutions/Solutions to Chaos Game Representation
