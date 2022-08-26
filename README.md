@@ -5,11 +5,11 @@
 This is an open educational resource on Computational Discovery on Jupyter. Comments welcome, to computational.discovery.jupyter@gmail.com, or you may fork the repository and make suggestions that way. This repository contains a series of Python-based Jupyter notebooks. The notebooks can be viewed online in a [Jupyter book](https://computational-discovery-on-jupyter.github.io/Computational-Discovery-on-Jupyter/), or can be run on a local machine using [Jupyter Notebook](https://jupyter.org/).
 
 ## Topics
-* Introduction to Programming using Python and Jupyter
+* Introduction to Programming using Python and Jupyter: Fibonacci Numbers
 * Continued Fractions
 * Rootfinding, Newton's Method, and Dynamical Systems
 * Fractals and Julia Sets
-* Bohemian Matrices
+* Bounded Height Matrices of Integers (Bohemian Matrices)
 * Mandelbrot Polynomials and Matrices
 * Chaos Game Representation
 
