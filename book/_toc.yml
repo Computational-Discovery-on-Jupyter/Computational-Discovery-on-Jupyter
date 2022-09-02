@@ -27,7 +27,7 @@ parts:
     - file: Solutions/Reports on Julia Set Activities
     - file: Solutions/Solutions to Exercises (not Activities) in the Bohemian Unit
     - file: Solutions/Solutions to Mandelbrot Exercises
-    - file: Solutions/Solutions to Chaos Game Representation
+    - file: Solutions/Activity Reports for Chaos Game Representation
   - caption: Back Matter
     chapters:
     - file: acknowledgements
