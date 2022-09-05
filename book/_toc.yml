@@ -25,7 +25,7 @@ parts:
     - file: Solutions/Activity Reports for Continued Fractions
     - file: Solutions/Reports on Rootfinding Activities
     - file: Solutions/Reports on Julia Set Activities
-    - file: Solutions/Solutions to Exercises (not Activities) in the Bohemian Unit
+    - file: Solutions/Reports on Bohemian Activities
     - file: Solutions/Solutions to Mandelbrot Exercises
     - file: Solutions/Activity Reports for Chaos Game Representation
   - caption: Back Matter
