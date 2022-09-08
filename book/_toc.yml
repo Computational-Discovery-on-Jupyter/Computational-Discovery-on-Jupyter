@@ -15,6 +15,7 @@ parts:
     - file: Contents/chaos-game-representation
   - caption: Appendix
     chapters:
+    - file: Appendix/What-to-do-when-things-go-wrong
     - file: Appendix/floating-point
     - file: Appendix/binomials-factorials-combinatorics
     - file: Appendix/complex-numbers
