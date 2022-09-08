@@ -22,7 +22,7 @@ parts:
     - file: Appendix/symbolic-computation
   - caption: Solutions
     chapters:
-    - file: Solutions/Activity Reports for Intro to Programming--Fibonacci
+    - file: Solutions/Reports on Fibonacci Activities
     - file: Solutions/Activity Reports for Continued Fractions
     - file: Solutions/Reports on Rootfinding Activities
     - file: Solutions/Reports on Julia Set Activities
