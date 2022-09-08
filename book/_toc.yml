@@ -6,7 +6,7 @@ parts:
     - file: preamble
   - caption: Contents
     chapters:
-    - file: Contents/introduction-to-programming
+    - file: Contents/Computing-with-Fibonacci
     - file: Contents/continued-fractions
     - file: Contents/rootfinding
     - file: Contents/fractals-and-julia-sets
