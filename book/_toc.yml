@@ -23,12 +23,12 @@ parts:
   - caption: Solutions
     chapters:
     - file: Solutions/Reports on Fibonacci Activities
-    - file: Solutions/Activity Reports for Continued Fractions
+    - file: Solutions/Reports on Continued Fractions Activities
     - file: Solutions/Reports on Rootfinding Activities
     - file: Solutions/Reports on Julia Set Activities
     - file: Solutions/Reports on Bohemian Activities
-    - file: Solutions/Solutions to Mandelbrot Exercises
-    - file: Solutions/Activity Reports for Chaos Game Representation
+    - file: Solutions/Reports on Mandelbrot Activities
+    - file: Solutions/Reports on Chaos Game Activities
   - caption: Back Matter
     chapters:
     - file: acknowledgements
