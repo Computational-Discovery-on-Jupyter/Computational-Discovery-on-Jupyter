@@ -20,7 +20,7 @@ parts:
     - file: Appendix/binomials-factorials-combinatorics
     - file: Appendix/complex-numbers
     - file: Appendix/symbolic-computation
-  - caption: Solutions
+  - caption: Reports on Activities
     chapters:
     - file: Solutions/Reports on Fibonacci Activities
     - file: Solutions/Reports on Continued Fractions Activities
