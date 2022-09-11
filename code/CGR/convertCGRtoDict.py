@@ -3,6 +3,7 @@ from skimage.metrics import structural_similarity as ssim
 import os
 import pickle
 
+# Read all CGR figures into matrices and save as dictionary
 animalCGR = {}
 for (dirpath, dirnames, filenames) in os.walk('CGR'):
     for name in filenames:

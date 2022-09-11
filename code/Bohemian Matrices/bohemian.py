@@ -3,7 +3,16 @@ import scipy.linalg as la
 from matplotlib import pyplot as plt
 
 class Bohemian:
+    """
+    Python class to create different families of Bohemian matrices. This class includes a method to calculate the characteristic polynomial, determinant, and eigenvalues for each respective Bohemian family.
+    """
     def __init__(self, n, U=None):
+        """
+        Initialization of Bohemian object.
+        Input:
+        n: (int) size of the matrix (Bohemian matrix is assumed to be square)
+        U: (list, optional) entries of the matrix. Default will result in a zero matrix of size n x n
+        """
         self._size = n
         self._numberOfMatrixEntries = n*n
         if U is not None:
@@ -19,6 +28,11 @@ class Bohemian:
             self._matrix = np.zeros((n, n), dtype=int)
 
     def makeMatrix(self, U):
+        """
+        Function to input entries for Bohemian matrix object.
+        Input:
+        U: (list) entries of the matrix (length of matrix needs to match the indicated size of initialized Bohemian matrix object)
+        """
         if self._numberOfMatrixEntries != len(U):
             raise ValueError('Expected list of length {}, got {} instead'.format(self._numberOfMatrixEntries, len(U)))
         if type(self._matrix[0, 0]) != type(U[0]):
@@ -30,19 +44,44 @@ class Bohemian:
                 k += 1
 
     def resizeMatrix(self, n):
+        """
+        Function to resize the Bohemian matrix object
+        Input:
+        n: (int) size of matrix (assume that Bohemian matrix object is a square matrix)
+        """
         self._size = n
         self._matrix = np.zeros((n, n), dtype=type(self._matrix[0,0]))
 
     def getMatrix(self):
+        """
+        Function that returns the Bohemian matrix
+        Output:
+        (numpy.array) Bohemian matrix
+        """
         return(self._matrix)
 
     def getSize(self):
+        """
+        Function that returns the size of the Bohemian matrix
+        Output:
+        (int) size of matrix
+        """
         return(self._size)
 
     def getNumberOfMatrixEntries(self):
+        """
+        Function that returns the number of entries in the matrix dependent on the type of Bohemian family indicated when object is initialized
+        Output:
+        (int) number of matrix entries
+        """
         return(self._numberOfMatrixEntries)
 
     def characteristicPolynomial(self):
+        """
+        Function that calculates the characteristic polynomial of the Bohemian matrix
+        Output:
+        (numpy array) Coefficients of the characteristic polynomial of the Bohemian matrix (in order of descending order of power)
+        """
         # Use the method of Fadeev-Leverrier to compute
         # the characteristic polynomial.  Uses integer arithmetic
         # although numpy insists on floats sometimes.
@@ -69,14 +108,29 @@ class Bohemian:
         return c
 
     def determinant(self):
+        """
+        Function that calculates the determinant of the Bohemian matrix
+        Output:
+        (int) Determinant of the Bohemian matrix
+        """
         c = self.characteristicPolynomial()
         return (-1)**self._size*c[0]
 
     def eig(self):
+        """
+        Function that calculates the eigenvalues of the Bohemian matrix
+        Output:
+        (numpy.array) All eigenvalues of the Bohemian matrix
+        """
         eigval, _ = la.eig(self._matrix)
         return(eigval)
 
     def plotEig(self):
+        """
+        Function that plots the eigenvalues of the Bohemian matrix.
+        Output:
+        (matplotlib.plot) Plot of eigenvalues (with default colours/parameters)
+        """
         e = self.eig()
         x = e.real
         y = e.imag
@@ -86,7 +140,16 @@ class Bohemian:
         plt.show()
 
 class Symmetric(Bohemian):
+    """
+    Inherited class to create symmetric Bohemian matrix
+    """
     def __init__(self, n, U=None):
+        """
+        Initialization of Symmetric Bohemian Matrix Object
+        Input:
+        n: (int) size of the matrix (Bohemian matrix is assumed to be square)
+        U: (list, optional) upper triangular entries of the matrix. Default will result in a zero matrix of size n x n
+        """
         self._size = n
         self._numberOfMatrixEntries = n*(n+1)//2
         if U is not None:
@@ -105,6 +168,11 @@ class Symmetric(Bohemian):
             self._matrix = np.zeros((n, n), dtype=int)
 
     def makeMatrix(self, U):
+        """
+        Function to input entries for Bohemian matrix object.
+        Input:
+        U: (list) upper triangular entries of the matrix (length of matrix needs to match the indicated size of initialized Bohemian matrix object)
+        """
         if self._numberOfMatrixEntries != len(U):
             raise ValueError('Expected list of length {}, got {} instead'.format(self._numberOfMatrixEntries, len(U)))
         if type(self._matrix[0, 0]) != type(U[0]):
@@ -119,7 +187,16 @@ class Symmetric(Bohemian):
                 self._matrix[j, i] = self._matrix[i, j]
 
 class SkewSymmetric(Bohemian):
+    """
+    Inherited class to create skew symmetric Bohemian matrix
+    """
     def __init__(self, n, U=None):
+        """
+        Initialization of Skew Symmetric Bohemian Matrix Object
+        Input:
+        n: (int) size of the matrix (Bohemian matrix is assumed to be square)
+        U: (list, optional) upper triangular entries of the matrix. Default will result in a zero matrix of size n x n
+        """
         self._size = n
         self._numberOfMatrixEntries = n*(n-1)//2
         if U is not None:
@@ -138,6 +215,11 @@ class SkewSymmetric(Bohemian):
             self._matrix = np.zeros((n, n), dtype=int)
 
     def makeMatrix(self, U):
+        """
+        Function to input entries for Bohemian matrix object.
+        Input:
+        U: (list) upper triangular entries of the matrix (length of matrix needs to match the indicated size of initialized Bohemian matrix object)
+        """
         if self._numberOfMatrixEntries != len(U):
             raise ValueError('Expected list of length {}, got {} instead'.format(self._numberOfMatrixEntries, len(U)))
         if type(self._matrix[0, 0]) != type(U[0]):
@@ -153,7 +235,16 @@ class SkewSymmetric(Bohemian):
 
 # Add a class of skew-symmetric tridiagonal matrices.
 class SkewSymmetricTridiagonal(Bohemian):
+    """
+    Inherited class to create skew symmetric tridiagonal Bohemian matrix
+    """
     def __init__(self, n, U=None):
+        """
+        Initialization of Skew Symmetric Triadiagonal Bohemian Matrix Object
+        Input:
+        n: (int) size of the matrix (Bohemian matrix is assumed to be square)
+        U: (list, optional) entries of the matrix, length of entries need to match the number of matrix entries. Default will result in a zero matrix of size n x n
+        """
         self._size = n
         self._numberOfMatrixEntries = n-1
         if U is not None:
@@ -170,6 +261,11 @@ class SkewSymmetricTridiagonal(Bohemian):
             self._matrix = np.zeros((n, n), dtype=int)
 
     def makeMatrix(self, U):
+        """
+        Function to input entries for Bohemian matrix object.
+        Input:
+        U: (list) entries of the matrix, length of entries need to match the number of matrix entries
+        """
         if self._numberOfMatrixEntries != len(U):
             raise ValueError('Expected list of length {}, got {} instead'.format(self._numberOfMatrixEntries, len(U)))
         if type(self._matrix[0, 0]) != type(U[0]):
@@ -182,6 +278,11 @@ class SkewSymmetricTridiagonal(Bohemian):
             self._matrix[i+1, i] = -self._matrix[i, i+1]
 
     def characteristicPolynomial(self):
+        """
+        Function to calculate the characteristic polynomial of Skew Symmetric Triangular Bohemian Object
+        Output:
+        (numpy.array) Array of coefficients of the characteristic polynomial (in descending order of power)
+        """
         # This routine is special for skew-symmetric
         # tridiagonal matrices.  There is a fast recurrence
         # for computing characteristic polynomials for this class.
@@ -208,7 +309,16 @@ class SkewSymmetricTridiagonal(Bohemian):
 # Add a class of upper Hessenberg Toeplitz Zero Diagonal matrices with -1 on the subdiagonal
 # This code has been minimally tested, but has passed those tests.
 class UHTZD(Bohemian):
+    """
+    Inherited class to create upper Hessenberg Toeplitz Zero Diagonal Bohemian matrix with -1 on the subdiagonal
+    """
     def __init__(self, n, U=None):
+        """
+        Initialization of upper Hessenberg Toeplitz Zero Diagonal Bohemian matrix with -1 on the subdiagonal object
+        Input:
+        n: (int) size of the matrix (Bohemian matrix is assumed to be square)
+        U: (list, optional) entries of the matrix, length of entries need to match the number of matrix entries. Default will result in a zero matrix of size n x n
+        """
         self._size = n
         self._numberOfMatrixEntries = n-1
         if U is not None:
@@ -227,6 +337,11 @@ class UHTZD(Bohemian):
             self._matrix = np.zeros((n, n), dtype=int)
 
     def makeMatrix(self, U):
+        """
+        Function to input entries for Bohemian matrix object.
+        Input:
+        U: (list) entries of the matrix, length of entries need to match the number of matrix entries
+        """
         if self._numberOfMatrixEntries != len(U):
             raise ValueError('Expected list of length {}, got {} instead'.format(self._numberOfMatrixEntries, len(U)))
         if type(self._matrix[0, 0]) != type(U[0]):
@@ -241,6 +356,11 @@ class UHTZD(Bohemian):
             self._matrix[i+1, i] = -1
 
     def characteristicPolynomial(self):
+        """
+        Function to calculate the characteristic polynomial of upper Hessenberg Toeplitz Zero Diagonal Bohemian matrix with -1 on the subdiagonal
+        Output:
+        (numpy.array) Array of coefficients of the characteristic polynomial (in descending order of power)
+        """
         # This routine is special for upper Hessenberg Toeplitz
         # zero diagonal matrices.  There is a fast recurrence
         # for computing characteristic polynomials for this class.
@@ -270,7 +390,16 @@ class UHTZD(Bohemian):
 
 # Add a class of Unit upper Hessenberg matrices with 1 on the subdiagonal
 class UnitUpperHessenberg(Bohemian):
+    """
+    Inherited class to create unit upper Hessenberg Toeplitz Bohemian matrix
+    """
     def __init__(self, n, U=None):
+        """
+        Initialization ofunit upper Hessenberg Toeplitz Bohemian matrix
+        Input:
+        n: (int) size of the matrix (Bohemian matrix is assumed to be square)
+        U: (list, optional) entries of the matrix, length of entries need to match the number of matrix entries. Default will result in a zero matrix of size n x n
+        """
         self._size = n
         self._numberOfMatrixEntries = n*(n+1)//2
         if U is not None:
@@ -288,6 +417,11 @@ class UnitUpperHessenberg(Bohemian):
             self._matrix = np.zeros((n, n), dtype=int)
 
     def makeMatrix(self, U):
+        """
+        Function to input entries for Bohemian matrix object.
+        Input:
+        U: (list) entries of the matrix, length of entries need to match the number of matrix entries
+        """
         if self._numberOfMatrixEntries != len(U):
             raise ValueError('Expected list of length {}, got {} instead'.format(self._numberOfMatrixEntries, len(U)))
         if type(self._matrix[0, 0]) != type(U[0]):
@@ -301,6 +435,11 @@ class UnitUpperHessenberg(Bohemian):
             self._matrix[i+1, i] = 1
 
     def characteristicPolynomial(self):
+        """
+        Function to calculate the characteristic polynomial of unit upper Hessenberg Toeplitz Bohemian matrix
+        Output:
+        (numpy.array) Array of coefficients of the characteristic polynomial (in descending order of power)
+        """
         # This routine is special for unit upper Hessenberg matrices.
         # The cost is O(n^2)
         # for computing characteristic polynomials for this class.
@@ -322,7 +461,7 @@ class UnitUpperHessenberg(Bohemian):
                  s += self._matrix[i,m-1]*plist[i]
             p = mu*plist[m-1] - s
             plist.append( p )
-        # 
+        #
         for k in range(self._size):
             c[k] = plist[self._size].coef[k]
         return c

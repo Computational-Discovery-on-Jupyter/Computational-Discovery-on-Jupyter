@@ -5,10 +5,12 @@ import skimage.io
 from skimage.metrics import structural_similarity as ssim
 import os
 
-# do a MDM (molecular distance map) of lungfish, bony fish, cartilage fish, amphibians
-# Could try doing a MDM for all of them (let's see how long it takes)
-
 def parse_sequence(filename):
+    """
+    Reads fasta file and convert it to string that Python can use
+    Input:
+    filename: (string) path to fasta file
+    """
     with open(filename) as inputfile:
         next(inputfile)
         results = list(csv.reader(inputfile))
@@ -18,6 +20,11 @@ def parse_sequence(filename):
     return seq
 
 def dna_cgr(seq):
+    """
+    Create array with the coordinate of all the points that corresponds with the DNA sequence
+    Input:
+    seq: (string) DNA sequence
+    """
     N = len(seq)
     dataPoints = np.zeros((2, N+1))
     dataPoints[:, 0] = np.array([0.5, 0.5])
@@ -34,6 +41,12 @@ def dna_cgr(seq):
     return(dataPoints)
 
 def plot_CGR(coord, filename):
+    """
+    Plot CGR
+    Inputs:
+    coord: (numpy.array) array with coordinates corresponding to CGR of DNA sequence
+    filename: (string) path to directory to save figure
+    """
     plt.figure()
     plt.plot(coord[0, :], coord[1, :], 'k,')
     plt.axis('off')
@@ -44,10 +57,17 @@ def plot_CGR(coord, filename):
     plt.close()
 
 def make_CGR(fasta_file, output_file):
+    """
+    Function that calls all previous functions to make CGR for DNA sequence
+    Inputs:
+    fasta_file: (string) path to fasta file
+    output_file: (string) path to directory to save CGR figure
+    """
     sequence = parse_sequence(fasta_file)
     coordinate = dna_cgr(sequence)
     cgr = plot_CGR(coordinate, output_file)
 
+# Go through all fasta files and create CGR
 f = []
 for (dirpath, dirnames, filenames) in os.walk('FASTA files'):
     for name in filenames:
