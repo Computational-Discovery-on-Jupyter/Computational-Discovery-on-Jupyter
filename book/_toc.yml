@@ -13,6 +13,9 @@ parts:
     - file: Contents/bohemian-matrices
     - file: Contents/mandelbrot
     - file: Contents/chaos-game-representation
+  - caption: Epilogue
+    chapters:
+    - file: Looking-back
   - caption: Appendix
     chapters:
     - file: Appendix/What-to-do-when-things-go-wrong
