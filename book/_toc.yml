@@ -4,6 +4,7 @@ parts:
   - caption: Preface
     chapters:
     - file: preamble
+    - file: Installing-Python-and-Jupyter
   - caption: Contents
     chapters:
     - file: Contents/Computing-with-Fibonacci
