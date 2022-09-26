@@ -1,0 +1,1058 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Reports on Rootfinding Activities &#8212; Computational Discovery on Jupyter</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.jpg"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Reports on Julia Set Activities" href="Reports%20on%20Julia%20Set%20Activities.html" />
+    <link rel="prev" title="Reports on Continued Fractions Activities" href="Reports%20on%20Continued%20Fractions%20Activities.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Computational Discovery on Jupyter</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to Computational Discovery on Jupyter
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Preface
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preamble.html">
+   Preamble
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Installing-Python-and-Jupyter.html">
+   Before we begin: installing Python and Jupyter
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/Computing-with-Fibonacci.html">
+   Computing with Fibonacci Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/continued-fractions.html">
+   Continued Fractions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/rootfinding.html">
+   Rootfinding, Newton’s Method, and Dynamical Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/fractals-and-julia-sets.html">
+   Fractals and Julia Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/bohemian-matrices.html">
+   Bounded Height Matrices of Integers (Bohemian Matrices)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/mandelbrot.html">
+   Mandelbrot Polynomials and Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/chaos-game-representation.html">
+   Chaos Game Representation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Epilogue
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Looking-back.html">
+   Zanshin
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/What-to-do-when-things-go-wrong.html">
+   What do to when things go wrong
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/floating-point.html">
+   The Bare Minimum about Floating-Point
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/binomials-factorials-combinatorics.html">
+   Binomials, Factorials, and other Combinatorial Things
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/complex-numbers.html">
+   Complex Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/symbolic-computation.html">
+   Symbolic Computation: The Pitfalls
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reports on Activities
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Fibonacci%20Activities.html">
+   Reports on Fibonacci Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Continued%20Fractions%20Activities.html">
+   Reports on Continued Fractions Activities
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Reports on Rootfinding Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Julia%20Set%20Activities.html">
+   Reports on Julia Set Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Bohemian%20Activities.html">
+   Reports on Bohemian activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Mandelbrot%20Activities.html">
+   Reports on Mandelbrot Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Chaos%20Game%20Activities.html">
+   Reports on Chaos Game Activities
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Back Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about.html">
+   About the authors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter/edit/master/book/Solutions/Reports on Rootfinding Activities.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Solutions/Reports on Rootfinding Activities.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rootfinding-activity-1">
+   Rootfinding Activity 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rootfinding-activity-2-the-railway-prankster-problem">
+   Rootfinding Activity 2: The Railway Prankster Problem.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rootfinding-activity-report-3">
+   Rootfinding Activity Report 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rootfinding-activity-report-4">
+   Rootfinding Activity Report 4
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rootfinding-activity-report-5">
+   Rootfinding Activity Report 5
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rootfinding-activity-report-6">
+   Rootfinding Activity Report 6
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rootfinding-activity-report-7">
+   Rootfinding Activity Report 7
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rootfinding-activity-report-8">
+   Rootfinding Activity Report 8
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rootfinding-activity-report-9">
+   Rootfinding Activity Report 9
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rootfinding-activity-report-10">
+   Rootfinding Activity Report 10
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rootfinding-activity-report-11">
+   Rootfinding Activity Report 11
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rootfinding-activity-report-12">
+   Rootfinding Activity Report 12
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rootfinding-activity-report-13">
+   Rootfinding Activity Report 13
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rootfinding-activity-report-14">
+   Rootfinding Activity Report 14
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Reports on Rootfinding Activities</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rootfinding-activity-1">
+   Rootfinding Activity 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rootfinding-activity-2-the-railway-prankster-problem">
+   Rootfinding Activity 2: The Railway Prankster Problem.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rootfinding-activity-report-3">
+   Rootfinding Activity Report 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rootfinding-activity-report-4">
+   Rootfinding Activity Report 4
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rootfinding-activity-report-5">
+   Rootfinding Activity Report 5
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rootfinding-activity-report-6">
+   Rootfinding Activity Report 6
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rootfinding-activity-report-7">
+   Rootfinding Activity Report 7
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rootfinding-activity-report-8">
+   Rootfinding Activity Report 8
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rootfinding-activity-report-9">
+   Rootfinding Activity Report 9
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rootfinding-activity-report-10">
+   Rootfinding Activity Report 10
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rootfinding-activity-report-11">
+   Rootfinding Activity Report 11
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rootfinding-activity-report-12">
+   Rootfinding Activity Report 12
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rootfinding-activity-report-13">
+   Rootfinding Activity Report 13
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rootfinding-activity-report-14">
+   Rootfinding Activity Report 14
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="reports-on-rootfinding-activities">
+<h1>Reports on Rootfinding Activities<a class="headerlink" href="#reports-on-rootfinding-activities" title="Permalink to this headline">#</a></h1>
+<section id="rootfinding-activity-1">
+<span id="rootfindingactivityreport-1"></span><h2>Rootfinding Activity 1<a class="headerlink" href="#rootfinding-activity-1" title="Permalink to this headline">#</a></h2>
+<p><em>Write Newton’s method iterations for the following functions, and estimate the desired root(s)</em>.</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(f(x) = x^2 - 3\)</span> with <span class="math notranslate nohighlight">\(x_0 = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(f(x) = x^3 - 2\)</span> with <span class="math notranslate nohighlight">\(x_0 = 1\)</span></p></li>
+<li><p>Newton’s original example, <span class="math notranslate nohighlight">\(f(x) = x^3 - 2x - 5 = 0\)</span>. Since <span class="math notranslate nohighlight">\(f(0) = -5\)</span>, <span class="math notranslate nohighlight">\(f(1) = -6\)</span>, <span class="math notranslate nohighlight">\(f(2) = -1\)</span>, and <span class="math notranslate nohighlight">\(f(3) = 16\)</span>, we see there is a root between <span class="math notranslate nohighlight">\(x=2\)</span> and <span class="math notranslate nohighlight">\(x=3\)</span>.  Use that knowledge to choose your initial estimate.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">niter</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">niter</span><span class="p">)</span>
+<span class="n">residual</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">niter</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mf">3.0</span>
+<span class="n">df</span><span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span>
+<span class="c1"># Human differentiation can introduce blunders and bugs, but let&#39;s hope not today</span>
+
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">residual</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">niter</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">residual</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">residual</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">residual</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.         2.         1.75       1.73214286 1.73205081 1.73205081]
+[-2.00000000e+00  1.00000000e+00  6.25000000e-02  3.18877551e-04
+  8.47267412e-09 -4.44089210e-16]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">niter</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">niter</span><span class="p">)</span>
+<span class="n">residual</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">niter</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mf">2.0</span>
+<span class="n">df</span><span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<span class="c1"># Human differentiation can introduce blunders and bugs, but let&#39;s hope not today</span>
+
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">residual</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">niter</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">residual</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">residual</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">residual</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.         1.33333333 1.26388889 1.25993349 1.25992105 1.25992105]
+[-1.00000000e+00  3.70370370e-01  1.89552255e-02  5.92593227e-05
+  5.85258508e-10  0.00000000e+00]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">niter</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">niter</span><span class="p">)</span>
+<span class="n">residual</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">niter</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mf">2.0</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mf">5.0</span>
+<span class="n">df</span><span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mf">2.0</span>
+<span class="c1"># Human differentiation can introduce blunders and bugs, but let&#39;s hope not today</span>
+
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.5</span>  <span class="c1"># It&#39;s between 2 and 3</span>
+<span class="n">residual</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">niter</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">residual</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">df</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">residual</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">residual</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2.5        2.1641791  2.09713536 2.09455523 2.09455148 2.09455148]
+[ 5.62500000e+00  8.07945126e-01  2.88817212e-02  4.18649461e-05
+  8.84021745e-11 -8.88178420e-16]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Because the residuals got very small very quickly, we are confident that all the answers are good.  They are, for sure, the exact answers of very nearby problems.</p>
+<p><a class="reference internal" href="../Contents/rootfinding.html#rootfindingactivity-1"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="rootfinding-activity-2-the-railway-prankster-problem">
+<span id="rootfindingactivityreport-2"></span><h2>Rootfinding Activity 2: The Railway Prankster Problem.<a class="headerlink" href="#rootfinding-activity-2-the-railway-prankster-problem" title="Permalink to this headline">#</a></h2>
+<p><em>Late one night, some pranksters weld a <span class="math notranslate nohighlight">\(2\)</span>cm piece of steel into a train track <span class="math notranslate nohighlight">\(2\)</span>km long, sealing the gaps meant to allow for heat expansion.  In the morning as the temperature rises, the train track expands and bows up into a perfectly circular arc. How high is the arc in the middle</em>?</p>
+<p>The fun part of this problem is setting it up and drawing it.  The solution, using Newton’s method, is below.  We used the symbol <span class="math notranslate nohighlight">\(R\)</span> for the radius of the circular arc, and <span class="math notranslate nohighlight">\(s\)</span> for the small increment in the length of the track.</p>
+<a class="reference internal image-reference" href="../_images/prankster.jpg"><img alt="Hand sketch for the Railway Prankster problem" class="align-center" src="../_images/prankster.jpg" style="height: 300px;" /></a>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="mf">1.0e-5</span>
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">R</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">((</span><span class="mi">1</span><span class="o">+</span><span class="n">s</span><span class="p">)</span><span class="o">/</span><span class="n">R</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">R</span>
+<span class="n">df</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">R</span><span class="p">:</span> <span class="o">-</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s</span><span class="p">)</span> <span class="o">/</span> <span class="n">R</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">((</span><span class="mi">1</span> <span class="o">+</span> <span class="n">s</span><span class="p">)</span> <span class="o">/</span> <span class="n">R</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">R</span> <span class="o">**</span> <span class="mi">2</span> <span class="c1"># Differentiate carefully!</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">Ar</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1000.0</span><span class="o">/</span><span class="mf">9.0</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">nxt</span> <span class="o">=</span> <span class="n">Ar</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">Ar</span><span class="p">[</span><span class="n">k</span><span class="p">])</span><span class="o">/</span><span class="n">df</span><span class="p">(</span><span class="n">Ar</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+    <span class="n">Ar</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nxt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Ar</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">([</span><span class="n">f</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span> <span class="k">for</span> <span class="n">rho</span> <span class="ow">in</span> <span class="n">Ar</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[111.11111111111111, 123.86244904780746, 128.59835439622927, 129.09631810259108, 129.10118725925943, 129.10118771897493]
+[-3.1503152937012446e-08, -6.973718736161261e-09, -6.092985586556021e-10, -5.843914761827218e-12, -5.516420653606247e-16, 8.673617379884035e-19]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The convergence there was a <em>bit</em> slow; the residual was already pretty small with our initial estimate (we explain below where we got it) but Newton’s method got us there in the end.  The difficulty is that the root is <em>nearly</em> a multiple root.  We talk a little about that, in general, in the main text of this unit.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">height</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">Ar</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Ar</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">hmeters</span> <span class="o">=</span> <span class="n">height</span><span class="o">*</span><span class="mf">1000.0</span>
+<span class="n">hfeet</span> <span class="o">=</span> <span class="mf">3280.84</span><span class="o">*</span><span class="n">height</span>  <span class="c1"># Feet in a kilometer</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Height in is </span><span class="si">{}</span><span class="s2"> m or </span><span class="si">{}</span><span class="s2"> feet&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">hmeters</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">hfeet</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Height in is 3.87 m or 12.71 feet
+</pre></div>
+</div>
+</div>
+</div>
+<p>That might seem ridiculous.  Consider the related problem, where instead of bowing up in a perfect circular arc, the track bows up into two straight lines meeting in the middle, making an isosceles triangle with base <span class="math notranslate nohighlight">\(2\)</span>km long and sides <span class="math notranslate nohighlight">\(1+s\)</span>.  The height satisfies <span class="math notranslate nohighlight">\(h^2 +1 = (1+s)^2\)</span> by Pythagoras; since <span class="math notranslate nohighlight">\(s=10^{-5}\)</span>km, we find pretty rapidly that <span class="math notranslate nohighlight">\(h = \sqrt{(1+s)^2-1} = \sqrt{2s + s^2}\)</span> or <span class="math notranslate nohighlight">\(0.00447\)</span>km or about <span class="math notranslate nohighlight">\(14.7\)</span> feet.</p>
+<p>Okay, then.  Inserting one extra centimeter in a kilometer gives a height of 4.47m or 14.7 feet if we make a triangle; or 3.9 meters (12.7 feet) if it makes a semicircular arc.  This is kind of wild, but would be true if our crazed assumptions were true.  By the way, we used the height estimate from the triangle problem to give us an <span class="math notranslate nohighlight">\(R\)</span> estimate for the circular arc problem; that <span class="math notranslate nohighlight">\(1000/9\)</span> didn’t come out of nowhere!</p>
+<p><a class="reference internal" href="../Contents/rootfinding.html#rootfindingactivity-2"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="rootfinding-activity-report-3">
+<span id="rootfindingactivityreport-3"></span><h2>Rootfinding Activity Report 3<a class="headerlink" href="#rootfinding-activity-report-3" title="Permalink to this headline">#</a></h2>
+<p>We asked you to think of various questions about rootfinding.  Again, we did not intend for you to try to answer them just now.</p>
+<p>What is the oldest method for finding roots of equations?  What is the best way to solve polynomials? Can you solve them analytically? <em>Is</em> there a best way to solve them? How do you solve multivariate polynomials (more than one equation in more than one unknown)? Can you <em>count</em> the number of solutions independently so that you know when you have found them all?  What’s the difference between an equation and an identity? Can there be infinitely many solutions to a single equation? (Sure: <span class="math notranslate nohighlight">\(\sin(x)=0\)</span> has solutions <span class="math notranslate nohighlight">\(k\pi\)</span> for any integer <span class="math notranslate nohighlight">\(k\)</span>) Can an equation have no solutions? (Sure: <span class="math notranslate nohighlight">\(\exp(z) = 0\)</span> has no finite solutions). Can an equation have <em>accumulation points</em> of solutions? (An accumulation point is a place where things pile up infinitely; an example is the set <span class="math notranslate nohighlight">\(1/k\)</span> for integers <span class="math notranslate nohighlight">\(k\)</span>, which has an accumulation point at <span class="math notranslate nohighlight">\(0\)</span>). Can we solve every polynomial equation in terms of continued fractions? Are there polynomial matrix equations, and can they be solved by Newton’s method? What happens with <em>multiple</em> roots, such as <span class="math notranslate nohighlight">\(z^2-2z+1=0\)</span>? If there are two solutions to an equation, which one is the right one? Can you find a formula for the <em>integer</em> solutions of an equation?</p>
+<p><a class="reference internal" href="../Contents/rootfinding.html#rootfindingactivity-3"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="rootfinding-activity-report-4">
+<span id="rootfindingactivityreport-4"></span><h2>Rootfinding Activity Report 4<a class="headerlink" href="#rootfinding-activity-report-4" title="Permalink to this headline">#</a></h2>
+<p>Sometimes Newton iteration is “too expensive”; a cheaper alternative is the so-called <em>secant iteration</em>, which goes as follows: <span class="math notranslate nohighlight">\(z_{n+1} = z_n - f(z_n)(z_{n}-z_{n-1})/(f(z_n) - f(z_{n-1}))\)</span>. You need not one, but <em>two</em> initial approximations for this.  Put <span class="math notranslate nohighlight">\(f(z) = z^2-2\)</span> and start with the two initial approximations <span class="math notranslate nohighlight">\(z_0  = 1\)</span>, <span class="math notranslate nohighlight">\(z_1 = 3/2\)</span>.  Carry out several steps of this (in exact arithmetic is better).  Convert each rational <span class="math notranslate nohighlight">\(z_n\)</span> to continued fraction form.  Discuss what you find.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">niter</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">niter</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">niter</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mf">2.0</span>
+
+<span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">z</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.5</span>
+<span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">niter</span><span class="p">):</span>
+    <span class="n">z</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">z</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">z</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.         1.5        1.4        1.4137931  1.41421569 1.41421356
+ 1.41421356 1.41421356 1.41421356 1.41421356] [-1.00000000e+00  2.50000000e-01 -4.00000000e-02 -1.18906064e-03
+  6.00730488e-06 -8.93145558e-10 -8.88178420e-16 -4.44089210e-16
+  4.44089210e-16 -4.44089210e-16]
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you do this problem using exact arithmetic, and convert the rational answers to continued fraction form, you get <span class="math notranslate nohighlight">\([1]\)</span>, <span class="math notranslate nohighlight">\([1;2]\)</span>, <span class="math notranslate nohighlight">\([1;2,2]\)</span>, <span class="math notranslate nohighlight">\([1;2,2,2,2]\)</span>, and so on, similar to Newton’s method.  But there are <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(2\)</span>, <span class="math notranslate nohighlight">\(3\)</span>, <span class="math notranslate nohighlight">\(5\)</span>, <span class="math notranslate nohighlight">\(8\)</span>, <span class="math notranslate nohighlight">\(13\)</span>, <span class="math notranslate nohighlight">\(21\)</span>, and so on numbers of partial quotients occuring! These are Fibonacci numbers!  Newton’s method converges <em>quadratically</em> in that the number of correct entries in the continued fraction doubles every time (or nearly; it’s off by one, maybe).  The secant method converges at the rate of <span class="math notranslate nohighlight">\(\phi = (1+\sqrt{5})/2 \approx 1.618\)</span> because the ratio of successive Fibonacci numbers approaches <span class="math notranslate nohighlight">\(\phi\)</span> (quite quickly, really).</p>
+<p><a class="reference internal" href="../Contents/rootfinding.html#rootfindingactivity-4"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="rootfinding-activity-report-5">
+<span id="rootfindingactivityreport-5"></span><h2>Rootfinding Activity Report 5<a class="headerlink" href="#rootfinding-activity-report-5" title="Permalink to this headline">#</a></h2>
+<p>Try Newton and secant iteration on some functions of your own choosing.  You should see that Newton iteration usually takes fewer iterations to converge, but since it needs a derivative evaluation while the secant method does not, each iteration is “cheaper” in terms of computational cost(if <span class="math notranslate nohighlight">\(f(z)\)</span> is at all expensive to evaluate, <span class="math notranslate nohighlight">\(f'(z)\)</span> usually is too; there are exceptions, of course).  The consensus seems to be that the secant method is a bit more practical; but in some sense it is just a variation on Newton’s method.</p>
+<p>This activity doesn’t really need a report, because there are lots of examples all over the place, but perhaps your solutions need someone to look at them.  Things that can happen: first, and most usual, your code works and the roots get approximated well quite quickly, and the residuals behave something like <span class="math notranslate nohighlight">\(r_n = f(z_n) \approx C r_{n-1}^2\)</span> where <span class="math notranslate nohighlight">\(C\)</span> is some constant.  This is usually visible.  If your residuals do <em>not</em> get small quickly, then you might have a bug in your code, or you might have a multiple root.  Sometimes you can divide by zero (if <span class="math notranslate nohighlight">\(f'(z)=0\)</span> anywhere near), and sometimes the iteration can go off to infinity or minus infinity (if <span class="math notranslate nohighlight">\(f(z) = \exp(z)\)</span> then it could well go to <span class="math notranslate nohighlight">\(-\infty\)</span>).</p>
+<p><a class="reference internal" href="../Contents/rootfinding.html#rootfindingactivity-5"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="rootfinding-activity-report-6">
+<span id="rootfindingactivityreport-6"></span><h2>Rootfinding Activity Report 6<a class="headerlink" href="#rootfinding-activity-report-6" title="Permalink to this headline">#</a></h2>
+<p>Both the Newton iteration and the secant iteration applied to <span class="math notranslate nohighlight">\(f(z) = z^2-a^2\)</span> can be <em>solved analytically</em> by the transformation <span class="math notranslate nohighlight">\(z = a\coth \theta\)</span>.  <a class="reference external" href="https://en.wikipedia.org/wiki/Hyperbolic_functions">Hyperbolic functions</a>  The iteration <span class="math notranslate nohighlight">\(z_{n+1} = (z_n + a^2/z_n)/2\)</span> becomes (you can check this) <span class="math notranslate nohighlight">\(\coth \theta_{n+1} = \cosh 2\theta_n/\sinh 2\theta_n = \coth 2\theta_n\)</span>, and so we may take <span class="math notranslate nohighlight">\(\theta_{n+1} = 2\theta_n\)</span>.  This can be solved to get <span class="math notranslate nohighlight">\(\theta_n = 2^n\theta_0\)</span> and so we have an analytical formula for each <span class="math notranslate nohighlight">\(z_n = a \coth( 2^n \theta_0 )\)</span>.  Try this on <span class="math notranslate nohighlight">\(a^2=2\)</span>; you should find that <span class="math notranslate nohighlight">\(\theta_0 = \mathrm{invcoth}(1/\sqrt{2})\)</span>.  By “invcoth” we mean the functional inverse of coth, i.e.: <span class="math notranslate nohighlight">\(\coth\theta_0 = 1/\sqrt{2}\)</span>. It may surprise you that that number is complex.  Nevertheless, you will find that all subsequent iterates are real, and <span class="math notranslate nohighlight">\(\coth 2^n\theta_0\)</span> goes to <span class="math notranslate nohighlight">\(1\)</span> very quickly.</p>
+<p>NB This was inadvertently difficult.  Neither numpy nor scipy has an invcoth (or arccoth) function. The Digital Library of Mathematical Functions says (equation 4.37.6) that arccoth(z) = arctanh(1/z).  Indeed we had to go to Maple to find out that invcoth<span class="math notranslate nohighlight">\((1/\sqrt{2}) = \ln(1+\sqrt{2}) - i\pi/2\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">niter</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="c1">#theta0 = np.arctanh(r2)  # Apparently this is real only?</span>
+<span class="n">theta0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">r2</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">1</span><span class="n">j</span>
+<span class="n">coth</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cosh</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sinh</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>  <span class="c1"># Amazing that even this has to be defined</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">r2</span><span class="o">*</span><span class="n">coth</span><span class="p">(</span><span class="n">theta0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r2</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">theta0</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">niter</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="o">/</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">r2</span><span class="o">*</span><span class="n">coth</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">theta0</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.4142135623730951 1 (0.8813735870195429-1.5707963267948966j) (1.0000000000000002+4.329780281177465e-17j)
+1.5 (1.5-2.164890140588732e-17j)
+1.4166666666666665 (1.4166666666666667-1.2027167447714604e-18j)
+1.4142156862745097 (1.4142156862745097-2.0808248176151252e-21j)
+1.4142135623746899 (1.41421356237469-3.124994721214149e-27j)
+1.414213562373095 (1.414213562373095+0j)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see numerically that the formula matches the iteration, up to rounding error.</p>
+<p><a class="reference internal" href="../Contents/rootfinding.html#rootfindingactivity-6"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="rootfinding-activity-report-7">
+<span id="rootfindingactivityreport-7"></span><h2>Rootfinding Activity Report 7<a class="headerlink" href="#rootfinding-activity-report-7" title="Permalink to this headline">#</a></h2>
+<p>Try the above with <span class="math notranslate nohighlight">\(a^2=-1\)</span>.  NB the initial guess <span class="math notranslate nohighlight">\(z_0 = 1\)</span> fails! Try <span class="math notranslate nohighlight">\(z_0 = e = \exp(1) = 2.71828...\)</span> instead. For this, the <span class="math notranslate nohighlight">\(\theta_0 = 1j\arctan(e^{-1})\)</span>. Then you might enjoy reading Gil Strang’s lovely article <a class="reference external" href="https://www.jstor.org/stable/2686733">A Chaotic Search for <span class="math notranslate nohighlight">\(i\)</span></a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">niter</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="c1">#theta0 = np.arctanh(r2)  # Apparently this is real only?</span>
+<span class="n">theta0</span> <span class="o">=</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="c1"># strange initial guess</span>
+<span class="n">coth</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cosh</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sinh</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>  <span class="c1"># Amazing that even this has to be defined</span>
+<span class="n">z</span> <span class="o">=</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">coth</span><span class="p">(</span><span class="n">theta0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">theta0</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">niter</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">coth</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">theta0</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1j 2.718281828459045 0.352513421777619j (2.7182818284590446+0j)
+1.1752011936438014 (1.1752011936438014+0j)
+0.1621415327022399 (0.1621415327022399+0j)
+-3.0026548631469705 (-3.0026548631469714+0j)
+-1.334808126895235 (-1.3348081268952354+0j)
+-0.29281839085136163 (-0.2928183908513621+0j)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again we see that the formula matches the iteration up to roundoff error, although it’s working with complex numbers.  If we went for a few more iterations, though, we would see the rounding errors take over. This is a case where the iteration <em>depends sensitively on initial conditions</em>.  This is a hallmark of <a class="reference external" href="https://en.wikipedia.org/wiki/Chaos_theory">chaos</a>.</p>
+</section>
+<section id="rootfinding-activity-report-8">
+<span id="rootfindingactivityreport-8"></span><h2>Rootfinding Activity Report 8<a class="headerlink" href="#rootfinding-activity-report-8" title="Permalink to this headline">#</a></h2>
+<p>Try to solve the <em>secant</em> iteration for <span class="math notranslate nohighlight">\(z^2-a^2\)</span> analytically.  You should eventually find a connection to Fibonacci numbers.</p>
+<p>This is a fun exercise in trig identities.  The solution can be found in the paper cited in Activity 10 below.</p>
+<p><a class="reference internal" href="../Contents/rootfinding.html#rootfindingactivity-8"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="rootfinding-activity-report-9">
+<span id="rootfindingactivityreport-9"></span><h2>Rootfinding Activity Report 9<a class="headerlink" href="#rootfinding-activity-report-9" title="Permalink to this headline">#</a></h2>
+<p>People keep inventing new rootfinding iterations.  Usually they are reinventions of methods that others have invented before, such as so-called <em>Schroeder</em> iteration and <em>Householder</em> iteration.  One step along the way is the method known as <em>Halley iteration</em>, which looks like this:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+z_{n+1} = z_n - \frac{f(z_n)}{f'(z_n) - \frac{f(z_n)f''(z_n)}{2f'(z_n)}} 
+\end{equation*}\]</div>
+<p>which, as you can see, also involves the <em>second</em> derivative of <span class="math notranslate nohighlight">\(f\)</span>.  When it works, it works quickly, typically converging in fewer iterations than Newton (although, typically, each step is more expensive computationally).  Try the method out on some examples.  It may help you to reuse your code (or Maple’s code) if you are told that Newton iteration on <span class="math notranslate nohighlight">\(F(z) = f(z)/\sqrt{f'(z)}\)</span> turns out to be identical to Halley iteration on <span class="math notranslate nohighlight">\(f(z)\)</span>.</p>
+<p>We’ve done a lot of these.  In the next unit, you will see fractal images from both Newton’s method and from Halley’s method. Here is Eunice with the resulting pictures from twenty functions, solved using Newton’s method and using Halley’s method.</p>
+<a class="reference internal image-reference" href="../_images/FortyFractals.jpg"><img alt="Eunice and the Forty Fractals." class="align-center" src="../_images/FortyFractals.jpg" style="height: 300px;" /></a>
+<p><a class="reference internal" href="../Contents/rootfinding.html#rootfindingactivity-9"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="rootfinding-activity-report-10">
+<span id="rootfindingactivityreport-10"></span><h2>Rootfinding Activity Report 10<a class="headerlink" href="#rootfinding-activity-report-10" title="Permalink to this headline">#</a></h2>
+<p>Try to solve Halley’s iteration for <span class="math notranslate nohighlight">\(x^2-a\)</span> analytically.  Then you might enjoy reading <a class="reference external" href="https://doi.org/10.1145/3363520.3363521">Revisiting Gilbert Strang’s “A Chaotic Search for i”</a> by Ao Li and Rob Corless; Ao was a (graduate) student in the first iteration of this course at Western, and she solved—in class!—what was then an <em>open</em> problem (this problem!).</p>
+<p>The complete solution is in the paper linked above.</p>
+<p><a class="reference internal" href="../Contents/rootfinding.html#rootfindingactivity-10"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="rootfinding-activity-report-11">
+<span id="rootfindingactivityreport-11"></span><h2>Rootfinding Activity Report 11<a class="headerlink" href="#rootfinding-activity-report-11" title="Permalink to this headline">#</a></h2>
+<p>See the paper <a class="reference external" href="https://doi.org/10.1080/00029890.2021.1964274">What Newton Might Have Known</a> .</p>
+<p><a class="reference internal" href="../Contents/rootfinding.html#rootfindingactivity-11"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="rootfinding-activity-report-12">
+<span id="rootfindingactivityreport-12"></span><h2>Rootfinding Activity Report 12<a class="headerlink" href="#rootfinding-activity-report-12" title="Permalink to this headline">#</a></h2>
+<p>There <em>ought</em> to be a translation, perhaps using hyperbolic trig identities (doubling, or tripling, or so on).</p>
+<p><a class="reference internal" href="../Contents/rootfinding.html#rootfindingactivity-12"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="rootfinding-activity-report-13">
+<span id="rootfindingactivityreport-13"></span><h2>Rootfinding Activity Report 13<a class="headerlink" href="#rootfinding-activity-report-13" title="Permalink to this headline">#</a></h2>
+<p>We really <em>don’t</em> know how to do this one.  The Schroeder iteration formulae for the simple problem <span class="math notranslate nohighlight">\(x^2 - a^2 = 0\)</span> don’t simplify analytically by any of the tricks we tried, and the “it gives a fractal so it must be hard” argument carries some weight with us.  But, there may be room for cleverness here.  We’d be interested if you could solve it!</p>
+<p><a class="reference internal" href="../Contents/rootfinding.html#rootfindingactivity-13"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="rootfinding-activity-report-14">
+<span id="rootfindingactivityreport-14"></span><h2>Rootfinding Activity Report 14<a class="headerlink" href="#rootfinding-activity-report-14" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="https://www.quantamagazine.org/after-centuries-a-seemingly-simple-math-problem-gets-an-exact-solution-20201209">Here’s a Quanta Magazine article on the Goat Problem</a>.  As with the Railway Prankster Puzzle, the fun in this one is setting up the equations, and there are lots of ways to do that.  What we did was suppose that the circular enclosure for the goat had the polar equation <span class="math notranslate nohighlight">\(r = 2\cos\theta\)</span>, which you can check for yourself draws a circle of radius 1 centred at the Cartesian coordinate <span class="math notranslate nohighlight">\(x=1\)</span>, <span class="math notranslate nohighlight">\(y=0\)</span>.  This intersects the origin, where we suppose that the goat is tethered, with a chain (ropes seem too stretchy for this exercise, and besides won’t the goat just eat the rope?).  We suppose that the length of the chain is <span class="math notranslate nohighlight">\(C\)</span>, measured in units of the radius of the field.  We intuitively realize that <span class="math notranslate nohighlight">\(C &gt; 1\)</span> (otherwise there’s no way the goat will get half the grass) and obviously <span class="math notranslate nohighlight">\(C &lt; 2\)</span>.  This means that the diagram must look like a circle of radius <span class="math notranslate nohighlight">\(C\)</span> overlapping a circle of radius <span class="math notranslate nohighlight">\(1\)</span>, and intersecting at (say) an angle <span class="math notranslate nohighlight">\(\beta\)</span>.  One can look up formulae for the areas of lunes and lenses, but we found it easiest to use calculus and polar coordinates, together with the area of a sector of a circle, to arrive at the formula</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\pi}{2} - \sin 2\beta + 2\beta \cos 2\beta = 0
+\]</div>
+<p>and (by the law of cosines) <span class="math notranslate nohighlight">\(C^2 = 2 + 2\cos 2\beta\)</span>, so once we know <span class="math notranslate nohighlight">\(\beta\)</span> we know everything.  This is now an easy meal for Newton’s method (or, really, any rootfinding method) and we get <span class="math notranslate nohighlight">\(\beta \approx 0.303301\pi\)</span> radians, or about <span class="math notranslate nohighlight">\(54.59^{\circ}\)</span>.  Four decimal places seems <em>more</em> than enough precision, considering how stretchy goat’s necks are.  When we draw the picture, it sort of looks right: it’s believable that the lens has half the area of the circle.</p>
+<p>This puzzle is sort of a silly puzzle, but we found it kind of fun.  We hope you did, too.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>  <span class="c1"># Make a fine grid of theta values going once round the circle</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>                   <span class="c1"># The corresponding r values from the unit circle</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">theta</span><span class="p">))]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">theta</span><span class="p">))]</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="mf">0.303301</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span>  <span class="c1"># Found by calculator, in fact</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">beta</span><span class="p">))</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">beta</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="n">xgoat</span> <span class="o">=</span> <span class="p">[</span><span class="n">C</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">theta</span><span class="p">))]</span>
+<span class="n">ygoat</span> <span class="o">=</span> <span class="p">[</span><span class="n">C</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">theta</span><span class="p">))]</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">xgoat</span><span class="p">,</span> <span class="n">ygoat</span><span class="p">)</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Grazing Goat&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span> <span class="c1"># change the title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Reports on Rootfinding Activities_48_0.png" src="../_images/Reports on Rootfinding Activities_48_0.png" />
+</div>
+</div>
+<p><a class="reference internal" href="../Contents/rootfinding.html#rootfindingactivity-14"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Solutions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Reports%20on%20Continued%20Fractions%20Activities.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Reports on Continued Fractions Activities</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Reports%20on%20Julia%20Set%20Activities.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Reports on Julia Set Activities</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Neil J. Calkin, Eunice Y.S. Chan, and Robert M. Corless<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

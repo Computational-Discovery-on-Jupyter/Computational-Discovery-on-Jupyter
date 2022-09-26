@@ -1,0 +1,589 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Before we begin: installing Python and Jupyter &#8212; Computational Discovery on Jupyter</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="_static/logo.jpg"/>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Computing with Fibonacci Numbers" href="Contents/Computing-with-Fibonacci.html" />
+    <link rel="prev" title="Preamble" href="preamble.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Computational Discovery on Jupyter</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Welcome to Computational Discovery on Jupyter
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Preface
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="preamble.html">
+   Preamble
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Before we begin: installing Python and Jupyter
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Contents/Computing-with-Fibonacci.html">
+   Computing with Fibonacci Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Contents/continued-fractions.html">
+   Continued Fractions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Contents/rootfinding.html">
+   Rootfinding, Newton’s Method, and Dynamical Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Contents/fractals-and-julia-sets.html">
+   Fractals and Julia Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Contents/bohemian-matrices.html">
+   Bounded Height Matrices of Integers (Bohemian Matrices)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Contents/mandelbrot.html">
+   Mandelbrot Polynomials and Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Contents/chaos-game-representation.html">
+   Chaos Game Representation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Epilogue
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Looking-back.html">
+   Zanshin
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix/What-to-do-when-things-go-wrong.html">
+   What do to when things go wrong
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix/floating-point.html">
+   The Bare Minimum about Floating-Point
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix/binomials-factorials-combinatorics.html">
+   Binomials, Factorials, and other Combinatorial Things
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix/complex-numbers.html">
+   Complex Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Appendix/symbolic-computation.html">
+   Symbolic Computation: The Pitfalls
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reports on Activities
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Solutions/Reports%20on%20Fibonacci%20Activities.html">
+   Reports on Fibonacci Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Solutions/Reports%20on%20Continued%20Fractions%20Activities.html">
+   Reports on Continued Fractions Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Solutions/Reports%20on%20Rootfinding%20Activities.html">
+   Reports on Rootfinding Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Solutions/Reports%20on%20Julia%20Set%20Activities.html">
+   Reports on Julia Set Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Solutions/Reports%20on%20Bohemian%20Activities.html">
+   Reports on Bohemian activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Solutions/Reports%20on%20Mandelbrot%20Activities.html">
+   Reports on Mandelbrot Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Solutions/Reports%20on%20Chaos%20Game%20Activities.html">
+   Reports on Chaos Game Activities
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Back Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="about.html">
+   About the authors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter/edit/master/book/Installing-Python-and-Jupyter.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/Installing-Python-and-Jupyter.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#managing-packages">
+   Managing packages
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Before we begin: installing Python and Jupyter</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#managing-packages">
+   Managing packages
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="before-we-begin-installing-python-and-jupyter">
+<h1>Before we begin: installing Python and Jupyter<a class="headerlink" href="#before-we-begin-installing-python-and-jupyter" title="Permalink to this headline">#</a></h1>
+<p>We expect that you are reading this online.  The HTML your browser is rendering was produced by a program called Jupyter Book (which you don’t need to install, but you can if you want to write your own book).  It is built from “Jupyter notebooks” that we wrote, which were connected to a Python 3 “kernel.”  We want you to install some version of Python and Jupyter notebooks.  One easy way to do that is to go to the <a class="reference external" href="https://www.anaconda.com/">Anaconda website</a>. Follow the download instructions for your particular machine to get the Anaconda distribution.  This includes Jupyter notebooks.  After you have done that, you will be able to launch Jupyter notebooks and run them.  This OER is intended to be for <em>active</em> learning: we want you to experiment, not just read.</p>
+<p><strong>Warning</strong>: Jupyter notebooks, which have an “.ipynb” file extension, can’t be “double clicked” to launch Jupyter Notebook.  You have to start Jupyter Notebook first, <a class="reference external" href="https://stackoverflow.com/questions/37993175/difference-between-command-prompt-and-anaconda-prompt">say by the command <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code> in an Anaconda prompt on a Windows machine</a> then navigate (yes, this means you have to learn the file directory system) to where the notebook is, and open it from within the program.  This seems a bit old-fashioned, but it’s just the way things are, and you will get used to it.  On Unix any ordinary terminal will work; this includes Macs, of course.  Details are available at the <a class="reference external" href="https://www.anaconda.com/">Anaconda website</a>.</p>
+<p>All of our Jupyter notebooks, which we told Jupyter Book to use to create this OER, are available to you: just click the download button near the top right.  Alternatively you can go to the <a class="reference external" href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter">GitHub repository</a>. This will give you all our code to experiment with (we have made it available using the MIT license, which, loosely speaking, means you have permission to use it for practically anything, but the code comes with no guarantees and so if something goes wrong with your usage, it’s not our fault).</p>
+<section id="managing-packages">
+<h2>Managing packages<a class="headerlink" href="#managing-packages" title="Permalink to this headline">#</a></h2>
+<p>The later units, especially Chaos Game Representation, need some special “packages” such as <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> which must be separately installed.  Managing this process is relatively straightforward but requires some care.  The file <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> in the <a class="reference external" href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter">GitHub Repository</a> has a list of all the packages that are needed. To install all the packages at once, in your terminal run <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">--file</span> <span class="pre">requirements.txt</span></code>.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="preamble.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Preamble</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Contents/Computing-with-Fibonacci.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Computing with Fibonacci Numbers</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Neil J. Calkin, Eunice Y.S. Chan, and Robert M. Corless<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>The Bare Minimum about Floating-Point &#8212; Computational Discovery on Jupyter</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,46 +20,45 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../_static/logo.jpg"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Binomials, Factorials, and other Combinatorial Things" href="binomials-factorials-combinatorics.html" />
-    <link rel="prev" title="Chaos Game Representation" href="../Contents/chaos-game-representation.html" />
+    <link rel="prev" title="What do to when things go wrong" href="What-to-do-when-things-go-wrong.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -65,7 +66,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -74,9 +89,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -94,14 +110,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../index.html">
-   Welcome to Computational Discovery on Jupyter
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to Computational Discovery on Jupyter
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Preface
  </span>
@@ -112,6 +129,11 @@
    Preamble
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Installing-Python-and-Jupyter.html">
+   Before we begin: installing Python and Jupyter
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -119,6 +141,11 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/Computing-with-Fibonacci.html">
+   Computing with Fibonacci Numbers
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Contents/continued-fractions.html">
    Continued Fractions
@@ -152,10 +179,27 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
+  Epilogue
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Looking-back.html">
+   Zanshin
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
   Appendix
  </span>
 </p>
 <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="What-to-do-when-things-go-wrong.html">
+   What do to when things go wrong
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    The Bare Minimum about Floating-Point
@@ -179,33 +223,43 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Solutions
+  Reports on Activities
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../Solutions/Solutions%20to%20Continued%20Fraction%20Exercises.html">
-   Solutions to Continued Fractions Exercises
+  <a class="reference internal" href="../Solutions/Reports%20on%20Fibonacci%20Activities.html">
+   Reports on Fibonacci Activities
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Solutions/Solutions%20to%20the%20Rootfinding%20Chapter%20Exercises.html">
-   Solutions to the Rootfinding Chapter Exercises
+  <a class="reference internal" href="../Solutions/Reports%20on%20Continued%20Fractions%20Activities.html">
+   Reports on Continued Fractions Activities
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Solutions/Solutions%20to%20the%20Julia%20Set%20Exercises.html">
-   Solutions to the Julia Set Exercises
+  <a class="reference internal" href="../Solutions/Reports%20on%20Rootfinding%20Activities.html">
+   Reports on Rootfinding Activities
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Solutions/Solutions%20to%20Exercises%20%28not%20Activities%29%20in%20the%20Bohemian%20Unit.html">
-   Solutions to Exercises (not Activities) in the Bohemian Unit
+  <a class="reference internal" href="../Solutions/Reports%20on%20Julia%20Set%20Activities.html">
+   Reports on Julia Set Activities
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Solutions/Solutions%20to%20Mandelbrot%20Exercises.html">
-   Solutions to Mandelbrot Polynomials and Matrices Exercises
+  <a class="reference internal" href="../Solutions/Reports%20on%20Bohemian%20Activities.html">
+   Reports on Bohemian activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Reports%20on%20Mandelbrot%20Activities.html">
+   Reports on Mandelbrot Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Reports%20on%20Chaos%20Game%20Activities.html">
+   Reports on Chaos Game Activities
   </a>
  </li>
 </ul>
@@ -233,89 +287,191 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/Appendix/floating-point.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        
-        <a class="edit-button" href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter/edit/master/book/Appendix/floating-point.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter/edit/master/book/Appendix/floating-point.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Appendix/floating-point.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#warning-reading-this-requires-care">
    Warning: Reading this requires care.
@@ -362,12 +518,11 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>The Bare Minimum about Floating-Point</h1>
@@ -430,21 +585,22 @@
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="the-bare-minimum-about-floating-point">
-<h1>The Bare Minimum about Floating-Point<a class="headerlink" href="#the-bare-minimum-about-floating-point" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="warning-reading-this-requires-care">
-<h2>Warning: Reading this requires care.<a class="headerlink" href="#warning-reading-this-requires-care" title="Permalink to this headline">¶</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="the-bare-minimum-about-floating-point">
+<h1>The Bare Minimum about Floating-Point<a class="headerlink" href="#the-bare-minimum-about-floating-point" title="Permalink to this headline">#</a></h1>
+<section id="warning-reading-this-requires-care">
+<h2>Warning: Reading this requires care.<a class="headerlink" href="#warning-reading-this-requires-care" title="Permalink to this headline">#</a></h2>
 <p>To a first approximation, no-one likes thinking carefully about floating-point numbers.  Most people think that floats are finicky, tedious, and boring. Isn’t that why we have computers, to do that sort of thing? Most everyone just wants floating-point arithmetic to work, fast and without giving problems.  But there comes a time when you <i>have</i> to think about them.  This notebook tries to give the absolute minimum that you need to know, so that (most of the time) you can forget about them (but still be ready when their peculiarities strike). <b>In fact, we’re going to assume that you have already seen something weird about decimal arithmetic on a computer, and are looking here for answers.</b>  You’ll get them, but it’s not that simple.</p>
 <p>To make it more complicated, there is a <A HREF="https://en.wikipedia.org/wiki/IEEE_754">standard for floating-point arithmetic laid out by the IEEE that is now over 35 years old </A>: it’s very well-known, and very very good; but unfortunately,  not everyone knows about it or follows it, and so not everyone supports it (we do—it makes life so much easier). Indeed a lot of machines and computer languages do, and so we use it here, because you need to know something about it.  But when it is <b>not</b> supported, it’s like barking your shin on a piece of furniture in the dark: not fun.  Sadly, we will see an example below, with Python native floating-point arithmetic (which is, quite surprisingly, not the same as NumPy floating-point arithmetic, which is different from SymPy floating-point arithmetic.  Yay.).</p>
 <p>Reading about this topic requires close attention.  You have to read every word, and not just the words, but also the actual code and its output.  You have to look at the graphs and think about why they look the way they do (instead of how they would look if we used theoretical real arithmetic, or arbitrary precision arithmetic).  You have to look at the fine details of the numerical output (and sometimes you can only see what’s going on if you use <i>hexadecimal</i> notation).  Understanding floating-point arithmetic even requires <i>a painful reversal of understanding</i> and <i>unlearning</i> some things.  Sometimes, this will not seem like fun.  (…although, there’s a certain satisfaction in understanding what’s really going on.)</p>
 <p>Most writers don’t like it, either.  Most start off thinking that they can convey the essentials of floating point in a really short time and space with a minimum of fuss, concentrating on just exactly what you can use to avoid learning all the horrible details. <b>Um, no. We can’t do it either</b>.  This section wound up being much longer than we wanted to write, and it’s almost certainly longer than you want to read.  And, it’s hard to read, too, being full of ugly details.  Well, we’ll try to point you at some useful videos, too.  You can start with one by <A HREF="https://youtu.be/PZRI1IfStY0"> Computerphile</A>, which is very good.  That may help you to read what follows.  But, be warned: you’ll need to take a deep breath each time you start to read again.</p>
 <p>So if (when!) you want a break from learning about floating-point arithmetic, go for it.  Take a break, then come back and re-read. For whimsical relaxation that’s still (sort of) on topic, we suggest listening to the music of <A HREF="https://youtu.be/yYqu5NdFMf8"> Floating Points</A>. We think it’s seriously good: Sam Shepard, the artist, has a PhD in Neuroscience from University College London; whether he chose the name with any reference to floating-point arithmetic we don’t know, but maybe.  Listening might help you to come back in the mood for more details.  Or, well, there’s always <A HREF="https://youtu.be/Zqd_R5Rq6KM"> Rachmaninov, played by the great Leslie Howard.</A></p>
-</div>
-<div class="section" id="what-you-will-want-to-get-from-this-notebook">
-<h2>What you will want to get from this notebook<a class="headerlink" href="#what-you-will-want-to-get-from-this-notebook" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="what-you-will-want-to-get-from-this-notebook">
+<h2>What you will want to get from this notebook<a class="headerlink" href="#what-you-will-want-to-get-from-this-notebook" title="Permalink to this headline">#</a></h2>
 <ol class="simple">
 <li><p>Why we use floating-point arithmetic, even though it causes headaches (In short: it forestalls or alleviates much worse trouble)</p></li>
 <li><p>A sense in which floats are better models of reality than the real numbers are</p></li>
@@ -469,8 +625,8 @@
 </ol>
 </li>
 </ol>
-<div class="section" id="floats-versus-the-real-world">
-<h3>Floats versus the Real World<a class="headerlink" href="#floats-versus-the-real-world" title="Permalink to this headline">¶</a></h3>
+<section id="floats-versus-the-real-world">
+<h3>Floats versus the Real World<a class="headerlink" href="#floats-versus-the-real-world" title="Permalink to this headline">#</a></h3>
 <p>Let’s begin by thinking of something really, really small: the nanofibers making up the fine strands of the finest spider silk, that of the (venomous, of course) brown recluse spider.  According to <A href="https://pubs.acs.org/doi/10.1021/acsmacrolett.8b00678"> this article from ACS Macro Letters </A> which has some really cool pictures (of fine silk fibres, not so many of spiders, thankfully enough if you don’t like spiders much), the nanofibers average about <span class="math notranslate nohighlight">\(20\)</span>nm in width—in scientific notation, that is about <span class="math notranslate nohighlight">\(20\cdot 10^{-9}\)</span> metres wide.  Very hard to see, even with the best equipment.</p>
 <p>As an aside, if you <b>do</b> like spiders, we recommend some <A HREF="https://youtu.be/d_yYC5r8xMI">really cool videos with dancing Peacock Spiders (genus Maratus) by Jürgen Otto</A>.  The spiders are typically smaller than your little fingernail (length 4–5mm), absolutely harmless, and really cool to watch.  Anyway, back to work. (Sorry if we sent you down a rabbit hole (spider hole)).</p>
 <p>Machine epsilon (we’ll learn what that means) for <i>IEEE Standard 754 double precision</i> floating point arithmetic is <span class="math notranslate nohighlight">\(2^{-52} \approx 2.2\cdot 10^{-16}\)</span>, or about <span class="math notranslate nohighlight">\(20 \cdot 10^{-17}\)</span>.  Machine epsilon, compared to the unit <span class="math notranslate nohighlight">\(1\)</span>, is therefore <span class="math notranslate nohighlight">\(10^8\)</span> (one hundred million) times finer than those nanofibers of spider silk are when compared to a metre.  You can compare double precision machine epsilon to the size of a proton, even, which has a width about <span class="math notranslate nohighlight">\(10^{-15}\)</span>m.  In other words, double precision can resolve things about ten times smaller than a proton, compared to everyday scales.</p>
@@ -484,15 +640,15 @@
 <span class="n">unity</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="n">small</span> <span class="o">=</span> <span class="mf">1.0e-22</span>
 <span class="n">ouch</span> <span class="o">=</span> <span class="n">unity</span> <span class="o">+</span> <span class="n">small</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;one plus 10**(-22) equals &#39;</span><span class="p">,</span> <span class="n">ouch</span><span class="p">,</span> <span class="s1">&#39; in floats; in hexadecimal, we can see it really is:&#39;</span><span class="p">,</span> <span class="n">ouch</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;one plus 10**(-22) equals &#39;</span><span class="p">,</span> <span class="n">ouch</span><span class="p">,</span> <span class="s1">&#39; in floats; in hexadecimal, we can see it really is:&#39;</span><span class="p">,</span> <span class="n">ouch</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
 <span class="n">eps</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">epsilon</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;machine epsilon in decimal is &#39;</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span> <span class="s1">&#39;and in hex it is 2**(-52): &#39;</span><span class="p">,</span> <span class="n">eps</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;machine epsilon in decimal is &#39;</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span> <span class="s1">&#39;and in hex it is 2**(-52): &#39;</span><span class="p">,</span> <span class="n">eps</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
 <span class="n">ah</span> <span class="o">=</span> <span class="n">unity</span> <span class="o">+</span> <span class="n">eps</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;one plus machine epsilon equals &#39;</span><span class="p">,</span> <span class="n">ah</span><span class="p">,</span> <span class="s1">&#39;in floats: in hex we can see it exactly:&#39;</span><span class="p">,</span> <span class="n">ah</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;one plus machine epsilon equals &#39;</span><span class="p">,</span> <span class="n">ah</span><span class="p">,</span> <span class="s1">&#39;in floats: in hex we can see it exactly:&#39;</span><span class="p">,</span> <span class="n">ah</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
 <span class="n">eh</span> <span class="o">=</span> <span class="n">unity</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">eps</span><span class="o">/</span><span class="mi">3</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;adding 2/3 of epsilon to one gets&#39;</span><span class="p">,</span> <span class="n">eh</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;adding 2/3 of epsilon to one gets&#39;</span><span class="p">,</span> <span class="n">eh</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
 <span class="n">uh</span> <span class="o">=</span> <span class="n">unity</span> <span class="o">+</span> <span class="n">eps</span><span class="o">/</span><span class="mi">2</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;adding half of epsilon to one gets &#39;</span><span class="p">,</span> <span class="n">uh</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;adding half of epsilon to one gets &#39;</span><span class="p">,</span> <span class="n">uh</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -509,9 +665,9 @@ adding half of epsilon to one gets  0x1.0000000000000p+0
 <p>Most floating-point arithmetic nowadays uses double precision; sometimes double-double (or “quad”) precision is used, which is absurdly more precise; less frequently but sometimes just <i>single</i> precision is used, which has machine epsilon <span class="math notranslate nohighlight">\(2^{-23} \approx 1.2\cdot 10^{-7}\)</span> (so about six times the width of an average spider nanofibre); and nowadays especially in applications where there is a <i>lot</i> of data, <i>half</i>-precision can be used, which has machine epsilon <span class="math notranslate nohighlight">\(2^{-10} \approx 10^{-3}\)</span>; note that the average width of a human hair is about <span class="math notranslate nohighlight">\(1.8\cdot 10^{-4}\)</span>m, so half precision has a fineness about five human hairs’ width.  Compare that to spider silk, and we see that the comparison human hair::half precision is more or less the same as spider fibre::single precision.  Double precision takes that down to nuclear structure fineness.</p>
 <p>So how could that degree of fineness ever cause problems in ordinary arithmetic?  Well, most of the time—really, very much most of the time—it does not.  The IEEE 754 standard was designed to do as good a job as possible, given the constraint that we want memory access to be predictable (and therefore memory operations on computers will be fast).</p>
 <p>But sometimes it goes off the rails, and we need to understand how, and why.</p>
-</div>
-<div class="section" id="rounding-errors-can-grow-in-relative-importance-sometimes-quickly">
-<h3>Rounding Errors Can Grow in Relative Importance (sometimes quickly)<a class="headerlink" href="#rounding-errors-can-grow-in-relative-importance-sometimes-quickly" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="rounding-errors-can-grow-in-relative-importance-sometimes-quickly">
+<h3>Rounding Errors Can Grow in Relative Importance (sometimes quickly)<a class="headerlink" href="#rounding-errors-can-grow-in-relative-importance-sometimes-quickly" title="Permalink to this headline">#</a></h3>
 <p>The fundamental reason it goes off the rails is that it <i>has to</i>.  We give you no less an Authority than Aristotle himself: in “On the Heavens” written 350BCE we find</p>
 <p><A HREF="http://classics.mit.edu/Aristotle/heavens.1.i.html"> Admit, for instance, the existence of a minimum magnitude, and you will find that the minimum which you have introduced, small as it is, causes the greatest truths of mathematics to totter. </A></p>
 <p>What could this mean for modern computers?  Consider the following simple little bits of arithmetic.</p>
@@ -627,12 +783,12 @@ adding half of epsilon to one gets  0x1.0000000000000p+0
 <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">52</span><span class="p">):</span>
   <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-  <span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;After &#39;</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;square roots, x is &#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;or in hex &#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span> <span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;After &#39;</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;square roots, x is &#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s1">&#39;or in hex &#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">52</span><span class="p">):</span>
   <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
 
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;x started as </span><span class="si">{}</span><span class="s1">, and is now </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x started as </span><span class="si">{}</span><span class="s1">, and is now </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span><span class="n">x</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -698,9 +854,9 @@ x started as 6.3, and is now 2.718281808182473
 <p>We did not print the results when squaring—they’re kind of the same but backwards, and different in detail.  We have all we need, now, to explain what is going on.</p>
 <p>The problem is <i>loss of precision</i> causing loss of accuracy.  The information about where we started from (<span class="math notranslate nohighlight">\(x=6.0\)</span>) is carried in hex digits further and further to the right, as we progressively take square roots, as you can see above as the zeros creep out from the “decimal” point.  A similar thing happens in decimal:  That information drops off the right end of the numbers each time the result is stored in the variable <span class="math notranslate nohighlight">\(x\)</span>.  When we start squaring again, we are starting from a number that has lost almost all information about where it started.  Indeed, one more square root and it would have rounded down to exactly <span class="math notranslate nohighlight">\(1\)</span>, and then when we started squaring we wouldn’t have got anywhere.</p>
 <p>This loop is a simple iteration, executing a very simple dynamical system such as are studied frequently in real-life applications.  There are other examples of similar disasters.</p>
-</div>
-<div class="section" id="what-are-the-rules">
-<h3>What are the rules?<a class="headerlink" href="#what-are-the-rules" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="what-are-the-rules">
+<h3>What are the rules?<a class="headerlink" href="#what-are-the-rules" title="Permalink to this headline">#</a></h3>
 <p>Computers work in binary.  Hexadecimal is basically the same thing except four times shorter: one hex digit takes four bits, so 64 bits in binary is only 16 hexadecimal places.  An IEEE 754 double precision float occupies 64 bits, or 16 hex digits.  Let’s try to follow the addition <span class="math notranslate nohighlight">\(\sqrt{2} + \pi\)</span> in double precision.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -708,9 +864,9 @@ x started as 6.3, and is now 2.718281808182473
 <span class="n">root2float</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
 <span class="n">pifloat</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
 <span class="n">modest</span> <span class="o">=</span> <span class="mf">100.35</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">root2float</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">pifloat</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">modest</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">root2float</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pifloat</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">modest</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -789,9 +945,9 @@ Here they are typed by hand:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">root2float</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
 <span class="n">pifloat</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
 <span class="n">added</span> <span class="o">=</span> <span class="n">root2float</span> <span class="o">+</span> <span class="n">pifloat</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">root2float</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">pifloat</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;sqrt(2) + pi = &#39;</span><span class="p">,</span> <span class="n">added</span><span class="p">,</span> <span class="s1">&#39;which is a few decimals translated from &#39;</span><span class="p">,</span> <span class="n">added</span><span class="o">.</span><span class="n">hex</span><span class="p">(),</span> <span class="s1">&#39;exactly in the internal hex&#39;</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">root2float</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pifloat</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sqrt(2) + pi = &#39;</span><span class="p">,</span> <span class="n">added</span><span class="p">,</span> <span class="s1">&#39;which is a few decimals translated from &#39;</span><span class="p">,</span> <span class="n">added</span><span class="o">.</span><span class="n">hex</span><span class="p">(),</span> <span class="s1">&#39;exactly in the internal hex&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -806,8 +962,8 @@ sqrt(2) + pi =  4.555806215962888 which is a few decimals translated from  0x1.2
 <p>You should notice that Python only prints 12 significant figures there in decimal (seems to be a default printing width. In Maple, working to 20 decimal digits, we get <span class="math notranslate nohighlight">\(4.5558062159628882873\)</span>).  In order to <i>reliably</i> convert binary (or hex) to and from IEEE double precision and back again, to get exactly the same number, you have to keep about <span class="math notranslate nohighlight">\(18\)</span> decimal places (not just sixteen as suggested by the machine epsilon; we’re not sure where “twelve” comes from in that example).  There are worse problems with conversion to decimal, such as the one called <A HREF="http://perso.ens-lyon.fr/jean-michel.muller/Intro-to-TMD.htm">”The Table-Maker’s Dilemma”</A> which has to do with how many bits you have to carry when evaluating an elementary function just to be sure you are going to round correctly: it’s more than you think, and (perhaps very surprisingly) for some functions the full answer is not even known! But we are <i>not</i> going to go into that.  That’s a hard problem for mathematical software designers.  We’re just going to walk by, whistling.</p>
 <p>Back to the sum <span class="math notranslate nohighlight">\(\sqrt2 + \pi\)</span> above.  That hex answer is the <i>exact</i> sum of the two rational numbers represented in hex by 0x1.6a09e667f3bcdp+0 and 0x1.921fb54442d18p+1, correctly rounded back into the IEEE double precision format.  You can see already that there have been some changes from real arithmetic.  First, <span class="math notranslate nohighlight">\(\sqrt2\)</span> had to be rounded, to <span class="math notranslate nohighlight">\(13\)</span> hex digits plus a hidden bit; then <span class="math notranslate nohighlight">\(\pi\)</span> had to suffer the same kind of rounding.  Then even though the arithmetic is carried out correctly, we aren’t adding <span class="math notranslate nohighlight">\(\sqrt2\)</span> and <span class="math notranslate nohighlight">\(\pi\)</span> any more, we’re adding the rational approximations thereof.  Then one final rounding happens when we put the result of that addition into a double precision float.</p>
 <p>The details of how computer manufacturers guarantee that the arithmetic is done correctly, and the correct rounding is done, are beyond the scope of almost anyone’s interest.  We are willing to trust the manufacturers to do it right.  But <A HREF="https://en.wikipedia.org/wiki/Pentium_FDIV_bug"> remembering the Intel Pentium bug uncovered by Professor Thomas R. Nicely </A> we remember that sometimes that trust is misplaced.  Intel paid over a third of a billion US dollars at the time on the recall.  Ow.</p>
-<div class="section" id="translating-the-ieee-guarantee-into-the-language-of-real-analysis">
-<h4>Translating the IEEE guarantee into the language of real analysis<a class="headerlink" href="#translating-the-ieee-guarantee-into-the-language-of-real-analysis" title="Permalink to this headline">¶</a></h4>
+<section id="translating-the-ieee-guarantee-into-the-language-of-real-analysis">
+<h4>Translating the IEEE guarantee into the language of real analysis<a class="headerlink" href="#translating-the-ieee-guarantee-into-the-language-of-real-analysis" title="Permalink to this headline">#</a></h4>
 <p>We have the following rules: if <span class="math notranslate nohighlight">\(\varepsilon\)</span> is the <i>machine epsilon</i>, which is the distance to the next larger representable machine number (after <span class="math notranslate nohighlight">\(1\)</span>, although we can talk about this for other numbers as well), and <span class="math notranslate nohighlight">\(\mu\)</span> is the <em>unit roundoff</em>, which is half of that, namely <span class="math notranslate nohighlight">\(\mu = \varepsilon/2\)</span>, then we have the mathematical statements: if the results do not <em>overflow</em> or <em>underflow</em> then</p>
 <ol class="simple">
 <li><p>fl<span class="math notranslate nohighlight">\((a+b) = (a+b)(1+\delta)\)</span> where <span class="math notranslate nohighlight">\(\delta\)</span> is some real number at most as big as <span class="math notranslate nohighlight">\(\mu\)</span>: <span class="math notranslate nohighlight">\(|\delta| \le \mu\)</span></p></li>
@@ -823,8 +979,8 @@ sqrt(2) + pi =  4.555806215962888 which is a few decimals translated from  0x1.2
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;The largest representable double precision number is &#39;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="s1">&#39;which in hex is&#39;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">max</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;The smallest normal positive double precision number is &#39;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">min</span><span class="p">,</span> <span class="s1">&#39;which in hex is &#39;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">min</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The largest representable double precision number is &#39;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="s1">&#39;which in hex is&#39;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">max</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The smallest normal positive double precision number is &#39;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">min</span><span class="p">,</span> <span class="s1">&#39;which in hex is &#39;</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">min</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -835,12 +991,12 @@ The smallest normal positive double precision number is  2.2250738585072014e-308
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="nan-or-what-you-get-when-the-limits-are-exceeded">
-<h4>NaN, or what you get when the limits are exceeded<a class="headerlink" href="#nan-or-what-you-get-when-the-limits-are-exceeded" title="Permalink to this headline">¶</a></h4>
+</section>
+<section id="nan-or-what-you-get-when-the-limits-are-exceeded">
+<h4>NaN, or what you get when the limits are exceeded<a class="headerlink" href="#nan-or-what-you-get-when-the-limits-are-exceeded" title="Permalink to this headline">#</a></h4>
 <p>A NaN, or “Not a Number,” is a special code which results when you perform something like <span class="math notranslate nohighlight">\(0/0\)</span> or <span class="math notranslate nohighlight">\(\infty-\infty\)</span> or <span class="math notranslate nohighlight">\(0\cdot \infty\)</span>.  Maybe surprisingly, IEEE arithmetic can do some useful things with infinity (which can result from <i>overflow</i>).  And even NaNs can be useful: if you compute a whole array of results, with a few NaNs in them, and then plot the results, you still get a plot (maybe missing some spots—the NaNs won’t be plotted and will leave holes).</p>
 <p>What happens when you try to make a number smaller than realmin?  Say, by squaring realmin?  You get <i>underflow</i> (default behaviour is to replace it by zero).  This is frequently, but not always, what you want.</p>
-<p>Sadly, Python actually gives an error message if you try to do 0/0 in its native arithmetic, which we think is nasty.  Doubtless there will be a way to alter that behaviour, but we won’t fuss now (numpy helps).  <b>The following statement is a mistake of this author (RMC) caused by his forgetting that ^ in Python does not mean power:</b> We think that Python’s <span class="math notranslate nohighlight">\(0^0\)</span> is worse—Donald Knuth argues <i>very</i> persuasively that it should be <span class="math notranslate nohighlight">\(1\)</span>! See <A HREF="https://en.wikipedia.org/wiki/Zero_to_the_power_of_zero"> the Wikipedia article </A> which even says “There do not seem to be any authors assigning a specific value of <span class="math notranslate nohighlight">\(0^0\)</span> other than <span class="math notranslate nohighlight">\(1\)</span>”. <b> End of mistake </b>  When we use the power operator ** correctly, Python is fine.  In my defence (this is RMC speaking, not EYSC) in markdown the ^ is power, as it is in Maple and Matlab and every other language I use.  Just Python now insists on <span class="math notranslate nohighlight">\(**\)</span> (I think even Fortran allows ^ now, although it’s been decades since my last Fortan program).  Grump, grump.</p>
+<p>Sadly, Python actually gives an error message if you try to do 0/0 in its native arithmetic, which we think is nasty.  Doubtless there will be a way to alter that behaviour, but we won’t fuss now (numpy helps).  <b>The following statement is a mistake of this author (RMC) caused by his forgetting that ^ in Python does not mean power:</b> We think that Python’s <span class="math notranslate nohighlight">\(0^0\)</span> is worse—Donald Knuth argues <i>very</i> persuasively that it should be <span class="math notranslate nohighlight">\(1\)</span>! See <A HREF="https://en.wikipedia.org/wiki/Zero_to_the_power_of_zero"> the Wikipedia article </A> which even says “There do not seem to be any authors assigning a specific value of <span class="math notranslate nohighlight">\(0^0\)</span> other than <span class="math notranslate nohighlight">\(1\)</span>”. <b> End of mistake </b>  When we use the power operator ** correctly, Python is fine.  In my defence (this is RMC speaking, not NJC or EYSC) in markdown the ^ is power, as it is in Maple and Matlab and every other language I use.  Just Python now insists on <span class="math notranslate nohighlight">\(**\)</span> (I think even Fortran allows ^ now, although it’s been decades since my last Fortan program).  Grump, grump.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">big</span> <span class="o">=</span> <span class="nb">float</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="s1">&#39;0x1.fffffffffffffp+1023&#39;</span><span class="p">)</span>
@@ -849,22 +1005,22 @@ The smallest normal positive double precision number is  2.2250738585072014e-308
 <span class="c1"># Cut and paste the hex string, then edit the last f to be an e (this is the next smaller number)</span>
 <span class="n">notquiteasbig</span> <span class="o">=</span> <span class="nb">float</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="s1">&#39;0x1.ffffffffffffep+1023&#39;</span><span class="p">)</span>
 <span class="n">stepback</span> <span class="o">=</span> <span class="n">big</span> <span class="o">-</span> <span class="n">notquiteasbig</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;distance to next smaller number is &#39;</span><span class="p">,</span> <span class="n">stepback</span><span class="p">,</span> <span class="s1">&#39;in hex &#39;</span><span class="p">,</span> <span class="n">stepback</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;exponent difference &#39;</span><span class="p">,</span> <span class="mi">1023</span> <span class="o">-</span> <span class="mi">971</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;distance to next smaller number is &#39;</span><span class="p">,</span> <span class="n">stepback</span><span class="p">,</span> <span class="s1">&#39;in hex &#39;</span><span class="p">,</span> <span class="n">stepback</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;exponent difference &#39;</span><span class="p">,</span> <span class="mi">1023</span> <span class="o">-</span> <span class="mi">971</span><span class="p">)</span>
 <span class="n">jumpingoffthecliff</span> <span class="o">=</span> <span class="n">big</span> <span class="o">+</span> <span class="n">stepback</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;jump over the cliff, whee! &#39;</span><span class="p">,</span> <span class="n">jumpingoffthecliff</span><span class="p">,</span> <span class="s1">&#39;---in hex: &#39;</span><span class="p">,</span> <span class="n">jumpingoffthecliff</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;jump over the cliff, whee! &#39;</span><span class="p">,</span> <span class="n">jumpingoffthecliff</span><span class="p">,</span> <span class="s1">&#39;---in hex: &#39;</span><span class="p">,</span> <span class="n">jumpingoffthecliff</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
 
 <span class="n">infminusinf</span> <span class="o">=</span> <span class="n">jumpingoffthecliff</span> <span class="o">-</span> <span class="n">jumpingoffthecliff</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Surely it must be zero: but (this is good) 0*inf is: &#39;</span><span class="p">,</span> <span class="n">infminusinf</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;small*big should actually be ok: &#39;</span><span class="p">,</span> <span class="n">small</span><span class="o">*</span><span class="n">big</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Here is an underflow: &#39;</span><span class="p">,</span> <span class="n">small</span><span class="o">*</span><span class="n">small</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Surely it must be zero: but (this is good) 0*inf is: &#39;</span><span class="p">,</span> <span class="n">infminusinf</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;small*big should actually be ok: &#39;</span><span class="p">,</span> <span class="n">small</span><span class="o">*</span><span class="n">big</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Here is an underflow: &#39;</span><span class="p">,</span> <span class="n">small</span><span class="o">*</span><span class="n">small</span><span class="p">)</span>
 <span class="n">bad</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">worse</span> <span class="o">=</span> <span class="n">bad</span><span class="o">*</span><span class="n">jumpingoffthecliff</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;What</span><span class="se">\&#39;</span><span class="s1">s 0*inf = &#39;</span><span class="p">,</span> <span class="n">worse</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;what</span><span class="se">\&#39;</span><span class="s1">s 0^0 (We don</span><span class="se">\&#39;</span><span class="s1">t like this one)&#39;</span><span class="p">,</span> <span class="n">bad</span><span class="o">^</span><span class="n">bad</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Well if we use the proper syntax, 0**0 is &#39;</span><span class="p">,</span> <span class="n">bad</span><span class="o">**</span><span class="n">bad</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;What</span><span class="se">\&#39;</span><span class="s1">s 0*inf = &#39;</span><span class="p">,</span> <span class="n">worse</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;what</span><span class="se">\&#39;</span><span class="s1">s 0^0 (We don</span><span class="se">\&#39;</span><span class="s1">t like this one)&#39;</span><span class="p">,</span> <span class="n">bad</span><span class="o">^</span><span class="n">bad</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Well if we use the proper syntax, 0**0 is &#39;</span><span class="p">,</span> <span class="n">bad</span><span class="o">**</span><span class="n">bad</span><span class="p">)</span>
 <span class="n">badfloat</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;what</span><span class="se">\&#39;</span><span class="s1">s 0.0**0.0? &#39;</span><span class="p">,</span> <span class="n">badfloat</span><span class="o">**</span><span class="n">badfloat</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;what</span><span class="se">\&#39;</span><span class="s1">s 0.0**0.0? &#39;</span><span class="p">,</span> <span class="n">badfloat</span><span class="o">**</span><span class="n">badfloat</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;But 0/0 generates an error (commented out, so the notebook runs to completion)&#39;</span><span class="p">)</span>
 <span class="c1"># bad/bad</span>
 </pre></div>
@@ -887,12 +1043,12 @@ But 0/0 generates an error (commented out, so the notebook runs to completion)
 </div>
 </div>
 </div>
-<p>We also wanted to show the internal representation of “inf” when we used .hex(), but instead of “7ff0000000000000” it just gave inf again.  Anyway inf is the normal result when you overflow: you get a “machine infinity”.</p>
+<p>We also wanted to show the internal representation of “inf” when we used <code class="docutils literal notranslate"><span class="pre">.hex()</span></code>, but instead of <code class="docutils literal notranslate"><span class="pre">7ff0000000000000&quot;</span></code> it just gave <code class="docutils literal notranslate"><span class="pre">inf</span></code> again.  Anyway inf is the normal result when you overflow: you get a “machine infinity”.</p>
 <p>We see that realmax is about 4 times bigger than realmin is small (their product is 4, but not exactly 4).  That seems weird, until you realize that realmax has a whole string of F’s in its expansion and is <i>not quite</i> a pure power of <span class="math notranslate nohighlight">\(2\)</span>.</p>
-<p>You will at first hate NaNs, especially when your output is nothing but NaNs, but eventually come to accept them. They actually are quite useful.</p>
-</div>
-<div class="section" id="revealing-earlier-rounding-errors-by-subtractive-cancellation">
-<h4>Revealing earlier rounding errors by subtractive cancellation<a class="headerlink" href="#revealing-earlier-rounding-errors-by-subtractive-cancellation" title="Permalink to this headline">¶</a></h4>
+<p>You will at first hate <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s, especially when your output is nothing but <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s, but eventually come to accept them. They actually are quite useful.</p>
+</section>
+<section id="revealing-earlier-rounding-errors-by-subtractive-cancellation">
+<h4>Revealing earlier rounding errors by subtractive cancellation<a class="headerlink" href="#revealing-earlier-rounding-errors-by-subtractive-cancellation" title="Permalink to this headline">#</a></h4>
 <p>Consider the familiar quadratic formula for the roots of a quadratic equation.  Let’s make it simpler by considering a quadratic of the form <span class="math notranslate nohighlight">\(x^2 - 2b x + 1 = 0\)</span>.  Factoring this gets <span class="math notranslate nohighlight">\((x-r_1)(x-r_2)\)</span> where (say) <span class="math notranslate nohighlight">\(r_1 = b + \sqrt{b^2-1}\)</span> and <span class="math notranslate nohighlight">\(r_2 = b - \sqrt{b^2-1}\)</span>.  Feel free to check the algebra, maybe by adding the roots to get <span class="math notranslate nohighlight">\(2b\)</span> (as we should) or multiplying them to get <span class="math notranslate nohighlight">\((b+\sqrt{b^2-1})(b-\sqrt{b^2-1}) = b^2 - (b^2-1) = 1\)</span>, again as we should.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -906,7 +1062,7 @@ But 0/0 generates an error (commented out, so the notebook runs to completion)
     <span class="n">r2</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">delt</span>
     <span class="n">unity</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">r1</span><span class="o">*</span><span class="n">r2</span>
     
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">barr</span><span class="p">,</span> <span class="n">unity</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">barr</span><span class="p">,</span> <span class="n">unity</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -927,7 +1083,7 @@ But 0/0 generates an error (commented out, so the notebook runs to completion)
     <span class="n">r2</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">delt</span>
     <span class="n">unity</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">r1</span><span class="o">*</span><span class="n">r2</span>
     
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">barr</span><span class="p">,</span> <span class="n">unity</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">barr</span><span class="p">,</span> <span class="n">unity</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -943,13 +1099,13 @@ But 0/0 generates an error (commented out, so the notebook runs to completion)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="mf">2.0e5</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;b is &#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s1">&#39;which is &#39;</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">hex</span><span class="p">(),</span> <span class="s1">&#39; in hex &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;b is &#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s1">&#39;which is &#39;</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">hex</span><span class="p">(),</span> <span class="s1">&#39; in hex &#39;</span><span class="p">)</span>
 <span class="n">delt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">b</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;delt is &#39;</span><span class="p">,</span> <span class="n">delt</span><span class="p">,</span> <span class="s1">&#39;which is &#39;</span><span class="p">,</span> <span class="n">delt</span><span class="o">.</span><span class="n">hex</span><span class="p">(),</span> <span class="s1">&#39; in hex &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;delt is &#39;</span><span class="p">,</span> <span class="n">delt</span><span class="p">,</span> <span class="s1">&#39;which is &#39;</span><span class="p">,</span> <span class="n">delt</span><span class="o">.</span><span class="n">hex</span><span class="p">(),</span> <span class="s1">&#39; in hex &#39;</span><span class="p">)</span>
 <span class="n">r1</span> <span class="o">=</span> <span class="n">b</span> <span class="o">+</span> <span class="n">delt</span> 
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;r1 is &#39;</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="s1">&#39;which is &#39;</span><span class="p">,</span> <span class="n">r1</span><span class="o">.</span><span class="n">hex</span><span class="p">(),</span> <span class="s1">&#39;in hex&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;r1 is &#39;</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="s1">&#39;which is &#39;</span><span class="p">,</span> <span class="n">r1</span><span class="o">.</span><span class="n">hex</span><span class="p">(),</span> <span class="s1">&#39;in hex&#39;</span><span class="p">)</span>
 <span class="n">r2</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">delt</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;r2 is &#39;</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="s1">&#39;which is &#39;</span><span class="p">,</span> <span class="n">r2</span><span class="o">.</span><span class="n">hex</span><span class="p">(),</span> <span class="s1">&#39;in hex&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;r2 is &#39;</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="s1">&#39;which is &#39;</span><span class="p">,</span> <span class="n">r2</span><span class="o">.</span><span class="n">hex</span><span class="p">(),</span> <span class="s1">&#39;in hex&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -971,14 +1127,14 @@ r2 is  2.4999899324029684e-06 which is  0x1.4f8b000000000p-19 in hex
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="mf">1.0e16</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;b in decimal is &#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s1">&#39;and in hex is &#39;</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;b in decimal is &#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s1">&#39;and in hex is &#39;</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
 <span class="n">bigger</span> <span class="o">=</span> <span class="nb">float</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="s1">&#39;0x1.1c37937e08001p+53&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;The next machine representable number is &#39;</span><span class="p">,</span> <span class="n">bigger</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The next machine representable number is &#39;</span><span class="p">,</span> <span class="n">bigger</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mf">1.0</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;b in decimal is &#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s1">&#39;and in hex is &#39;</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;b in decimal is &#39;</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="s1">&#39;and in hex is &#39;</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">hex</span><span class="p">())</span>
 <span class="n">bigger</span> <span class="o">=</span> <span class="nb">float</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="s1">&#39;0x1.0000000000001p+0&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;The next machine representable number is &#39;</span><span class="p">,</span> <span class="n">bigger</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The machine epsilon at 1 is &#39;</span><span class="p">,</span> <span class="n">bigger</span> <span class="o">-</span> <span class="n">b</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The next machine representable number is &#39;</span><span class="p">,</span> <span class="n">bigger</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The machine epsilon at 1 is &#39;</span><span class="p">,</span> <span class="n">bigger</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -997,9 +1153,9 @@ The machine epsilon at 1 is  2.220446049250313e-16
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#  This will work in Python 3.9; until installed, commented out</span>
 <span class="c1">#from math import nextafter, inf</span>
 <span class="c1">#b = 1.0e16</span>
-<span class="c1">#print( &#39;b in decimal is &#39;, b, &#39;and in hex is &#39;, b.hex() )</span>
-<span class="c1">#bigger = nextafter(b, inf )</span>
-<span class="c1">#print( &#39;next floating point number after b is &#39;, bigger, &#39;and in hex is &#39;, bigger.hex() )</span>
+<span class="c1">#print(&#39;b in decimal is &#39;, b, &#39;and in hex is &#39;, b.hex())</span>
+<span class="c1">#bigger = nextafter(b, inf)</span>
+<span class="c1">#print(&#39;next floating point number after b is &#39;, bigger, &#39;and in hex is &#39;, bigger.hex())</span>
 </pre></div>
 </div>
 </div>
@@ -1033,19 +1189,19 @@ R(z) = 1 - \frac{3}{z-2 - \frac{1}{z-7 + \frac{10}{z-2 - \frac{2}{z-3}}}}
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">R</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
     <span class="c1">#print( x[i], y[i])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="n">r1</span> <span class="o">=</span> <span class="n">R</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">)</span>
-<span class="n">r2</span> <span class="o">=</span> <span class="n">R</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="p">)</span>
-<span class="n">r3</span> <span class="o">=</span> <span class="n">R</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="p">)</span>
-<span class="n">r4</span> <span class="o">=</span> <span class="n">R</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;R(1) = &#39;</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="s1">&#39;R(2) = &#39;</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="s1">&#39;R(3) = &#39;</span><span class="p">,</span> <span class="n">r3</span><span class="p">,</span> <span class="s1">&#39;R(4) = &#39;</span><span class="p">,</span> <span class="n">r4</span> <span class="p">)</span>
+<span class="n">r1</span> <span class="o">=</span> <span class="n">R</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">R</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">r3</span> <span class="o">=</span> <span class="n">R</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
+<span class="n">r4</span> <span class="o">=</span> <span class="n">R</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">8</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;R(1) = &#39;</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="s1">&#39;R(2) = &#39;</span><span class="p">,</span> <span class="n">r2</span><span class="p">,</span> <span class="s1">&#39;R(3) = &#39;</span><span class="p">,</span> <span class="n">r3</span><span class="p">,</span> <span class="s1">&#39;R(4) = &#39;</span><span class="p">,</span> <span class="n">r4</span><span class="p">)</span>
 <span class="c1">#np.seterr(divide=&#39;ignore&#39;)  # This command seems to be ignored its own self :(</span>
-<span class="n">worked</span> <span class="o">=</span> <span class="n">R</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;It worked with NumPy&#39;</span><span class="p">,</span> <span class="n">worked</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;But would fail with native Python floats, which are different for some reason.  Commented out&#39;</span><span class="p">)</span>
-<span class="c1">#didntwork = R( 1.0 )</span>
+<span class="n">worked</span> <span class="o">=</span> <span class="n">R</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;It worked with NumPy&#39;</span><span class="p">,</span> <span class="n">worked</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;But would fail with native Python floats, which are different for some reason.  Commented out&#39;</span><span class="p">)</span>
+<span class="c1">#didntwork = R(1.0)</span>
 <span class="c1"># Should have been 2</span>
 <span class="c1">#R(2)</span>
 <span class="c1"># Should have been 1</span>
@@ -1057,7 +1213,7 @@ R(z) = 1 - \frac{3}{z-2 - \frac{1}{z-7 + \frac{10}{z-2 - \frac{2}{z-3}}}}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-20-37065dcd677e&gt;:1: RuntimeWarning: divide by zero encountered in double_scalars
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/dr/kpbx6pts2zz337gj8rjfghd80000gn/T/ipykernel_96534/2498500170.py:1: RuntimeWarning: divide by zero encountered in double_scalars
   R = lambda z: 1.0-1.0/(z-2.0-1.0/(z-7.0+10.0/(z-2.0-2.0/(z-3.0))))
 </pre></div>
 </div>
@@ -1067,7 +1223,7 @@ It worked with NumPy 2.0
 But would fail with native Python floats, which are different for some reason.  Commented out
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-20-37065dcd677e&gt;:1: RuntimeWarning: divide by zero encountered in double_scalars
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/dr/kpbx6pts2zz337gj8rjfghd80000gn/T/ipykernel_96534/2498500170.py:1: RuntimeWarning: divide by zero encountered in double_scalars
   R = lambda z: 1.0-1.0/(z-2.0-1.0/(z-7.0+10.0/(z-2.0-2.0/(z-3.0))))
 </pre></div>
 </div>
@@ -1075,8 +1231,7 @@ But would fail with native Python floats, which are different for some reason.  
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
-<span class="c1"># Here&#39;s an example where the 0/0 occurs naturally in a plot</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here&#39;s an example where the 0/0 occurs naturally in a plot</span>
 <span class="c1"># and we DON&#39;T want to fuss with special cases.  It&#39;s nice</span>
 <span class="c1"># that NaNs allow this to work (in NumPy)</span>
 
@@ -1086,8 +1241,8 @@ But would fail with native Python floats, which are different for some reason.  
 <span class="c1">#np.seterr(divide=&#39;ignore&#39;)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-    <span class="c1">#print( x[i], y[i])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>  <span class="p">)</span>
+    <span class="c1">#print(x[i], y[i])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1096,10 +1251,10 @@ But would fail with native Python floats, which are different for some reason.  
 <img alt="../_images/floating-point_44_0.png" src="../_images/floating-point_44_0.png" />
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1123,14 +1278,16 @@ But would fail with native Python floats, which are different for some reason.  
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../Contents/chaos-game-representation.html" title="previous page">
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="What-to-do-when-things-go-wrong.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Chaos Game Representation</p>
+            <p class="prev-next-title">What do to when things go wrong</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="binomials-factorials-combinatorics.html" title="next page">
@@ -1141,24 +1298,28 @@ But would fail with native Python floats, which are different for some reason.  
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Neil J. Calkin, Eunice Y.S. Chan, and Robert M. Corless<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Neil J. Calkin, Eunice Y.S. Chan, and Robert M. Corless<br/>
-    
-        &copy; Copyright 2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

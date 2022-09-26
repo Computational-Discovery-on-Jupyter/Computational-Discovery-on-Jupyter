@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Fractals and Julia Sets &#8212; Computational Discovery on Jupyter</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,40 +20,39 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../_static/logo.jpg"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
@@ -65,7 +66,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -74,9 +89,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -94,14 +110,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../index.html">
-   Welcome to Computational Discovery on Jupyter
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to Computational Discovery on Jupyter
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Preface
  </span>
@@ -112,6 +129,11 @@
    Preamble
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Installing-Python-and-Jupyter.html">
+   Before we begin: installing Python and Jupyter
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -119,6 +141,11 @@
  </span>
 </p>
 <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Computing-with-Fibonacci.html">
+   Computing with Fibonacci Numbers
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="continued-fractions.html">
    Continued Fractions
@@ -152,10 +179,27 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
+  Epilogue
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Looking-back.html">
+   Zanshin
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
   Appendix
  </span>
 </p>
 <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/What-to-do-when-things-go-wrong.html">
+   What do to when things go wrong
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Appendix/floating-point.html">
    The Bare Minimum about Floating-Point
@@ -179,33 +223,43 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Solutions
+  Reports on Activities
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../Solutions/Solutions%20to%20Continued%20Fraction%20Exercises.html">
-   Solutions to Continued Fractions Exercises
+  <a class="reference internal" href="../Solutions/Reports%20on%20Fibonacci%20Activities.html">
+   Reports on Fibonacci Activities
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Solutions/Solutions%20to%20the%20Rootfinding%20Chapter%20Exercises.html">
-   Solutions to the Rootfinding Chapter Exercises
+  <a class="reference internal" href="../Solutions/Reports%20on%20Continued%20Fractions%20Activities.html">
+   Reports on Continued Fractions Activities
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Solutions/Solutions%20to%20the%20Julia%20Set%20Exercises.html">
-   Solutions to the Julia Set Exercises
+  <a class="reference internal" href="../Solutions/Reports%20on%20Rootfinding%20Activities.html">
+   Reports on Rootfinding Activities
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Solutions/Solutions%20to%20Exercises%20%28not%20Activities%29%20in%20the%20Bohemian%20Unit.html">
-   Solutions to Exercises (not Activities) in the Bohemian Unit
+  <a class="reference internal" href="../Solutions/Reports%20on%20Julia%20Set%20Activities.html">
+   Reports on Julia Set Activities
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Solutions/Solutions%20to%20Mandelbrot%20Exercises.html">
-   Solutions to Mandelbrot Polynomials and Matrices Exercises
+  <a class="reference internal" href="../Solutions/Reports%20on%20Bohemian%20Activities.html">
+   Reports on Bohemian activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Reports%20on%20Mandelbrot%20Activities.html">
+   Reports on Mandelbrot Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Reports%20on%20Chaos%20Game%20Activities.html">
+   Reports on Chaos Game Activities
   </a>
  </li>
 </ul>
@@ -233,129 +287,259 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/Contents/fractals-and-julia-sets.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        
-        <a class="edit-button" href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter/edit/master/book/Contents/fractals-and-julia-sets.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-fractal-from-pascal-s-triangle">
-   A Fractal from Pascal’s Triangle
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter/edit/master/book/Contents/fractals-and-julia-sets.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Contents/fractals-and-julia-sets.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Fractals and Julia Sets
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#newton-s-method-fractals-and-chaos">
-   Newton’s method, Fractals, and Chaos
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#looking-back-at-those-plots-and-that-code">
-     Looking back at those plots and that code
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-note-to-the-student-reader">
+     A note to the student/reader
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-note-to-the-instructor">
+     A note to the instructor
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-fractal-from-pascal-s-triangle">
+     A Fractal from Pascal’s Triangle
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#newton-s-method-fractals-and-chaos">
+     Newton’s method, Fractals, and Chaos
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#looking-back-at-those-plots-and-that-code">
+       Looking back at those plots and that code
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variations-halley-s-method-secant-method-infinitely-many-others">
+     Variations: Halley’s Method, Secant Method, Infinitely Many Others
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#infinitely-many-other-iterative-methods">
+       Infinitely many other iterative methods
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#julia-sets">
+     Julia sets
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#more-activities">
+     More activities
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#variations-halley-s-method-secant-method-infinitely-many-others">
-   Variations: Halley’s Method, Secant Method, Infinitely Many Others
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#julia-sets">
-   Julia sets
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#looking-back-at-the-programming-constructs-introduced">
+   Looking back at the programming constructs introduced
   </a>
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Fractals and Julia Sets</h1>
@@ -368,36 +552,65 @@
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-fractal-from-pascal-s-triangle">
-   A Fractal from Pascal’s Triangle
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Fractals and Julia Sets
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#newton-s-method-fractals-and-chaos">
-   Newton’s method, Fractals, and Chaos
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#looking-back-at-those-plots-and-that-code">
-     Looking back at those plots and that code
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-note-to-the-student-reader">
+     A note to the student/reader
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-note-to-the-instructor">
+     A note to the instructor
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-fractal-from-pascal-s-triangle">
+     A Fractal from Pascal’s Triangle
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#newton-s-method-fractals-and-chaos">
+     Newton’s method, Fractals, and Chaos
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#looking-back-at-those-plots-and-that-code">
+       Looking back at those plots and that code
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variations-halley-s-method-secant-method-infinitely-many-others">
+     Variations: Halley’s Method, Secant Method, Infinitely Many Others
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#infinitely-many-other-iterative-methods">
+       Infinitely many other iterative methods
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#julia-sets">
+     Julia sets
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#more-activities">
+     More activities
     </a>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#variations-halley-s-method-secant-method-infinitely-many-others">
-   Variations: Halley’s Method, Secant Method, Infinitely Many Others
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#julia-sets">
-   Julia sets
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercises">
-   Exercises
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#looking-back-at-the-programming-constructs-introduced">
+   Looking back at the programming constructs introduced
   </a>
  </li>
 </ul>
@@ -406,14 +619,27 @@
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="fractals-and-julia-sets">
-<h1>Fractals and Julia Sets<a class="headerlink" href="#fractals-and-julia-sets" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="fractals-and-julia-sets">
+<h1>Fractals and Julia Sets<a class="headerlink" href="#fractals-and-julia-sets" title="Permalink to this headline">#</a></h1>
 <p>In this unit we explore iterations and the images that one can generate with them.</p>
-<div class="section" id="a-fractal-from-pascal-s-triangle">
-<h2>A Fractal from Pascal’s Triangle<a class="headerlink" href="#a-fractal-from-pascal-s-triangle" title="Permalink to this headline">¶</a></h2>
+<section id="a-note-to-the-student-reader">
+<h2>A note to the student/reader<a class="headerlink" href="#a-note-to-the-student-reader" title="Permalink to this headline">#</a></h2>
+<p>This unit is extremely rich.  There are hundreds (thousands?) of programs online for computing fractals and Julia sets.  One of the purposes of this unit is to get you to be able to write your own, because while there are lots of really good-looking results out there, the connection to the mathematics is sometimes not so clear.  If you write your own program, on the other hand, even if it isn’t the best-looking image that results, we think you can learn the most from it.</p>
+<p>The mathematical notions are quite deep, however, and it is possible to get bogged down in technical details.  We hope that the notion of a Newton fractal and of a Julia set are accessible through the examples in this unit, and via looking at the programs to draw the pictures.</p>
+</section>
+<section id="a-note-to-the-instructor">
+<h2>A note to the instructor<a class="headerlink" href="#a-note-to-the-instructor" title="Permalink to this headline">#</a></h2>
+<p>This unit touches on some very deep subjects, and can be taken in many directions.  We chose to stick (mostly) to Newton fractals, because of the important student question “how do you choose your initial estimate” from the previous units.  But we begin with a discrete fractal, because that too is likely familiar to the students.</p>
+<p>We do not get into just what a fractal <em>is</em>.  We are content with pointing to pictures that have fractal features.  It could be profitable for you to have a discussion with your students as to how one might want to define a fractal.</p>
+<p>We also blend the notions of “chaos” and “fractals” together; they do go well together, but of course are not the same thing.  At this level, where the intention is to get people to <em>play</em>, we think this is ok.</p>
+<p>Some of the material—such as the fact that every iteration is a Newton iteration for <em>something</em>—really needs calculus and so therefore is more suited to the senior students. We did get to do both Halley iteration and the Secant iteration, but the higher-order iterations typically only got taught to the senior students.  There is a lot that can be done, but again, let the students choose which they want to do.</p>
+</section>
+<section id="a-fractal-from-pascal-s-triangle">
+<h2>A Fractal from Pascal’s Triangle<a class="headerlink" href="#a-fractal-from-pascal-s-triangle" title="Permalink to this headline">#</a></h2>
 <p>Before we take up Newton’s method and continuous mathematics and the <a class="reference external" href="https://en.wikipedia.org/wiki/Fractal">fractals</a> that can be generated, let’s begin with something simpler:  Pascal’s triangle, attributed to <a class="reference external" href="https://en.wikipedia.org/wiki/Blaise_Pascal">Blaise Pascal</a>, although it was certainly known before that: see the Wikipedia entry on <a class="reference external" href="https://en.wikipedia.org/wiki/Halayudha">Halayudha</a> who clearly described it in the 10th century CE, commenting on the work of <a class="reference external" href="https://en.wikipedia.org/wiki/Pingala">Acharya Pingala</a> from the 3rd/2nd century BCE; Pingala seems to have been the first to write about <em>binary</em> numbers, which we will also use here.</p>
 <p>In any case, the triangle of binomial coefficients <span class="math notranslate nohighlight">\(\binom{n}{m}\)</span> from the binomial theorem can be written</p>
 <center> 1 </center>
@@ -449,42 +675,75 @@
 <p><span class="math notranslate nohighlight">\(512\)</span> by <span class="math notranslate nohighlight">\(512\)</span></p>
 <a class="reference internal image-reference" href="../_images/sierpinskibinomial_image6.png"><img alt="Maple browse image 512" class="align-center" src="../_images/sierpinskibinomial_image6.png" style="height: 300px;" /></a>
 <p>Each successive image contains three half-size copies of the image before, surrounding the triangle in the middle.  The details get finer and finer with each increase in the amount of data.  This figure is called <a class="reference external" href="https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle">The Sierpinski Triangle</a>, named after <a class="reference external" href="https://en.wikipedia.org/wiki/Wac%C5%82aw_Sierpi%C5%84ski">Waclaw Sierpinski</a>.  In the limit as the number of rows goes to infinity, the figure becomes a <em>fractal</em>, an object that does not have an integer dimension.  It’s a bit startling that this object arises out of a combinatorial discussion with integers mod 2!</p>
-<p>One can do other things with binomial coefficients to produce fractals—see the beautiful paper <a class="reference external" href="https://www.jstor.org/stable/2324898">“Zaphod Beeblebrox’s Brain and the <span class="math notranslate nohighlight">\(59\)</span>th row of Pascal’s Triangle”</a> by Andrew Granville; and one wonders if similar things can happen with other common combinatorial numbers such as Stirling numbers or Eulerian numbers or, well, you get the idea, even if you don’t know just what those other numbers are, yet.</p>
+<p>One can do other things with binomial coefficients to produce fractals: See the beautiful paper <a class="reference external" href="https://www.jstor.org/stable/2324898">“Zaphod Beeblebrox’s Brain and the <span class="math notranslate nohighlight">\(59\)</span>th row of Pascal’s Triangle”</a> by Andrew Granville. One wonders if similar things can happen with other common combinatorial numbers such as Stirling numbers or Eulerian numbers or, well, you get the idea, even if you don’t know just what those other numbers are, yet.</p>
 <p>See also <a class="reference external" href="https://www.jstor.org/stable/2323743">Stephen Wolfram’s 1984 paper</a> which contains several pictures of this kind, and quite a bit of information on the “fractal dimension” of these figures.  That paper also makes a connection to what are known as “cellular automata”.</p>
+<div class="tip admonition" id="juliasetactivity-1">
+<p class="admonition-title">Julia Set Activity 1</p>
+<p><em>Write a Python program to draw the Sierpinski gasket (perhaps by using binomial coefficients mod 2)</em>.
+<a class="reference internal" href="../Solutions/Reports%20on%20Julia%20Set%20Activities.html#juliasetactivityreport-1"><span class="std std-ref">[What happened when we did this]</span></a></p>
 </div>
-<div class="section" id="newton-s-method-fractals-and-chaos">
-<h2>Newton’s method, Fractals, and Chaos<a class="headerlink" href="#newton-s-method-fractals-and-chaos" title="Permalink to this headline">¶</a></h2>
+<div class="tip admonition" id="juliasetactivity-2">
+<p class="admonition-title">Julia Set Activity 2</p>
+<p>Explore pictures of the binomial coefficients mod 4 (and then consult Andrew Granville’s paper “Zaphod Beeblebrox’s Brain…” previously referenced)
+<a class="reference internal" href="../Solutions/Reports%20on%20Julia%20Set%20Activities.html#juliasetactivityreport-2"><span class="std std-ref">[What happened when we did this]</span></a></p>
+</div>
+<div class="tip admonition" id="juliasetactivity-3">
+<p class="admonition-title">Julia Set Activity 3</p>
+<p>Investigate pictures (mod 2 or otherwise) of other combinatorial families of numbers, such as <a class="reference external" href="https://en.wikipedia.org/wiki/Stirling_number">Stirling Numbers</a> (both kinds).  Try also “Eulerian numbers of the first kind” mod 3.
+<a class="reference internal" href="../Solutions/Reports%20on%20Julia%20Set%20Activities.html#juliasetactivityreport-3"><span class="std std-ref">[What happened when we did this]</span></a></p>
+</div>
+</section>
+<section id="newton-s-method-fractals-and-chaos">
+<h2>Newton’s method, Fractals, and Chaos<a class="headerlink" href="#newton-s-method-fractals-and-chaos" title="Permalink to this headline">#</a></h2>
 <p>Newton’s method is not perfect.  If we ask it to do something impossible, such as find a real root of <span class="math notranslate nohighlight">\(f(x) = x^2+1 = 0\)</span>, it can go to infinity (if any <span class="math notranslate nohighlight">\(x_n = 0\)</span>, then we divide by zero on the next iterate because <span class="math notranslate nohighlight">\(f'(0)=0\)</span>); it can <em>cycle</em> as in the graph below; or it can wander “chaotically”.</p>
 <div class="math notranslate nohighlight">
 \[
 x_{n+1} = x_n - \frac{x_n^2+1}{2x_n} = \frac12\left( x_n - \frac{1}{x_n}\right)
 \]</div>
-<div class="figure align-default" id="periodic3animation">
+<figure class="align-default" id="periodic3animation">
 <a class="reference internal image-reference" href="../_images/Period3Animation.gif"><img alt="../_images/Period3Animation.gif" src="../_images/Period3Animation.gif" style="height: 400px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Animation of Newton’s Method on <span class="math notranslate nohighlight">\(x^2+1=0\)</span> with a period-3 orbit</span><a class="headerlink" href="#periodic3animation" title="Permalink to this image">¶</a></p>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Animation of Newton’s Method on <span class="math notranslate nohighlight">\(x^2+1=0\)</span> with a period-3 orbit</span><a class="headerlink" href="#periodic3animation" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="tip admonition" id="juliasetactivity-4">
+<p class="admonition-title">Julia Set Activity 4</p>
+<p>Write a Python program to animate Newton’s method for real functions and real initial estimates in general (the animated GIF above was produced by a Maple program, Student:-Calculus1:-NewtonsMethod, which is quite a useful model).  This activity asks you to “roll your own” animation.  At least, write Python code to draw the basic lines in the figure above.
+<a class="reference internal" href="../Solutions/Reports%20on%20Julia%20Set%20Activities.html#juliasetactivityreport-4"><span class="std std-ref">[Animation turns out to be complicated.]</span></a></p>
 </div>
 <p>Consider the polynomial <span class="math notranslate nohighlight">\(p(x) = x^5 + 3x + 2\)</span>, and consider the following Python implementation of 8 iterations of Newton’s method to find a zero, starting from the initial estimate <span class="math notranslate nohighlight">\(x_0 = -1.0\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">numpy.polynomial</span> <span class="kn">import</span> <span class="n">Polynomial</span> <span class="k">as</span> <span class="n">Poly</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 <span class="n">dp</span><span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">deriv</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">p</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">dp</span> <span class="p">)</span> <span class="c1"># Python polynomials know how to differentiate themselves</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="mi">8</span> <span class="p">)</span> <span class="c1"># Try 8 iterations, why not</span>
-<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span> <span class="c1"># Initial estimate for a root</span>
-<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">):</span>
-    <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">p</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="n">dp</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">p</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span> <span class="c1"># Python polynomials know how to differentiate themselves</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0 + 3.0 x**1 + 0.0 x**2 + 0.0 x**3 + 0.0 x**4 + 1.0 x**5
-3.0 + 0.0 x**1 + 0.0 x**2 + 0.0 x**3 + 5.0 x**4
-[-1.         -0.75       -0.64364876 -0.632914   -0.63283452 -0.63283452
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0 + 3.0·x¹ + 0.0·x² + 0.0·x³ + 0.0·x⁴ + 1.0·x⁵
+3.0 + 0.0·x¹ + 0.0·x² + 0.0·x³ + 5.0·x⁴
+</pre></div>
+</div>
+</div>
+</div>
+<p>The block above defines <code class="docutils literal notranslate"><span class="pre">p</span></code> to be the <code class="docutils literal notranslate"><span class="pre">Polynomial</span></code> object representing <span class="math notranslate nohighlight">\(2 + 3x + 0x^2 + 0x^3 + 0x^4 + x^5\)</span> using a vector of coefficients, in that order.  By accessing the <code class="docutils literal notranslate"><span class="pre">deriv</span></code> method, we can find the derivative.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="c1"># Try 8 iterations, why not</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span> <span class="c1"># Initial estimate for a root</span>
+<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">p</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="n">dp</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-1.         -0.75       -0.64364876 -0.632914   -0.63283452 -0.63283452
  -0.63283452 -0.63283452]
 [-2.00000000e+00 -4.87304688e-01 -4.14163790e-02 -3.02195989e-04
  -1.60124998e-08  0.00000000e+00  0.00000000e+00  0.00000000e+00]
@@ -510,7 +769,7 @@ x_{n+1} = x_n - \frac{x_n^2+1}{2x_n} = \frac12\left( x_n - \frac{1}{x_n}\right)
 </div>
 <p>We see that four out of the five roots of that particular polynomial were complex, but our Newton iteration got the real root nicely.  If we wanted instead to get the complex roots, we would have had to use a <em>complex initial estimate</em> because—since the coefficients of the polynomial are real—the Newton iteration stays real if the initial estimate is real.  So, without knowing the roots, how do we get an initial estimate?</p>
 <p>Here is where this OER departs from the standard curriculum: we instead ask <em>what happens if we take every possible initial estimate</em>?  This generates something typically known as the “Newton Fractal” for a function—to a pure mathematician analyst, this is more likely to be termed a “Fatou set”, named after the French astronomer <a class="reference external" href="https://en.wikipedia.org/wiki/Pierre_Fatou">Pierre Fatou</a>; the notions are a bit distinct, but if we are using Newton’s method to find the roots of a polynomial, the resulting Newton fractal is indeed a “Fatou set”.  The exact definition of a Fatou set is given in the Wikipedia page for “Julia Set”, which we will cite below; for now, let’s just use the term “Newton Fractal”.</p>
-<p>The following program is not intended as a “full-featured-fractal” program.  It is meant to get you off the ground: it uses nested loops, and numpy arrays, and the “filled contour plot” from matplotlib to plot the basins of attraction for Newton’s method applied to a simple function, <span class="math notranslate nohighlight">\(x^3-2\)</span>.  This function has three roots, two of which are complex.  We hand-supply the derivative in this case.  Every initial point which goes to the real root (in twenty iterations) gets coloured red; every initial point which goes to the complex root <span class="math notranslate nohighlight">\((-1/2 + i\sqrt{3}/2)\sqrt{2}\)</span> is coloured yellow; every initial point which goes to the complex conjugate of that last root gets coloured brown.  All of the points which (after twenty iterations) are still undecided are coloured various other colours.  You will be asked to improve this code in the exercises (this includes the possibility of throwing it all out and writing your own from scratch).</p>
+<p>The following program is not intended as a “full-featured-fractal” program.  It is meant to get you off the ground: it uses nested loops, and numpy arrays, and the “filled contour plot” from matplotlib to plot the basins of attraction for Newton’s method applied to a simple function, <span class="math notranslate nohighlight">\(x^3-2\)</span>.  This function has three roots, two of which are complex.  We hand-supply the derivative in this case.  Every initial point which goes to the real root (in twenty iterations) gets coloured red; every initial point which goes to the complex root <span class="math notranslate nohighlight">\((-1/2 + i\sqrt{3}/2)\sqrt{2}\)</span> is coloured yellow; every initial point which goes to the complex conjugate of that last root gets coloured brown.  All of the points which (after twenty iterations) are still undecided are coloured various other colours.  You will be asked to improve this code in the Activities (this includes the possibility of throwing it all out and writing your own from scratch).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A very short hacky program to draw the edges of a Newton fractal</span>
@@ -527,27 +786,41 @@ x_{n+1} = x_n - \frac{x_n^2+1}{2x_n} = \frac12\left( x_n - \frac{1}{x_n}\right)
 <span class="n">df</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="p">;</span>
 <span class="c1"># SirIsaac performs one Newton iteration</span>
 <span class="n">SirIsaac</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">df</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With all that preliminary code to set up the problem, here is the main iteration.  We take each grid point <span class="math notranslate nohighlight">\(z_{i,k} = x_i + y_k j\)</span> (here <span class="math notranslate nohighlight">\(j\)</span> is the square root of <span class="math notranslate nohighlight">\(-1\)</span>, as in Python notation which follows the electrical engineering convention) for each <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(k\)</span> in the grid.  Then we see which root the Newton iteration converges to (after twenty iterations) and colour the pixel at <span class="math notranslate nohighlight">\(z_{i,k}\)</span> the corresponding colour.  An easy way to do that is to colour that pixel according to the <em>phase</em> or <em>argument</em> or <em>angle</em> (all these terms are equivalent) of the final complex number.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
         <span class="c1"># We range over all initial estimates in the grid</span>
         <span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
         <span class="c1"># Hard-wire in 20 iterations (maybe not enough)</span>
         <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
-            <span class="n">z</span> <span class="o">=</span> <span class="n">SirIsaac</span><span class="p">(</span> <span class="n">z</span> <span class="p">)</span>
+            <span class="n">z</span> <span class="o">=</span> <span class="n">SirIsaac</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
         <span class="c1"># After twenty iterations we hope the iteration has settled down, except on</span>
         <span class="c1"># the boundary between basins of attraction.</span>
         <span class="c1"># The phase (angle) is a likely candidate for a unique identifier for the root</span>
-        <span class="n">F</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span> <span class="n">z</span> <span class="p">)</span>  <span class="c1"># Rows, Columns</span>
-<span class="c1"># A magic incantation</span>
-<span class="n">X</span><span class="p">,</span><span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">)</span>
+        <span class="n">F</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>  <span class="c1"># Rows, Columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we have a matrix of values stored in the variable <code class="docutils literal notranslate"><span class="pre">F</span></code> and all we have to do is plot it.  The <code class="docutils literal notranslate"><span class="pre">meshgrid</span></code> command is like the Matlab command of the same name, and here is how to use it to give a contour plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A magic incantation</span>
+<span class="n">X</span><span class="p">,</span><span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;brown&#39;</span><span class="p">,</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="s1">&#39;black&#39;</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;brown&#39;</span><span class="p">,</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="s1">&#39;black&#39;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">adjustable</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/fractals-and-julia-sets_9_0.png" src="../_images/fractals-and-julia-sets_9_0.png" />
+<img alt="../_images/fractals-and-julia-sets_25_0.png" src="../_images/fractals-and-julia-sets_25_0.png" />
 </div>
 </div>
 <p>Let’s run that again, this time zooming in to a region near <span class="math notranslate nohighlight">\(-1\)</span>.</p>
@@ -569,25 +842,25 @@ x_{n+1} = x_n - \frac{x_n^2+1}{2x_n} = \frac12\left( x_n - \frac{1}{x_n}\right)
         <span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
         <span class="c1"># Hard-wire in 20 iterations (maybe not enough)</span>
         <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
-            <span class="n">z</span> <span class="o">=</span> <span class="n">SirIsaac</span><span class="p">(</span> <span class="n">z</span> <span class="p">)</span>
+            <span class="n">z</span> <span class="o">=</span> <span class="n">SirIsaac</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
         <span class="c1"># After twenty iterations we hope the iteration has settled down, except on</span>
         <span class="c1"># the boundary between basins of attraction.</span>
         <span class="c1"># The phase (angle) is a likely candidate for a unique identifier for the root</span>
-        <span class="n">F</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span> <span class="n">z</span> <span class="p">)</span> <span class="c1"># Rows, columns</span>
+        <span class="n">F</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="c1"># Rows, columns</span>
 <span class="c1"># A magic incantation</span>
-<span class="n">X</span><span class="p">,</span><span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">)</span>
+<span class="n">X</span><span class="p">,</span><span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;brown&#39;</span><span class="p">,</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="s1">&#39;black&#39;</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;brown&#39;</span><span class="p">,</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="s1">&#39;black&#39;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">adjustable</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/fractals-and-julia-sets_11_0.png" src="../_images/fractals-and-julia-sets_11_0.png" />
+<img alt="../_images/fractals-and-julia-sets_27_0.png" src="../_images/fractals-and-julia-sets_27_0.png" />
 </div>
 </div>
-<div class="section" id="looking-back-at-those-plots-and-that-code">
-<h3>Looking back at those plots and that code<a class="headerlink" href="#looking-back-at-those-plots-and-that-code" title="Permalink to this headline">¶</a></h3>
+<section id="looking-back-at-those-plots-and-that-code">
+<h3>Looking back at those plots and that code<a class="headerlink" href="#looking-back-at-those-plots-and-that-code" title="Permalink to this headline">#</a></h3>
 <p>The first question we should ask ourselves is <em>is that code correct</em>? Is it doing what we want?  If we are surprised at anything about that, is the surprise owing to the underlying math, or to some bug or weakness in the code?</p>
 <p>We suspect the funny shapes (maybe they look like red and black pantaloons, from a <a class="reference external" href="https://en.wikipedia.org/wiki/Harlequin">Harlequin</a>?) that don’t fit the chain pattern are artifacts of our code, somehow.</p>
 <p>Let’s zoom in even more, but increase the number of iterations.</p>
@@ -609,79 +882,172 @@ x_{n+1} = x_n - \frac{x_n^2+1}{2x_n} = \frac12\left( x_n - \frac{1}{x_n}\right)
         <span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
         <span class="c1"># Hard-wire in 40 iterations (maybe not enough)</span>
         <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">40</span><span class="p">):</span>
-            <span class="n">z</span> <span class="o">=</span> <span class="n">SirIsaac</span><span class="p">(</span> <span class="n">z</span> <span class="p">)</span>
+            <span class="n">z</span> <span class="o">=</span> <span class="n">SirIsaac</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
         <span class="c1"># After twenty iterations we hope the iteration has settled down, except on</span>
         <span class="c1"># the boundary between basins of attraction.</span>
         <span class="c1"># The phase (angle) is a likely candidate for a unique identifier for the root</span>
-        <span class="n">F</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span> <span class="n">z</span> <span class="p">)</span> <span class="c1"># Row, column</span>
+        <span class="n">F</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="c1"># Row, column</span>
 <span class="c1"># A magic incantation</span>
-<span class="n">X</span><span class="p">,</span><span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">)</span>
+<span class="n">X</span><span class="p">,</span><span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;brown&#39;</span><span class="p">,</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="s1">&#39;black&#39;</span><span class="p">]</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;brown&#39;</span><span class="p">,</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="s1">&#39;black&#39;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">adjustable</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/fractals-and-julia-sets_13_0.png" src="../_images/fractals-and-julia-sets_13_0.png" />
+<img alt="../_images/fractals-and-julia-sets_29_0.png" src="../_images/fractals-and-julia-sets_29_0.png" />
 </div>
 </div>
 <p>Right.  Running the code at higher resolution seems to fix the problem.   Now we might trust the picture to feed us questions that have something to do with the math.  Here’s one: what’s actually happening at <span class="math notranslate nohighlight">\(z=-1+0j\)</span>?  That is, if we start the iteration there, using exact arithmetic, what would happen?</p>
-<p>In the exercises, you are asked to think of some of your own questions.  Experiment with this code; change the parameters, the resolution, the zooming, the function; whatever you like.  Bring out the “sandbag” questions, maybe: what do you notice? What do you see? What do you wonder?</p>
+<p>In the activities, you are asked to think of some of your own questions.  Experiment with this code; change the parameters, the resolution, the zooming, the function; whatever you like.  Bring out the “sandbag” questions, maybe: what do you notice? What do you see? What do you wonder?</p>
+<div class="tip admonition" id="juliasetactivity-5">
+<p class="admonition-title">Julia Set Activity 5</p>
+<p>Take a few moments and write out (maybe using pen and ink, in a nice notebook) a bunch of questions about this material.  As always, don’t worry about <em>answers</em> just now.  The goal is <em>questions</em>, and more questions.
+<a class="reference internal" href="../Solutions/Reports%20on%20Julia%20Set%20Activities.html#juliasetactivityreport-5"><span class="std std-ref">[Some more of our questions.]</span></a></p>
 </div>
+<div class="tip admonition" id="juliasetactivity-6">
+<p class="admonition-title">Julia Set Activity 6</p>
+<p>Write your own code for computing Newton fractals, perhaps based on the code above (but at least improve the colour scheme).
+<a class="reference internal" href="../Solutions/Reports%20on%20Julia%20Set%20Activities.html#juliasetactivityreport-6"><span class="std std-ref">[A better code than the one above.]</span></a></p>
 </div>
-<div class="section" id="variations-halley-s-method-secant-method-infinitely-many-others">
-<h2>Variations: Halley’s Method, Secant Method, Infinitely Many Others<a class="headerlink" href="#variations-halley-s-method-secant-method-infinitely-many-others" title="Permalink to this headline">¶</a></h2>
-<p>Newton’s method can be understood as replacing the nonlinear equation <span class="math notranslate nohighlight">\(f(x)=0\)</span> with a <em>linear approximation</em> <span class="math notranslate nohighlight">\(f(a) + f'(a)(x-a) = 0\)</span> and solving that instead; if one starts with <span class="math notranslate nohighlight">\(x=a\)</span> as an initial approximation to the root of <span class="math notranslate nohighlight">\(f(x)=0\)</span> then hopefully the solution of the linear approximation, namely <span class="math notranslate nohighlight">\(x = a - f(a)/f'(a)\)</span>, would be an improved approximation to the root.  But there are other methods.  As discussed in the Exercises in the <a class="reference internal" href="rootfinding.html"><span class="doc std std-doc">Rootfinding unit</span></a>, there is also the <strong>secant method</strong> which uses <em>two</em> initial estimates of the root, say <span class="math notranslate nohighlight">\(x_0\)</span> and <span class="math notranslate nohighlight">\(x_1\)</span>, to generate</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8dab9a25-3f99-4a8b-abef-86a2848a7550">
-<span class="eqno">(59)<a class="headerlink" href="#equation-8dab9a25-3f99-4a8b-abef-86a2848a7550" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="tip admonition" id="juliasetactivity-7">
+<p class="admonition-title">Julia Set Activity 7</p>
+<p>Compute Newton fractals for several functions of your own choosing. Test your code on the function <span class="math notranslate nohighlight">\(f(z) = z^{8}+4 z^{7}+6 z^{6}+6 z^{5}+5 z^{4}+2 z^{3}+z^{2}+z\)</span> used above.
+<a class="reference internal" href="../Solutions/Reports%20on%20Julia%20Set%20Activities.html#juliasetactivityreport-7"><span class="std std-ref">[What happened when we did this.]</span></a></p>
+</div>
+</section>
+</section>
+<section id="variations-halley-s-method-secant-method-infinitely-many-others">
+<h2>Variations: Halley’s Method, Secant Method, Infinitely Many Others<a class="headerlink" href="#variations-halley-s-method-secant-method-infinitely-many-others" title="Permalink to this headline">#</a></h2>
+<p>Newton’s method can be understood as replacing the nonlinear equation <span class="math notranslate nohighlight">\(f(x)=0\)</span> with a <em>linear approximation</em> <span class="math notranslate nohighlight">\(f(a) + f'(a)(x-a) = 0\)</span> and solving that instead; if one starts with <span class="math notranslate nohighlight">\(x=a\)</span> as an initial approximation to the root of <span class="math notranslate nohighlight">\(f(x)=0\)</span> then hopefully the solution of the linear approximation, namely <span class="math notranslate nohighlight">\(x = a - f(a)/f'(a)\)</span>, would be an improved approximation to the root.  But there are other methods.  As discussed in the Activities in the <a class="reference internal" href="rootfinding.html"><span class="doc std std-doc">Rootfinding unit</span></a>, there is also the <strong>secant method</strong> which uses <em>two</em> initial estimates of the root, say <span class="math notranslate nohighlight">\(x_0\)</span> and <span class="math notranslate nohighlight">\(x_1\)</span>, to generate</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a0df5a48-d35e-4a19-aaca-e19b711a1059">
+<span class="eqno">(60)<a class="headerlink" href="#equation-a0df5a48-d35e-4a19-aaca-e19b711a1059" title="Permalink to this equation">#</a></span>\[\begin{equation}
 x_{n+1} = x_n - \frac{ f(x_n)(x_n-x_{n-1})}{f(x_n)-f(x_{n-1})}
 \end{equation}\]</div>
-<p>and you can see that instead of having <span class="math notranslate nohighlight">\(f'(x_n)\)</span> we instead have the difference quotient—the slope of the secant line—</p>
-<div class="amsmath math notranslate nohighlight" id="equation-39190d46-33e6-4a3e-82e4-ed00469748ed">
-<span class="eqno">(60)<a class="headerlink" href="#equation-39190d46-33e6-4a3e-82e4-ed00469748ed" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<p>and you can see that instead of having <span class="math notranslate nohighlight">\(f'(x_n)\)</span> we instead have the difference quotient (the slope of the secant line)</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a02775bc-e5d6-458e-ac53-c56b155b37f4">
+<span class="eqno">(61)<a class="headerlink" href="#equation-a02775bc-e5d6-458e-ac53-c56b155b37f4" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f'(x_n) \approx \frac{ f(x_n)-f(x_{n-1}) }{x_{n}-x_{n-1}}
 \end{equation}\]</div>
 <p>playing the same role.  We save the values of <span class="math notranslate nohighlight">\(f(x_0)\)</span>, <span class="math notranslate nohighlight">\(f(x_1)\)</span>, <span class="math notranslate nohighlight">\(\ldots\)</span> as we go along so we don’t have to recompute them; and each iteration costs us only one new evaluation of the function (which can serve as a check on our errors as well) each time.  Newton’s method, in contrast, needs an evaluation of <span class="math notranslate nohighlight">\(f(x)\)</span> <em>and</em> an evaluation of <span class="math notranslate nohighlight">\(f'(x)\)</span> for each iteration, so it costs more per iteration.  The secant method tends to be take more iterations but be faster to compute on each step, so it is frequently faster overall.  We can study “secant fractals” in the same way we studied Newton fractals if we insist on a rule for generating <span class="math notranslate nohighlight">\(x_1\)</span> from <span class="math notranslate nohighlight">\(x_0\)</span>; for instance, we could always take <span class="math notranslate nohighlight">\(x_1 = x_0 - f(x_0)/f'(x_0)\)</span> so we would use one Newton iteration to get started.  Frequently this information is available at the beginning, so it isn’t much of a “cheat”.</p>
-<p>We can go the other way: also as discussed in the exercises in the rootfinding unit, there is something known as <a class="reference external" href="https://en.wikipedia.org/wiki/Halley%27s_method"><em>Halley’s method</em></a>, named after the astronomer <a class="reference external" href="https://en.wikipedia.org/wiki/Edmond_Halley">Edmond Halley</a>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d5162fbe-8228-4f1d-8566-5dcfc574530e">
-<span class="eqno">(61)<a class="headerlink" href="#equation-d5162fbe-8228-4f1d-8566-5dcfc574530e" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<p>We can go the other way: also as discussed in the Activities in the rootfinding unit, there is something known as <a class="reference external" href="https://en.wikipedia.org/wiki/Halley%27s_method"><em>Halley’s method</em></a>, named after the astronomer <a class="reference external" href="https://en.wikipedia.org/wiki/Edmond_Halley">Edmond Halley</a>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7df8edb7-47d8-436c-9020-c79b17b6a3a2">
+<span class="eqno">(62)<a class="headerlink" href="#equation-7df8edb7-47d8-436c-9020-c79b17b6a3a2" title="Permalink to this equation">#</a></span>\[\begin{equation}
 z_{n+1} = z_n - \frac{f(z_n)}{f'(z_n) - \frac{f(z_n)f''(z_n)}{2f'(z_n)}}
 \end{equation}\]</div>
 <p>This requires <em>two</em> derivatives; if one derivative is too expensive, then two is twice too much.  But sometimes derivatives are cheap and this method becomes practical.  Consider for example the task of inverting the function
 <span class="math notranslate nohighlight">\(f(w) = w\exp(w)-z = 0\)</span>; that is, given a value for <span class="math notranslate nohighlight">\(z\)</span>, find a value of <span class="math notranslate nohighlight">\(w\)</span> for which the equation is true. We are computing the <a class="reference external" href="http://www.orcca.on.ca/LambertW">Lambert W function</a> of z. Since the “expensive” part of the computation of <span class="math notranslate nohighlight">\(f(w)\)</span> is the exponential, <span class="math notranslate nohighlight">\(\exp(w)\)</span>, the derivatives <span class="math notranslate nohighlight">\(f'(w) = (1+w)\exp(w)\)</span> and <span class="math notranslate nohighlight">\(f''(w) = (2+w)\exp(w)\)</span> are essentially free thereafter; so Halley’s method becomes quite attractive, <em>because it takes even fewer iterations than Newton’s method</em> (typically) for this function.</p>
 <p>An interesting trick (dating at least back to the 1920’s) converts Halley’s method for <span class="math notranslate nohighlight">\(f(z)=0\)</span> into Newton’s method for a different function <span class="math notranslate nohighlight">\(F(z) = 0\)</span>:  put <span class="math notranslate nohighlight">\(F(z) = f(z)/\sqrt{f'(z)}\)</span>.  Then some algebra shows that Newton’s iteration on <span class="math notranslate nohighlight">\(F(z)\)</span>, namely</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4856c62a-3ba5-49c7-9a3f-bad3d7ae3142">
-<span class="eqno">(62)<a class="headerlink" href="#equation-4856c62a-3ba5-49c7-9a3f-bad3d7ae3142" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-082fad15-621c-417d-ab55-81f3f8138761">
+<span class="eqno">(63)<a class="headerlink" href="#equation-082fad15-621c-417d-ab55-81f3f8138761" title="Permalink to this equation">#</a></span>\[\begin{equation}
 z_{n+1} = z_n - \frac{F(z_n)}{F'(z_n)}
 \end{equation}\]</div>
 <p>is converted (by use of the chain rule to compute <span class="math notranslate nohighlight">\(F'(z)\)</span>) <em>exactly</em> into Halley’s method for <span class="math notranslate nohighlight">\(f(z)=0\)</span>.
 It is quite instructive to compute the Newton fractal for a function, and then compute the Halley fractal for the same function.  You can even use the same imaging code, just by swapping one function for another.</p>
 <p>For instance, here is the Newton fractal (Fatou set) for <span class="math notranslate nohighlight">\(f(z) = z^{8}+4 z^{7}+6 z^{6}+6 z^{5}+5 z^{4}+2 z^{3}+z^{2}+z\)</span>, as computed by Maple’s <code class="docutils literal notranslate"><span class="pre">Fractals:-EscapeTime:-Newton</span></code> command</p>
-<a class="reference internal image-reference" href="../_images/M4Newton.png"><img alt="Mandelbrot 4 Newton Fractal" class="align-center" src="../_images/M4Newton.png" style="height: 300px;" /></a>
+<a class="reference internal image-reference" href="../_images/M4Newton.png"><img alt="Mandelbrot 4 Newton Fractal" class="align-center" src="../_images/M4Newton.png" style="height: 450px;" /></a>
 <p>and here is the Halley fractal (Fatou set) for the same function, which is also the Newton fractal for <span class="math notranslate nohighlight">\(F(z) = f(z)/\sqrt{f'(z)}\)</span>.  Again, this was computed by <code class="docutils literal notranslate"><span class="pre">Fractals:-EscapeTime:-Newton</span></code>.</p>
-<a class="reference internal image-reference" href="../_images/M4Halley.png"><img alt="Mandelbrot 4 Halley Fractal" class="align-center" src="../_images/M4Halley.png" style="height: 300px;" /></a>
+<a class="reference internal image-reference" href="../_images/M4Halley.png"><img alt="Mandelbrot 4 Halley Fractal" class="align-center" src="../_images/M4Halley.png" style="height: 450px;" /></a>
 <p>In order to <em>understand</em> the differences in the two images, it is necessary to understand what the colors mean; we think that the different shades of orange count the number of iterations to reach each root (but we’re not terribly sure: the documentation of that opaque code is not clear on that point).  If that is true, then one can see from the two pictures that Halley’s method takes fewer iterations to get a good approximation to a root.  However, the <code class="docutils literal notranslate"><span class="pre">Fractals:-Escapetime:-Newton</span></code> code takes <em>ten times as long</em> for the Halley case, likely because of internal compiler reasons (yes, Maple has a compiler, but it is quite limited).  We ask you to redo these figures yourself in Python, and also to do the secant fractal (not possible in Maple simply by co-opting the <code class="docutils literal notranslate"><span class="pre">Fractals:-EscapeTime:-Newton</span></code> code, as Halley is), and to compare the results.</p>
+<div class="tip admonition" id="juliasetactivity-8">
+<p class="admonition-title">Julia Set Activity 8</p>
+<p>Compute Halley fractals for the same functions as in Activity 7.
+<a class="reference internal" href="../Solutions/Reports%20on%20Julia%20Set%20Activities.html#juliasetactivityreport-8"><span class="std std-ref">[What happened when we did this.]</span></a></p>
 </div>
-<div class="section" id="julia-sets">
-<h2>Julia sets<a class="headerlink" href="#julia-sets" title="Permalink to this headline">¶</a></h2>
+<div class="tip admonition" id="juliasetactivity-9">
+<p class="admonition-title">Julia Set Activity 9</p>
+<p>Compute secant fractals for the same functions, using the <span class="math notranslate nohighlight">\(x_1 = x_0 - f(x_0)/f'(x_0)\)</span> rule to generate the needed second initial estimate.  Try a different rule for generating <span class="math notranslate nohighlight">\(x_1\)</span> and see if it affects your fractals.
+<a class="reference internal" href="../Solutions/Reports%20on%20Julia%20Set%20Activities.html#juliasetactivityreport-9"><span class="std std-ref">[What happened when we did this.]</span></a></p>
+</div>
+<section id="infinitely-many-other-iterative-methods">
+<h3>Infinitely many other iterative methods<a class="headerlink" href="#infinitely-many-other-iterative-methods" title="Permalink to this headline">#</a></h3>
+<p>We have mentioned Schroeder iteration and Householder iteration, but not told you what they are.  They rely on some material from existing mathematics courses (though not commonly encountered in standard mathematics courses) so we don’t really want to include the details here; they don’t really “fit” into this OER, except that they are kind of fun. So here we go with a sketch of the main idea of Schroeder iteration: use <a class="reference external" href="https://mathworld.wolfram.com/SeriesReversion.html">series reversion</a>.  That is, suppose that the function <span class="math notranslate nohighlight">\(y=f(x)\)</span> that we wish to find a zero of has the <em>Taylor series</em> starting out as <span class="math notranslate nohighlight">\(y = f(x_0) + f'(x_0)(x-x_0) + f''(x_0)(x-x_0)^2/2 + f'''(x_0)(x-x_0)^3/6 + \cdots\)</span> (Taylor series are frequently encountered in the first year calculus class, but often only as exercises in deciding whether certain tests for “convergence” can be used or not: here we are only concerned with the first few terms, and will use a reversal).</p>
+<p>Then the <em>reversion</em> of that series is a series for <span class="math notranslate nohighlight">\(x\)</span> in terms of <span class="math notranslate nohighlight">\(y\)</span>: if we write <span class="math notranslate nohighlight">\(y_0 = f(x_0)\)</span>, then we may write</p>
+<div class="math notranslate nohighlight">
+\[
+x = x_0 + A_1(y-y_0) + A_2(y-y_0)^2 + A_3(y-y_0)^3 + \cdots
+\]</div>
+<p>for some <span class="math notranslate nohighlight">\(A_k\)</span> that depend on <span class="math notranslate nohighlight">\(y_0\)</span> and the derivatives <span class="math notranslate nohighlight">\(f'(x_0)\)</span> and <span class="math notranslate nohighlight">\(f''(x_0)\)</span> and so on.  Working out the formulas is a fun activity (and can sometimes usefully be done in general, using what is known as the <a class="reference external" href="https://en.wikipedia.org/wiki/Lagrange_inversion_theorem">Lagrange inversion theorem</a> ) but we don’t have to do that: the first few are listed at the Mathworld link above.  Writing <span class="math notranslate nohighlight">\(a_1 = f'(x_0)\)</span> for short and <span class="math notranslate nohighlight">\(a_2 = f''(x_0)/2\)</span> and <span class="math notranslate nohighlight">\(a_3 = f'''(x_0)/6\)</span> we have</p>
+<div class="amsmath math notranslate nohighlight" id="equation-271c55b3-4d4e-4888-9962-972b0d85c5f6">
+<span class="eqno">(64)<a class="headerlink" href="#equation-271c55b3-4d4e-4888-9962-972b0d85c5f6" title="Permalink to this equation">#</a></span>\[\begin{align}
+A_1 &amp;= \frac{1}{a_1} \\
+A_2 &amp;= -\frac{a_2}{a_1^3} \\
+A_3 &amp;= \frac{1}{a_1^5}\left( 2a_2^2 - a_1a_3\right)
+\end{align}\]</div>
+<p>To use this to find an approximate root <span class="math notranslate nohighlight">\(x^*\)</span> near <span class="math notranslate nohighlight">\(x_0\)</span>, we plug <span class="math notranslate nohighlight">\(y=0\)</span> into the truncated reversed series:</p>
+<div class="math notranslate nohighlight">
+\[
+x^* \approx x_0 + A_1(0-y_0) + A_2(0-y_0)^2 + A_3(0-y_0)^3 
+\]</div>
+<p>Then we do this again with <span class="math notranslate nohighlight">\(x^*\)</span> in place of <span class="math notranslate nohighlight">\(x_0\)</span>.</p>
+<p>This will be clearer with an example, but note that if you stop with <span class="math notranslate nohighlight">\(A_1\)</span> you get <em>exactly</em> Newton’s method, whereas if you stop with <span class="math notranslate nohighlight">\(A_2\)</span> you get something very like Halley’s method.  Keeping all terms up to <span class="math notranslate nohighlight">\(A_3\)</span> gets you a <em>quartically</em> converging method.</p>
+<p>“Clearly” (there’s the mathematician’s favourite word) there are an infinite number of such methods.</p>
+<p>Let’s try the fourth order method out on, say, <span class="math notranslate nohighlight">\(f(z) = z^{8}+4 z^{7}+6 z^{6}+6 z^{5}+5 z^{4}+2 z^{3}+z^{2}+z\)</span>. Then the derivatives are straightforward.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">8</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">7</span> <span class="o">+</span> <span class="mi">6</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">6</span> <span class="o">+</span> <span class="mi">6</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span>
+    <span class="k">return</span> <span class="n">y</span>
+<span class="k">def</span> <span class="nf">d1</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">d1y</span> <span class="o">=</span> <span class="mi">8</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">7</span>  <span class="o">+</span> <span class="mi">28</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">6</span> <span class="o">+</span> <span class="mi">36</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">30</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">20</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">6</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">d1y</span>
+<span class="k">def</span> <span class="nf">d2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">d2y</span> <span class="o">=</span> <span class="mi">7</span><span class="o">*</span><span class="mi">8</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">6</span>  <span class="o">+</span> <span class="mi">6</span><span class="o">*</span><span class="mi">28</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*</span><span class="mi">36</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="mi">30</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="mi">20</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">12</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">d2y</span>
+<span class="k">def</span> <span class="nf">d3</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">d3y</span> <span class="o">=</span> <span class="mi">6</span><span class="o">*</span><span class="mi">56</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">5</span>  <span class="o">+</span> <span class="mi">5</span><span class="o">*</span><span class="mi">6</span><span class="o">*</span><span class="mi">28</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="mi">5</span><span class="o">*</span><span class="mi">36</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="mi">4</span><span class="o">*</span><span class="mi">30</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="mi">3</span><span class="o">*</span><span class="mi">20</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">12</span>
+    <span class="k">return</span> <span class="n">d3y</span>
+
+<span class="n">niter</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">niter</span><span class="p">):</span>
+    <span class="n">a1</span> <span class="o">=</span> <span class="n">d1</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">a2</span> <span class="o">=</span> <span class="n">d2</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span>
+    <span class="n">a3</span> <span class="o">=</span> <span class="n">d3</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="mi">6</span>
+    <span class="n">A1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">a1</span>  <span class="c1"># in trouble if f&#39;(x)=0</span>
+    <span class="n">A2</span> <span class="o">=</span> <span class="o">-</span><span class="n">a2</span><span class="o">/</span><span class="n">a1</span><span class="o">**</span><span class="mi">3</span>
+    <span class="n">A3</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a2</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="n">a1</span><span class="o">*</span><span class="n">a3</span><span class="p">)</span><span class="o">/</span><span class="n">a1</span><span class="o">**</span><span class="mi">5</span>
+    <span class="n">xstar</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">A1</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">A2</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">A3</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">3</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">xstar</span><span class="p">)</span>
+    <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">xstar</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 0.6539121047275462, 0.33974387407670914, 0.04375170914456099, -4.646659793258043e-06, -5.544933076257625e-22]
+[26, 3.9793662911682257, 0.6388690765743159, 0.045852747552006, -4.646638202011462e-06, -5.544933076257625e-22]
+</pre></div>
+</div>
+</div>
+</div>
+<p>That found the (obvious) root at <span class="math notranslate nohighlight">\(x=0\)</span>, and it did so instructively.  You can see that <span class="math notranslate nohighlight">\(x_1\)</span> is not much better than <span class="math notranslate nohighlight">\(x_0\)</span>, but <span class="math notranslate nohighlight">\(x_2\)</span> has error about <span class="math notranslate nohighlight">\(0.3\)</span>, while <span class="math notranslate nohighlight">\(x_3\)</span> has error about <span class="math notranslate nohighlight">\(0.04\)</span>.  Then <span class="math notranslate nohighlight">\(x_4\)</span> has error about <span class="math notranslate nohighlight">\(4\cdot 10^{-6}\)</span> and then <span class="math notranslate nohighlight">\(x_5\)</span> has error about <span class="math notranslate nohighlight">\(10^{-21}\)</span> (well below the threshold of rounding error for numbers about <span class="math notranslate nohighlight">\(1\)</span>; indeed a more accurate computation gives <span class="math notranslate nohighlight">\(x_5 \approx 6.93\cdot 10^{-26}\)</span>).  This is faster than Newton’s method would have been.</p>
+<p>Now, if you like, you can look at the fractals for third-order Schroeder iteration.  Or fourth order, or whatever order you like.  Rounding error may be an issue.</p>
+<p><em>A remark on programming</em> As previously stated, getting details right is annoyingly hard for people.  The first few runs through that code were with incorrectly typed formulas for the <span class="math notranslate nohighlight">\(A_k\)</span>, and then with undetected errors in computing the derivatives of polynomials (such as a typo of <span class="math notranslate nohighlight">\(8\)</span> for <span class="math notranslate nohighlight">\(*\)</span>, leading to a term <code class="docutils literal notranslate"><span class="pre">x*82</span></code> instead of <code class="docutils literal notranslate"><span class="pre">x**2</span></code>), leading to iterations that went to zero, but not at the right rate.  Indeed, it’s not so easy to see that the above sequence of numbers goes to zero quartically.  It does become obvious if one does the computations in higher precision, and does a few more of them.</p>
+</section>
+</section>
+<section id="julia-sets">
+<h2>Julia sets<a class="headerlink" href="#julia-sets" title="Permalink to this headline">#</a></h2>
 <p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Julia_set">technical definition given in Wikipedia of a “Julia set”</a>, named after the mathematician <a class="reference external" href="https://en.wikipedia.org/wiki/Gaston_Julia">Gaston Julia</a>, is pretty opaque.  We will take an explicitly <em>oversimplified</em> view here and not worry about technicalities; we’re just going to compute things that are sort of like Julia sets. The basic idea is pretty simple.  If we are given an iteration</p>
-<div class="amsmath math notranslate nohighlight" id="equation-95608e74-784f-48f9-bb0e-b5ca06e08bac">
-<span class="eqno">(63)<a class="headerlink" href="#equation-95608e74-784f-48f9-bb0e-b5ca06e08bac" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-76daf9e9-7db9-4aec-ba08-219a7425012a">
+<span class="eqno">(65)<a class="headerlink" href="#equation-76daf9e9-7db9-4aec-ba08-219a7425012a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 z_{n+1} = F(z_n)
 \end{equation}\]</div>
 <p>starting with <span class="math notranslate nohighlight">\(z_0 = \)</span> some critical point (typically <span class="math notranslate nohighlight">\(z_0 = 0\)</span>) then to find our “Julia sets” we will <em>run the iteration backwards</em>.  In the aforementioned technical Wikipedia article this algorithm is mentioned, and the reader is cautioned against it owing to its exponential cost; there are other problems with it as well, but for our purposes—exploration!—we will just implement it and try it out.  We will be able to generate several interesting pictures this way, and begin to develop some insight.</p>
-<p>We will restrict ourselves to <em>polynomial maps</em> <span class="math notranslate nohighlight">\(F(z_n)\)</span>, and we will use NumPy’s <code class="docutils literal notranslate"><span class="pre">roots</span></code> command to solve the polynomials.  We’ll suggest a method in the exercises that will allow you to extend this to <em>rational maps</em>.</p>
+<p>We will restrict ourselves to <em>polynomial maps</em> <span class="math notranslate nohighlight">\(F(z_n)\)</span>, and we will use NumPy’s <code class="docutils literal notranslate"><span class="pre">roots</span></code> command to solve the polynomials.  We’ll suggest a method in the activities that will allow you to extend this to <em>rational maps</em>.</p>
 <p>First, let’s see how to solve polynomials in Python.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">poly1d</span><span class="p">(</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span> <span class="p">]);</span> <span class="c1"># Newton&#39;s original example</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">p</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">roots</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">p</span><span class="o">.</span><span class="n">r</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">p</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">r</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roots</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">r</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">r</span><span class="p">))</span>
 <span class="c1"># Wilkinson10 = np.poly1d( [1,-55,1320,-18150,157773,-902055,3416930,-8409500,12753576,-10628640,3628800] );</span>
 <span class="c1"># print( Wilkinson10.r )</span>
 <span class="c1"># print( Wilkinson10(Wilkinson10.r) )</span>
@@ -696,8 +1062,8 @@ z_{n+1} = F(z_n)
 1 x - 2 x - 5
 [ 2.09455148+0.j         -1.04727574+1.13593989j -1.04727574-1.13593989j]
 [ 2.09455148+0.j         -1.04727574+1.13593989j -1.04727574-1.13593989j]
-[1.95399252e-14+0.00000000e+00j 5.32907052e-15-7.54951657e-15j
- 5.32907052e-15+7.54951657e-15j]
+[1.95399252e-14+0.00000000e+00j 7.10542736e-15-2.66453526e-15j
+ 7.10542736e-15+2.66453526e-15j]
 </pre></div>
 </div>
 </div>
@@ -705,18 +1071,18 @@ z_{n+1} = F(z_n)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy.polynomial</span> <span class="kn">import</span> <span class="n">Polynomial</span> <span class="k">as</span> <span class="n">Poly</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="p">]</span> <span class="p">)</span>
-<span class="n">p</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span> <span class="n">c</span> <span class="p">)</span> <span class="c1"># Newton&#39;s original example</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="p">])</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="c1"># Newton&#39;s original example</span>
 <span class="n">p</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">p</span><span class="o">.</span><span class="n">roots</span><span class="p">()</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">p</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">roots</span><span class="p">())</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">roots</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">roots</span><span class="p">()))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-1.04727574-1.13593989j -1.04727574+1.13593989j  2.09455148+0.j        ]
-[ 1.06581410e-14+2.66453526e-15j  1.06581410e-14-2.66453526e-15j
- -1.77635684e-15+0.00000000e+00j]
+[ 8.88178420e-16+1.33226763e-15j  8.88178420e-16-1.33226763e-15j
+ -1.15463195e-14+0.00000000e+00j]
 </pre></div>
 </div>
 </div>
@@ -725,8 +1091,8 @@ z_{n+1} = F(z_n)
 <p>In truth the story is more complicated than that, but we will save that for your numerical analysis class.</p>
 <p>We now see that the <code class="docutils literal notranslate"><span class="pre">Polynomial</span></code> convenience class is supposed to be used instead of <code class="docutils literal notranslate"><span class="pre">poly1d</span></code>.  Fine.  This means writing the coefficients in reverse order, but that is also fine.</p>
 <p>What we will do here to run the iteration backward is to take the equation</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b47b664a-f5d4-4164-b0a0-79b5ed23fa78">
-<span class="eqno">(64)<a class="headerlink" href="#equation-b47b664a-f5d4-4164-b0a0-79b5ed23fa78" title="Permalink to this equation">¶</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-17ddb2f2-7c75-4eb1-8dc8-a3e6ee73ce54">
+<span class="eqno">(66)<a class="headerlink" href="#equation-17ddb2f2-7c75-4eb1-8dc8-a3e6ee73ce54" title="Permalink to this equation">#</a></span>\[\begin{equation}
 z_{n+1} = F(z_n)
 \end{equation}\]</div>
 <p>and <em>solve</em> it (using <code class="docutils literal notranslate"><span class="pre">roots</span></code>) for <span class="math notranslate nohighlight">\(z_n\)</span>, when we are given <span class="math notranslate nohighlight">\(z_{n+1}\)</span>.  We’ll start with the same <span class="math notranslate nohighlight">\(z_0\)</span> that we were using before, and compute all possible <span class="math notranslate nohighlight">\(z_{-1}\)</span> values which would give us <span class="math notranslate nohighlight">\(z_0 = F( z_{-1} )\)</span>.  This will be clearer with an example.</p>
@@ -758,45 +1124,65 @@ z_{n+1} = F(z_n)
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">real</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">History</span><span class="p">]</span>
 <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">imag</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">History</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/fractals-and-julia-sets_21_0.png" src="../_images/fractals-and-julia-sets_21_0.png" />
+<img alt="../_images/fractals-and-julia-sets_50_0.png" src="../_images/fractals-and-julia-sets_50_0.png" />
 </div>
 </div>
 <p>Here are similar images generated in Maple; one by our own code (which only plots the last half of the table of points), and one by the built-in <code class="docutils literal notranslate"><span class="pre">Fractals:-EscapeTime:-Julia</span> <span class="pre">code</span></code>.</p>
-<div class="figure align-default" id="julia-own-code">
-<a class="reference internal image-reference" href="../_images/JuliaMaple12.png"><img alt="../_images/JuliaMaple12.png" src="../_images/JuliaMaple12.png" style="height: 200px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Our own code</span><a class="headerlink" href="#julia-own-code" title="Permalink to this image">¶</a></p>
+<figure class="align-default" id="julia-own-code">
+<a class="reference internal image-reference" href="../_images/JuliaMaple12.png"><img alt="../_images/JuliaMaple12.png" src="../_images/JuliaMaple12.png" style="height: 450px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Our own code</span><a class="headerlink" href="#julia-own-code" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="julia-maple">
+<a class="reference internal image-reference" href="../_images/JuliaEscapeTimeF12.png"><img alt="../_images/JuliaEscapeTimeF12.png" src="../_images/JuliaEscapeTimeF12.png" style="height: 450px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Maple’s built-in code</span><a class="headerlink" href="#julia-maple" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="more-activities">
+<h2>More activities<a class="headerlink" href="#more-activities" title="Permalink to this headline">#</a></h2>
+<div class="tip admonition" id="juliasetactivity-10">
+<p class="admonition-title">Julia Set Activity 10</p>
+<p>Try a few different values of “c” in the Mandelbrot example above, and generate your own “Julia sets”.
+<a class="reference internal" href="../Solutions/Reports%20on%20Julia%20Set%20Activities.html#juliasetactivityreport-10"><span class="std std-ref">[What happened when we did this.]</span></a></p>
 </div>
-<div class="figure align-default" id="julia-maple">
-<a class="reference internal image-reference" href="../_images/JuliaEscapeTimeF12.png"><img alt="../_images/JuliaEscapeTimeF12.png" src="../_images/JuliaEscapeTimeF12.png" style="height: 300px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Maple’s built-in code</span><a class="headerlink" href="#julia-maple" title="Permalink to this image">¶</a></p>
+<div class="tip admonition" id="juliasetactivity-11">
+<p class="admonition-title">Julia Set Activity 11</p>
+<p>These are not really Julia sets; they include too much of the history!  Alter the program so that it plots only (say) the last half of the points computed; increase the number of points by a lot, as well.  Compare your figure to (say) the Maple Julia set for c=1.2.<br />
+<a class="reference internal" href="../Solutions/Reports%20on%20Julia%20Set%20Activities.html#juliasetactivityreport-11"><span class="std std-ref">[What happened when we did this.]</span></a></p>
 </div>
+<div class="tip admonition" id="juliasetactivity-12">
+<p class="admonition-title">Julia Set Activity 12</p>
+<p>Change the function F to be a different polynomial; find places where both F and F’ are zero (if any).  If necessary, change your polynomial so that there is such a “critical point”.  Start your iteration there, and go backwards. Plot your “Julia set”.
+<a class="reference internal" href="../Solutions/Reports%20on%20Julia%20Set%20Activities.html#juliasetactivityreport-12"><span class="std std-ref">[What happened when we did this.]</span></a></p>
 </div>
-<div class="section" id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
-<ol class="simple">
-<li><p>Write down as many questions as you can about material from this section.</p></li>
-<li><p>Write a Python program to draw the Sierpinski gasket (perhaps by using binomial coefficients mod 2).</p></li>
-<li><p>Explore pictures of the binomial coefficients mod 4 (and then consult Andrew Granville’s paper previously referenced).</p></li>
-<li><p>Investigate pictures (mod 2 or otherwise) of other combinatorial families of numbers, such as <a class="reference external" href="https://en.wikipedia.org/wiki/Stirling_number">Stirling Numbers</a> (both kinds).  Try also “Eulerian numbers of the first kind” mod 3.</p></li>
-<li><p>Write a Python program to animate Newton’s method for real functions and real initial estimates in general (the animated GIF at the top of this unit was produced by a Maple program, Student:-Calculus1:-NewtonsMethod, which is quite a useful model).  This exercise asks you to “roll your own” animation.</p></li>
-<li><p>Write your own code for computing Newton fractals, perhaps based on the code above (but at least improve the colour scheme).</p></li>
-<li><p>Compute Newton fractals for several functions of your own choosing. Test your code on the function <span class="math notranslate nohighlight">\(f(z) = z^{8}+4 z^{7}+6 z^{6}+6 z^{5}+5 z^{4}+2 z^{3}+z^{2}+z\)</span> used above.</p></li>
-<li><p>Compute Halley fractals for the same functions.</p></li>
-<li><p>Compute secant fractals for the same functions, using the <span class="math notranslate nohighlight">\(x_1 = x_0 - f(x_0)/f'(x_0)\)</span> rule to generate the needed second initial estimate.  Try a different rule for generating <span class="math notranslate nohighlight">\(x_1\)</span> and see if it affects your fractals.</p></li>
-<li><p>Try a few different values of “c” in the Mandelbrot example above, and generate your own “Julia sets”.</p></li>
-<li><p>These are not really Julia sets; they include too much of the history!  Alter the program so that it plots only (say) the last half of the points computed; increase the number of points by a lot, as well.  Compare your figure to (say) the Maple Julia set for c=1.2.</p></li>
-<li><p>Change the function F to be a different polynomial; find places where both F and F’ are zero (if any).  If necessary, change your polynomial so that there is such a “critical point”.  Start your iteration there, and go backwards—plot your “Julia set”.</p></li>
-<li><p>Extend the program so that it works for <em>rational</em> functions F, say <span class="math notranslate nohighlight">\(F(z) = p(z)/q(z)\)</span>.  This means solving the polynomial equation <span class="math notranslate nohighlight">\(p(z_n) - z_{n+1}q(z_n)=0\)</span> for <span class="math notranslate nohighlight">\(z_n\)</span>. Try it out on the rational functions you get from Newton iteration on polynomial (or rational!) functions; or on Halley iteration on polynomial functions.  Try any of the that arise from the methods that you can find listed in <a class="reference external" href="https://doi.org/10.1145/3363520.3363521">Revisiting Gilbert Strang’s “A Chaotic Search for <em>i</em>”</a>.</p></li>
-<li><p>Read the <a class="reference external" href="https://en.wikipedia.org/wiki/Julia_set">Wikipedia entry on Julia sets</a>; it ought to be a little more intelligible now (but you will see that there are still lots of complications left to explain). One of the main items of interest is the theorem that states that the Fatou sets all have a <em>common boundary</em>.  This means that if the number of components is <span class="math notranslate nohighlight">\(3\)</span> or more, then the Julia set (which is that boundary!) <em>must be a fractal</em>.</p></li>
-</ol>
+<div class="tip admonition" id="juliasetactivity-13">
+<p class="admonition-title">Julia Set Activity 13</p>
+<p>Extend the program so that it works for <em>rational</em> functions F, say <span class="math notranslate nohighlight">\(F(z) = p(z)/q(z)\)</span>.  This means solving the polynomial equation <span class="math notranslate nohighlight">\(p(z_n) - z_{n+1}q(z_n)=0\)</span> for <span class="math notranslate nohighlight">\(z_n\)</span>. Try it out on the rational functions you get from Newton iteration on polynomial (or rational!) functions; or on Halley iteration on polynomial functions.  Try any of the that arise from the methods that you can find listed in <a class="reference external" href="https://doi.org/10.1145/3363520.3363521">Revisiting Gilbert Strang’s “A Chaotic Search for <em>i</em>”</a>.
+<a class="reference internal" href="../Solutions/Reports%20on%20Julia%20Set%20Activities.html#juliasetactivityreport-13"><span class="std std-ref">[What happened when we did this.]</span></a></p>
 </div>
+<div class="tip admonition" id="juliasetactivity-14">
+<p class="admonition-title">Julia Set Activity 14</p>
+<p>Read the <a class="reference external" href="https://en.wikipedia.org/wiki/Julia_set">Wikipedia entry on Julia sets</a>; it ought to be a little more intelligible now (but you will see that there are still lots of complications left to explain). One of the main items of interest is the theorem that states that the Fatou sets all have a <em>common boundary</em>.  This means that if the number of components is <span class="math notranslate nohighlight">\(3\)</span> or more, then the Julia set (which is that boundary!) <em>must be a fractal</em>.
+<a class="reference internal" href="../Solutions/Reports%20on%20Julia%20Set%20Activities.html#juliasetactivityreport-14"><span class="std std-ref">[What happened when we did this.]</span></a></p>
 </div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="looking-back-at-the-programming-constructs-introduced">
+<h1>Looking back at the programming constructs introduced<a class="headerlink" href="#looking-back-at-the-programming-constructs-introduced" title="Permalink to this headline">#</a></h1>
+<p>We introduced <em>operator overloading</em> when we brought in the <code class="docutils literal notranslate"><span class="pre">Polynomial</span></code> package.  This redefined the operators <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">*</span></code> etc so that if one of the operands was of the new <code class="docutils literal notranslate"><span class="pre">Polynomial</span></code> type then the correct operation was performed.  This makes programming really easy, but it does so by adding some overhead to the program execution (making it a bit slower).  Normally, this is a very good trade: readability is <em>far</em> more useful, generally speaking, than execution speed.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Polynomial</span></code> package is also object-oriented, like <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> is but more so.  Each polynomial that is created “knows how to differentiate itself” and so to get the derivative of <code class="docutils literal notranslate"><span class="pre">p</span></code> one asks <code class="docutils literal notranslate"><span class="pre">p</span></code> like so: <code class="docutils literal notranslate"><span class="pre">p.deriv()</span></code>.  To find the roots, we ask it like so: <code class="docutils literal notranslate"><span class="pre">p.roots()</span></code>.  We have not talked about the method it uses to find polynomial roots, but we will.</p>
+<p>We saw <em>nested loops</em> and the <code class="docutils literal notranslate"><span class="pre">meshgrid</span></code> command from <code class="docutils literal notranslate"><span class="pre">numpy</span></code>.  We saw “filled contour plots”.  These are <em>not</em> the best way to draw fractals, however!</p>
+<p>We saw <code class="docutils literal notranslate"><span class="pre">np.array</span></code>s in use, and how to iterate over them with the <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">e</span> <span class="pre">in</span> <span class="pre">History</span></code> example.</p>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -820,9 +1206,11 @@ z_{n+1} = F(z_n)
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="rootfinding.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -838,24 +1226,28 @@ z_{n+1} = F(z_n)
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Neil J. Calkin, Eunice Y.S. Chan, and Robert M. Corless<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Neil J. Calkin, Eunice Y.S. Chan, and Robert M. Corless<br/>
-    
-        &copy; Copyright 2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

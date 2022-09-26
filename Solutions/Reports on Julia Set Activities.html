@@ -1,0 +1,1593 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Reports on Julia Set Activities &#8212; Computational Discovery on Jupyter</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.jpg"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Reports on Bohemian activities" href="Reports%20on%20Bohemian%20Activities.html" />
+    <link rel="prev" title="Reports on Rootfinding Activities" href="Reports%20on%20Rootfinding%20Activities.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Computational Discovery on Jupyter</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to Computational Discovery on Jupyter
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Preface
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preamble.html">
+   Preamble
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Installing-Python-and-Jupyter.html">
+   Before we begin: installing Python and Jupyter
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/Computing-with-Fibonacci.html">
+   Computing with Fibonacci Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/continued-fractions.html">
+   Continued Fractions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/rootfinding.html">
+   Rootfinding, Newton’s Method, and Dynamical Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/fractals-and-julia-sets.html">
+   Fractals and Julia Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/bohemian-matrices.html">
+   Bounded Height Matrices of Integers (Bohemian Matrices)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/mandelbrot.html">
+   Mandelbrot Polynomials and Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/chaos-game-representation.html">
+   Chaos Game Representation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Epilogue
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Looking-back.html">
+   Zanshin
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/What-to-do-when-things-go-wrong.html">
+   What do to when things go wrong
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/floating-point.html">
+   The Bare Minimum about Floating-Point
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/binomials-factorials-combinatorics.html">
+   Binomials, Factorials, and other Combinatorial Things
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/complex-numbers.html">
+   Complex Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/symbolic-computation.html">
+   Symbolic Computation: The Pitfalls
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reports on Activities
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Fibonacci%20Activities.html">
+   Reports on Fibonacci Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Continued%20Fractions%20Activities.html">
+   Reports on Continued Fractions Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Rootfinding%20Activities.html">
+   Reports on Rootfinding Activities
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Reports on Julia Set Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Bohemian%20Activities.html">
+   Reports on Bohemian activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Mandelbrot%20Activities.html">
+   Reports on Mandelbrot Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Chaos%20Game%20Activities.html">
+   Reports on Chaos Game Activities
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Back Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about.html">
+   About the authors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter/edit/master/book/Solutions/Reports on Julia Set Activities.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Solutions/Reports on Julia Set Activities.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julia-set-activity-1">
+   Julia Set Activity 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julia-set-activity-2">
+   Julia Set Activity 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julia-set-activity-3">
+   Julia Set Activity 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julia-set-activity-4">
+   Julia Set Activity 4
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julia-set-activity-5">
+   Julia Set Activity 5
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julia-set-activity-6">
+   Julia Set Activity 6
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julia-set-activity-7">
+   Julia Set Activity 7
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julia-set-activity-8">
+   Julia Set Activity 8
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julia-set-activity-9">
+   Julia Set Activity 9
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julia-set-activity-10">
+   Julia Set Activity 10
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julia-set-activity-11">
+   Julia Set Activity 11
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julia-set-activity-12">
+   Julia Set Activity 12
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julia-set-activity-13">
+   Julia Set Activity 13
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julia-set-activity-14">
+   Julia Set Activity 14
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Reports on Julia Set Activities</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julia-set-activity-1">
+   Julia Set Activity 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julia-set-activity-2">
+   Julia Set Activity 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julia-set-activity-3">
+   Julia Set Activity 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julia-set-activity-4">
+   Julia Set Activity 4
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julia-set-activity-5">
+   Julia Set Activity 5
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julia-set-activity-6">
+   Julia Set Activity 6
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julia-set-activity-7">
+   Julia Set Activity 7
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julia-set-activity-8">
+   Julia Set Activity 8
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julia-set-activity-9">
+   Julia Set Activity 9
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julia-set-activity-10">
+   Julia Set Activity 10
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julia-set-activity-11">
+   Julia Set Activity 11
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julia-set-activity-12">
+   Julia Set Activity 12
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julia-set-activity-13">
+   Julia Set Activity 13
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#julia-set-activity-14">
+   Julia Set Activity 14
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="reports-on-julia-set-activities">
+<h1>Reports on Julia Set Activities<a class="headerlink" href="#reports-on-julia-set-activities" title="Permalink to this headline">#</a></h1>
+<section id="julia-set-activity-1">
+<span id="juliasetactivityreport-1"></span><h2>Julia Set Activity 1<a class="headerlink" href="#julia-set-activity-1" title="Permalink to this headline">#</a></h2>
+<p>Write a Python program to draw the Sierpinski gasket (perhaps by using binomial coefficients mod 2).</p>
+<p>This turns out to be a very popular question, and there are several web tutorials and examples on the subject.  For instance, here is a <a class="reference external" href="https://youtu.be/G2A_Yg-JXxY">YouTube video</a> and <a class="reference external" href="https://youtu.be/ssK2Z9Opokc">here is another</a> (maybe more detailed) with a program that uses the Turtle package.  Some links show <em>recursive</em> programs.</p>
+<p>Sierpinski triangles are also part of <a class="reference external" href="https://runestone.academy/ns/books/published/pythonds/index.html">this free book</a> by Miller and Radum.  Again we don’t know those people; these links are the result of a Google search.  We just wanted to show you that there was a lot of stuff online about this.</p>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle">Wikipedia page</a> is particularly good and has many references. It even connects to the Chaos Game, which we cover in our final unit.  Compared to the animations of that page, and of some of the external links, our little code below is pretty basic.  We used some ideas from <a class="reference external" href="https://youtu.be/5nuYD2M2AX8">Robin Truax’s video</a> and we chose not to do a <em>full</em> Sierpinski triangle but rather a random sampling of it.  For basic code, we think that the result is pretty cool.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">2022</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+
+
+<span class="n">level</span> <span class="o">=</span> <span class="mi">7</span>  
+<span class="n">scales</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">level</span><span class="p">):</span>
+    <span class="n">scales</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">numberpossible</span> <span class="o">=</span> <span class="mi">3</span><span class="o">**</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Using </span><span class="si">{}</span><span class="s2"> levels&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">level</span><span class="p">))</span>
+<span class="n">Nsample</span> <span class="o">=</span> <span class="mi">1729</span> <span class="c1"># Ramanujan&#39;s number, why not</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;We will sample </span><span class="si">{}</span><span class="s2"> out of </span><span class="si">{}</span><span class="s2"> possible top vertices.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Nsample</span><span class="p">,</span><span class="n">numberpossible</span><span class="p">))</span>
+<span class="n">waterfall</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">))</span>
+<span class="n">v0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># These directions give equilateral triangles</span>
+<span class="n">v1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">p0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">])</span>
+
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nsample</span><span class="p">):</span>
+        <span class="c1"># Choose a random number base 3 with &quot;level&quot; trinary digits</span>
+        <span class="n">pick</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">level</span><span class="p">)</span> <span class="c1"># exclusive top range.  Sigh.</span>
+        <span class="c1"># Matrix whose columns are the allowed waterfall coordinate choices</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">waterfall</span><span class="p">[:,</span><span class="n">pick</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">level</span><span class="p">)],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">))</span>
+        <span class="n">xy</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">scales</span><span class="p">)</span> <span class="c1"># Waterfall coordinates in binary</span>
+        <span class="n">vertx</span> <span class="o">=</span> <span class="n">p0</span> <span class="o">+</span> <span class="n">xy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">v0</span> <span class="o">+</span> <span class="n">xy</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">v1</span>
+        <span class="n">lft</span> <span class="o">=</span> <span class="n">vertx</span> <span class="o">+</span> <span class="n">v0</span><span class="o">*</span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">level</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">rgt</span> <span class="o">=</span> <span class="n">vertx</span> <span class="o">+</span> <span class="n">v1</span><span class="o">*</span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">level</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># Draw a triangle below the vertex</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">vertx</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">lft</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="n">vertx</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">lft</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">vertx</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">rgt</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="n">vertx</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">rgt</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">lft</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">rgt</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="n">lft</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">rgt</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span> <span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using 7 levels
+We will sample 1729 out of 2187 possible top vertices.
+</pre></div>
+</div>
+<img alt="../_images/Reports on Julia Set Activities_3_1.png" src="../_images/Reports on Julia Set Activities_3_1.png" />
+</div>
+</div>
+<p><a class="reference internal" href="../Contents/fractals-and-julia-sets.html#juliasetactivity-1"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="julia-set-activity-2">
+<span id="juliasetactivityreport-2"></span><h2>Julia Set Activity 2<a class="headerlink" href="#julia-set-activity-2" title="Permalink to this headline">#</a></h2>
+<p>Explore pictures of the binomial coefficients mod 4 (and then consult Andrew Granville’s paper previously referenced).  Here we didn’t have anything to add to that paper.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">mth</span>
+
+<span class="n">ans</span>  <span class="o">=</span> <span class="n">mth</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="c1"># How to compute 15 choose 8 </span>
+<span class="n">ans4</span> <span class="o">=</span> <span class="n">ans</span> <span class="o">%</span> <span class="mi">4</span>        <span class="c1"># How to get its remainder mod 4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span> <span class="n">ans4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6435 3
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference internal" href="../Contents/fractals-and-julia-sets.html#juliasetactivity-2"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="julia-set-activity-3">
+<span id="juliasetactivityreport-3"></span><h2>Julia Set Activity 3<a class="headerlink" href="#julia-set-activity-3" title="Permalink to this headline">#</a></h2>
+<p>Investigate pictures (mod 2 or otherwise) of other combinatorial families of numbers, such as <a class="reference external" href="https://en.wikipedia.org/wiki/Stirling_number">Stirling Numbers</a> (both kinds).  Try also “Eulerian numbers of the first kind” mod 3.</p>
+<p>Talk about an open-ended activity.  There is an <em>infinite</em> amount of information about Stirling numbers and other numbers; for instance the <a class="reference external" href="https://dlmf.nist.gov/26">Digital Library of Mathematical Functions Chapter 26</a> lists a remarkable number of facts and links many references.  As one fractal fact, computing the Stirling cycle numbers mod 2 gives a Sierpinski gasket, but tilted to one side.  As just one thing, we chose to implement Stirling cycle numbers in Python in a way similar to the way Fibonacci numbers were naively implemented.  For a reference, we used <a class="reference external" href="https://ieeexplore.ieee.org/iel7/7425657/7425822/07426062.pdf">this handy paper</a> but we really recommend that you look at Concrete Mathematics, by Graham, Knuth, and Patashnik.  The recurrence relation we implemented is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} 
+n+1 \\
+k
+\end{bmatrix} 
+= 
+n \begin{bmatrix}
+n \\
+k
+\end{bmatrix}
++ 
+\begin{bmatrix}
+n \\
+k-1
+\end{bmatrix}
+\end{split}\]</div>
+<p>with initial conditions <span class="math notranslate nohighlight">\([n,0] = 1\)</span> if <span class="math notranslate nohighlight">\(n=0\)</span> and <span class="math notranslate nohighlight">\(0\)</span> otherwise, and <span class="math notranslate nohighlight">\([n,n] = 1\)</span>.  This recurrence relation gives a triangular array.  These numbers are the <em>Stirling cycle numbers</em> which count the number of permutations of <span class="math notranslate nohighlight">\(n\)</span> objects having <span class="math notranslate nohighlight">\(k\)</span> cycles.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nmax</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">StirlingCycles</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">nmax</span><span class="p">):</span>
+    <span class="n">prevrow</span> <span class="o">=</span> <span class="n">StirlingCycles</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">nextrow</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">prevrow</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">prevrow</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">nextrow</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+    <span class="n">nextrow</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">StirlingCycles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nextrow</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nmax</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">StirlingCycles</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1]
+[0, 1]
+[0, 1, 1]
+[0, 2, 3, 1]
+[0, 6, 11, 6, 1]
+[0, 24, 50, 35, 10, 1]
+[0, 120, 274, 225, 85, 15, 1]
+[0, 720, 1764, 1624, 735, 175, 21, 1]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now do the same mod 2</span>
+<span class="n">nmax</span> <span class="o">=</span> <span class="mi">21</span>
+<span class="n">StirlingCycles</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">nmax</span><span class="p">):</span>
+    <span class="n">prevrow</span> <span class="o">=</span> <span class="n">StirlingCycles</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">nextrow</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="p">((</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">prevrow</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">prevrow</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">%</span> <span class="mi">2</span>  <span class="c1"># The only change to the process</span>
+        <span class="n">nextrow</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+    <span class="n">nextrow</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">StirlingCycles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nextrow</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nmax</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">StirlingCycles</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1]
+[0, 1]
+[0, 1, 1]
+[0, 0, 1, 1]
+[0, 0, 1, 0, 1]
+[0, 0, 0, 1, 0, 1]
+[0, 0, 0, 1, 1, 1, 1]
+[0, 0, 0, 0, 1, 1, 1, 1]
+[0, 0, 0, 0, 1, 0, 0, 0, 1]
+[0, 0, 0, 0, 0, 1, 0, 0, 0, 1]
+[0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1]
+[0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 1, 1]
+[0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1]
+[0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1]
+[0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1]
+[0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1]
+[0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1]
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’ve really just scratched the surface, here.  Note that brackets are needed for modular computations: <code class="docutils literal notranslate"><span class="pre">(blah)</span> <span class="pre">%</span> <span class="pre">2</span></code> is needed, or if the modulus is complicated, <code class="docutils literal notranslate"><span class="pre">(blah)</span> <span class="pre">%</span> <span class="pre">(bug-ugly-modulus)</span></code>.</p>
+<p><a class="reference internal" href="../Contents/fractals-and-julia-sets.html#juliasetactivity-3"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="julia-set-activity-4">
+<span id="juliasetactivityreport-4"></span><h2>Julia Set Activity 4<a class="headerlink" href="#julia-set-activity-4" title="Permalink to this headline">#</a></h2>
+<p>Write a Python program to animate Newton’s method for real functions and real initial estimates in general (the <a class="reference internal" href="../Contents/fractals-and-julia-sets.html#periodic3animation"><span class="std std-ref">animated GIF</span></a> above was produced by a Maple program, Student:-Calculus1:-NewtonsMethod, which is quite a useful model).  This activity asks you to “roll your own” animation.  At least, write Python code to draw the basic lines in the figure above.</p>
+<p>Animation turns out to be complicated, when you think about the three things “Python”, “Jupyter notebook”, and “Jupyter Book”, together with all the different combinations of packages that are possible, and all the different kinds of machines to run them on.  <a class="reference external" href="https://matplotlib.org/stable/gallery/animation/simple_anim.html">Here is a link to the documentation,</a> <a class="reference external" href="http://louistiao.me/posts/notebooks/embedding-matplotlib-animations-in-jupyter-notebooks/"> and a blog post </a> and <a class="reference external" href="https://jupyterbook.org/en/stable/interactive/interactive.html">some more information</a>.</p>
+<p>The documentation example alone has several new aspects to it. To help you get started, we do some preliminary programming.  We consider (as with the figure) the function <span class="math notranslate nohighlight">\(y = x^2 + 1\)</span>, and we write down explicitly the <span class="math notranslate nohighlight">\(3\)</span>-periodic orbit that we want to animate.  If we start at <span class="math notranslate nohighlight">\(x_0 = \cot \pi/7 \approx 2.07652139657233\)</span>, then it turns out that <span class="math notranslate nohighlight">\(x_1 = \cot 2\pi/7\)</span> and <span class="math notranslate nohighlight">\(x_2 = \cot 4\pi/7\)</span> and <span class="math notranslate nohighlight">\(x_3 = \cot 8\pi/7 = \cot \pi/7 = x_0\)</span> and we have a periodic orbit.  So we want to draw  a vertical dashed line from <span class="math notranslate nohighlight">\((x_0,0)\)</span> to <span class="math notranslate nohighlight">\((x_0,x_0^2+1)\)</span>.  Then draw a line from <span class="math notranslate nohighlight">\((x_0, x_0^2+1)\)</span> to <span class="math notranslate nohighlight">\((x_1,0)\)</span>; then a vertical dashed line from <span class="math notranslate nohighlight">\((x_1,0)\)</span> to <span class="math notranslate nohighlight">\((x_1, x_1^2+1)\)</span>; then a line from <span class="math notranslate nohighlight">\((x_1,x_1^2+1)\)</span> to <span class="math notranslate nohighlight">\((x_2, 0)\)</span>; then a vertical dashed line to <span class="math notranslate nohighlight">\((x_2,x_2^2+1)\)</span>; then a line from there to <span class="math notranslate nohighlight">\((x_0,0)\)</span>, and then repeat.  We can begin by simply drawing all those lines. Now, we need to figure out how to get “animate” to draw these lines in sequence.</p>
+<p>We continued by following the ideas at the link above, but it turned out to be fussy to get the right packages loaded to make the animation work.  We hope that you managed to find a combination that worked.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="c1"># x0 = np.cot(np.pi/7)  # Pathetically, there is no cotangent in NumPy</span>
+
+<span class="n">cot</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">x0</span> <span class="o">=</span> <span class="n">cot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">cot</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">cot</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">x2</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="n">x0</span><span class="o">+</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">basecurve</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">dash1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x0</span><span class="p">,</span><span class="n">x0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">y0</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">line1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x0</span><span class="p">,</span><span class="n">x1</span><span class="p">],</span> <span class="p">[</span><span class="n">y0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span> <span class="p">)</span>
+<span class="n">dash2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x1</span><span class="p">,</span><span class="n">x1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">y1</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">line2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">],</span> <span class="p">[</span><span class="n">y1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">dash2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x2</span><span class="p">,</span><span class="n">x2</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">y2</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">line3</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x2</span><span class="p">,</span><span class="n">x0</span><span class="p">],</span> <span class="p">[</span><span class="n">y2</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Reports on Julia Set Activities_15_0.png" src="../_images/Reports on Julia Set Activities_15_0.png" />
+</div>
+</div>
+<p>The following might be the first instance in this OER of a <a class="reference external" href="https://towardsdatascience.com/top-8-magic-commands-in-jupyter-notebook-c1582e813560">magic command</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">animation</span><span class="p">,</span> <span class="n">rc</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">Image</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;animation&#39;</span><span class="p">,</span> <span class="n">html</span><span class="o">=</span><span class="s1">&#39;html5&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="n">cot</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">x0</span> <span class="o">=</span> <span class="n">cot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">cot</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">cot</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
+
+<span class="n">xdata</span> <span class="o">=</span> <span class="p">[[</span><span class="n">x0</span><span class="p">,</span><span class="n">x0</span><span class="p">],[</span><span class="n">x0</span><span class="p">,</span><span class="n">x1</span><span class="p">],[</span><span class="n">x1</span><span class="p">,</span><span class="n">x1</span><span class="p">],[</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">],[</span><span class="n">x2</span><span class="p">,</span><span class="n">x2</span><span class="p">],[</span><span class="n">x2</span><span class="p">,</span><span class="n">x0</span><span class="p">]]</span>
+<span class="n">ydata</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="n">y0</span><span class="p">],</span> <span class="p">[</span><span class="n">y0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">y1</span><span class="p">],</span> <span class="p">[</span><span class="n">y1</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">y2</span><span class="p">],</span> <span class="p">[</span><span class="n">y2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+
+<span class="n">c</span>   <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span>   <span class="s1">&#39;black&#39;</span><span class="p">]</span>
+<span class="n">sty</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="s1">&#39;solid&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">((</span><span class="n">x2</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">x0</span><span class="o">+</span><span class="mf">0.5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="n">y0</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">x2</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="n">x0</span><span class="o">+</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+
+<span class="n">line</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([],</span> <span class="p">[],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">init</span><span class="p">():</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">([],[])</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">line</span><span class="p">,)</span>
+
+<span class="k">def</span> <span class="nf">animate</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span> <span class="n">xdata</span><span class="p">[</span><span class="n">i</span><span class="o">%</span><span class="k">6</span>], ydata[i%6])  # update the data.
+    <span class="n">line</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="mi">2</span><span class="p">])</span>
+    <span class="n">line</span><span class="o">.</span><span class="n">set_linestyle</span><span class="p">(</span><span class="n">sty</span><span class="p">[</span><span class="n">i</span><span class="o">%</span><span class="k">2</span>])
+    <span class="k">return</span> <span class="p">(</span><span class="n">line</span><span class="p">,)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anim</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">animate</span><span class="p">,</span> <span class="n">init_func</span><span class="o">=</span><span class="n">init</span><span class="p">,</span>
+                               <span class="n">frames</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">blit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">anim</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;../Supplementary Material/Fractals and Julia Sets/animation.gif&#39;</span><span class="p">,</span> <span class="n">writer</span><span class="o">=</span><span class="s1">&#39;imagemagick&#39;</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<figure class="align-default" id="newtonsmethodexercise">
+<a class="reference internal image-reference" href="../_images/animation.gif"><img alt="../_images/animation.gif" src="../_images/animation.gif" style="height: 250px;" /></a>
+</figure>
+<p><a class="reference internal" href="../Contents/fractals-and-julia-sets.html#juliasetactivity-4"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="julia-set-activity-5">
+<span id="juliasetactivityreport-5"></span><h2>Julia Set Activity 5<a class="headerlink" href="#julia-set-activity-5" title="Permalink to this headline">#</a></h2>
+<p>Take a few moments and write out (maybe using pen and ink, in a nice notebook) a bunch of questions about this material.  As always, don’t worry about <em>answers</em> just now.  The goal is <em>questions</em>, and more questions.</p>
+<p>What is the <em>dimension</em> of the boundary of the Newton fractal for <span class="math notranslate nohighlight">\(z^3-1\)</span>? How do you compute a dimension of a boundary, anyway? Which colouring scheme gives the most pleasing results? (We think the scheme in the notebook is pretty ugly; we hope you can do better).  Which fractal is hardest to compute?  Which is the simplest? Which is the most interesting to look at? What is the history of the fractal idea? Are there fractal <em>sounds</em>?  Fractals seem to be good models for trees, rivers, clouds, blood vessel networks, algae mats, lichen, ice crystals growing in water as it freezes, frost on the windowpane, lots of things; do they really tell us anything interesting about those real-life things?  There is lots of fractal art (again, see the <a class="reference external" href="https://www.bridgesmathart.org/">Bridges Math Art site</a>. How is it made?  What makes it <em>artistic</em>?  Is it art, if it’s computer-generated?  (Some of the <a class="reference external" href="https://en.wikipedia.org/wiki/DeepDream">Deep Dream art</a> makes us shudder)  What are the open mathematical questions about fractals?</p>
+<p><a class="reference internal" href="../Contents/fractals-and-julia-sets.html#juliasetactivity-5"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="julia-set-activity-6">
+<span id="juliasetactivityreport-6"></span><h2>Julia Set Activity 6<a class="headerlink" href="#julia-set-activity-6" title="Permalink to this headline">#</a></h2>
+<p>Write your own code for computing Newton fractals, perhaps based on the code above (but at least improve the colour scheme).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">sympy</span>
+<span class="kn">import</span> <span class="nn">cmath</span>
+<span class="kn">from</span> <span class="nn">sympy.abc</span> <span class="kn">import</span> <span class="n">x</span>
+<span class="kn">from</span> <span class="nn">sympy.utilities.lambdify</span> <span class="kn">import</span> <span class="n">lambdify</span><span class="p">,</span> <span class="n">implemented_function</span>
+<span class="kn">import</span> <span class="nn">colorsys</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">seterr</span><span class="p">(</span><span class="nb">all</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">gen_colours</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">degree</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="mi">60</span>
+    <span class="n">space</span> <span class="o">=</span> <span class="mi">120</span>
+    <span class="n">flag</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">colours</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">degree</span> <span class="o">&gt;=</span> <span class="mi">360</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">flag</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">flag</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="n">degree</span> <span class="o">=</span> <span class="n">start</span>
+                <span class="n">start</span> <span class="o">/=</span> <span class="mi">2</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">degree</span> <span class="o">=</span> <span class="n">start</span>
+                <span class="n">start</span> <span class="o">/=</span> <span class="mi">2</span>
+                <span class="n">space</span> <span class="o">/=</span> <span class="mi">2</span>
+
+        <span class="n">colours</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">degree</span><span class="o">/</span><span class="mf">360.0</span><span class="p">)</span>
+        <span class="n">degree</span> <span class="o">+=</span> <span class="n">space</span>
+    <span class="k">return</span> <span class="n">colours</span>
+
+<span class="k">def</span> <span class="nf">gen_shade</span><span class="p">(</span><span class="n">colours</span><span class="p">,</span> <span class="n">n_shade</span><span class="p">):</span>
+    <span class="n">col_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">colours</span><span class="p">)</span>
+    <span class="n">shade</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">170</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n_shade</span><span class="p">)</span>
+    <span class="n">list_shade</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">colours</span><span class="p">:</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">shade</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">s</span> <span class="o">&lt;=</span> <span class="mf">90.0</span><span class="p">:</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="n">colorsys</span><span class="o">.</span><span class="n">hsv_to_rgb</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mf">0.1</span><span class="o">+</span><span class="n">s</span><span class="o">/</span><span class="mf">100.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+                <span class="n">temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="mi">255</span><span class="o">*</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">t</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="n">colorsys</span><span class="o">.</span><span class="n">hsv_to_rgb</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">-</span><span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="mf">90.0</span><span class="p">)</span><span class="o">/</span><span class="mf">100.0</span><span class="p">)</span>
+                <span class="n">temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="mi">255</span><span class="o">*</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">t</span><span class="p">))</span>
+        <span class="n">list_shade</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">list_shade</span>
+
+<span class="k">def</span> <span class="nf">colours</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n_shade</span><span class="p">):</span>
+    <span class="n">col</span> <span class="o">=</span> <span class="n">gen_colours</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">gen_shade</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">n_shade</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">newton</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">dfunc</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">tol</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">):</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">z</span><span class="p">))</span> <span class="o">&gt;</span> <span class="n">tol</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">/</span><span class="n">dfunc</span><span class="p">(</span><span class="n">z</span><span class="p">))</span><span class="o">/</span><span class="nb">abs</span><span class="p">(</span><span class="n">z</span><span class="p">))</span> <span class="ow">and</span> <span class="p">(</span><span class="n">count</span> <span class="o">&lt;</span> <span class="n">max_iter</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">z</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mf">1e16</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">)</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">z</span> <span class="o">-</span> <span class="n">func</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">/</span><span class="n">dfunc</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">count</span> <span class="o">==</span> <span class="n">max_iter</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">fractal</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">dfunc</span><span class="p">,</span> <span class="n">bl</span><span class="p">,</span> <span class="n">ur</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">tol</span><span class="p">,</span> <span class="n">max_i</span><span class="p">,</span> <span class="n">converge_tol</span><span class="p">):</span>
+    <span class="n">roots</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">max_iter</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">i</span><span class="o">*</span><span class="p">(</span><span class="n">ur</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">bl</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">bl</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">j</span><span class="o">*</span><span class="p">(</span><span class="n">ur</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">bl</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">bl</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span> <span class="o">=</span> <span class="n">newton</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">dfunc</span><span class="p">,</span> <span class="nb">complex</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">tol</span><span class="p">,</span> <span class="n">max_i</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="n">max_iter</span><span class="p">:</span>
+                <span class="n">max_iter</span> <span class="o">=</span> <span class="n">count</span>
+            <span class="k">if</span> <span class="n">root</span><span class="p">:</span>
+                <span class="n">alreadyFound</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">for</span> <span class="n">test_root</span> <span class="ow">in</span> <span class="n">roots</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">test_root</span> <span class="o">-</span> <span class="n">root</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">converge_tol</span><span class="p">:</span>
+                        <span class="n">root</span> <span class="o">=</span> <span class="n">test_root</span>
+                        <span class="n">alreadyFound</span> <span class="o">=</span> <span class="kc">True</span>
+                        <span class="k">break</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">alreadyFound</span><span class="p">:</span>
+                    <span class="n">roots</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">root</span><span class="p">:</span>
+                <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">real</span>
+                <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">imag</span>
+                <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">roots</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">f_embed</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="p">(</span><span class="n">size_y</span><span class="p">,</span> <span class="n">size_x</span><span class="p">,</span> <span class="n">temp</span><span class="p">)</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">roots</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> 
+    <span class="n">n_shade</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">colours</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">roots</span><span class="p">),</span> <span class="n">n_shade</span><span class="p">)</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGB&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">size_x</span><span class="p">,</span> <span class="n">size_y</span><span class="p">),</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size_y</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size_x</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">A</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">x</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
+                <span class="n">i</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">x</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">n_shade</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">i</span> <span class="o">=</span> <span class="n">n_shade</span> <span class="o">-</span> <span class="mi">1</span>     
+                <span class="n">img</span><span class="o">.</span><span class="n">putpixel</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">size_y</span> <span class="o">-</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">C</span><span class="p">[</span><span class="n">roots</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">complex</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">x</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">x</span><span class="p">][</span><span class="mi">1</span><span class="p">]))][</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">filename</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">img</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span> <span class="o">+</span> <span class="s2">&quot;.png&quot;</span><span class="p">,</span> <span class="s2">&quot;PNG&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">Newt_Fractal</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">bl</span><span class="p">,</span> <span class="n">ur</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;iterationlimit&#39;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">tolerance</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;tolerance&#39;</span><span class="p">,</span> <span class="mf">1e-6</span><span class="p">)</span>
+    <span class="n">converge_tol</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;converge_tolerance&#39;</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">)</span>
+    <span class="n">dfunc</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;derivative&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">dfunc</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">dfunc</span> <span class="o">=</span> <span class="n">lambdify</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">sympy</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">),</span> <span class="n">np</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dfunc</span> <span class="o">=</span> <span class="n">lambdify</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dfunc</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">np</span><span class="p">)</span>
+    <span class="n">func</span> <span class="o">=</span> <span class="n">lambdify</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">np</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="n">fractal</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">dfunc</span><span class="p">,</span> <span class="n">bl</span><span class="p">,</span> <span class="n">ur</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">converge_tol</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This program found &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> <span class="o">+</span> <span class="s1">&#39; roots.&#39;</span><span class="p">)</span>
+    <span class="n">roots</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;printroots&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">roots</span> <span class="o">==</span> <span class="kc">True</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The roots are&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">filename</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">f_embed</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">f_embed</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">filename</span> <span class="o">=</span> <span class="n">filename</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference internal" href="../Contents/fractals-and-julia-sets.html#juliasetactivity-6"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="julia-set-activity-7">
+<span id="juliasetactivityreport-7"></span><h2>Julia Set Activity 7<a class="headerlink" href="#julia-set-activity-7" title="Permalink to this headline">#</a></h2>
+<p>Compute Newton fractals for several functions of your own choosing. Test your code on the function <span class="math notranslate nohighlight">\(f(z) = z^{8}+4 z^{7}+6 z^{6}+6 z^{5}+5 z^{4}+2 z^{3}+z^{2}+z\)</span> used above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">z</span><span class="o">**</span><span class="mi">8</span><span class="o">+</span><span class="mi">3</span><span class="o">*</span><span class="n">z</span><span class="o">**</span><span class="mi">7</span><span class="o">+</span><span class="mi">5</span><span class="o">*</span><span class="n">z</span><span class="o">**</span><span class="mi">6</span><span class="o">+</span><span class="mi">5</span><span class="o">*</span><span class="n">z</span><span class="o">**</span><span class="mi">5</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="n">z</span><span class="o">**</span><span class="mi">4</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="o">**</span><span class="mi">3</span><span class="o">+</span><span class="n">z</span><span class="o">*</span><span class="n">z</span><span class="o">+</span><span class="n">z</span>
+<span class="n">Newt_Fractal</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.8</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.4</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">),</span> <span class="mi">500</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This program found 8 roots.
+</pre></div>
+</div>
+<img alt="../_images/Reports on Julia Set Activities_35_1.png" src="../_images/Reports on Julia Set Activities_35_1.png" />
+</div>
+</div>
+<p><a class="reference internal" href="../Contents/fractals-and-julia-sets.html#juliasetactivity-7"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="julia-set-activity-8">
+<span id="juliasetactivityreport-8"></span><h2>Julia Set Activity 8<a class="headerlink" href="#julia-set-activity-8" title="Permalink to this headline">#</a></h2>
+<p>Compute Halley fractals for the same functions.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="mi">8</span><span class="o">*</span><span class="n">z</span><span class="o">**</span><span class="mi">7</span><span class="o">+</span><span class="mi">21</span><span class="o">*</span><span class="n">z</span><span class="o">**</span><span class="mi">6</span><span class="o">+</span><span class="mi">30</span><span class="o">*</span><span class="n">z</span><span class="o">**</span><span class="mi">5</span><span class="o">+</span><span class="mi">25</span><span class="o">*</span><span class="n">z</span><span class="o">**</span><span class="mi">4</span><span class="o">+</span><span class="mi">16</span><span class="o">*</span><span class="n">z</span><span class="o">**</span><span class="mi">36</span><span class="o">*</span><span class="n">z</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="o">+</span><span class="mi">1</span>
+<span class="n">halley</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">f</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">/</span><span class="n">sympy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">df</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
+<span class="n">Newt_Fractal</span><span class="p">(</span><span class="n">halley</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.8</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.4</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">),</span> <span class="mi">500</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="../Contents/fractals-and-julia-sets.html#juliasetactivity-8"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="julia-set-activity-9">
+<span id="juliasetactivityreport-9"></span><h2>Julia Set Activity 9<a class="headerlink" href="#julia-set-activity-9" title="Permalink to this headline">#</a></h2>
+<p>Compute secant fractals for the same functions, using the <span class="math notranslate nohighlight">\(x_1 = x_0 - f(x_0)/f'(x_0)\)</span> rule to generate the needed second
+initial estimate.  Try a different rule for generating <span class="math notranslate nohighlight">\(x_1\)</span> and see if it affects your fractals.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A very short hacky program to draw the edges of a secant fractal</span>
+<span class="c1"># RMC 2022.2.6</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="c1"># We will take an N by N grid of initial estimates</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">200</span>  <span class="c1"># 800 by 800 is a lot and it takes a few seconds to draw </span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="n">F</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">))</span>
+<span class="c1"># Here is the function and its derivative whose zeros we are looking for</span>
+<span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="p">;</span>
+<span class="c1"># SirIsaac performs one Newton iteration</span>
+<span class="n">SirIsaac</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">fx</span><span class="p">:</span> <span class="n">x</span> <span class="o">-</span> <span class="n">fx</span><span class="o">/</span><span class="n">df</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="n">secantIter</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">fx</span><span class="p">,</span><span class="n">fy</span><span class="p">:</span> <span class="n">x</span> <span class="o">-</span> <span class="n">fx</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">fx</span><span class="o">-</span><span class="n">fy</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="c1"># We range over all initial estimates in the grid</span>
+        <span class="n">z0</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
+        <span class="n">f0</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">z0</span><span class="p">)</span>
+        <span class="n">z1</span> <span class="o">=</span> <span class="n">SirIsaac</span><span class="p">(</span><span class="n">z0</span><span class="p">,</span> <span class="n">f0</span><span class="p">)</span>
+        <span class="n">f1</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">z1</span><span class="p">)</span>
+        <span class="c1"># Hard-wire in 20 iterations (maybe not enough)</span>
+        <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+            <span class="n">z</span> <span class="o">=</span> <span class="n">secantIter</span><span class="p">(</span><span class="n">z1</span><span class="p">,</span> <span class="n">z0</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="n">f0</span><span class="p">)</span>
+            <span class="n">z0</span> <span class="o">=</span> <span class="n">z1</span>
+            <span class="n">f0</span> <span class="o">=</span> <span class="n">f1</span>
+            <span class="n">z1</span> <span class="o">=</span> <span class="n">z</span>
+            <span class="k">if</span> <span class="n">z1</span><span class="o">==</span><span class="n">z0</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="n">f1</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">z1</span><span class="p">)</span>
+        <span class="c1"># After twenty iterations we hope the iteration has settled down, except on</span>
+        <span class="c1"># the boundary between basins of attraction.</span>
+        <span class="c1"># The phase (angle) is a likely candidate for a unique identifier for the root</span>
+        <span class="n">F</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="c1"># A magic incantation</span>
+<span class="n">X</span><span class="p">,</span><span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="c1"># I admit to being quite puzzled as to why if we say X,Y in the call</span>
+<span class="c1"># this contour plot has the real axis vertical, pointing up </span>
+<span class="c1"># and the imaginary axis horizontal (not sure which way it&#39;s pointing)</span>
+<span class="c1"># so I have just empirically input Y,X to get the graph looking right.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span><span class="n">X</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;brown&#39;</span><span class="p">,</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="s1">&#39;black&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">adjustable</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Reports on Julia Set Activities_41_0.png" src="../_images/Reports on Julia Set Activities_41_0.png" />
+</div>
+</div>
+<p><a class="reference internal" href="../Contents/fractals-and-julia-sets.html#juliasetactivity-9"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="julia-set-activity-10">
+<span id="juliasetactivityreport-10"></span><h2>Julia Set Activity 10<a class="headerlink" href="#julia-set-activity-10" title="Permalink to this headline">#</a></h2>
+<p>Try a few different values of “c” in the Mandelbrot example above, and generate your own “Julia sets”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpy.polynomial</span> <span class="kn">import</span> <span class="n">Polynomial</span> <span class="k">as</span> <span class="n">Poly</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10001</span>
+<span class="n">History</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+<span class="c1"># History[0] is deliberately 0.0 for this example</span>
+<span class="c1">#print(History[0])</span>
+<span class="n">here</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">there</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.73</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="c1"># Try c=0.8 (Solution to Problem 1)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+<span class="k">while</span> <span class="n">there</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="o">-</span><span class="n">d</span><span class="p">:</span>
+    <span class="n">cc</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">cc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">History</span><span class="p">[</span><span class="n">here</span><span class="p">]</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span> <span class="n">cc</span> <span class="p">);</span>
+    <span class="n">rts</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">roots</span><span class="p">();</span>
+    <span class="c1">#print(here, rts)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+        <span class="c1">#print(j, rts[j], there)</span>
+        <span class="n">History</span><span class="p">[</span><span class="n">there</span><span class="p">]</span> <span class="o">=</span> <span class="n">rts</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+        <span class="n">there</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">here</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">real</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">History</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">imag</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">History</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Reports on Julia Set Activities_44_0.png" src="../_images/Reports on Julia Set Activities_44_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">10001</span>
+<span class="n">History</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+<span class="c1"># History[0] is deliberately 0.0 for this example</span>
+<span class="c1">#print(History[0])</span>
+<span class="n">here</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">there</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.2</span><span class="o">-</span><span class="mf">0.8</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="c1"># Try c=0.2+0.8j (Solution to Problem 1)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+<span class="k">while</span> <span class="n">there</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="o">-</span><span class="n">d</span><span class="p">:</span>
+    <span class="n">cc</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">cc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">History</span><span class="p">[</span><span class="n">here</span><span class="p">]</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">cc</span><span class="p">);</span>
+    <span class="n">rts</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">roots</span><span class="p">();</span>
+    <span class="c1">#print(here, rts)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+        <span class="c1">#print(j, rts[j], there)</span>
+        <span class="n">History</span><span class="p">[</span><span class="n">there</span><span class="p">]</span> <span class="o">=</span> <span class="n">rts</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+        <span class="n">there</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">here</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">real</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">History</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">imag</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">History</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Reports on Julia Set Activities_45_0.png" src="../_images/Reports on Julia Set Activities_45_0.png" />
+</div>
+</div>
+<p><a class="reference internal" href="../Contents/fractals-and-julia-sets.html#juliasetactivity-10"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="julia-set-activity-11">
+<span id="juliasetactivityreport-11"></span><h2>Julia Set Activity 11<a class="headerlink" href="#julia-set-activity-11" title="Permalink to this headline">#</a></h2>
+<p>These are not really Julia sets; they include too much of the history!  Alter the program so that it plots only (say) the last half of the points computed; increase the number of points by a lot, as well.  Compare your figure to (say) the Maple Julia set for c=1.2.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">64001</span>
+<span class="n">History</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+<span class="c1"># History[0] is deliberately 0.0 for this example</span>
+<span class="c1">#print(History[0])</span>
+<span class="n">here</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">there</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.2</span><span class="o">-</span><span class="mf">0.8</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="c1"># Try c=0.2+0.8j (Same as olution to Problem 1)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+<span class="k">while</span> <span class="n">there</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="o">-</span><span class="n">d</span><span class="p">:</span>
+    <span class="n">cc</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">cc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">History</span><span class="p">[</span><span class="n">here</span><span class="p">]</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">cc</span><span class="p">);</span>
+    <span class="n">rts</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">roots</span><span class="p">();</span>
+    <span class="c1">#print(here, rts)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+        <span class="c1">#print(j, rts[j], there)</span>
+        <span class="n">History</span><span class="p">[</span><span class="n">there</span><span class="p">]</span> <span class="o">=</span> <span class="n">rts</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+        <span class="n">there</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">here</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">History</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">real</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="mi">63</span><span class="o">*</span><span class="n">N</span><span class="o">/</span><span class="mi">64</span><span class="p">),</span> <span class="n">N</span><span class="p">)]</span> <span class="c1"># Not just the last half, the last sixty-fourth</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">History</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">imag</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="mi">63</span><span class="o">*</span><span class="n">N</span><span class="o">/</span><span class="mi">64</span><span class="p">),</span> <span class="n">N</span><span class="p">)]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Reports on Julia Set Activities_48_0.png" src="../_images/Reports on Julia Set Activities_48_0.png" />
+</div>
+</div>
+<p><a class="reference internal" href="../Contents/fractals-and-julia-sets.html#juliasetactivity-11"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="julia-set-activity-12">
+<span id="juliasetactivityreport-12"></span><h2>Julia Set Activity 12<a class="headerlink" href="#julia-set-activity-12" title="Permalink to this headline">#</a></h2>
+<p>Change the function F to be a different polynomial; find places where both F and F’ are zero (if any).  If necessary, change your polynomial so that there is such a “critical point”.  Start your iteration there, and go backwards. Plot your “Julia set”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">3</span><span class="o">**</span><span class="mi">10</span><span class="o">+</span><span class="mi">1</span>
+<span class="n">History</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+<span class="c1"># History[0] is deliberately 0.0 for this example</span>
+<span class="c1">#print( History[0])</span>
+<span class="n">here</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">there</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="c1"># Newton&#39;s method on f(z) = z^3-1 gives z_{n+1} = (2z_n^3 + 1)/(3z_n^2)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> 
+<span class="n">q</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">d</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">q</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">there</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="o">-</span><span class="n">d</span><span class="p">:</span>
+    <span class="n">cc</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">-</span> <span class="n">History</span><span class="p">[</span><span class="n">here</span><span class="p">]</span><span class="o">*</span><span class="n">Poly</span><span class="p">(</span><span class="n">q</span><span class="p">)</span> <span class="c1"># Python has polynomial arithmetic so this is simple</span>
+    <span class="n">rts</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">roots</span><span class="p">();</span>
+    <span class="c1">#print(here, rts)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+        <span class="c1">#print(j, rts[j], there)</span>
+        <span class="n">History</span><span class="p">[</span><span class="n">there</span><span class="p">]</span> <span class="o">=</span> <span class="n">rts</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+        <span class="n">there</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">here</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">real</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">History</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">imag</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">History</span><span class="p">]</span>
+<span class="n">fractal</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">fractalax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Reports on Julia Set Activities_51_0.png" src="../_images/Reports on Julia Set Activities_51_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">3</span><span class="o">**</span><span class="mi">10</span><span class="o">+</span><span class="mi">1</span>
+<span class="n">History</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+<span class="c1"># History[0] is deliberately 0.0 for this example</span>
+<span class="c1">#print(History[0])</span>
+<span class="n">here</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">there</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="c1"># Halley&#39;s method on f(z) = z^3-1 gives z_{n+1} = z_n(z_n**3+2)/(2z_n^3+1)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> 
+<span class="n">q</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">d</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">q</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">there</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="o">-</span><span class="n">d</span><span class="p">:</span>
+    <span class="n">cc</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">-</span> <span class="n">History</span><span class="p">[</span><span class="n">here</span><span class="p">]</span><span class="o">*</span><span class="n">Poly</span><span class="p">(</span><span class="n">q</span><span class="p">)</span> <span class="c1"># Python has polynomial arithmetic so this is simple</span>
+    <span class="n">rts</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">roots</span><span class="p">();</span>
+    <span class="c1">#print(here, rts)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+        <span class="c1">#print(j, rts[j], there)</span>
+        <span class="n">History</span><span class="p">[</span><span class="n">there</span><span class="p">]</span> <span class="o">=</span> <span class="n">rts</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+        <span class="n">there</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">here</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">real</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">History</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">imag</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">History</span><span class="p">]</span>
+<span class="n">fractal</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">fractalax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Reports on Julia Set Activities_52_0.png" src="../_images/Reports on Julia Set Activities_52_0.png" />
+</div>
+</div>
+<p><a class="reference internal" href="../Contents/fractals-and-julia-sets.html#juliasetactivity-12"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="julia-set-activity-13">
+<span id="juliasetactivityreport-13"></span><h2>Julia Set Activity 13<a class="headerlink" href="#julia-set-activity-13" title="Permalink to this headline">#</a></h2>
+<p>Extend the program so that it works for <em>rational</em> functions F, say <span class="math notranslate nohighlight">\(F(z) = p(z)/q(z)\)</span>.  This means solving the polynomial equation <span class="math notranslate nohighlight">\(p(z_n) - z_{n+1}q(z_n)=0\)</span> for <span class="math notranslate nohighlight">\(z_n\)</span>. Try it out on the rational functions you get from Newton iteration on polynomial (or rational!) functions; or on Halley iteration on polynomial functions.  Try any of the that arise from the methods that you can find listed in <a class="reference external" href="https://doi.org/10.1145/3363520.3363521">Revisiting Gilbert Strang’s “A Chaotic Search for <em>i</em>”</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">90001</span>
+<span class="n">History</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+<span class="c1"># History[0] is deliberately 0.0 for this example</span>
+<span class="c1">#print(History[0])</span>
+<span class="n">here</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">there</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="c1"># Halley&#39;s method on a Mandelbrot polynomial gives</span>
+<span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">198</span><span class="p">,</span><span class="mi">525</span><span class="p">,</span><span class="mi">927</span><span class="p">,</span><span class="mi">1236</span><span class="p">,</span><span class="mi">1278</span><span class="p">,</span><span class="mi">1014</span><span class="p">,</span><span class="mi">570</span><span class="p">,</span><span class="mi">192</span><span class="p">,</span><span class="mi">28</span><span class="p">]</span> 
+<span class="n">q</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">69</span><span class="p">,</span><span class="mi">186</span><span class="p">,</span><span class="mi">474</span><span class="p">,</span><span class="mi">948</span><span class="p">,</span><span class="mi">1497</span><span class="p">,</span><span class="mi">1874</span><span class="p">,</span><span class="mi">1842</span><span class="p">,</span><span class="mi">1404</span><span class="p">,</span><span class="mi">766</span><span class="p">,</span><span class="mi">252</span><span class="p">,</span><span class="mi">36</span><span class="p">]</span>
+<span class="n">d</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">q</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">there</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="o">-</span><span class="n">d</span><span class="p">:</span>
+    <span class="n">cc</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">-</span> <span class="n">History</span><span class="p">[</span><span class="n">here</span><span class="p">]</span><span class="o">*</span><span class="n">Poly</span><span class="p">(</span><span class="n">q</span><span class="p">)</span> <span class="c1"># Python has polynomial arithmetic so this is simple</span>
+    <span class="n">rts</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">roots</span><span class="p">();</span>
+    <span class="c1">#print(here, rts)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+        <span class="c1">#print(j, rts[j], there)</span>
+        <span class="n">History</span><span class="p">[</span><span class="n">there</span><span class="p">]</span> <span class="o">=</span> <span class="n">rts</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+        <span class="n">there</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">here</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">real</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">History</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">imag</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">History</span><span class="p">]</span>
+<span class="n">fractal</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">fractalax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Reports on Julia Set Activities_55_0.png" src="../_images/Reports on Julia Set Activities_55_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">15001</span>
+<span class="n">History</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+<span class="c1"># History[0] is deliberately 0.0 for this example</span>
+<span class="c1">#print(History[0])</span>
+<span class="n">here</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">there</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="c1"># Halley&#39;s method on the Wilkinson N=8 polynomial gives</span>
+<span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2209213440</span><span class="p">,</span><span class="o">-</span><span class="mi">7144139520</span><span class="p">,</span><span class="mi">8138672640</span><span class="p">,</span><span class="o">-</span><span class="mi">1235703640</span><span class="p">,</span><span class="o">-</span><span class="mi">6860019600</span><span class="p">,</span><span class="mi">9045979866</span><span class="p">,</span><span class="o">-</span><span class="mi">6258158928</span><span class="p">,</span><span class="mi">2854960371</span><span class="p">,</span><span class="o">-</span><span class="mi">921502440</span><span class="p">,</span><span class="mi">216337751</span><span class="p">,</span><span class="o">-</span><span class="mi">37195200</span><span class="p">,</span><span class="mi">4642407</span><span class="p">,</span><span class="o">-</span><span class="mi">409752</span><span class="p">,</span><span class="mi">24255</span><span class="p">,</span><span class="o">-</span><span class="mi">864</span><span class="p">,</span><span class="mi">14</span><span class="p">]</span> 
+<span class="n">q</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3622946688</span><span class="p">,</span><span class="o">-</span><span class="mi">15347414304</span><span class="p">,</span><span class="mi">29274362808</span><span class="p">,</span><span class="o">-</span><span class="mi">33337014480</span><span class="p">,</span><span class="mi">25349245110</span><span class="p">,</span><span class="o">-</span><span class="mi">13634595702</span><span class="p">,</span><span class="mi">5357600661</span><span class="p">,</span><span class="o">-</span><span class="mi">1564677432</span><span class="p">,</span><span class="mi">341763501</span><span class="p">,</span><span class="o">-</span><span class="mi">55631772</span><span class="p">,</span><span class="mi">6651225</span><span class="p">,</span><span class="o">-</span><span class="mi">567000</span><span class="p">,</span><span class="mi">32613</span><span class="p">,</span><span class="o">-</span><span class="mi">1134</span><span class="p">,</span><span class="mi">18</span><span class="p">]</span>
+<span class="n">d</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">q</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">there</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="o">-</span><span class="n">d</span><span class="p">:</span>
+    <span class="n">cc</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">-</span> <span class="n">History</span><span class="p">[</span><span class="n">here</span><span class="p">]</span><span class="o">*</span><span class="n">Poly</span><span class="p">(</span><span class="n">q</span><span class="p">)</span> <span class="c1"># Python has polynomial arithmetic so this is simple</span>
+    <span class="n">rts</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">roots</span><span class="p">();</span>
+    <span class="c1">#print(here, rts)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+        <span class="c1">#print(j, rts[j], there)</span>
+        <span class="n">History</span><span class="p">[</span><span class="n">there</span><span class="p">]</span> <span class="o">=</span> <span class="n">rts</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+        <span class="n">there</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">here</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">real</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">History</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">imag</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">History</span><span class="p">]</span>
+<span class="n">fractal</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">fractalax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.75</span><span class="p">,</span><span class="mf">1.75</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Reports on Julia Set Activities_56_0.png" src="../_images/Reports on Julia Set Activities_56_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">180001</span>
+<span class="n">History</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+<span class="c1"># History[0] is deliberately 0.0 for this example</span>
+<span class="c1">#print( History[0 ])</span>
+<span class="n">here</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">there</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="c1"># Halley&#39;s method on the Schroeder iteration for x**2 + 1 gives</span>
+<span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">q</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="n">d</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">q</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">there</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="o">-</span><span class="n">d</span><span class="p">:</span>
+    <span class="n">cc</span> <span class="o">=</span> <span class="n">Poly</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">-</span> <span class="n">History</span><span class="p">[</span><span class="n">here</span><span class="p">]</span><span class="o">*</span><span class="n">Poly</span><span class="p">(</span><span class="n">q</span><span class="p">)</span> <span class="c1"># Python has polynomial arithmetic so this is simple</span>
+    <span class="n">rts</span> <span class="o">=</span> <span class="n">cc</span><span class="o">.</span><span class="n">roots</span><span class="p">();</span>
+    <span class="c1">#print(here, rts)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
+        <span class="c1">#print(j, rts[j], there)</span>
+        <span class="n">History</span><span class="p">[</span><span class="n">there</span><span class="p">]</span> <span class="o">=</span> <span class="n">rts</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+        <span class="n">there</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">here</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">History</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">real</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="mi">44</span><span class="o">*</span><span class="n">N</span><span class="o">/</span><span class="mi">45</span><span class="p">),</span> <span class="n">N</span><span class="p">)]</span> <span class="c1"># Not just the last half, the last forty-fifth</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">History</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">imag</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="mi">44</span><span class="o">*</span><span class="n">N</span><span class="o">/</span><span class="mi">45</span><span class="p">),</span> <span class="n">N</span><span class="p">)]</span>
+<span class="n">fractal</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">fractalax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Reports on Julia Set Activities_57_0.png" src="../_images/Reports on Julia Set Activities_57_0.png" />
+</div>
+</div>
+<p><a class="reference internal" href="../Contents/fractals-and-julia-sets.html#juliasetactivity-13"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="julia-set-activity-14">
+<span id="juliasetactivityreport-14"></span><h2>Julia Set Activity 14<a class="headerlink" href="#julia-set-activity-14" title="Permalink to this headline">#</a></h2>
+<p>Read the <a class="reference external" href="https://en.wikipedia.org/wiki/Julia_set">Wikipedia entry on Julia sets</a>; it ought to be a little more intelligible now (but you will see that there are still lots of complications left to explain). One of the main items of interest is the theorem that states that the Fatou sets all have a <em>common boundary</em>.  This means that if the number of components is <span class="math notranslate nohighlight">\(3\)</span> or more, then the Julia set (which is that boundary!) <em>must be a fractal</em>.</p>
+<p>We still find that amazing.</p>
+<p><a class="reference internal" href="../Contents/fractals-and-julia-sets.html#juliasetactivity-14"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Solutions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Reports%20on%20Rootfinding%20Activities.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Reports on Rootfinding Activities</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Reports%20on%20Bohemian%20Activities.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Reports on Bohemian activities</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Neil J. Calkin, Eunice Y.S. Chan, and Robert M. Corless<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Symbolic Computation: The Pitfalls &#8212; Computational Discovery on Jupyter</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,45 +20,44 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../_static/logo.jpg"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Solutions to Continued Fractions Exercises" href="../Solutions/Solutions%20to%20Continued%20Fraction%20Exercises.html" />
+    <link rel="next" title="Reports on Fibonacci Activities" href="../Solutions/Reports%20on%20Fibonacci%20Activities.html" />
     <link rel="prev" title="Complex Numbers" href="complex-numbers.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -65,7 +66,21 @@
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -74,9 +89,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -94,14 +110,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../index.html">
-   Welcome to Computational Discovery on Jupyter
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to Computational Discovery on Jupyter
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Preface
  </span>
@@ -112,6 +129,11 @@
    Preamble
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Installing-Python-and-Jupyter.html">
+   Before we begin: installing Python and Jupyter
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -119,6 +141,11 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/Computing-with-Fibonacci.html">
+   Computing with Fibonacci Numbers
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Contents/continued-fractions.html">
    Continued Fractions
@@ -152,10 +179,27 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
+  Epilogue
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Looking-back.html">
+   Zanshin
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
   Appendix
  </span>
 </p>
 <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="What-to-do-when-things-go-wrong.html">
+   What do to when things go wrong
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="floating-point.html">
    The Bare Minimum about Floating-Point
@@ -179,33 +223,43 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Solutions
+  Reports on Activities
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../Solutions/Solutions%20to%20Continued%20Fraction%20Exercises.html">
-   Solutions to Continued Fractions Exercises
+  <a class="reference internal" href="../Solutions/Reports%20on%20Fibonacci%20Activities.html">
+   Reports on Fibonacci Activities
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Solutions/Solutions%20to%20the%20Rootfinding%20Chapter%20Exercises.html">
-   Solutions to the Rootfinding Chapter Exercises
+  <a class="reference internal" href="../Solutions/Reports%20on%20Continued%20Fractions%20Activities.html">
+   Reports on Continued Fractions Activities
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Solutions/Solutions%20to%20the%20Julia%20Set%20Exercises.html">
-   Solutions to the Julia Set Exercises
+  <a class="reference internal" href="../Solutions/Reports%20on%20Rootfinding%20Activities.html">
+   Reports on Rootfinding Activities
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Solutions/Solutions%20to%20Exercises%20%28not%20Activities%29%20in%20the%20Bohemian%20Unit.html">
-   Solutions to Exercises (not Activities) in the Bohemian Unit
+  <a class="reference internal" href="../Solutions/Reports%20on%20Julia%20Set%20Activities.html">
+   Reports on Julia Set Activities
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../Solutions/Solutions%20to%20Mandelbrot%20Exercises.html">
-   Solutions to Mandelbrot Polynomials and Matrices Exercises
+  <a class="reference internal" href="../Solutions/Reports%20on%20Bohemian%20Activities.html">
+   Reports on Bohemian activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Reports%20on%20Mandelbrot%20Activities.html">
+   Reports on Mandelbrot Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Reports%20on%20Chaos%20Game%20Activities.html">
+   Reports on Chaos Game Activities
   </a>
  </li>
 </ul>
@@ -233,89 +287,191 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/Appendix/symbolic-computation.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        
-        <a class="edit-button" href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter/edit/master/book/Appendix/symbolic-computation.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter/edit/master/book/Appendix/symbolic-computation.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Appendix/symbolic-computation.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#symbolic-computation-with-functions">
    Symbolic computation with functions
@@ -330,12 +486,11 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Symbolic Computation: The Pitfalls</h1>
@@ -366,11 +521,12 @@
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="symbolic-computation-the-pitfalls">
-<h1>Symbolic Computation: The Pitfalls<a class="headerlink" href="#symbolic-computation-the-pitfalls" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="symbolic-computation-the-pitfalls">
+<h1>Symbolic Computation: The Pitfalls<a class="headerlink" href="#symbolic-computation-the-pitfalls" title="Permalink to this headline">#</a></h1>
 <p>This collection of notebooks is mostly numerical, with not a lot of exact or symbolic computation, with the exception of polynomial computation done by computing with vectors of monomial basis coefficients, so it’s really numerical anyway.  Why not do symbolic computation?  And, for that matter, why is numerical computing (even with all the unexpected behaviour of floating-point arithmetic) so much more popular than symbolic or exact computing?</p>
 <p>This section explores symbolic computation and its pitfalls.  We do so from the point of view of experience and with some authority: we have used symbolic computation (usually in Maple, but also in other symbolic languages) for years (decades!) and know it and its benefits well. <b>Caveat: We do not know SymPy so well, and so if we say that SymPy <i>can’t</i> do something, we may well be wrong.</b> One of us knows Sage quite well, but we’re not using Sage here (yet).</p>
 <p>One of RMC’s earliest co-authors, Honglin Ye, put it well when he suggested that not everyone needs numerical methods but that <i>everyone</i> could use symbolic computation.</p>
@@ -390,8 +546,8 @@
 <span class="n">p</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span> 
     <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">n</span><span class="p">,</span> <span class="s1">&#39; factorial is &#39;</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;The floating point value of p is &#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">*</span><span class="n">p</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s1">&#39; factorial is &#39;</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The floating point value of p is &#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="o">*</span><span class="n">p</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -409,8 +565,8 @@ The floating point value of p is  9.332621544394415e+157
 <span class="n">p</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span> 
     <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">n</span><span class="p">,</span> <span class="s1">&#39; factorial is &#39;</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
-<span class="c1"># print( &#39;The floating point value of p is &#39;, 1.0*p )  # Causes OverflowError</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s1">&#39; factorial is &#39;</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+<span class="c1"># print(&#39;The floating point value of p is &#39;, 1.0*p)  # Causes OverflowError</span>
 </pre></div>
 </div>
 </div>
@@ -420,7 +576,7 @@ The floating point value of p is  9.332621544394415e+157
 </div>
 </div>
 </div>
-<p>Large integers cost more to manipulate—the above number is pretty long.  But SymPy will do it if you ask.  One thing you might want to do is <i>factor</i> those numbers.  Or one might just want to know the prime factors.</p>
+<p>Large integers cost more to manipulate, and the above number is pretty long.  But SymPy will do it if you ask.  One thing you might want to do is <i>factor</i> those numbers.  Or one might just want to know the prime factors.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">primefactors</span> 
@@ -457,15 +613,15 @@ The prime factors of 26012189435657951002049032270810436111915218750169457857275
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The prime factors of 3000000000238000000004719 : {1000000000039: 1, 3000000000121: 1}
---- 1.5153398513793945 seconds ---
+--- 0.6005878448486328 seconds ---
 </pre></div>
 </div>
 </div>
 </div>
-<p>That factoring of <span class="math notranslate nohighlight">\(3000000000238000000004719\)</span> took between 8 and 11 seconds on this machine (different times if executed more than once); on this very same machine, Maple’s “ifactor” command succeeded so quickly that it registered no time taken at all, possibly because it was using a very specialized method; factoring integers is an important feature of symbolic computation and Maple’s procedures for it have been a subject of serious research for a long time.  Maple’s help pages cite three important papers, and tell you that it uses an algorithm called the quadratic sieve.  Maple can factor <span class="math notranslate nohighlight">\(45000000000000000057990000000000000024761900000000000003506217\)</span> into its three prime factors in about 7.5 seconds on this machine; in contrast, after fifty minutes running trying to factor that with factorint as above, RMC had to hard-restart to get Python’s attention.</p>
-<p>That SymPy takes so long to factor integers, in comparsion, suggests that it isn’t using the best methods (the documentation says that it switches between three methods, trial division, Pollard rho, and Pollard p-1) ; and because factoring is such a basic algorithm (an even more basic one is GCD or Greatest Common Divisor) this will have important knock-on effects.</p>
+<p>That factoring of <span class="math notranslate nohighlight">\(3000000000238000000004719\)</span> <strong>with the previous version of SymPy</strong> took between 8 and 11 seconds on this machine (different times if executed more than once) but has since been improved to be just under a second; on this very same machine, Maple’s “ifactor” command succeeds so quickly that it registers no time taken at all, possibly because it is using a very specialized method; factoring integers is an important feature of symbolic computation and Maple’s procedures for it have been a subject of serious research for a long time.  Maple’s help pages cite three important papers, and tell you that it uses an algorithm called the quadratic sieve.  Maple can factor <span class="math notranslate nohighlight">\(45000000000000000057990000000000000024761900000000000003506217\)</span> into its three prime factors in about 7.5 seconds on this machine; in contrast, after fifty minutes running trying to factor that with factorint as above, RMC had to hard-restart to get Python’s attention. (Haven’t tried with the new version, though.)</p>
+<p>That SymPy takes so long to factor integers, in comparsion, suggests that it still isn’t using the best methods (the documentation says that it switches between three methods, trial division, Pollard rho, and Pollard p-1) ; and because factoring is such a basic algorithm (an even more basic one is GCD or Greatest Common Divisor) this will have important knock-on effects.</p>
 <p>But factoring, as old an idea as it is, is complicated enough to be used as a basic idea in modern cryptography.  The slowness of SymPy is not completely its fault: the problem is hard.</p>
-<p>Let’s move on to computing with functions.  As previously stated, most supposedly “symbolic” systems are really “algebra” systems: this means that they work well with polynomials (even multivariate polynomials).  A polynomial considered as an algebraic object is isomorphic to a polynomial considered as a function—but the difference in viewpoint can alter the affordances.  An “affordance” is a word meaning “something can happen with it”: for instance, you can pick out a lowest-degree term; or you can add it to another polynomial; or you can square it; and so on.  As a function, you can evaluate it at a particular value for the symbols (variables).</p>
+<p>Let’s move on to computing with functions.  As previously stated, most supposedly “symbolic” systems are really “algebra” systems: this means that they work well with polynomials (even multivariate polynomials).  A polynomial considered as an algebraic object is isomorphic to a polynomial considered as a function, but the difference in viewpoint can alter the affordances.  What the word “affordance” means in this context is that “something can happen with it”: for instance, you can pick out a lowest-degree term; or you can add it to another polynomial; or you can square it; and so on.  As a function, you can evaluate it at a particular value for the symbols (variables).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
@@ -500,12 +656,13 @@ The prime factors of 26012189435657951002049032270810436111915218750169457857275
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- 0.0 seconds ---
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- 9.870529174804688e-05 seconds ---
 </pre></div>
 </div>
 </div>
 </div>
-<p>In those two hours, RMC went and had his dinner; then downloaded <A HREF="https://www.tandfonline.com/doi/pdf/10.1080/00029890.2007.11920389">a paper by Dave Auckly from the American Mathematical Monthly 2007 </A> which talks about solving the quartic with a pencil (an algebraic geometer’s pencil!), read it, and solved the problem by hand, including solving the resolvent cubic by hand, which he already knew how to do.  And got it right, too. So there.</p>
+<p><strong>Updated</strong> With the new version of SymPy, that computation succeeds in under 3 seconds.  Got the right answers, too.</p>
+<p>Nevertheless. In those original two hours, RMC went and had his dinner; then downloaded <A HREF="https://www.tandfonline.com/doi/pdf/10.1080/00029890.2007.11920389">a paper by Dave Auckly from the American Mathematical Monthly 2007 </A> which talks about solving the quartic with a pencil (an algebraic geometer’s pencil!), read it, and solved the problem by hand, including solving the resolvent cubic by hand, which he already knew how to do.  And got it right, too. So there.</p>
 <p>In contrast, Maple (nearly instantaneously) returns—if you force it to by saying you want the explicit solution—the answer</p>
 <div class="math notranslate nohighlight">
 \[
@@ -521,8 +678,92 @@ The prime factors of 26012189435657951002049032270810436111915218750169457857275
 <p>The use of that exact answer (quickly obtained or not) is questionable.  Then, of course, the Abel-Ruffini theorem says that there is <i>no</i> general formula for solving polynomials of degree <span class="math notranslate nohighlight">\(5\)</span> or higher <i>in terms of radicals</i>.  For degree <span class="math notranslate nohighlight">\(5\)</span> polynomials, there <i>is</i> a solution in terms of elliptic functions; again, it’s complicated enough that it’s of questionable use.  Then there is Galois theory which describes the algebraic structures of polynomials.  See the interesting historical essay by Nick Trefethen on <A HREF="https://people.maths.ox.ac.uk/trefethen/galois.pdf"> What we learned from Galois </A>.</p>
 <p>The lesson here is that even when you <i>can</i> solve something exactly, maybe you shouldn’t.</p>
 <p>There are some interesting things you can do with univariate polynomials of high degree, including with the algebraic numbers that are their roots.  But computation with them isn’t so easy.  SymPy actually has some quite advanced features for polynomials, including multivariate polynomials.</p>
-<div class="section" id="symbolic-computation-with-functions">
-<h2>Symbolic computation with functions<a class="headerlink" href="#symbolic-computation-with-functions" title="Permalink to this headline">¶</a></h2>
+<p>Let’s reinforce that lesson (“Even if you can, maybe you shouldn’t”) with a little linear algebra.  Some of the material of this OER uses determinants of matrices, and introductory textbooks give the formula</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\det \left[\begin{array}{cc}
+a_{1,1} &amp; a_{1,2} 
+\\
+ a_{2,1} &amp; a_{2,2} 
+\end{array}\right]
+ = a_{1,1} a_{2,2}-a_{1,2} a_{2,1}
+\end{split}\]</div>
+<p>usually with the simpler notation where the matrix is has entries <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(c\)</span>, <span class="math notranslate nohighlight">\(d\)</span> and the determinant is <span class="math notranslate nohighlight">\(ad-bc\)</span>.</p>
+<p>The formula for the three-by-three case is more obnoxious:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\det \left[\begin{array}{ccc}
+a_{1,1} &amp; a_{1,2} &amp; a_{1,3} 
+\\
+ a_{2,1} &amp; a_{2,2} &amp; a_{2,3} 
+\\
+ a_{3,1} &amp; a_{3,2} &amp; a_{3,3} 
+\end{array}\right] = a_{1,1} a_{2,2} a_{3,3}-a_{1,1} a_{2,3} a_{3,2}-a_{1,2} a_{2,1} a_{3,3}+a_{1,2} a_{2,3} a_{3,1}+a_{1,3} a_{2,1} a_{3,2}-a_{1,3} a_{2,2} a_{3,1}
+\end{split}\]</div>
+<p>This six-term formula, which can be rearranged to make it less costly to evaluate, cannot be made (much) simpler for humans to understand.</p>
+<p>The four-by-four case has twenty-four terms in its determinant, and requires effort to read.  Again it can be rearranged to make it less costly to evaluate, but cannot be made much simpler for humans to understand.</p>
+<p>The <em>general</em> formula looks pretty simple, however:</p>
+<div class="math notranslate nohighlight">
+\[
+\det \mathbf{A} = \sum_{\sigma \in S_n} \mathrm{sgn}(\sigma) \prod_{i=1}^n a_{i,\sigma_i}
+\]</div>
+<p>The difficulty comes in unpacking the notation.  The outer sum is over all <span class="math notranslate nohighlight">\(n!\)</span> permutations of the integers <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(2\)</span>, <span class="math notranslate nohighlight">\(\ldots\)</span>, <span class="math notranslate nohighlight">\(n\)</span> (so when <span class="math notranslate nohighlight">\(n=4\)</span> there are <span class="math notranslate nohighlight">\(4! = 24\)</span> terms, when <span class="math notranslate nohighlight">\(n=5\)</span> there are <span class="math notranslate nohighlight">\(5!=120\)</span> terms, etc).  One has to be able to determine the <em>sign</em> of a permutation as well.  The factorial number of terms is pretty inescapable.</p>
+<p>Computer algebra systems will quite happily give you these determinantal formulas, written out.  But even for a ten-by-ten matrix (which is pretty small in today’s terms) there will be <span class="math notranslate nohighlight">\(10! = 3,628,800\)</span> terms in the answer, which will occupy several screens.  Evaluation of that formula, given numerical values for the <span class="math notranslate nohighlight">\(a_{i,j}\)</span>, has to consider each of those (more than three million) terms.</p>
+<p>Now, sometimes things can be done with those symbolic expressions.  We mentioned above that they can be rearranged to be less costly to evaluate.  Here is a “straight-line program” to evaluate the five-by-five determinant, found by Maple’s <code class="docutils literal notranslate"><span class="pre">codegen[optimize]</span></code> command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">t2</span> <span class="o">:=</span> <span class="n">a</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span> 
+   <span class="n">t22</span> <span class="o">:=</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span> 
+   <span class="n">t23</span> <span class="o">:=</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span> 
+   <span class="n">t24</span> <span class="o">:=</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">];</span> 
+   <span class="n">t8</span> <span class="o">:=</span> <span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span> 
+   <span class="n">t9</span> <span class="o">:=</span> <span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">];</span> 
+   <span class="n">t28</span> <span class="o">:=</span> <span class="n">t23</span><span class="o">*</span><span class="n">t9</span><span class="o">-</span><span class="n">t24</span><span class="o">*</span><span class="n">t8</span><span class="p">;</span> 
+   <span class="n">t3</span> <span class="o">:=</span> <span class="n">a</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span> 
+   <span class="n">t4</span> <span class="o">:=</span> <span class="n">a</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">];</span> 
+   <span class="n">t29</span> <span class="o">:=</span> <span class="n">t23</span><span class="o">*</span><span class="n">t4</span><span class="o">-</span><span class="n">t24</span><span class="o">*</span><span class="n">t3</span><span class="p">;</span> 
+   <span class="n">t38</span> <span class="o">:=</span> <span class="n">t3</span><span class="o">*</span><span class="n">t9</span><span class="o">-</span><span class="n">t4</span><span class="o">*</span><span class="n">t8</span><span class="p">;</span> 
+   <span class="n">t7</span> <span class="o">:=</span> <span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span> 
+   <span class="n">t47</span> <span class="o">:=</span> <span class="n">t2</span><span class="o">*</span><span class="n">t28</span><span class="o">-</span><span class="n">t22</span><span class="o">*</span><span class="n">t38</span><span class="o">-</span><span class="n">t29</span><span class="o">*</span><span class="n">t7</span><span class="p">;</span> 
+   <span class="n">t12</span> <span class="o">:=</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span> 
+   <span class="n">t13</span> <span class="o">:=</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span> 
+   <span class="n">t14</span> <span class="o">:=</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">];</span> 
+   <span class="n">t30</span> <span class="o">:=</span> <span class="n">t22</span><span class="o">*</span><span class="n">t9</span><span class="o">-</span><span class="n">t24</span><span class="o">*</span><span class="n">t7</span><span class="p">;</span> 
+   <span class="n">t31</span> <span class="o">:=</span> <span class="n">t22</span><span class="o">*</span><span class="n">t8</span><span class="o">-</span><span class="n">t23</span><span class="o">*</span><span class="n">t7</span><span class="p">;</span> 
+   <span class="n">t46</span> <span class="o">:=</span> <span class="n">t12</span><span class="o">*</span><span class="n">t28</span><span class="o">-</span><span class="n">t13</span><span class="o">*</span><span class="n">t30</span><span class="o">+</span><span class="n">t14</span><span class="o">*</span><span class="n">t31</span><span class="p">;</span> 
+   <span class="n">t17</span> <span class="o">:=</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span> 
+   <span class="n">t18</span> <span class="o">:=</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span> 
+   <span class="n">t19</span> <span class="o">:=</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">];</span> 
+   <span class="n">t45</span> <span class="o">:=</span> <span class="p">(</span><span class="n">t18</span><span class="o">*</span><span class="n">t9</span><span class="o">-</span><span class="n">t19</span><span class="o">*</span><span class="n">t8</span><span class="p">)</span><span class="o">*</span><span class="n">t12</span><span class="o">-</span><span class="p">(</span><span class="n">t17</span><span class="o">*</span><span class="n">t9</span><span class="o">-</span><span class="n">t19</span><span class="o">*</span><span class="n">t7</span><span class="p">)</span><span class="o">*</span><span class="n">t13</span><span class="o">+</span><span class="p">(</span><span class="n">t17</span><span class="o">*</span><span class="n">t8</span><span class="o">-</span><span class="n">t18</span><span class="o">*</span><span class="n">t7</span><span class="p">)</span><span class="o">*</span><span class="n">t14</span><span class="p">;</span> 
+   <span class="n">t39</span> <span class="o">:=</span> <span class="n">t2</span><span class="o">*</span><span class="n">t9</span><span class="o">-</span><span class="n">t4</span><span class="o">*</span><span class="n">t7</span><span class="p">;</span> 
+   <span class="n">t40</span> <span class="o">:=</span> <span class="n">t2</span><span class="o">*</span><span class="n">t8</span><span class="o">-</span><span class="n">t3</span><span class="o">*</span><span class="n">t7</span><span class="p">;</span>
+   <span class="n">t44</span> <span class="o">:=</span> <span class="n">t12</span><span class="o">*</span><span class="n">t38</span><span class="o">-</span><span class="n">t13</span><span class="o">*</span><span class="n">t39</span><span class="o">+</span><span class="n">t14</span><span class="o">*</span><span class="n">t40</span><span class="p">;</span> 
+   <span class="n">t43</span> <span class="o">:=</span> <span class="n">t17</span><span class="o">*</span><span class="n">t28</span><span class="o">-</span><span class="n">t18</span><span class="o">*</span><span class="n">t30</span><span class="o">+</span><span class="n">t19</span><span class="o">*</span><span class="n">t31</span><span class="p">;</span> 
+   <span class="n">t33</span> <span class="o">:=</span> <span class="n">t2</span><span class="o">*</span><span class="n">t24</span><span class="o">-</span><span class="n">t22</span><span class="o">*</span><span class="n">t4</span><span class="p">;</span> 
+   <span class="n">t34</span> <span class="o">:=</span> <span class="n">t2</span><span class="o">*</span><span class="n">t23</span><span class="o">-</span><span class="n">t22</span><span class="o">*</span><span class="n">t3</span><span class="p">;</span> 
+   <span class="n">t42</span> <span class="o">:=</span> <span class="n">t17</span><span class="o">*</span><span class="n">t29</span><span class="o">+</span><span class="n">t18</span><span class="o">*</span><span class="n">t33</span><span class="o">-</span><span class="n">t19</span><span class="o">*</span><span class="n">t34</span><span class="p">;</span> 
+   <span class="n">t41</span> <span class="o">:=</span> <span class="n">t17</span><span class="o">*</span><span class="n">t38</span><span class="o">-</span><span class="n">t18</span><span class="o">*</span><span class="n">t39</span><span class="o">+</span><span class="n">t19</span><span class="o">*</span><span class="n">t40</span><span class="p">;</span> 
+   <span class="n">t25</span> <span class="o">:=</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span> 
+   <span class="n">t5</span> <span class="o">:=</span> <span class="n">a</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span> 
+   <span class="n">t32</span> <span class="o">:=</span> <span class="n">t2</span><span class="o">*</span><span class="n">t25</span><span class="o">-</span><span class="n">t22</span><span class="o">*</span><span class="n">t5</span><span class="p">;</span> 
+   <span class="n">t27</span> <span class="o">:=</span> <span class="n">t23</span><span class="o">*</span><span class="n">t5</span><span class="o">-</span><span class="n">t25</span><span class="o">*</span><span class="n">t3</span><span class="p">;</span> 
+   <span class="n">t26</span> <span class="o">:=</span> <span class="n">t24</span><span class="o">*</span><span class="n">t5</span><span class="o">-</span><span class="n">t25</span><span class="o">*</span><span class="n">t4</span><span class="p">;</span> 
+   <span class="n">t20</span> <span class="o">:=</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span> 
+   <span class="n">t15</span> <span class="o">:=</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span> 
+   <span class="n">t10</span> <span class="o">:=</span> <span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span> 
+   <span class="n">t1</span> <span class="o">:=</span> <span class="p">(</span><span class="o">-</span><span class="n">t42</span><span class="o">*</span><span class="n">t15</span><span class="o">+</span><span class="p">(</span><span class="n">t17</span><span class="o">*</span><span class="n">t27</span><span class="o">+</span><span class="n">t18</span><span class="o">*</span><span class="n">t32</span><span class="o">-</span><span class="n">t20</span><span class="o">*</span><span class="n">t34</span><span class="p">)</span><span class="o">*</span><span class="n">t14</span><span class="o">+</span><span class="p">(</span><span class="o">-</span><span class="n">t17</span><span class="o">*</span><span class="n">t26</span><span class="o">-</span><span class="n">t19</span><span class="o">*</span><span class="n">t32</span><span class="o">+</span><span class="n">t20</span><span class="o">*</span><span class="n">t33</span><span class="p">)</span><span class="o">*</span><span class="n">t13</span>
+         <span class="o">+</span><span class="p">(</span><span class="n">t18</span><span class="o">*</span><span class="n">t26</span><span class="o">-</span><span class="n">t19</span><span class="o">*</span><span class="n">t27</span><span class="o">+</span><span class="n">t20</span><span class="o">*</span><span class="n">t29</span><span class="p">)</span><span class="o">*</span><span class="n">t12</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span><span class="o">+</span><span class="p">(</span><span class="o">-</span><span class="n">t45</span><span class="o">*</span><span class="n">t5</span><span class="o">+</span><span class="n">t44</span><span class="o">*</span><span class="n">t20</span><span class="o">-</span><span class="n">t41</span><span class="o">*</span><span class="n">t15</span><span class="o">+</span><span class="p">((</span><span class="n">t17</span><span class="o">*</span><span class="n">t3</span><span class="o">-</span><span class="n">t2</span><span class="o">*</span><span class="n">t18</span><span class="p">)</span><span class="o">*</span><span class="n">t14</span>
+         <span class="o">+</span><span class="p">(</span><span class="o">-</span><span class="n">t17</span><span class="o">*</span><span class="n">t4</span><span class="o">+</span><span class="n">t19</span><span class="o">*</span><span class="n">t2</span><span class="p">)</span><span class="o">*</span><span class="n">t13</span><span class="o">+</span><span class="p">(</span><span class="n">t18</span><span class="o">*</span><span class="n">t4</span><span class="o">-</span><span class="n">t19</span><span class="o">*</span><span class="n">t3</span><span class="p">)</span><span class="o">*</span><span class="n">t12</span><span class="p">)</span><span class="o">*</span><span class="n">t10</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+         <span class="o">+</span><span class="p">(</span><span class="n">t46</span><span class="o">*</span><span class="n">t5</span><span class="o">-</span><span class="n">t44</span><span class="o">*</span><span class="n">t25</span><span class="o">-</span><span class="n">t47</span><span class="o">*</span><span class="n">t15</span><span class="o">+</span><span class="p">(</span><span class="o">-</span><span class="n">t12</span><span class="o">*</span><span class="n">t29</span><span class="o">-</span><span class="n">t13</span><span class="o">*</span><span class="n">t33</span><span class="o">+</span><span class="n">t14</span><span class="o">*</span><span class="n">t34</span><span class="p">)</span><span class="o">*</span><span class="n">t10</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+         <span class="o">+</span><span class="p">(</span><span class="n">t10</span><span class="o">*</span><span class="n">t42</span><span class="o">+</span><span class="n">t20</span><span class="o">*</span><span class="n">t47</span><span class="o">+</span><span class="n">t25</span><span class="o">*</span><span class="n">t41</span><span class="o">-</span><span class="n">t43</span><span class="o">*</span><span class="n">t5</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+         <span class="o">+</span><span class="p">(</span><span class="n">t45</span><span class="o">*</span><span class="n">t25</span><span class="o">-</span><span class="n">t46</span><span class="o">*</span><span class="n">t20</span><span class="o">+</span><span class="n">t43</span><span class="o">*</span><span class="n">t15</span><span class="o">+</span><span class="p">((</span><span class="o">-</span><span class="n">t17</span><span class="o">*</span><span class="n">t23</span><span class="o">+</span><span class="n">t22</span><span class="o">*</span><span class="n">t18</span><span class="p">)</span><span class="o">*</span><span class="n">t14</span><span class="o">+</span><span class="p">(</span><span class="n">t17</span><span class="o">*</span><span class="n">t24</span><span class="o">-</span><span class="n">t19</span><span class="o">*</span><span class="n">t22</span><span class="p">)</span><span class="o">*</span><span class="n">t13</span>
+          <span class="o">+</span><span class="p">(</span><span class="o">-</span><span class="n">t18</span><span class="o">*</span><span class="n">t24</span><span class="o">+</span><span class="n">t19</span><span class="o">*</span><span class="n">t23</span><span class="p">)</span><span class="o">*</span><span class="n">t12</span><span class="p">)</span><span class="o">*</span><span class="n">t10</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>(that was cut-and-pasted in and hand-edited for clarity: hopefully no typos were introduced).  The cost of evaluating the original big ugly expression with <span class="math notranslate nohighlight">\(120\)</span> terms is 119 additions + 480 multiplications + 600 subscripts.
+The cost of evaluating that <em>straight line program</em> above (generated by computer algebra) is only 25 subscripts + 40 assignments + 106 multiplications + 66 additions, in comparison; this is a significant reduction in cost.  Also, there were no <em>divisions</em> introduced, which normal floating-point operations do.  So, this compression is possibly of interest.</p>
+<p>But sometimes no compression is possible, and the only thing one can say about a huge symbolic answer is “It is what it is.”</p>
+<p>The <em>general</em> case of optimal algorithms for linear algebra even over the integers, never mind with symbols, is a topic of much current study.  We do not even know the cheapest way to multiply two matrices!  And that algorithm gives a key to almost every other algorithm.  These problems are <em>hard</em>.</p>
+<section id="symbolic-computation-with-functions">
+<h2>Symbolic computation with functions<a class="headerlink" href="#symbolic-computation-with-functions" title="Permalink to this headline">#</a></h2>
 <p>Let’s try some calculus-like things.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -538,11 +779,11 @@ The prime factors of 26012189435657951002049032270810436111915218750169457857275
 </div>
 </div>
 <p>RMC <b>really</b> doesn’t like that “solution”!  It has separated the real and imaginary parts without needing to.  A perfectly good answer would be <span class="math notranslate nohighlight">\(\ln_n(x)\)</span>, which looks a lot simpler.</p>
-<p><span class="math notranslate nohighlight">\(\ln_k(z)\)</span>, which might not look familiar to you, means <span class="math notranslate nohighlight">\(\ln(z) + 2\pi i k\)</span>.  Also, SymPy has chosen to emulate Maple and use I for the square root of <span class="math notranslate nohighlight">\(-1\)</span>, which made a kind of sense in the 1980’s when Maple chose to do it that way, but given all the fonts we have nowadays that doesn’t seem sensible at all.</p>
+<p><span class="math notranslate nohighlight">\(\ln_k(z)\)</span>, which might not look familiar to you, means <span class="math notranslate nohighlight">\(\ln(z) + 2\pi i k\)</span>.</p>
 <p>Fine.  We will live with it.  The solution is not actually <i>wrong</i>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solveset</span><span class="p">(</span><span class="n">Eq</span><span class="p">(</span> <span class="n">y</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">x</span><span class="p">),</span> <span class="n">y</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solveset</span><span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">x</span><span class="p">),</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -554,7 +795,7 @@ The prime factors of 26012189435657951002049032270810436111915218750169457857275
 <p>Oh, that’s disappointing.  See <A HREF="https://en.wikipedia.org/wiki/Lambert_W_function"> the Wikipedia article on Lambert W</A> to see what that should have been.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solve</span><span class="p">(</span> <span class="n">Eq</span><span class="p">(</span> <span class="n">y</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">x</span> <span class="p">),</span> <span class="n">y</span> <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solve</span><span class="p">(</span><span class="n">Eq</span><span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">x</span><span class="p">),</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -565,15 +806,15 @@ The prime factors of 26012189435657951002049032270810436111915218750169457857275
 </div>
 </div>
 <p>That’s better, but—like the logarithm above—there should be multiple branches.</p>
-<div class="section" id="integrals-and-the-difference-between-computer-algebra-and-symbolic-computation">
-<h3>Integrals, and the difference between Computer Algebra and Symbolic Computation<a class="headerlink" href="#integrals-and-the-difference-between-computer-algebra-and-symbolic-computation" title="Permalink to this headline">¶</a></h3>
+<section id="integrals-and-the-difference-between-computer-algebra-and-symbolic-computation">
+<h3>Integrals, and the difference between Computer Algebra and Symbolic Computation<a class="headerlink" href="#integrals-and-the-difference-between-computer-algebra-and-symbolic-computation" title="Permalink to this headline">#</a></h3>
 <p>We’ll start with a nasty example.  You can find nice examples of SymPy and integration in many places, so we will assume that you have seen instances of computer implementations of the fundamental theorem of calculus: to find areas under curves by using antiderivatives.  The nasty integral that we will use is, if <span class="math notranslate nohighlight">\(x \ne 0\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[
 f(x) = \frac{e^{-1/x}}{x^2(1+e^{-1/x})^2}
 \]</div>
 <p>with the removal of the discontinuity at <span class="math notranslate nohighlight">\(x=0\)</span> by defining <span class="math notranslate nohighlight">\(f(0)=0\)</span>.</p>
-<p>We will try to use both NumPy and SymPy to integrate this (infinitely smooth! Just check the derivatives at zero—the function is <em>infinitely flat</em> there) function on various intervals in the real axis.  The function has <span class="math notranslate nohighlight">\(f(x)\ge 0\)</span>, and is zero only at <span class="math notranslate nohighlight">\(x=0\)</span>.  Therefore the integral of <span class="math notranslate nohighlight">\(f(x)\)</span> from any <span class="math notranslate nohighlight">\(a\)</span> to any <span class="math notranslate nohighlight">\(b &gt; a\)</span> will be positive.  Essentially positive functions have positive area underneath them, end of story.  See the figure below.  We do avoid computing the function at exactly zero; but that’s just laziness on our part.</p>
+<p>We will try to use both NumPy and SymPy to integrate this (infinitely smooth! Just check the derivatives at zero.  The function is <em>infinitely flat</em> there) function on various intervals in the real axis.  The function has <span class="math notranslate nohighlight">\(f(x)\ge 0\)</span>, and is zero only at <span class="math notranslate nohighlight">\(x=0\)</span>.  Therefore the integral of <span class="math notranslate nohighlight">\(f(x)\)</span> from any <span class="math notranslate nohighlight">\(a\)</span> to any <span class="math notranslate nohighlight">\(b &gt; a\)</span> will be positive.  Essentially positive functions have positive area underneath them, end of story.  See the figure below.  We do avoid computing the function at exactly zero; but that’s just laziness on our part.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
@@ -594,7 +835,7 @@ f(x) = \frac{e^{-1/x}}{x^2(1+e^{-1/x})^2}
     <span class="n">yi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="o">/</span><span class="n">xi</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">xi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">xi</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">area</span> <span class="o">+=</span> <span class="n">yi</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">dx</span>
 
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;Using a Riemann sum, the area under the curve from -1 to 1 is approximately &#39;</span><span class="p">,</span> <span class="n">area</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Using a Riemann sum, the area under the curve from -1 to 1 is approximately &#39;</span><span class="p">,</span> <span class="n">area</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span><span class="n">yi</span><span class="p">,</span><span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span> <span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -605,30 +846,28 @@ f(x) = \frac{e^{-1/x}}{x^2(1+e^{-1/x})^2}
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using a Riemann sum, the area under the curve from -1 to 1 is approximately  0.5371959827682197
 </pre></div>
 </div>
-<img alt="../_images/symbolic-computation_23_1.png" src="../_images/symbolic-computation_23_1.png" />
+<img alt="../_images/symbolic-computation_24_1.png" src="../_images/symbolic-computation_24_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">F</span> <span class="o">=</span> <span class="n">integrate</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;The integral from SymPy is &#39;</span><span class="p">,</span> <span class="n">F</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The integral from SymPy is &#39;</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span>
 <span class="n">FTOC</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">F</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;The area under the curve from -1 to 1 is positive, not &#39;</span><span class="p">,</span> <span class="n">FTOC</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The area under the curve from -1 to 1 is positive, not &#39;</span><span class="p">,</span> <span class="n">FTOC</span><span class="p">)</span>
 <span class="n">defint</span> <span class="o">=</span> <span class="n">integrate</span><span class="p">(</span> <span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;Using definite integration gets the same &#39;</span><span class="p">,</span> <span class="n">simplify</span><span class="p">(</span><span class="n">defint</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Using definite integration gets the same &#39;</span><span class="p">,</span> <span class="n">simplify</span><span class="p">(</span><span class="n">defint</span><span class="p">))</span>
 <span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
 <span class="n">answe</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">E</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">E</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;That numerically evaluates to &quot;</span><span class="p">,</span> <span class="n">answe</span><span class="p">,</span> <span class="s2">&quot;which is negative.  Oops.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;That numerically evaluates to &quot;</span><span class="p">,</span> <span class="n">answe</span><span class="p">,</span> <span class="s2">&quot;which is negative.  Oops.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The integral from SymPy is  -1/(1 + exp(-1/x))
 The area under the curve from -1 to 1 is positive, not  -1/(exp(-1) + 1) + 1/(1 + E)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using definite integration gets the same  (1 - E)/(1 + E)
+Using definite integration gets the same  (1 - E)/(1 + E)
 That numerically evaluates to  -0.4621171572600098 which is negative.  Oops.
 </pre></div>
 </div>
@@ -646,7 +885,7 @@ That numerically evaluates to  -0.4621171572600098 which is negative.  Oops.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/symbolic-computation_25_0.png" src="../_images/symbolic-computation_25_0.png" />
+<img alt="../_images/symbolic-computation_26_0.png" src="../_images/symbolic-computation_26_0.png" />
 </div>
 </div>
 <p>Without calling “simplify,” SymPy didn’t recognize that <code class="docutils literal notranslate"><span class="pre">1/(1+E)-1/(exp(-1)+1)</span> <span class="pre">=</span> <span class="pre">(1-E)/(1+E)</span></code> (if by <code class="docutils literal notranslate"><span class="pre">E</span></code> Sympy means exp(1)).  But that’s a smaller problem.  The computed answer has missed the discontinuity in the antiderivative at zero.</p>
@@ -659,10 +898,10 @@ That numerically evaluates to  -0.4621171572600098 which is negative.  Oops.
 <p>Matlab gets it.  Matlab’s Symbolic Toolbox works quite hard to get continuous antiderivatives.  So we have confidence that Maple will one day get it. But Wolfram Alpha gets a discontinuous antiderivative, too, at this time of writing, so there’s only a <i>little</i> pressure from the competition.</p>
 <p>These facts have been known for quite a while now.  See <a class="reference external" href="https://www.tandfonline.com/doi/abs/10.1080/0025570X.1994.11996235">The Importance of Being Continuous</a> by David Jeffrey, a paper that was written in 1994 (long predating Python or SymPy).  See also <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0747717197901528">Rectifying Transformations for Trigonometric Integrals</a> by the same author.</p>
 <p>The disagreement amongst mathematicians—algebra versus analysis—has been going on for much longer, and goes at least back to Cauchy.  We are on Cauchy’s side, here.  But there are lots of people who just want formulas, and don’t care if they are discontinuous.</p>
-<p>RMC retweeted something apropos this morning: Prof Michael Kinyon said “I used to think it was weird when people disagreed with me, but now I understand that some people just enjoy the feeling of being wrong.”</p>
-</div>
-</div>
-</div>
+<p>RMC retweeted something apropos the morning this paragraph was first written: Prof Michael Kinyon said “I used to think it was weird when people disagreed with me, but now I understand that some people just enjoy the feeling of being wrong.”</p>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -686,9 +925,11 @@ That numerically evaluates to  -0.4621171572600098 which is negative.  Oops.
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="complex-numbers.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -696,32 +937,36 @@ That numerically evaluates to  -0.4621171572600098 which is negative.  Oops.
             <p class="prev-next-title">Complex Numbers</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../Solutions/Solutions%20to%20Continued%20Fraction%20Exercises.html" title="next page">
+    <a class='right-next' id="next-link" href="../Solutions/Reports%20on%20Fibonacci%20Activities.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Solutions to Continued Fractions Exercises</p>
+        <p class="prev-next-title">Reports on Fibonacci Activities</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Neil J. Calkin, Eunice Y.S. Chan, and Robert M. Corless<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Neil J. Calkin, Eunice Y.S. Chan, and Robert M. Corless<br/>
-    
-        &copy; Copyright 2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

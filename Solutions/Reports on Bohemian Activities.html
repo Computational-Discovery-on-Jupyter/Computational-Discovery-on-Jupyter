@@ -1,0 +1,978 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Reports on Bohemian activities &#8212; Computational Discovery on Jupyter</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.jpg"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Reports on Mandelbrot Activities" href="Reports%20on%20Mandelbrot%20Activities.html" />
+    <link rel="prev" title="Reports on Julia Set Activities" href="Reports%20on%20Julia%20Set%20Activities.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Computational Discovery on Jupyter</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to Computational Discovery on Jupyter
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Preface
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preamble.html">
+   Preamble
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Installing-Python-and-Jupyter.html">
+   Before we begin: installing Python and Jupyter
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/Computing-with-Fibonacci.html">
+   Computing with Fibonacci Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/continued-fractions.html">
+   Continued Fractions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/rootfinding.html">
+   Rootfinding, Newton’s Method, and Dynamical Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/fractals-and-julia-sets.html">
+   Fractals and Julia Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/bohemian-matrices.html">
+   Bounded Height Matrices of Integers (Bohemian Matrices)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/mandelbrot.html">
+   Mandelbrot Polynomials and Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/chaos-game-representation.html">
+   Chaos Game Representation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Epilogue
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Looking-back.html">
+   Zanshin
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/What-to-do-when-things-go-wrong.html">
+   What do to when things go wrong
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/floating-point.html">
+   The Bare Minimum about Floating-Point
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/binomials-factorials-combinatorics.html">
+   Binomials, Factorials, and other Combinatorial Things
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/complex-numbers.html">
+   Complex Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/symbolic-computation.html">
+   Symbolic Computation: The Pitfalls
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reports on Activities
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Fibonacci%20Activities.html">
+   Reports on Fibonacci Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Continued%20Fractions%20Activities.html">
+   Reports on Continued Fractions Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Rootfinding%20Activities.html">
+   Reports on Rootfinding Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Julia%20Set%20Activities.html">
+   Reports on Julia Set Activities
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Reports on Bohemian activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Mandelbrot%20Activities.html">
+   Reports on Mandelbrot Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Chaos%20Game%20Activities.html">
+   Reports on Chaos Game Activities
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Back Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about.html">
+   About the authors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter/edit/master/book/Solutions/Reports on Bohemian Activities.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Solutions/Reports on Bohemian Activities.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bohemian-activity-1">
+   Bohemian Activity 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bohemian-activity-2">
+   Bohemian Activity 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bohemian-graduate-activity-1">
+   Bohemian Graduate Activity 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bohemian-activity-3">
+   Bohemian Activity 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bohemian-activity-4">
+   Bohemian Activity 4
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bohemian-activity-5">
+   Bohemian Activity 5
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bohemian-activity-6">
+   Bohemian Activity 6
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bohemian-activity-7">
+   Bohemian Activity 7
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-points-for-the-final-activities">
+   Some points for the Final Activities
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Reports on Bohemian activities</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bohemian-activity-1">
+   Bohemian Activity 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bohemian-activity-2">
+   Bohemian Activity 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bohemian-graduate-activity-1">
+   Bohemian Graduate Activity 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bohemian-activity-3">
+   Bohemian Activity 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bohemian-activity-4">
+   Bohemian Activity 4
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bohemian-activity-5">
+   Bohemian Activity 5
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bohemian-activity-6">
+   Bohemian Activity 6
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bohemian-activity-7">
+   Bohemian Activity 7
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-points-for-the-final-activities">
+   Some points for the Final Activities
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="reports-on-bohemian-activities">
+<h1>Reports on Bohemian activities<a class="headerlink" href="#reports-on-bohemian-activities" title="Permalink to this headline">#</a></h1>
+<section id="bohemian-activity-1">
+<span id="bohemianactivityreport-1"></span><h2>Bohemian Activity 1<a class="headerlink" href="#bohemian-activity-1" title="Permalink to this headline">#</a></h2>
+<p><em>Guess the pattern of these determinants</em>, <span class="math notranslate nohighlight">\(t_1\)</span>, <span class="math notranslate nohighlight">\(t_2+t_1^2\)</span>, <span class="math notranslate nohighlight">\(t_3+2t_2t_1 + t_1^3\)</span>, <span class="math notranslate nohighlight">\(t_4+3t_2t_1^2+2t_3t_1+t_2^2+t_1^4\)</span>, and so on, and give a way to compute the <span class="math notranslate nohighlight">\(5\times 5\)</span> and <span class="math notranslate nohighlight">\(6 \times 6\)</span> version. (Hint: Yes, it’s in Wikipedia, but unless you know under which name, this hint doesn’t actually help.)</p>
+<p>The pattern can be <em>explained</em> as follows.  You can write <span class="math notranslate nohighlight">\(1\)</span> as the sum of positive integers in only one way, just 1.  You can write <span class="math notranslate nohighlight">\(2\)</span> as just <span class="math notranslate nohighlight">\(2\)</span> or as <span class="math notranslate nohighlight">\(1+1\)</span> (so, <span class="math notranslate nohighlight">\(t_2\)</span> and <span class="math notranslate nohighlight">\(t_1^2\)</span>).  You can write <span class="math notranslate nohighlight">\(3\)</span> as <span class="math notranslate nohighlight">\(3\)</span>, or <span class="math notranslate nohighlight">\(2+1\)</span> or <span class="math notranslate nohighlight">\(1+2\)</span>, (hence <span class="math notranslate nohighlight">\(2t_2t_1\)</span>), or as <span class="math notranslate nohighlight">\(1+1+1\)</span>.  You can write <span class="math notranslate nohighlight">\(4\)</span> as <span class="math notranslate nohighlight">\(4\)</span>, or as <span class="math notranslate nohighlight">\(3+1\)</span> or <span class="math notranslate nohighlight">\(1+3\)</span>, or <span class="math notranslate nohighlight">\(2+1+1\)</span> or <span class="math notranslate nohighlight">\(1+2+1\)</span> or <span class="math notranslate nohighlight">\(1+1+2\)</span> (so <span class="math notranslate nohighlight">\(3t_2t_1^2\)</span>), or as <span class="math notranslate nohighlight">\(2+2\)</span> (giving us the <span class="math notranslate nohighlight">\(t_2^2\)</span> which you might not have expected) or finally as just <span class="math notranslate nohighlight">\(1+1+1+1\)</span>.  You can use this rule (carefully!) to write the determinant of the <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(n\)</span> versions.  These are called “compositions” of integers, and if you know that, you can find <a class="reference external" href="https://en.wikipedia.org/wiki/Composition_(combinatorics)">the relevant entry in Wikipedia</a>.</p>
+<p><a class="reference internal" href="../Contents/bohemian-matrices.html#bohemianactivity-1"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="bohemian-activity-2">
+<span id="bohemianactivityreport-2"></span><h2>Bohemian Activity 2<a class="headerlink" href="#bohemian-activity-2" title="Permalink to this headline">#</a></h2>
+<p><em>How many matrices of this kind are there at each dimension (This is easy.)</em></p>
+<p>With each increase dimension, we get one new parameter.  Since there are three choices for that new parameter, there are three times as many matrices at dimension <span class="math notranslate nohighlight">\(n\)</span> as there are at dimension <span class="math notranslate nohighlight">\(n-1\)</span>.  Thus the number of matrices of this kind of dimension <span class="math notranslate nohighlight">\(n\)</span> is <span class="math notranslate nohighlight">\(3^n\)</span>.</p>
+<p><a class="reference internal" href="../Contents/bohemian-matrices.html#bohemianactivity-2"><span class="std std-ref">[Go back to the activity]</span></a></p>
+</section>
+<section id="bohemian-graduate-activity-1">
+<span id="bohemiangraduateactivityreport-1"></span><h2>Bohemian Graduate Activity 1<a class="headerlink" href="#bohemian-graduate-activity-1" title="Permalink to this headline">#</a></h2>
+<p>The key here is to do a block LU factoring.  This can best be explained by example, and the three-by-three case is already enough.  Start with</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+    \begin{bmatrix}
+        \mathbf{T}_{1} &amp; \mathbf{T}_{2} &amp; \mathbf{T}_{3}  \\
+        -\mathbf{I} &amp; \mathbf{T}_{1} &amp; \mathbf{T}_{2}  \\
+        &amp; -\mathbf{I} &amp; \mathbf{T}_{1} 
+    \end{bmatrix}
+\end{equation*}\]</div>
+<p>Now multiply this on the left by a matrix that arises from considering block row elimination, namely:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\begin{bmatrix}
+\mathbf{I} &amp; \mathbf{T}_1 &amp; \\
+           &amp; \mathbf{I} &amp; \mathbf{T}_1\\
+           &amp;            &amp; \mathbf{I}
+\end{bmatrix}
+\end{equation*}\]</div>
+<p>to get</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\begin{bmatrix}
+ &amp; \mathbf{T}_1^2 + \mathbf{T}_2 &amp; \mathbf{T}_3 + \mathbf{T}_1\mathbf{T}_2 \\
+-\mathbf{I} &amp; &amp; \mathbf{T}_1^2 + \mathbf{T}_2 \\
+            &amp; -\mathbf{I} &amp; \mathbf{T}_1
+\end{bmatrix} .
+\end{equation*}\]</div>
+<p>Now multiply this on the left by</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\begin{bmatrix}
+\mathbf{I} &amp; &amp; \mathbf{T}_1^2 + \mathbf{T}_2 \\
+           &amp; \mathbf{I} &amp; \\
+           &amp;            &amp; \mathbf{I}
+\end{bmatrix}
+\end{equation*}\]</div>
+<p>to get</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\begin{bmatrix}
+ &amp;  &amp; \mathbf{T}_3 + \mathbf{T}_1\mathbf{T}_2 + \left(\mathbf{T}_1^2 +\mathbf{T_2}\right)\mathbf{T}_1 \\
+-\mathbf{I} &amp; &amp; \mathbf{T}_1^2 + \mathbf{T}_2 \\
+            &amp; -\mathbf{I} &amp; \mathbf{T}_1
+\end{bmatrix} .
+\end{equation*}\]</div>
+<p>This can be rearranged by block permutation to give a block upper triangular matrix with negative identity matrices along the main diagonal except for the final entry, which is  <span class="math notranslate nohighlight">\(\mathbf{T}_3 + \mathbf{T}_1\mathbf{T}_2 + \left(\mathbf{T}_1^2 +\mathbf{T_2}\right)\mathbf{T}_1\)</span> or <span class="math notranslate nohighlight">\(\mathbf{T}_3 + \mathbf{T}_1\mathbf{T}_2 +\mathbf{T_2}\mathbf{T}_1 + \mathbf{T}_1^3\)</span>.  This is clearly analogous to the scalar <span class="math notranslate nohighlight">\(3\)</span> by <span class="math notranslate nohighlight">\(3\)</span> case, except that there we had <span class="math notranslate nohighlight">\(2t_2t_1\)</span> whereas here we have both <span class="math notranslate nohighlight">\(t_1t_2\)</span> and <span class="math notranslate nohighlight">\(t_2t_1\)</span> and these are not the same because the block matrices will not necessarily commute.</p>
+<p>This can be extended to the block dimension <span class="math notranslate nohighlight">\(n\)</span> case in a straightforward manner.  But that’s about all we know about this problem!</p>
+<p><a class="reference internal" href="../Contents/bohemian-matrices.html#bohemiangraduateactivity-1"><span class="std std-ref">[Go back to the activity]</span></a></p>
+</section>
+<section id="bohemian-activity-3">
+<span id="bohemianactivityreport-3"></span><h2>Bohemian Activity 3<a class="headerlink" href="#bohemian-activity-3" title="Permalink to this headline">#</a></h2>
+<p>Consider the matrix</p>
+<div class="amsmath math notranslate nohighlight" id="equation-65cd27eb-3ee2-47d0-b144-364ffe3b4bc4">
+<span class="eqno">(77)<a class="headerlink" href="#equation-65cd27eb-3ee2-47d0-b144-364ffe3b4bc4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\mathbf{A} = \begin{bmatrix}
+-5 &amp; 1 &amp; 1 
+\\
+ -1 &amp; 0 &amp; -1 
+\\
+ 0 &amp; -1 &amp; 3 
+\end{bmatrix}
+\end{equation}\]</div>
+<p>Draw—by hand—the Gerschgorin circles for this matrix.  Then compute the eigenvalues (by any method, but using Python is certainly ok) and verify that all the eigenvalues are in the union of the circles, and indeed that the “furthermore” part of the theorem is satisfied.</p>
+<figure class="align-default" id="gershgorin5">
+<a class="reference internal image-reference" href="../_images/gershgorin5.jpg"><img alt="../_images/gershgorin5.jpg" src="../_images/gershgorin5.jpg" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">A hand-drawn set of Gerschgorin disks</span><a class="headerlink" href="#gershgorin5" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p><a class="reference internal" href="../Contents/bohemian-matrices.html#bohemianactivity-3"><span class="std std-ref">[Go back to the activity]</span></a></p>
+</section>
+<section id="bohemian-activity-4">
+<span id="bohemianactivityreport-4"></span><h2>Bohemian Activity 4<a class="headerlink" href="#bohemian-activity-4" title="Permalink to this headline">#</a></h2>
+<p>Consider the matrix</p>
+<div class="amsmath math notranslate nohighlight" id="equation-24ee4ca6-c69e-44e4-9aa3-0a6c52377546">
+<span class="eqno">(78)<a class="headerlink" href="#equation-24ee4ca6-c69e-44e4-9aa3-0a6c52377546" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\mathbf{A} = \begin{bmatrix}
+2 &amp; -1 &amp; 0 
+\\
+ -1 &amp; 2 &amp; -1 
+\\
+ 0 &amp; -1 &amp; 2 
+\end{bmatrix}
+\end{equation}\]</div>
+<p>Without computing the eigenvalues, can you decide if all of them are positive?  Do you think it’s at least possible?</p>
+<p>The matrix is symmetric so all its eigenvalues are real.</p>
+<p>The Gerschgorin disks are all centred at <span class="math notranslate nohighlight">\(2\)</span>.  Two of them have radius <span class="math notranslate nohighlight">\(1\)</span>, but both are inside the biggest one which has radius <span class="math notranslate nohighlight">\(2\)</span>.  This disk <em>just touches</em> <span class="math notranslate nohighlight">\(0\)</span> so it is at least in theory possible for an eigenvalue to be zero (and therefore not positive).  We haven’t remarked on the fact that an eigenvalue equal to zero makes a matrix singular; the determinant is zero in that case.  We can separately compute the determinant to show that it is not zero, and so all eigenvalues must be positive.  But that’s somehow cheating, because we had to do a computation.  Can we show that the matrix is nonsingular without computing a determinant?  Another way to think about it (possible for people who have had linear algebra classes) is to try to write the middle column as a linear combination of the first and third (which are pretty clearly independent).  This leads quickly to a contradiction, though: <span class="math notranslate nohighlight">\(2\alpha = -1\)</span>, <span class="math notranslate nohighlight">\(-2\alpha -2\beta = 2\)</span>, and <span class="math notranslate nohighlight">\(2\beta = -1\)</span> cannot all hold.  Therefore the matrix is nonsingular because it has three independent columns.</p>
+<p><a class="reference internal" href="../Contents/bohemian-matrices.html#bohemianactivity-4"><span class="std std-ref">[Go back to the activity]</span></a></p>
+</section>
+<section id="bohemian-activity-5">
+<span id="bohemianactivityreport-5"></span><h2>Bohemian Activity 5<a class="headerlink" href="#bohemian-activity-5" title="Permalink to this headline">#</a></h2>
+<p><em>Choose a matrix of your own (make it non-symmetric, with different radii from the theorem by rows than columns) and draw its Gershgorin circles and plot its eigenvalues</em>.</p>
+<p>We chose</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{A} = \begin{bmatrix}
+2+2i &amp; 2 &amp; 0 \\
+1 &amp; 0 &amp; 1 \\
+0 &amp; -1 &amp; -1 
+\end{bmatrix} .
+\end{split}\]</div>
+<p>We drew them out on graph paper that RMC has had for more than forty years and took pictures using Office Lens and added a “vintage” filter.</p>
+<figure class="align-default" id="gershgorinrows">
+<a class="reference internal image-reference" href="../_images/rows.jpg"><img alt="../_images/rows.jpg" src="../_images/rows.jpg" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">A hand-drawn set of Gerschgorin disks, radii from the rows of the matrix</span><a class="headerlink" href="#gershgorinrows" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="gershgorincolumns">
+<a class="reference internal image-reference" href="../_images/cols.jpg"><img alt="../_images/cols.jpg" src="../_images/cols.jpg" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">A hand-drawn set of Gerschgorin disks, where the radii are from the columns.  Here the union is not very different.</span><a class="headerlink" href="#gershgorincolumns" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p><a class="reference internal" href="../Contents/bohemian-matrices.html#bohemianactivity-5"><span class="std std-ref">[Go back to the activity]</span></a></p>
+</section>
+<section id="bohemian-activity-6">
+<span id="bohemianactivityreport-6"></span><h2>Bohemian Activity 6<a class="headerlink" href="#bohemian-activity-6" title="Permalink to this headline">#</a></h2>
+<p>“Can you see any <em>other</em> interesting features of this graph?  What questions would <em>you</em> ask?  Write some down.
+What other Bohemian questions can you think of?”</p>
+<p>Maybe this is the most important one of these in this OER.  Your questions are as likely as ours to be productive.  But, here are some of ours.  Most have no answers that we know of.  In no particular order, here we go. For a given integer polynomial, which companion Bohemian matrix has <em>minimal</em> height? Which matrix in the family has the maximum determinant?  Which matrix in the family has the maximum characteristic height? Minimum nonzero determinant? How many matrices are singular? How many are stable? How many have multiple eigenvalues? How many nilpotent matrices are there? How many non-normal matrices are there?  How many commuting pairs are there? What is the distribution of eigenvalue condition numbers? How many different eigenvalues are there?  How many matrices have a given characteristic polynomial? How many have nontrivial Jordan form? How many have nontrivial Smith form? How many are orthogonal? unimodular? How many matrices have inverses that are also Bohemian? With the same height? (In this case we say the matrix family has <em>rhapsody</em>). Given the eigenvalues, can we find a matrix in the family with those eigenvalues?</p>
+<p>The colouring scheme we eventually settled on uses an approximate inversion of the cumulative density function and maps that onto a <em>perceptually uniform</em> sequential colour map like viridis or cividis.  We have only just begun to explore more sophisticated schemes, but this one has the advantage that you can sort of “see” the probability density in the colours.  Are there better methods?  Can we do this usefully in <span class="math notranslate nohighlight">\(3D\)</span>?  What about multi-dimensional problems? Tensors?</p>
+<p><a class="reference internal" href="../Contents/bohemian-matrices.html#bohemianactivity-6"><span class="std std-ref">[Go back to the activity]</span></a></p>
+</section>
+<section id="bohemian-activity-7">
+<span id="bohemianactivityreport-7"></span><h2>Bohemian Activity 7<a class="headerlink" href="#bohemian-activity-7" title="Permalink to this headline">#</a></h2>
+<p>Change the population to various things in the list above and run that code yourself for various modest dimensions.  Is the code correct?  How could you tell? (If you do find a bug, please let us know!)  Of the ones you tried, which population gives the fewest distinct characteristic polynomials?  Which gives the most?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpy.polynomial</span> <span class="kn">import</span> <span class="n">Polynomial</span> <span class="k">as</span> <span class="n">Poly</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">ast</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;../../code/Bohemian Matrices&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">bohemian</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">densityPlot</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">populationlist</span> <span class="o">=</span> <span class="p">[</span><span class="nb">complex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="nb">complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="nb">complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span><span class="nb">complex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span><span class="nb">complex</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span><span class="nb">complex</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="nb">complex</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="nb">complex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="nb">complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+                               <span class="nb">complex</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="nb">complex</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span><span class="nb">complex</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span><span class="nb">complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span><span class="nb">complex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span><span class="nb">complex</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span><span class="nb">complex</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span><span class="nb">complex</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                               <span class="nb">complex</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="nb">complex</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="nb">complex</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">),</span><span class="nb">complex</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">),</span><span class="nb">complex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">),</span><span class="nb">complex</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">),</span><span class="nb">complex</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">),</span><span class="nb">complex</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mdim</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">Bohemian</span><span class="p">(</span><span class="n">mdim</span><span class="p">)</span>
+<span class="n">pcode</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">15</span><span class="p">]</span> <span class="c1"># Code from the above figure: indexes into populationlist which was defined above.</span>
+<span class="n">population</span> <span class="o">=</span> <span class="p">[</span><span class="n">populationlist</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">pcode</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The population is &quot;</span><span class="p">,</span> <span class="n">population</span><span class="p">)</span>
+<span class="n">sequencelength</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">getNumberOfMatrixEntries</span><span class="p">()</span>
+<span class="n">numberpossible</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">population</span><span class="p">)</span><span class="o">**</span><span class="n">sequencelength</span>  <span class="c1"># Each entry of the sequence is one of the population</span>
+<span class="c1"># Generate (one at a time) all possible choices for</span>
+<span class="c1"># vector elements: this is what itertools.product does for us.</span>
+<span class="n">possibilities</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">repeat</span><span class="o">=</span><span class="n">sequencelength</span><span class="p">)</span>
+<span class="n">possible</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">possibilities</span><span class="p">)</span>
+<span class="c1"># We will count the number of unique characteristic polynomials.</span>
+<span class="n">charpolys</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">maxcount</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">possibilities</span><span class="p">:</span>
+    <span class="n">A</span><span class="o">.</span><span class="n">makeMatrix</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="n">cp</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">characteristicPolynomial</span><span class="p">())</span>
+    <span class="k">if</span> <span class="n">cp</span> <span class="ow">in</span> <span class="n">charpolys</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">charpolys</span><span class="p">[</span><span class="n">cp</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">charpolys</span><span class="p">[</span><span class="n">cp</span><span class="p">]</span><span class="o">&gt;</span><span class="n">maxcount</span><span class="p">:</span>
+            <span class="n">maxcount</span> <span class="o">=</span> <span class="n">charpolys</span><span class="p">[</span><span class="n">cp</span><span class="p">]</span>
+            <span class="n">mostcommon</span> <span class="o">=</span> <span class="n">cp</span>
+            <span class="n">pattern</span> <span class="o">=</span> <span class="n">p</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">charpolys</span><span class="p">[</span><span class="n">cp</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">finish</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Program took &quot;</span><span class="p">,</span> <span class="n">finish</span> <span class="o">-</span> <span class="n">start</span><span class="p">,</span> <span class="s2">&quot; seconds </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;There are &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">charpolys</span><span class="p">),</span> <span class="s2">&quot;distinct characteristic polynomials, vs &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">population</span><span class="p">)</span><span class="o">**</span><span class="n">sequencelength</span><span class="p">,</span> <span class="s2">&quot;matrices&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A most common characteristic polynomial was &quot;</span><span class="p">,</span> <span class="n">mostcommon</span><span class="p">,</span> <span class="s2">&quot;which occurred &quot;</span><span class="p">,</span> <span class="n">maxcount</span><span class="p">,</span> <span class="s2">&quot;times &quot;</span><span class="p">)</span>
+<span class="n">A</span><span class="o">.</span><span class="n">makeMatrix</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;One of its matrices was &quot;</span><span class="p">,</span><span class="n">A</span><span class="o">.</span><span class="n">getMatrix</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The population is  [(2+1j), (-2+2j)]
+Program took  0.0011637210845947266  seconds 
+
+There are  9 distinct characteristic polynomials, vs  16 matrices
+A most common characteristic polynomial was  ((-0+0j), (-0-3j), (1+0j)) which occurred  4 times 
+One of its matrices was  [[-2.+2.j -2.+2.j]
+ [ 2.+1.j  2.+1.j]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>With the population code <code class="docutils literal notranslate"><span class="pre">[5,0]</span></code> the population is <span class="math notranslate nohighlight">\(\{-1,0\}\)</span>.  This should give identical results to the population code <code class="docutils literal notranslate"><span class="pre">[0,1]</span></code> which should give the population <span class="math notranslate nohighlight">\(\{0,1\}\)</span>, because we just multiplied all the matrices by <span class="math notranslate nohighlight">\(-1\)</span>.  The same with code <code class="docutils literal notranslate"><span class="pre">[0,3]</span></code> which multiplies by <span class="math notranslate nohighlight">\(j\)</span>.  When we ran the above code with those three populations, the number of distinct characteristic polynomials was the same each time, which increased our confidence.  Also, the eigenvalues of the sample matrix returned (done separately from this notebook) were the same as the roots of the characteristic polynomial.  Again this increased the confidence.</p>
+<p>Giving it an unexpected population <span class="math notranslate nohighlight">\(\{0,0\}\)</span> made it count 16 different <code class="docutils literal notranslate"><span class="pre">mdim=2</span></code> matrices (but really they were the same) though it correctly deduced there was only one characteristic polynomial.  Is that a bug?  We don’t think so.  If the user calls the routine with unexpected input, getting weird output is the expected result!</p>
+<p>Of the ones we tried here, the population <span class="math notranslate nohighlight">\(2+j, -2+2j\)</span> produced <span class="math notranslate nohighlight">\(9\)</span> distinct characteristic polynomials.</p>
+<p><a class="reference internal" href="../Contents/bohemian-matrices.html#bohemianactivity-7"><span class="std std-ref">[Go back to the activity]</span></a></p>
+</section>
+<section id="some-points-for-the-final-activities">
+<span id="finalbohemianactivityreports"></span><h2>Some points for the Final Activities<a class="headerlink" href="#some-points-for-the-final-activities" title="Permalink to this headline">#</a></h2>
+<p>16. Looking back at the Fractals Unit, there seem to be clear connections with this unit.  Discuss them.</p>
+<p>Some of the Bohemian eigenvalue pictures are suggestive of fractals, especially the upper Hessenberg zero diagonal Toeplitz ones.  In fact we have just managed to prove that Sierpinski-like triangles genuinely appear in some of these (when the population has three elements).  In some other cases we think we have also managed to prove that in the limit as <span class="math notranslate nohighlight">\(m\to\infty\)</span> we get a genuine fractal.  We can’t think of a way to connect the Julia set idea, though.</p>
+<p>17. Looking back at the Rootfinding Unit, there seem to be clear connections with this unit.  Discuss them.</p>
+<p>Mostly the connection is practical: we want a good way to find all the roots of the characteristic polynomial (when we go that route, possibly because of the compression factor).  Newton’s method can be used (sometimes!) to “polish” the roots to greater accuracy, for instance.</p>
+<p>18. Looking back at the Continued Fractions Unit, it seems a stretch to connect them.  Can you find a connection?</p>
+<p><strong>One connection</strong>: We thought of taking a general matrix and letting its entries be the partial quotients of the continued fraction of a number chosen “at random” in <span class="math notranslate nohighlight">\([0,1)\)</span>.  To make that “at random” have the right distribution turned out to be simple enough, because the distribution of partial quotients is known (called the <a class="reference external" href="https://en.wikipedia.org/wiki/Gauss%E2%80%93Kuzmin_distribution">Gauss-Kuzmin distribution</a>) and its relation to the probability distribution of the iterates <span class="math notranslate nohighlight">\(x_n\)</span> of the Gauss map is also known (and called the “Gauss measure”). This is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3a3f46be-2f36-4c87-9e88-33d333471407">
+<span class="eqno">(79)<a class="headerlink" href="#equation-3a3f46be-2f36-4c87-9e88-33d333471407" title="Permalink to this equation">#</a></span>\[\begin{equation}
+F(x) = \frac{1}{\ln 2}\int_{t=0}^x \frac{1}{1+t}\,dt = \mathrm{lg}(1+x)
+\end{equation}\]</div>
+<p>where the symbol lg means “log to base 2” and is frequently seen in computer science.  We can invert this cumulative distribution by solving <span class="math notranslate nohighlight">\(u=\mathrm{lg}(1+x)\)</span> by raising both sides to the power <span class="math notranslate nohighlight">\(2\)</span>, like so: <span class="math notranslate nohighlight">\(2^u = 1+x\)</span> so <span class="math notranslate nohighlight">\(x=2^u-1\)</span>.  Therefore, sampling <span class="math notranslate nohighlight">\(u\)</span> uniformly on <span class="math notranslate nohighlight">\((0,1)\)</span> will give <span class="math notranslate nohighlight">\(x\)</span> distributed on <span class="math notranslate nohighlight">\((0,1)\)</span> according to the Gauss measure; then taking the fractional part of <span class="math notranslate nohighlight">\(1/x\)</span> will give us the partial quotients with the correct distribution.</p>
+<p>Doing this a large number of times and plotting the eigenvalue density we get a very interesting image; we’re still thinking about it. We were surprised that there was a pattern, and we don’t yet know how to explain it. This isn’t <em>quite</em> a Bohemian matrix problem, because the partial quotients of most numbers are unbounded.  Still, very large entries are not likely, even though this is quite definitely what is known as a “heavy-tailed distribution” or “fat-tailed distribution”.  The expected value of a partial quotient is infinity!  The use of floating-point essentially bounds the largest entry in practice; we do not know what this does to the statistics.</p>
+<p><strong>Another way to connect</strong> continued fractions to Bohemian matrices might be to compute the continued fractions of the eigenvalues of one of our earlier computations, and see if there was any correlation with the “holes” (there might be—we have not tried this).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpy.polynomial</span> <span class="kn">import</span> <span class="n">Polynomial</span> <span class="k">as</span> <span class="n">Poly</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">ast</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;../../code/Bohemian Matrices&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">bohemian</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">densityPlot</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">2022</span><span class="p">)</span>
+<span class="c1"># We will convert uniform floats u on (0,1) to</span>
+<span class="c1"># floats that have the Gauss measure by x = 2^u - 1</span>
+<span class="c1"># and this will get the right distribution of partial quotients</span>
+
+<span class="c1"># This lambda function replaced by broadcast operations which are faster</span>
+<span class="c1"># partial_quotient = lambda u: math.floor( 1/(2**u-1)) # u=0 is unlikely</span>
+
+<span class="c1"># 5000 in 1.5 seconds, 50,000 in 12 seconds, 500,000 in 2 minutes, 1 million in 4 minutes</span>
+<span class="c1"># six hours and 14 minutes for one hundred million matrices at mdim=13</span>
+<span class="n">Nsample</span> <span class="o">=</span> <span class="mi">1</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">5</span> 
+<span class="n">mdim</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">Bohemian</span><span class="p">(</span><span class="n">mdim</span><span class="p">)</span>
+<span class="n">sequencelength</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">getNumberOfMatrixEntries</span><span class="p">()</span>
+<span class="n">one</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">sequencelength</span><span class="p">)</span>
+<span class="n">two</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">one</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">B</span> <span class="o">=</span>  <span class="mf">0.6</span><span class="o">*</span><span class="n">mdim</span><span class="o">*</span><span class="p">(</span><span class="n">Nsample</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Bounding box is width 2*</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>
+<span class="n">bounds</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">B</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="o">-</span><span class="n">B</span><span class="p">,</span><span class="n">B</span><span class="p">]</span> <span class="c1"># Found by experiment; Depends on Nsample!</span>
+<span class="n">nrow</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="mi">9</span><span class="o">*</span><span class="n">B</span><span class="p">)</span>  <span class="c1"># These need to be adjusted depending on Nsample as well</span>
+<span class="n">ncol</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="mi">9</span><span class="o">*</span><span class="n">B</span><span class="p">)</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">DensityPlot</span><span class="p">(</span><span class="n">bounds</span><span class="p">,</span> <span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nsample</span><span class="p">):</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">sequencelength</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="n">two</span><span class="p">,</span><span class="n">u</span><span class="p">)</span><span class="o">-</span><span class="n">one</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor_divide</span><span class="p">(</span><span class="n">one</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
+    <span class="n">A</span><span class="o">.</span><span class="n">makeMatrix</span><span class="p">(</span> <span class="n">p</span> <span class="p">)</span>
+    <span class="n">image</span><span class="o">.</span><span class="n">addPoints</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">eig</span><span class="p">())</span>
+
+<span class="c1"># We encode the population into a label which we will use for the filename.</span>
+<span class="n">poplabel</span> <span class="o">=</span> <span class="s2">&quot;ContinuedFraction&quot;</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;viridis&#39;</span>
+<span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;../Supplementary Material/Bohemian/dense/pop_</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">N</span><span class="si">{}</span><span class="s1">.png&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">poplabel</span><span class="p">,</span><span class="n">cmap</span><span class="p">,</span><span class="n">mdim</span><span class="p">,</span><span class="n">Nsample</span><span class="p">)</span>
+<span class="n">image</span><span class="o">.</span><span class="n">makeDensityPlot</span><span class="p">(</span><span class="n">cmap</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">fname</span><span class="p">,</span> <span class="n">bgcolor</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">colorscale</span><span class="o">=</span><span class="s2">&quot;cumulative&quot;</span><span class="p">)</span>
+<span class="n">finish</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Took </span><span class="si">{}</span><span class="s2"> seconds to compute and plot &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">finish</span><span class="o">-</span><span class="n">start</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bounding box is width 2*64.01805876140122
+</pre></div>
+</div>
+<img alt="../_images/Reports on Bohemian Activities_29_1.png" src="../_images/Reports on Bohemian Activities_29_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Took 12.665669202804565 seconds to compute and plot 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Solutions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Reports%20on%20Julia%20Set%20Activities.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Reports on Julia Set Activities</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Reports%20on%20Mandelbrot%20Activities.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Reports on Mandelbrot Activities</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Neil J. Calkin, Eunice Y.S. Chan, and Robert M. Corless<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

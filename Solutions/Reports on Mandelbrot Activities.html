@@ -1,0 +1,1014 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Reports on Mandelbrot Activities &#8212; Computational Discovery on Jupyter</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.jpg"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Reports on Chaos Game Activities" href="Reports%20on%20Chaos%20Game%20Activities.html" />
+    <link rel="prev" title="Reports on Bohemian activities" href="Reports%20on%20Bohemian%20Activities.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Computational Discovery on Jupyter</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to Computational Discovery on Jupyter
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Preface
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preamble.html">
+   Preamble
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Installing-Python-and-Jupyter.html">
+   Before we begin: installing Python and Jupyter
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/Computing-with-Fibonacci.html">
+   Computing with Fibonacci Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/continued-fractions.html">
+   Continued Fractions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/rootfinding.html">
+   Rootfinding, Newton’s Method, and Dynamical Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/fractals-and-julia-sets.html">
+   Fractals and Julia Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/bohemian-matrices.html">
+   Bounded Height Matrices of Integers (Bohemian Matrices)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/mandelbrot.html">
+   Mandelbrot Polynomials and Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/chaos-game-representation.html">
+   Chaos Game Representation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Epilogue
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Looking-back.html">
+   Zanshin
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/What-to-do-when-things-go-wrong.html">
+   What do to when things go wrong
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/floating-point.html">
+   The Bare Minimum about Floating-Point
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/binomials-factorials-combinatorics.html">
+   Binomials, Factorials, and other Combinatorial Things
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/complex-numbers.html">
+   Complex Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/symbolic-computation.html">
+   Symbolic Computation: The Pitfalls
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reports on Activities
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Fibonacci%20Activities.html">
+   Reports on Fibonacci Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Continued%20Fractions%20Activities.html">
+   Reports on Continued Fractions Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Rootfinding%20Activities.html">
+   Reports on Rootfinding Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Julia%20Set%20Activities.html">
+   Reports on Julia Set Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Bohemian%20Activities.html">
+   Reports on Bohemian activities
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Reports on Mandelbrot Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Chaos%20Game%20Activities.html">
+   Reports on Chaos Game Activities
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Back Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about.html">
+   About the authors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter/edit/master/book/Solutions/Reports on Mandelbrot Activities.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Solutions/Reports on Mandelbrot Activities.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-1">
+   Mandelbrot Activity 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-2">
+   Mandelbrot Activity 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-3">
+   Mandelbrot Activity 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-4">
+   Mandelbrot Activity 4
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-5">
+   Mandelbrot Activity 5
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-6">
+   Mandelbrot Activity 6
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-7">
+   Mandelbrot Activity 7
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-8">
+   Mandelbrot Activity 8
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-9">
+   Mandelbrot Activity 9
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-10">
+   Mandelbrot Activity 10
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-11">
+   Mandelbrot Activity 11
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-12">
+   Mandelbrot Activity 12
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-13">
+   Mandelbrot Activity 13
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-14">
+   Mandelbrot Activity 14
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-15">
+   Mandelbrot Activity 15
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-16">
+   Mandelbrot Activity 16
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Reports on Mandelbrot Activities</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-1">
+   Mandelbrot Activity 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-2">
+   Mandelbrot Activity 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-3">
+   Mandelbrot Activity 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-4">
+   Mandelbrot Activity 4
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-5">
+   Mandelbrot Activity 5
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-6">
+   Mandelbrot Activity 6
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-7">
+   Mandelbrot Activity 7
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-8">
+   Mandelbrot Activity 8
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-9">
+   Mandelbrot Activity 9
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-10">
+   Mandelbrot Activity 10
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-11">
+   Mandelbrot Activity 11
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-12">
+   Mandelbrot Activity 12
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-13">
+   Mandelbrot Activity 13
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-14">
+   Mandelbrot Activity 14
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-15">
+   Mandelbrot Activity 15
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandelbrot-activity-16">
+   Mandelbrot Activity 16
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="reports-on-mandelbrot-activities">
+<h1>Reports on Mandelbrot Activities<a class="headerlink" href="#reports-on-mandelbrot-activities" title="Permalink to this headline">#</a></h1>
+<section id="mandelbrot-activity-1">
+<span id="mandelbrotactivityreport-1"></span><h2>Mandelbrot Activity 1<a class="headerlink" href="#mandelbrot-activity-1" title="Permalink to this headline">#</a></h2>
+<p><em>Read the Wikipedia entry on the Mandelbrot set, and the entry on Mandelbrot</em>.  Mandelbrot’s <em>educational</em> books and papers are amazing, and amazingly clearly written.  If you don’t come back from this activity, well, at least you left going in a good direction.</p>
+<p>Our thoughts: Welcome back!  One of the things we find most inspiring about Mandelbrot was his observation of how close many open, deep mathematical problems were to the simplest material taught in ordinary mathematics classes.  We hope to demonstrate that principle with this OER, of course, but we can only hope to approach his clarity, on our best days.</p>
+<p><a class="reference internal" href="../Contents/mandelbrot.html#mandelbrotactivity-1"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="mandelbrot-activity-2">
+<span id="mandelbrotactivityreport-2"></span><h2>Mandelbrot Activity 2<a class="headerlink" href="#mandelbrot-activity-2" title="Permalink to this headline">#</a></h2>
+<p>Prove by induction that the degree of the <span class="math notranslate nohighlight">\(n\)</span>th Mandelbrot polynomial <span class="math notranslate nohighlight">\(p_k(c)\)</span> is <span class="math notranslate nohighlight">\(2^{n-1}\)</span> for <span class="math notranslate nohighlight">\(n\ge 2\)</span>, and that the leading coefficient is <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<p>The base of the induction is that <span class="math notranslate nohighlight">\(p_2(c) = c^2+c\)</span> which has degree <span class="math notranslate nohighlight">\(2^{2-1} = 2\)</span> and leading coefficient <span class="math notranslate nohighlight">\(1\)</span>.  If we then suppose that the degree of <span class="math notranslate nohighlight">\(p_k(c)\)</span> is <span class="math notranslate nohighlight">\(2^{k-1}\)</span> and its leading coefficient is <span class="math notranslate nohighlight">\(1\)</span>, then since <span class="math notranslate nohighlight">\(p_{k+1} = p_k^2 + c\)</span> we have deg <span class="math notranslate nohighlight">\(p_k = 2\cdot2^{k-1} = 2^k\)</span> and the leading term is <span class="math notranslate nohighlight">\(c\)</span> to this power so the leading coefficient is <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<p><a class="reference internal" href="../Contents/mandelbrot.html#mandelbrotactivity-2"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="mandelbrot-activity-3">
+<span id="mandelbrotactivityreport-3"></span><h2>Mandelbrot Activity 3<a class="headerlink" href="#mandelbrot-activity-3" title="Permalink to this headline">#</a></h2>
+<p>Prove that <span class="math notranslate nohighlight">\(c=-2\)</span> and <span class="math notranslate nohighlight">\(c=0\)</span> are both in the Mandelbrot set. Show that all zeros of Mandelbrot polynomials give <em>periodic orbits</em> under the Mandelbrot iteration and are thus in the Mandelbrot set.</p>
+<p>a) If <span class="math notranslate nohighlight">\(c=0\)</span> then all <span class="math notranslate nohighlight">\(z_k = 0\)</span> thereafter, which is bounded; so <span class="math notranslate nohighlight">\(c=0\)</span> is in the Mandelbrot set.  b) If <span class="math notranslate nohighlight">\(c=-2\)</span> then <span class="math notranslate nohighlight">\(z_0 = 0\)</span>, <span class="math notranslate nohighlight">\(z_1 = -2\)</span>, <span class="math notranslate nohighlight">\(z_2 = -2 + 4 = 2\)</span>, <span class="math notranslate nohighlight">\(z_3 = 4 -2 = 2\)</span>, and indeed <span class="math notranslate nohighlight">\(z_k = 2\)</span> for all <span class="math notranslate nohighlight">\(k\ge 2\)</span>.  So <span class="math notranslate nohighlight">\(c=-2\)</span> is in the Mandelbrot set. c) If <span class="math notranslate nohighlight">\(z_k(\xi) = 0\)</span>, then <span class="math notranslate nohighlight">\(z_{k+1}(\xi) = z_k^2(\xi) + \xi = \xi\)</span> and this is also <span class="math notranslate nohighlight">\(z_1(\xi)\)</span>; we are clearly repeating. Counting Python-style from zero, the entities <span class="math notranslate nohighlight">\(z_0\)</span>, <span class="math notranslate nohighlight">\(z_1\)</span>, <span class="math notranslate nohighlight">\(\ldots\)</span>, <span class="math notranslate nohighlight">\(z_{k-1}\)</span> might have been different but <span class="math notranslate nohighlight">\(z_k = z_0\)</span> so the cycle has period <span class="math notranslate nohighlight">\(k\)</span>.  Notice that if <span class="math notranslate nohighlight">\(m | k\)</span> (that is, <span class="math notranslate nohighlight">\(m\)</span> divides <span class="math notranslate nohighlight">\(k\)</span>) it <em>might</em> be true that <span class="math notranslate nohighlight">\(z_m(\xi) = 0\)</span> as well, in which case this point has a lower period as well.  Notice that all points of period <span class="math notranslate nohighlight">\(2\)</span> are also of period <span class="math notranslate nohighlight">\(4\)</span>, period <span class="math notranslate nohighlight">\(6\)</span>, and so on; but that there are points of period <span class="math notranslate nohighlight">\(4\)</span> which are not points of period <span class="math notranslate nohighlight">\(2\)</span>.  This means we can <em>factor</em> Mandelbrot polynomials of composite order, that is, if their <span class="math notranslate nohighlight">\(k\)</span> is a composite integer.</p>
+<p><a class="reference internal" href="../Contents/mandelbrot.html#mandelbrotactivity-3"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="mandelbrot-activity-4">
+<span id="mandelbrotactivityreport-4"></span><h2>Mandelbrot Activity 4<a class="headerlink" href="#mandelbrot-activity-4" title="Permalink to this headline">#</a></h2>
+<p>Is <span class="math notranslate nohighlight">\(i = \sqrt{-1}\)</span> in the Mandelbrot set?</p>
+<p><span class="math notranslate nohighlight">\(z_0 = 0\)</span>, <span class="math notranslate nohighlight">\(z_1 = i\)</span>, <span class="math notranslate nohighlight">\(z_2 = i + i^2 = i -1\)</span>, <span class="math notranslate nohighlight">\(z_3 = (i-1)^2 + i = -1 -2i + 1 + i = -i \)</span>, <span class="math notranslate nohighlight">\(z_4 = -1 + i\)</span>, <span class="math notranslate nohighlight">\(z_5 = 1 -2i +i^2 + i = -i\)</span> and we are repeating, so yes, <span class="math notranslate nohighlight">\(i\)</span> is in the Mandelbrot set.</p>
+<p><a class="reference internal" href="../Contents/mandelbrot.html#mandelbrotactivity-4"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="mandelbrot-activity-5">
+<span id="mandelbrotactivityreport-5"></span><h2>Mandelbrot Activity 5<a class="headerlink" href="#mandelbrot-activity-5" title="Permalink to this headline">#</a></h2>
+<p>Prove that the Mandelbrot polynomials are <em>unimodal</em>.  At the time we write this, this question is open: solve it, and you could publish a paper with your proof (<a class="reference external" href="https://www.mapletransactions.org">Maple Transactions</a> would be a good place).  The word “unimodal” just means that the size of the coefficients increases to a peak, and then decays again.  As in <span class="math notranslate nohighlight">\(z_4\)</span>, the peak might be attained by two coefficients, not just one.  Seriously, we don’t know how to prove this.  We think it’s true, though.</p>
+<p>Seriously, we couldn’t do this one.  Your Answer Goes Here.  We’d really like to see it.</p>
+<p><a class="reference internal" href="../Contents/mandelbrot.html#mandelbrotactivity-5"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="mandelbrot-activity-6">
+<span id="mandelbrotactivityreport-6"></span><h2>Mandelbrot Activity 6<a class="headerlink" href="#mandelbrot-activity-6" title="Permalink to this headline">#</a></h2>
+<p>Solve <span class="math notranslate nohighlight">\(z_3 = 0\)</span> by hand, as follows.  First, divide out the visible root, <span class="math notranslate nohighlight">\(c=0\)</span>, to get the cubic equation <span class="math notranslate nohighlight">\(0 = 1 + c + 2c^2 + c^3\)</span>.  Then put <span class="math notranslate nohighlight">\(c = \xi - 2/3\)</span> so <span class="math notranslate nohighlight">\(c^3 = (\xi -2/3)^3 = \xi^3 - 2\xi^2 + 4\xi/9 - 8/27\)</span> which will transform the equation into a cubic in <span class="math notranslate nohighlight">\(\xi\)</span> of the form <span class="math notranslate nohighlight">\(0 = q + p\xi + \xi^3\)</span>.  Then put <span class="math notranslate nohighlight">\(\xi = u + v\)</span> (introducing two new variables seems like the opposite of progress, but trust us, it will help).  This transforms the equation to <span class="math notranslate nohighlight">\((u+v)^3 + p(u+v) + q = 0\)</span>, or <span class="math notranslate nohighlight">\(u^3 + 3uv(u+v) + p(u+v) + q = 0\)</span>.  Show that if you can find <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> that simultaneously solve <span class="math notranslate nohighlight">\(3uv + p = 0\)</span> and <span class="math notranslate nohighlight">\(u^3 + v^3 + q = 0\)</span> then you can solve the original equation.  Do so.  Your formula at the end should give you three, and only three, roots. Write out your answer explicitly, and compare it with (say) the answer from Wolfram Alpha. There is an analogous formula for quartics, but even teaching this cubic formula is considered cruel and inhumane; well, it would be if you were to be tested on it.  But maybe a <a class="reference external" href="https://en.wikipedia.org/wiki/Cubic_equation">public competition for solving cubics</a> might be entertaining for the spectators, as it seems to have been in 1530.  Quite amazingly, at least to him, RMC had recent recourse to this method in order to write a very fast program to evaluate the cube roots of an equation that depended on a parameter, except that the equation was of the form <span class="math notranslate nohighlight">\(x^3 + mx^2 + n=0\)</span> (which was apparently the type that defeated Fior in the contest—but just solve for <span class="math notranslate nohighlight">\(1/x\)</span> instead, and that puts it into the previous form).  All modern computer algebra systems know how to solve cubics and quartics in terms of radicals; quintics cannot, in general, be solved in terms of radicals, but they can be solved in terms of <em>elliptic functions</em>.  Now there’s a rabbit hole for you.</p>
+<p>We really did this one, but there’s not much reason to type it out.  You can check your own answers by evaluating all three of them in floating-point and running the Mandelbrot iteration on them.  All three should have <span class="math notranslate nohighlight">\(z_3(c)\)</span> approximately zero.</p>
+<figure class="align-default" id="hand-solution-of-a-cubic-part-1">
+<a class="reference internal image-reference" href="../_images/cubic1.jpg"><img alt="../_images/cubic1.jpg" src="../_images/cubic1.jpg" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">The page on the left had a sign error.  Rather than track it down, it was easier to start again.</span><a class="headerlink" href="#hand-solution-of-a-cubic-part-1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="hand-solution-of-a-cubic-part-2">
+<a class="reference internal image-reference" href="../_images/cubic2.jpg"><img alt="../_images/cubic2.jpg" src="../_images/cubic2.jpg" style="height: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">The real solution was verified numerically to 10 decimal places on the calculator.  The other two roots can be found by computing the other cube roots for u.</span><a class="headerlink" href="#hand-solution-of-a-cubic-part-2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p><a class="reference internal" href="../Contents/mandelbrot.html#mandelbrotactivity-6"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="mandelbrot-activity-7">
+<span id="mandelbrotactivityreport-7"></span><h2>Mandelbrot Activity 7<a class="headerlink" href="#mandelbrot-activity-7" title="Permalink to this headline">#</a></h2>
+<p>Prove by induction that the code <code class="docutils literal notranslate"><span class="pre">MandelbrotWithDerivative</span></code> computes the correct derivative of every Mandelbrot polynomial. Rather, that it <em>would</em> compute the correct derivative if the underlying arithmetic were exact. You might need what is known as a <em>loop invariant</em>: something that is true before the loop starts, and is true at the start of every iteration, and at the end of every iteration (though not necessarily true after each intermediate step of the iteration). But this loop is simple enough that a direct induction also works.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">MandelbrotWithDerivative</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="n">dz</span> <span class="o">=</span> <span class="mi">0</span><span class="o">*</span><span class="n">c</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="mi">0</span><span class="o">*</span><span class="n">c</span> <span class="c1"># try to inherit the type of c</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">dz</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="o">*</span><span class="n">dz</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># A bit iffy to add constants to Polynomials in Python, but maybe it works. Yes! It does!</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">z</span><span class="o">*</span><span class="n">z</span> <span class="o">+</span> <span class="n">c</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">dz</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Before the loop begins, both <span class="math notranslate nohighlight">\(z = z_0 = 0\)</span> and <span class="math notranslate nohighlight">\(dz = z_0'(c) = 0\)</span>.</p>
+<p>A loop invariant just after the : is that z <span class="math notranslate nohighlight">\(= z_{i-1}(c)\)</span> and dz <span class="math notranslate nohighlight">\(= z_{i-1}'(c)\)</span>.</p>
+<p>After the statement</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dz</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="o">*</span><span class="n">dz</span> <span class="o">+</span> <span class="mi">1</span> 
+</pre></div>
+</div>
+<p>we have dz = <span class="math notranslate nohighlight">\(z_{i}'(c) = 2z_{i-1}(c)\cdot z_{i-1}'(c)+1\)</span> because <span class="math notranslate nohighlight">\(d/dc\)</span> applied to <span class="math notranslate nohighlight">\(z_i = z_{i-1}^2 + c\)</span> gives exactly that.</p>
+<p>After the statement</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">z</span> <span class="o">=</span> <span class="n">z</span><span class="o">*</span><span class="n">z</span> <span class="o">+</span> <span class="n">c</span> 
+</pre></div>
+</div>
+<p>we have z <span class="math notranslate nohighlight">\( = z_i(c)\)</span> by definition.  So at the end of the loop, we have z <span class="math notranslate nohighlight">\(= z_{i}(c)\)</span> and dz <span class="math notranslate nohighlight">\(= z_{i}'(c)\)</span>. Incrementing <span class="math notranslate nohighlight">\(i\)</span> and going to the top of the loop we satisfy the loop invariant.</p>
+<p>The loop terminates if <code class="docutils literal notranslate"><span class="pre">i==n</span></code> at the top, and the code returns <span class="math notranslate nohighlight">\(z_i(c)\)</span> and <span class="math notranslate nohighlight">\(z_i'(c)\)</span> where <span class="math notranslate nohighlight">\(i=n\)</span>.</p>
+<p><a class="reference internal" href="../Contents/mandelbrot.html#mandelbrotactivity-7"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="mandelbrot-activity-8">
+<span id="mandelbrotactivityreport-8"></span><h2>Mandelbrot Activity 8<a class="headerlink" href="#mandelbrot-activity-8" title="Permalink to this headline">#</a></h2>
+<p>Are the zeros of the derivatives of the Mandelbrot polynomials in the Mandelbrot set? We think so, but we haven’t written out the proof.</p>
+<p>We should check at least one example.  <span class="math notranslate nohighlight">\(z_3(c) = c^3 + 2c^2 + c + 1\)</span> so <span class="math notranslate nohighlight">\(z_3'(c) = 3c^2 + 4c + 1\)</span> which has zeros given by the quadratic formula:</p>
+<div class="math notranslate nohighlight">
+\[
+c = \frac{ -4 \pm \sqrt{ 4^2 - 4\cdot 3\cdot 1}}{2\cdot3} = \frac{ -4 \pm \sqrt{ 4}}{6} = \{ -1, \, -1/3\}
+\]</div>
+<p>so we can try these numbers out in the Mandelbrot iteration.  Sure enough, the iteration remains bounded.</p>
+<p>We seem to remember a kind of “mean value theorem” for complex numbers that says that zeros of the derivative can be found in the convex hull of the zeros.  We also seem to remember that the Mandelbrot set is connected.  Something might be do-able along these lines.  As we said, we have not proved this (and it might not be true).</p>
+<p><a class="reference internal" href="../Contents/mandelbrot.html#mandelbrotactivity-8"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="mandelbrot-activity-9">
+<span id="mandelbrotactivityreport-9"></span><h2>Mandelbrot Activity 9<a class="headerlink" href="#mandelbrot-activity-9" title="Permalink to this headline">#</a></h2>
+<p>“A good numerical method gives you the exact solution to a nearby problem”.  This is an informal definition of <em>numerical stability</em>.  An <em>algorithm</em> is “numerically stable” if it gives you the exact solution, not to the problem you were trying to solve (say the polynomial <span class="math notranslate nohighlight">\(z(c) = 0\)</span>) but instead to a <em>nearby</em> problem, say <span class="math notranslate nohighlight">\(z(c) - 10^{-16}i = 0\)</span>.  Some problems, however, are <em>sensitive to changes</em> (in the vernacular of numerical analysis, <em>ill-conditioned</em>).  Consider the polynomial
+<span class="math notranslate nohighlight">\(z(c) = \sum_{k=0}^d a_k c^k\)</span>
+and a <em>perturbed</em> (changed) polynomial
+<span class="math notranslate nohighlight">\(z(c) + \Delta(c) = \sum_{k=0}^d a_k(1+s_k) c^k\)</span>
+where the coefficients <span class="math notranslate nohighlight">\(a_k\)</span> have all been changed by small relative amounts <span class="math notranslate nohighlight">\(s_k\)</span>.  Suppose further that all <span class="math notranslate nohighlight">\(|s_k| \le t\)</span>, some tiny number. By using the triangle inequality, show that
+<span class="math notranslate nohighlight">\(
+| \Delta(c) | \le K(c) t
+\)</span>
+where
+<span class="math notranslate nohighlight">\(
+K(c) = \sum_{k=0}^d |a_k| |c|^k
+\)</span>
+This number <span class="math notranslate nohighlight">\(K(c)\)</span> serves as a kind of <em>condition number</em> for the polynomial: the larger it is, the more sensitive the polynomial is.  Plot the condition numbers (on a log scale!) of the Mandelbrot polynomials <span class="math notranslate nohighlight">\(z_6(c)\)</span> and <span class="math notranslate nohighlight">\(z_7(c)\)</span> on <span class="math notranslate nohighlight">\(-2 \le c \le 0\)</span>.</p>
+<p>The proof runs along the lines suggested in the activity and <a class="reference external" href="https://youtu.be/H8VwEQfRRvI">can be seen at this video</a>.  For the graph, see Figure 2 in <a class="reference external" href="https://doi.org/10.5206/mt.v1i1.14037">Some Facts and Conjectures on Mandelbrot Polynomials</a></p>
+<p><a class="reference internal" href="../Contents/mandelbrot.html#mandelbrotactivity-9"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="mandelbrot-activity-10">
+<span id="mandelbrotactivityreport-10"></span><h2>Mandelbrot Activity 10<a class="headerlink" href="#mandelbrot-activity-10" title="Permalink to this headline">#</a></h2>
+<p><strong>Pseudozeros</strong>.  The zeros of <span class="math notranslate nohighlight">\(z(c) - 10^{-k}\exp(i\theta)\)</span> for <span class="math notranslate nohighlight">\(k=6\)</span>, say, represent a <em>curve</em> in <span class="math notranslate nohighlight">\(c\)</span> space (let <span class="math notranslate nohighlight">\(\theta\)</span> vary from <span class="math notranslate nohighlight">\(-\pi\)</span> to <span class="math notranslate nohighlight">\(\pi\)</span> so the tiny perturbation <span class="math notranslate nohighlight">\(10^{-6}\exp(i\theta)\)</span> turns a full circle in the complex plane). As <span class="math notranslate nohighlight">\(k\)</span> is taken larger, one expects these curves to surround the zeros of <span class="math notranslate nohighlight">\(z(c)\)</span> itself.  Graph some pseudozeros of a Mandelbrot polynomial.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sym</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">linalg</span> <span class="k">as</span> <span class="n">LA</span>
+<span class="kn">import</span> <span class="nn">cmath</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">scipy.linalg</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p_mand</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">z</span><span class="o">*</span><span class="n">p</span><span class="o">*</span><span class="n">p</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Activity 10: Pseudozeros (with explicit perturbation and contours)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">250</span>
+<span class="n">e</span> <span class="o">=</span> <span class="mf">0.001</span>
+
+<span class="n">z</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
+<span class="n">p5</span> <span class="o">=</span> <span class="n">p_mand</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">p5_coeffs</span> <span class="o">=</span> <span class="n">sym</span><span class="o">.</span><span class="n">Poly</span><span class="p">(</span><span class="n">p5</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span><span class="o">.</span><span class="n">coeffs</span><span class="p">()</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">dpi</span> <span class="o">=</span> <span class="mi">80</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Re(z)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Im(z)&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">perturb_vector</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="n">e</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">perturb_coeffs</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">*</span><span class="n">b</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">p5_coeffs</span><span class="p">,</span> <span class="n">perturb_vector</span><span class="p">)]</span>
+    <span class="n">pn_soln_perturbed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">roots</span><span class="p">(</span><span class="n">perturb_coeffs</span><span class="p">)</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">pn_soln_perturbed</span><span class="p">]</span>
+    <span class="n">Y</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">pn_soln_perturbed</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1500</span><span class="p">,</span> <span class="mi">1500</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">.5</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.25</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
+<span class="p">[</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s1">&#39;ij&#39;</span><span class="p">)</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nx</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ny</span><span class="p">):</span>
+        <span class="n">Z</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">p_mand</span><span class="p">(</span><span class="nb">complex</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="n">Y</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]),</span> <span class="n">n</span><span class="p">))</span><span class="o">/</span><span class="n">p_mand</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="nb">complex</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="n">Y</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">])),</span> <span class="n">n</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="p">[</span><span class="n">e</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Reports on Mandelbrot Activities_32_0.png" src="../_images/Reports on Mandelbrot Activities_32_0.png" />
+</div>
+</div>
+<p><a class="reference internal" href="../Contents/mandelbrot.html#mandelbrotactivity-10"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="mandelbrot-activity-11">
+<span id="mandelbrotactivityreport-11"></span><h2>Mandelbrot Activity 11<a class="headerlink" href="#mandelbrot-activity-11" title="Permalink to this headline">#</a></h2>
+<p>Write <span class="math notranslate nohighlight">\(\mathbf{C} = \mathbf{A}\mathbf{B}^{-1}\)</span> and show that the generalized eigenvalues of <span class="math notranslate nohighlight">\(\mathbf{A}-\lambda\mathbf{B}\)</span> are the simple eigenvalues of <span class="math notranslate nohighlight">\(\mathbf{C} - \lambda\mathbf{I}\)</span>.  Find <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> for the Mandelbrot matrices above, and code it up and compare the times to compute simple eigenvalues versus generalized eigenvalues. How high a degree can you get to?  We stopped at <span class="math notranslate nohighlight">\(N=16\)</span>, where the computation took about an hour and a half, and the residual was about <span class="math notranslate nohighlight">\(4.0e-5\)</span>.  The current record is held by <a class="reference external" href="https://numpi.dm.unipi.it/software/mpsolve">MPSolve</a> with <span class="math notranslate nohighlight">\(k=23\)</span>, so over <span class="math notranslate nohighlight">\(4\)</span> million roots (using multiple precision); we don’t think eigenvalue methods can get that high, but we think <a class="reference external" href="https://ir.lib.uwo.ca/etd/4028/">homotopy methods can</a>, although they haven’t yet.</p>
+<p>We gave part of what to do, already in the question.  Here’s some code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This matrix gives a _simple_ eigenvalue problem for Mandelbrot polynomials: see Activity 10 above.</span>
+<span class="k">def</span> <span class="nf">m_mand</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">M</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">d</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">d</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span>
+        <span class="n">M</span><span class="p">[</span><span class="n">d</span><span class="o">+</span><span class="mi">1</span><span class="p">:,</span> <span class="n">d</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">temp</span>
+        <span class="n">M</span><span class="p">[</span><span class="n">d</span><span class="p">,</span> <span class="n">d</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="n">M</span><span class="p">[</span><span class="n">d</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">d</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">times</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="n">m_mand</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">tic</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+    <span class="n">LA</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+    <span class="n">toc</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+    <span class="n">times</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">toc</span> <span class="o">-</span> <span class="n">tic</span><span class="p">)</span>
+
+<span class="c1"># Should also plot line of best fit and find slope</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="p">)))</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">times</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Reports on Mandelbrot Activities_37_0.png" src="../_images/Reports on Mandelbrot Activities_37_0.png" />
+</div>
+</div>
+<p><a class="reference internal" href="../Contents/mandelbrot.html#mandelbrotactivity-11"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="mandelbrot-activity-12">
+<span id="mandelbrotactivityreport-12"></span><h2>Mandelbrot Activity 12<a class="headerlink" href="#mandelbrot-activity-12" title="Permalink to this headline">#</a></h2>
+<p>Eigenvalues of perturbed matrices are called <em>pseudospectra</em> (the set of eigenvalues themselves is called the <em>spectrum</em>).  <span class="math notranslate nohighlight">\(\Lambda_\varepsilon(\mathbf{A}) := \{z : \exists \mathbf{E} \backepsilon \mathrm{det}(z\mathbf{I} - (\mathbf{A}+\mathbf{E})) = 0 \&amp; \|\mathbf{E}\| \le \varepsilon\}\)</span>. That definition means, in words, that the pseudospectrum at size <span class="math notranslate nohighlight">\(\varepsilon\)</span> is the set of complex numbers <span class="math notranslate nohighlight">\(z\)</span> that are the exact eigenvalues of matrices perturbed by another matrix <span class="math notranslate nohighlight">\(\mathbf{E}\)</span> which is at most <span class="math notranslate nohighlight">\(\varepsilon\)</span> in norm.  Check out the <a class="reference external" href="https://www.cs.ox.ac.uk/pseudospectra/">Pseudospectra gateway</a> and then do some pseudospectral experiments with Mandelbrot matrices.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pseudospectra of the simple eigenvalue problem, for problem 12</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">M7</span> <span class="o">=</span> <span class="n">m_mand</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="n">nx</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1.25</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span>
+<span class="p">[</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s1">&#39;ij&#39;</span><span class="p">)</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nx</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ny</span><span class="p">):</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="nb">complex</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">],</span> <span class="n">Y</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">])</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">M7</span><span class="p">)</span>
+        <span class="n">Z</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">dpi</span> <span class="o">=</span> <span class="mi">80</span><span class="p">)</span>  
+<span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Reports on Mandelbrot Activities_40_0.png" src="../_images/Reports on Mandelbrot Activities_40_0.png" />
+</div>
+</div>
+<p><a class="reference internal" href="../Contents/mandelbrot.html#mandelbrotactivity-12"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="mandelbrot-activity-13">
+<span id="mandelbrotactivityreport-13"></span><h2>Mandelbrot Activity 13<a class="headerlink" href="#mandelbrot-activity-13" title="Permalink to this headline">#</a></h2>
+<p>Other families of polynomials like the Mandelbrot polynomials can be defined: Fibonacci–Mandelbrot polynomials defined by <span class="math notranslate nohighlight">\(q_{n+1}(z) = z q_n(z) q_{n-1}(z) + 1\)</span> and <span class="math notranslate nohighlight">\(q_0(z)=0\)</span> and <span class="math notranslate nohighlight">\(q_1(z) = 1\)</span>, for instance; or Fibonacci–Narayana polynomials.  Define your own polynomials by recurrence relation, and find your own matrices whose eigenvalues are their roots, and draw their eigenvalues.  We have only done a few of these, and there are infinitely many to choose from.  It’s possible your results will be completely new (and therefore publishable).</p>
+<p>See <a class="reference external" href="https://ir.lib.uwo.ca/etd/4028/">Eunice Chan’s Master’s Thesis</a></p>
+<p><a class="reference internal" href="../Contents/mandelbrot.html#mandelbrotactivity-13"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="mandelbrot-activity-14">
+<span id="mandelbrotactivityreport-14"></span><h2>Mandelbrot Activity 14<a class="headerlink" href="#mandelbrot-activity-14" title="Permalink to this headline">#</a></h2>
+<p>The paper <a class="reference external" href="https://doi.org/10.5206/mt.v1i1.14037">Some Facts and Conjectures on Mandelbrot Polynomials</a> contains a formula for the <em>Mandelbrot Generating Function</em> MGF(k,c), which <em>analytically solves</em> the Mandelbrot iteration <span class="math notranslate nohighlight">\(z_{n+1} = z_n^2 + c\)</span>, at least for <span class="math notranslate nohighlight">\(c\)</span> <em>outside</em> the Mandelbrot set.  This means that we could (say) take half an iteration—and find <span class="math notranslate nohighlight">\(z_{1/2}(c)\)</span> or <span class="math notranslate nohighlight">\(z_{3/2}(c)\)</span>.  As with <a class="reference external" href="https://youtu.be/ghxQA3vvhsk">Stand-Up Math’s Video on Complex Fibonacci Numbers</a> these are likely to be <em>complex numbers</em>.  So far as we know, no-one (not even us) has computed these.  Do so, for (say) <span class="math notranslate nohighlight">\(c=1\)</span> or <span class="math notranslate nohighlight">\(c=2\)</span>.  Plot the results.  This, also, might be publishable (again, <a class="reference external" href="https://www.mapletransactions.org">Maple Transactions</a> might be a good place).</p>
+<p>This could be very interesting.  We lookforward to your solution!</p>
+<p><a class="reference internal" href="../Contents/mandelbrot.html#mandelbrotactivity-14"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="mandelbrot-activity-15">
+<span id="mandelbrotactivityreport-15"></span><h2>Mandelbrot Activity 15<a class="headerlink" href="#mandelbrot-activity-15" title="Permalink to this headline">#</a></h2>
+<p>A <a class="reference external" href="https://en.wikipedia.org/wiki/Companion_matrix">companion matrix</a> for a polynomial (say <span class="math notranslate nohighlight">\(P(\lambda)\)</span>) is simply a matrix <span class="math notranslate nohighlight">\(C\)</span> whose eigenvalues are the roots of <span class="math notranslate nohighlight">\(P(\lambda)\)</span>.  Every matrix has a characteristic polynomial whose roots are its eigenvalues; what’s interesting is that this can be run the other way (it’s a bit more complicated because “Frobenius companion matrices” as in the link above have special properties).  But companion matrices are not unique: any matrix similar to a companion matrix <span class="math notranslate nohighlight">\(\mathbf{S}\mathbf{C}\mathbf{S}^{-1}\)</span> is also a companion matrix for that same <span class="math notranslate nohighlight">\(P(\lambda)\)</span>.  Suppose that you have a polynomial with <em>integer</em> coefficients.  Then the Frobenius companion matrix has (those same) integers as entries, together with ones and zeros.  Therefore, out of all integer companion matrices for <span class="math notranslate nohighlight">\(P(\lambda)\)</span>, there must be one with <em>minimal height</em>: the height of the matrix is the size of the largest absolute value of any entry in the matrix.  Mandelbrot matrices as defined above have height <span class="math notranslate nohighlight">\(1\)</span>, which is the smallest possible for integer companions, and are therefore “minimal height”.  Note that the size of the coefficients of the polynomial are exponential in the degree! So the height of the Frobenius companion matrix of Mandelbrot polynomials is likewise exponential.  Not much is known about <a class="reference external" href="https://link.springer.com/article/10.1007/s11786-018-0364-2">minimal height companion matrices</a> (see also <a class="reference external" href="https://journals.uwyo.edu/index.php/ela/article/view/1781">our first paper</a>); we do not have an algorithm for finding one for a given integer polynomial, for instance. We <em>believe</em> that minimal height companion matrices are generally better-conditioned as far as their eigenvalues, but we have no proof.  Find a minimal height companion matrix for (say) <span class="math notranslate nohighlight">\(\lambda^3 + 5\lambda^2 + 3\lambda + 1\)</span>.  Find a general algorithm for computing minimal height companions.  Prove that they’re useful.  If you succeed at this problem, you should certainly publish your results; a good venue might be the <a class="reference external" href="https://journals.uwyo.edu/index.php/ela">Electronic Journal of Linear Algebra</a>.</p>
+<p>Similarly, we look forward to your solution!</p>
+<p><a class="reference internal" href="../Contents/mandelbrot.html#mandelbrotactivity-15"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="mandelbrot-activity-16">
+<span id="mandelbrotactivityreport-16"></span><h2>Mandelbrot Activity 16<a class="headerlink" href="#mandelbrot-activity-16" title="Permalink to this headline">#</a></h2>
+<p><em>Take some time and write down some of your own questions about this material</em>.</p>
+<p>What is the area of the Mandelbrot set?  Does it even have an area? What is its perimeter? Does it even have a perimeter? What is its dimension?  What is the fastest way to reliably compute the Mandelbrot set and draw a picture of it?  Are there good free programs to do it?  Is there a three-dimensional version of the Mandelbrot set?  A four-dimensional version? What happens if you have a different power, say <span class="math notranslate nohighlight">\(z^3+c\)</span>? Or a fractional power, <span class="math notranslate nohighlight">\(z^{1/2} + c\)</span>? Is there a matrix version (it looks like the iteration <span class="math notranslate nohighlight">\(Z^2 + \mathbf{C}\)</span> makes sense for matrices <span class="math notranslate nohighlight">\(\mathbf{C}\)</span>). What is the most important open question about the Mandelbrot set? Who proved the most about the Mandelbrot set? About Mandelbrot polynomials? What’s the <em>best</em> way to solve Mandelbrot polynomials? Are there “Mandelbrot rational functions?” What element or elements of the Mandelbrot set has the largest imaginary part? What kind of number is it/are they (rational, irrational, algebraic, transcendental)?</p>
+<p><a class="reference internal" href="../Contents/mandelbrot.html#mandelbrotactivity-16"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Solutions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Reports%20on%20Bohemian%20Activities.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Reports on Bohemian activities</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Reports%20on%20Chaos%20Game%20Activities.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Reports on Chaos Game Activities</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Neil J. Calkin, Eunice Y.S. Chan, and Robert M. Corless<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

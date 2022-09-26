@@ -1,0 +1,2106 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Reports on Fibonacci Activities &#8212; Computational Discovery on Jupyter</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.jpg"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Reports on Continued Fractions Activities" href="Reports%20on%20Continued%20Fractions%20Activities.html" />
+    <link rel="prev" title="Symbolic Computation: The Pitfalls" href="../Appendix/symbolic-computation.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Computational Discovery on Jupyter</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to Computational Discovery on Jupyter
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Preface
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preamble.html">
+   Preamble
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Installing-Python-and-Jupyter.html">
+   Before we begin: installing Python and Jupyter
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/Computing-with-Fibonacci.html">
+   Computing with Fibonacci Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/continued-fractions.html">
+   Continued Fractions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/rootfinding.html">
+   Rootfinding, Newton’s Method, and Dynamical Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/fractals-and-julia-sets.html">
+   Fractals and Julia Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/bohemian-matrices.html">
+   Bounded Height Matrices of Integers (Bohemian Matrices)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/mandelbrot.html">
+   Mandelbrot Polynomials and Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/chaos-game-representation.html">
+   Chaos Game Representation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Epilogue
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Looking-back.html">
+   Zanshin
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/What-to-do-when-things-go-wrong.html">
+   What do to when things go wrong
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/floating-point.html">
+   The Bare Minimum about Floating-Point
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/binomials-factorials-combinatorics.html">
+   Binomials, Factorials, and other Combinatorial Things
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/complex-numbers.html">
+   Complex Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Appendix/symbolic-computation.html">
+   Symbolic Computation: The Pitfalls
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reports on Activities
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Reports on Fibonacci Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Continued%20Fractions%20Activities.html">
+   Reports on Continued Fractions Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Rootfinding%20Activities.html">
+   Reports on Rootfinding Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Julia%20Set%20Activities.html">
+   Reports on Julia Set Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Bohemian%20Activities.html">
+   Reports on Bohemian activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Mandelbrot%20Activities.html">
+   Reports on Mandelbrot Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Reports%20on%20Chaos%20Game%20Activities.html">
+   Reports on Chaos Game Activities
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Back Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about.html">
+   About the authors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter/edit/master/book/Solutions/Reports on Fibonacci Activities.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Solutions/Reports on Fibonacci Activities.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci-activity-1">
+   Fibonacci Activity 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci-activity-2">
+   Fibonacci Activity 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci-activity-3">
+   Fibonacci Activity 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci-activity-4">
+   Fibonacci Activity 4
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci-activity-5">
+   Fibonacci Activity 5
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci-activities-6-and-7">
+   Fibonacci Activities 6 and 7
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci-activities-8-and-9">
+   Fibonacci Activities 8 and 9
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci-activity-10">
+   Fibonacci Activity 10
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci-activity-11">
+   Fibonacci Activity 11
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci-activity-12">
+   Fibonacci Activity 12
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci-activity-13">
+   Fibonacci Activity 13
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci-activity-14">
+   Fibonacci Activity 14
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci-graduate-activities">
+   Fibonacci Graduate Activities
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci-activity-15-truncated-power-series">
+   Fibonacci Activity 15: Truncated Power Series
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Reports on Fibonacci Activities</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci-activity-1">
+   Fibonacci Activity 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci-activity-2">
+   Fibonacci Activity 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci-activity-3">
+   Fibonacci Activity 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci-activity-4">
+   Fibonacci Activity 4
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci-activity-5">
+   Fibonacci Activity 5
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci-activities-6-and-7">
+   Fibonacci Activities 6 and 7
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci-activities-8-and-9">
+   Fibonacci Activities 8 and 9
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci-activity-10">
+   Fibonacci Activity 10
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci-activity-11">
+   Fibonacci Activity 11
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci-activity-12">
+   Fibonacci Activity 12
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci-activity-13">
+   Fibonacci Activity 13
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci-activity-14">
+   Fibonacci Activity 14
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci-graduate-activities">
+   Fibonacci Graduate Activities
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fibonacci-activity-15-truncated-power-series">
+   Fibonacci Activity 15: Truncated Power Series
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="reports-on-fibonacci-activities">
+<h1>Reports on Fibonacci Activities<a class="headerlink" href="#reports-on-fibonacci-activities" title="Permalink to this headline">#</a></h1>
+<section id="fibonacci-activity-1">
+<span id="fibonacciactivityreport-1"></span><h2>Fibonacci Activity 1<a class="headerlink" href="#fibonacci-activity-1" title="Permalink to this headline">#</a></h2>
+<p>The activity was to create the cells, input the numbers and the + sign into them, make sure it’s a “Code” cell, then hold down the CTRL (Command) key and hit ENTER to have the addition executed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="o">+</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">+</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span><span class="o">+</span><span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span><span class="o">+</span><span class="mi">8</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">8</span><span class="o">+</span><span class="mi">13</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">13</span><span class="o">+</span><span class="mi">21</span>  <span class="c1"># One more than was asked for</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>34
+</pre></div>
+</div>
+</div>
+</div>
+<p>One question we want to always ask about what a computer does, is “Are those results correct?” The answer here is <em>yes</em>, obviously, because we actually know these numbers from prior work and we can see that they are right.  Of course we expect computers to get arithmetic right!  <a class="reference internal" href="#fibonacciactivityreport-10"><span class="std std-ref">But see the results in Activity 10</span></a>.  One good place to check sequence answers in general is at the Online Encyclopedia of Integer Sequences (OEIS), and of course the OEIS knows the Fibonacci numbers: <a class="reference external" href="https://oeis.org/A000045">sequence A000045</a>.  There are also good historical notes given there.</p>
+<p><a class="reference internal" href="../Contents/Computing-with-Fibonacci.html#fibonacciactivity-1"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="fibonacci-activity-2">
+<span id="fibonacciactivityreport-2"></span><h2>Fibonacci Activity 2<a class="headerlink" href="#fibonacci-activity-2" title="Permalink to this headline">#</a></h2>
+<p><em>Write a “for” loop in Python to compute the Lucas numbers up to</em> <span class="math notranslate nohighlight">\(L_{30}\)</span>.  <em>Compare your answers with the numbers given at the OEIS entry linked above (A000032)</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Lucas_List</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">31</span><span class="p">):</span>
+    <span class="n">nxt</span> <span class="o">=</span> <span class="n">Lucas_List</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">Lucas_List</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">Lucas_List</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nxt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Lucas_List</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 1, 3, 4, 7, 11, 18, 29, 47, 76, 123, 199, 322, 521, 843, 1364, 2207, 3571, 5778, 9349, 15127, 24476, 39603, 64079, 103682, 167761, 271443, 439204, 710647, 1149851, 1860498]
+</pre></div>
+</div>
+</div>
+</div>
+<p>From the <a class="reference external" href="https://oeis.org/A000032">Online Encyclopedia of Integer Sequences, sequence A000032</a>, we have that the Lucas sequence starts off with 2, 1, 3, 4, 7, 11, 18, 29, 47, 76, 123, 199, 322, 521, 843, 1364, 2207, 3571, 5778, 9349, 15127, 24476, 39603, 64079, 103682, 167761, 271443, 439204, 710647, 1149851, 1860498, 3010349, 4870847, 7881196, 12752043, 20633239, 33385282, 54018521, 87403803 .  The output of the program above agrees, as far as it goes.</p>
+<p><a class="reference internal" href="../Contents/Computing-with-Fibonacci.html#fibonacciactivity-2"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="fibonacci-activity-3">
+<span id="fibonacciactivityreport-3"></span><h2>Fibonacci Activity 3<a class="headerlink" href="#fibonacci-activity-3" title="Permalink to this headline">#</a></h2>
+<p><em>Use a “while” loop to compute the Lucas numbers</em> up to <span class="math notranslate nohighlight">\(L_{30}\)</span> using Python.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Lucas_List</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">31</span><span class="p">:</span>
+    <span class="n">nxt</span> <span class="o">=</span> <span class="n">Lucas_List</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">Lucas_List</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">Lucas_List</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nxt</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Lucas_List</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 1, 3, 4, 7, 11, 18, 29, 47, 76, 123, 199, 322, 521, 843, 1364, 2207, 3571, 5778, 9349, 15127, 24476, 39603, 64079, 103682, 167761, 271443, 439204, 710647, 1149851, 1860498]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The output is exactly the same as before.</p>
+<p><a class="reference internal" href="../Contents/Computing-with-Fibonacci.html#fibonacciactivity-3"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="fibonacci-activity-4">
+<span id="fibonacciactivityreport-4"></span><h2>Fibonacci Activity 4<a class="headerlink" href="#fibonacci-activity-4" title="Permalink to this headline">#</a></h2>
+<p><em>The so-called</em> <a class="reference external" href="https://oeis.org/A000930">Narayana cow’s sequence</a> <em>has the recurrence relation <span class="math notranslate nohighlight">\(a_n = a_{n-1} + a_{n-3}\)</span>, with the initial conditions <span class="math notranslate nohighlight">\(a_0 = a_1 = a_2 = 1\)</span>.  Write a Python loop to compute up to</em> <span class="math notranslate nohighlight">\(a_{30}\)</span>.  <em>Compare your answers with the numbers given at the OEIS entry linked above (A000930)</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Narayana_cows</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">31</span><span class="p">):</span>
+    <span class="n">nxt</span> <span class="o">=</span> <span class="n">Narayana_cows</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">Narayana_cows</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">Narayana_cows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nxt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Narayana_cows</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 1, 1, 2, 3, 4, 6, 9, 13, 19, 28, 41, 60, 88, 129, 189, 277, 406, 595, 872, 1278, 1873, 2745, 4023, 5896, 8641, 12664, 18560, 27201, 39865, 58425]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Comparing with the initial numbers at <a class="reference external" href="https://oeis.org/A000930">the OEIS entry for A000930</a>, namely, 1, 1, 1, 2, 3, 4, 6, 9, 13, 19, 28, 41, 60, 88, 129, 189, 277, 406, 595, 872, 1278, 1873, 2745, 4023, 5896, 8641, 12664, 18560, 27201, 39865, 58425, 85626, 125491, 183916, 269542, 395033, 578949, 848491, 1243524, 1822473, 2670964, 3914488, 5736961, 8407925, we see that the numbers are the same, as far as they go.</p>
+<p><a class="reference internal" href="../Contents/Computing-with-Fibonacci.html#fibonacciactivity-4"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="fibonacci-activity-5">
+<span id="fibonacciactivityreport-5"></span><h2>Fibonacci Activity 5<a class="headerlink" href="#fibonacci-activity-5" title="Permalink to this headline">#</a></h2>
+<p><em>Write Python code to</em> <a class="reference external" href="https://en.wikipedia.org/wiki/Golden_spiral">draw the traditional Fibonacci Spiral</a>.</p>
+<p>A google search turns up the <a class="reference external" href="https://youtu.be/AH6fygto3Mk">following Turtle Geometry in Python Fibonacci Spiral</a> by DavisMT, which is a bit more advanced than we had in mind; but it suffices.  There are lots of others to choose from.  Discussion of which is best could be a nice classroom activity.</p>
+<p><a class="reference internal" href="../Contents/Computing-with-Fibonacci.html#fibonacciactivity-5"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="fibonacci-activities-6-and-7">
+<span id="fibonacciactivityreport-7"></span><span id="fibonacciactivityreport-6"></span><h2>Fibonacci Activities 6 and 7<a class="headerlink" href="#fibonacci-activities-6-and-7" title="Permalink to this headline">#</a></h2>
+<p>We invented something that we think is new!  The activity for you was, <em>Write a Python program to draw these triangles and draw a spiral line through the resulting Fibonacci numbers (starting at 2)</em>.</p>
+<p>For the new spiral, we need a bit of pen-and-paper work first to work out the angles, and a consistent numbering scheme.  If we make one vertex of each triangle be the origin, it makes a nice picture with the triangles successively touching each other.  In this case it will work out better if we draw the picture first, then explain the code that drew the picture.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Isosceles Fibonacci Triangle Spiral</span>
+<span class="n">Final_Triangle</span> <span class="o">=</span> <span class="mi">7</span>  <span class="c1"># We will draw triangles from the flat one on, and stop at a &quot;Final Triangle&quot;</span>
+<span class="c1"># We will need one more Fibonacci number than triangles (because we throw the first one away )</span>
+<span class="n">Fibonacci</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">Final_Triangle</span><span class="o">+</span><span class="mi">2</span><span class="p">):</span>
+    <span class="n">nxt</span> <span class="o">=</span> <span class="n">Fibonacci</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">Fibonacci</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">Fibonacci</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nxt</span><span class="p">)</span>
+<span class="n">angle_cosines</span> <span class="o">=</span> <span class="p">[</span><span class="n">Fibonacci</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">Fibonacci</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">Final_Triangle</span><span class="o">+</span><span class="mi">2</span><span class="p">)]</span>
+
+<span class="c1"># When writing this code, print statements like the following </span>
+<span class="c1"># were very useful for debugging.  We have left them in, but commented them out</span>
+<span class="c1"># so Python does not execute them (but you can see them)</span>
+<span class="c1"># print( angle_cosines )</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># These are the small angles in the isosceles triangles</span>
+<span class="n">angles</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">angle_cosines</span> <span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">angles</span><span class="p">)</span>  <span class="c1"># Actually there is something interesting about these angles</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># We need the cumulative sums of those angles for our spiral</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">angles</span><span class="p">)</span>
+
+<span class="c1">#print(theta)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="p">[</span><span class="n">Fibonacci</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">Final_Triangle</span><span class="o">+</span><span class="mi">2</span><span class="p">)]</span>
+<span class="c1">#print(r, r[-1])</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;projection&#39;</span><span class="p">:</span> <span class="s1">&#39;polar&#39;</span><span class="p">})</span> <span class="c1"># same as before</span>
+<span class="c1"># Plot the spiral (ie the outermost points of each triangle)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="c1"># same as before</span>
+
+<span class="c1"># Now plot the long sides of each triangle</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">r</span><span class="p">)):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">theta</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_rmax</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="c1"># </span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_rticks</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>  <span class="c1"># Show Fibonacci radii for our plot</span>
+<span class="c1">#ax.set_rlabel_position(-22.5)  # don&#39;t need this command</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># same as before</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;New Fibonacci Spiral&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span> <span class="c1"># change the title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.0, 0.7227342478134157, 0.5856855434571508, 0.6435011087932843, 0.6223684885550206, 0.630568739599553]
+0.6283185307179586
+</pre></div>
+</div>
+<img alt="../_images/Reports on Fibonacci Activities_30_1.png" src="../_images/Reports on Fibonacci Activities_30_1.png" />
+</div>
+</div>
+<p>There’s lots to talk about in that code.  The “cumsum” function has an odd name (the same name as the corresponding function in Matlab) but it just replaces a list [x, y, z, w] with another list [x, x+y, x+y+z, x+y+z+w].  So, simple but useful.  We needed it because the <em>direction</em> the final triangle is pointing has as its angle the sum of its internal angle plus all the angles of the previous triangles: the cumulative sum, in other words.  The final entry in a list can be referred to by asking for the “-1” entry, viz: r[-1] gives us the largest radius.  The counting was hard, because there is no (0,0,1) triangle, and the (1,1,2) triangle is flat and has internal angles 0 or 180 degrees (0 or <span class="math notranslate nohighlight">\(\pi\)</span> radians, and of course the trig functions in Python use radians).  Python chose the colours of the lines, because we didn’t specify them; the labels are a bit squashed up because we didn’t try very hard to make this spiral pretty.  We <em>expect</em> that you can already do better than this program.</p>
+<p>We did not try to draw a smooth curve through the points, but a polar curve with radius <span class="math notranslate nohighlight">\(\phi^t/\sqrt{5}\)</span> and angle linear in <span class="math notranslate nohighlight">\(t\)</span> can be made to match these points pretty closely.  That’s also not a bad activity.</p>
+<p>The interesting fact alluded to above, when we printed the angles, was that they very quickly settle down to <span class="math notranslate nohighlight">\(\pi/5\)</span>.  This is because <span class="math notranslate nohighlight">\(F_n/(2F_{n-1})\)</span> very quickly settles down to <span class="math notranslate nohighlight">\(\phi/2\)</span>, and, which is a surprising fact, the angle whose cosine is <span class="math notranslate nohighlight">\(\phi/2\)</span> is <span class="math notranslate nohighlight">\(\pi/5\)</span>.  There is a square root of 5 in <span class="math notranslate nohighlight">\(\phi\)</span>, and a <span class="math notranslate nohighlight">\(5\)</span> in the radian measure of its arccosine; is this a coincidence?  You might want to try to <em>prove</em> to yourself that these facts are true; if you manage it, you might simultaneously find a reason (or alternatively decide that it is, in fact, just a coincidence).  But that sort of thing is much more like traditional math, and so we reluctantly do not pursue it here.</p>
+<p><a class="reference internal" href="../Contents/Computing-with-Fibonacci.html#fibonacciactivity-6"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="fibonacci-activities-8-and-9">
+<span id="fibonacciactivityreport-9"></span><span id="fibonacciactivityreport-8"></span><h2>Fibonacci Activities 8 and 9<a class="headerlink" href="#fibonacci-activities-8-and-9" title="Permalink to this headline">#</a></h2>
+<p>Now we look at the activities with the length (in bits) of Fibonacci numbers. The first question is “Compute the <span class="math notranslate nohighlight">\(n\)</span>th Fibonacci number for <span class="math notranslate nohighlight">\(n=100\)</span>, <span class="math notranslate nohighlight">\(1000\)</span>, and <span class="math notranslate nohighlight">\(10000\)</span>.  How many digits does each have?
+Can you predict the number of digits in <span class="math notranslate nohighlight">\(F_n\)</span> as a function of <span class="math notranslate nohighlight">\(n\)</span>?  How many bits in the binary expansions? “</p>
+<p>First we check that Binet’s formula does a reasonable job:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phi</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
+<span class="k">def</span> <span class="nf">Binet</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span> <span class="n">phi</span><span class="o">**</span><span class="n">n</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">Binet</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">Binet</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">Binet</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">Binet</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">Binet</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">Binet</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span> <span class="n">Binet</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Binet</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">Binet</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="n">Binet</span><span class="p">(</span><span class="mi">1000</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0 1.0 2.0 3.0 5.0 8.0 13.0
+55.0 3.542248481792631e+20 4.3466557686938915e+208
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fibo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">prev</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">curr</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">fib</span> <span class="o">=</span> <span class="n">curr</span> <span class="o">+</span> <span class="n">prev</span>
+        <span class="n">prev</span> <span class="o">=</span> <span class="n">curr</span>
+        <span class="n">curr</span> <span class="o">=</span> <span class="n">fib</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">fib</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">fibo</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">fibo</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="n">fibo</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span> <span class="n">fibo</span><span class="p">(</span><span class="mi">1000</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>55 354224848179261915075 43466557686937456435688527675040625802564660517371780402481729089536555417949051890403879840079255169295922593080322634775209689623239873322471161642996440906533187938298969649928516003704476137795166849228875 43466557686937456435688527675040625802564660517371780402481729089536555417949051890403879840079255169295922593080322634775209689623239873322471161642996440906533187938298969649928516003704476137795166849228875
+</pre></div>
+</div>
+</div>
+</div>
+<p>Those numbers agree (up to floating-point error) and so we accept the formula <span class="math notranslate nohighlight">\(F_n \approx \phi^n/\sqrt{5}\)</span>.  Since we are told that the length (in bits) of <span class="math notranslate nohighlight">\(F_n\)</span> has something to do with <span class="math notranslate nohighlight">\(\log_2 F_n\)</span>, we think for a moment and realize that it actually takes <span class="math notranslate nohighlight">\(\lceil \log_2 F_n \rceil\)</span> bits, where the <em>ceiling</em> of a real number <span class="math notranslate nohighlight">\(x\)</span>, namely <span class="math notranslate nohighlight">\(\lceil x \rceil\)</span>, is defined as the integer you get when you round <em>up</em> (alternatively, it is the smallest integer greater than or equal to <span class="math notranslate nohighlight">\(x\)</span>).  Now we try to simplify</p>
+<div class="math notranslate nohighlight">
+\[
+\log_2 F_n \approx \log_2 \left( \frac{\phi^n}{\sqrt5} \right) = n\log_2 \phi - \log_2\sqrt{5} \approx n \ln \phi/\ln 2. 
+\]</div>
+<p>(We ignored the <span class="math notranslate nohighlight">\(-\log_2\sqrt{5}\)</span> in that last line because that is only about 1 bit, and if <span class="math notranslate nohighlight">\(n\)</span> is at all large, that <span class="math notranslate nohighlight">\(1\)</span> won’t matter.)
+By simple computation, we have <span class="math notranslate nohighlight">\(\ln \phi/\ln 2 \approx 0.4812/0.6931 \approx 0.6942 \)</span>.  This predicts that the number of bits needed to represent <span class="math notranslate nohighlight">\(F_n\)</span> should be <em>linearly</em> related to <span class="math notranslate nohighlight">\(n\)</span>, at least approximately.   Let’s try first for <span class="math notranslate nohighlight">\(F_{10} = 55\)</span>.  In binary, this is <span class="math notranslate nohighlight">\(110111\)</span>, which needs six bits.  The prediction, on the other hand, is <span class="math notranslate nohighlight">\(0.6942\cdot 10 = 6.942\)</span>, either <span class="math notranslate nohighlight">\(6\)</span> or <span class="math notranslate nohighlight">\(7\)</span> bits.  This is adequate agreement, but not convincing.  Now let’s try <span class="math notranslate nohighlight">\(F_{100} = 354224848179261915075\)</span> which took 69 bits; the prediction is <span class="math notranslate nohighlight">\(69.42\)</span> bits, which is better agreement.  Converting <span class="math notranslate nohighlight">\(F_{1000}\)</span> to binary gives <span class="math notranslate nohighlight">\(1000011101100011001011000001111011010101110010110000100101011100110010101110110001000101101111001011000011001110111010101100001110100000111101000011000110100110011011101011010001101001110010011110100111001101101010011111100100001011001010100100111011011010010111101011010010001001001101010101010011100110000011011100110000011000101111000110001111111101100010101110011001110000101000000001101000000100110001101000111111101010110000110000010010111000110101000100000010100000111100000111010110000010110000000010010011000010110111111010001000000000111100001100010010101101001100100011100110110101010010100001101000000001011111110001110000101101011001010011011100011101011100110000000110000001001011\)</span> which has <span class="math notranslate nohighlight">\(694\)</span> bits.  We hope that this is convincing, now.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span> <span class="c1"># log base 2 of the square root of 5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.160964047443681
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">bin</span><span class="p">(</span><span class="n">fibo</span><span class="p">(</span><span class="mi">1000</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0b1000011101100011001011000001111011010101110010110000100101011100110010101110110001000101101111001011000011001110111010101100001110100000111101000011000110100110011011101011010001101001110010011110100111001101101010011111100100001011001010100100111011011010010111101011010010001001001101010101010011100110000011011100110000011000101111000110001111111101100010101110011001110000101000000001101000000100110001101000111111101010110000110000010010111000110101000100000010100000111100000111010110000010110000000010010011000010110111111010001000000000111100001100010010101101001100100011100110110101010010100001101000000001011111110001110000101101011001010011011100011101011100110000000110000001001011&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">fibo</span><span class="p">(</span><span class="mi">1000</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>696
+</pre></div>
+</div>
+</div>
+</div>
+<p>That length is 696 and not 694 because of the extra two characters ‘0b’ at the start.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">bin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">a</span><span class="p">,</span> 
+      <span class="n">a</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 b 0 0b0 0
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference internal" href="../Contents/Computing-with-Fibonacci.html#fibonacciactivity-8"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="fibonacci-activity-10">
+<span id="fibonacciactivityreport-10"></span><h2>Fibonacci Activity 10<a class="headerlink" href="#fibonacci-activity-10" title="Permalink to this headline">#</a></h2>
+<p><em>Figure out how to implement iterated squaring to compute <span class="math notranslate nohighlight">\(A^{51}\)</span> by a sequence of Python statements</em>.  Then code a function which will take <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(A\)</span> as inputs, compute <span class="math notranslate nohighlight">\(A^n\)</span> by iterated squaring (also called <em>binary powering</em> and the general strategy is sometimes called “divide and conquer”) and return it.<br />
+You should only need to use two matrices for storage if you are careful.  There are several ways to do this.  For one method, a hint is to find the low order bits of <span class="math notranslate nohighlight">\(n\)</span> first.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bipow</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="n">ndim</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">ni</span> <span class="o">=</span> <span class="n">n</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">ndim</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">multiplier</span> <span class="o">=</span> <span class="n">A</span>
+    <span class="c1"># At this point, with ni = n, we have A**n = answer*multiplier**ni</span>
+    <span class="k">while</span> <span class="n">ni</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># print(binaryn[-i])</span>
+        <span class="k">if</span> <span class="n">ni</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># Even bit, so ni &lt;- ni/2</span>
+            <span class="n">ni</span> <span class="o">=</span> <span class="n">ni</span><span class="o">/</span><span class="mi">2</span> <span class="c1"># Integer division</span>
+            <span class="n">multiplier</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">multiplier</span><span class="p">,</span><span class="n">multiplier</span><span class="p">)</span>
+            <span class="c1"># Still true that answer*multiplier**ni = A**n</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Odd bit, so ni &lt;- ni - 1</span>
+            <span class="n">ni</span> <span class="o">=</span> <span class="n">ni</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="n">answer</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">answer</span><span class="p">,</span><span class="n">multiplier</span><span class="p">)</span>
+            <span class="c1"># Still true that answer*multiplier**ni = A**n</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span> <span class="c1"># At this point, ni=0 so answer = A**n</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let us prove, by induction on <span class="math notranslate nohighlight">\(n\)</span>, that the code above is correct, <em>on the assumption that the inputs are a matrix A and a nonnegative integer <span class="math notranslate nohighlight">\(n\)</span></em>.</p>
+<ol class="simple">
+<li><p>At the first marked point, the variables “answer” and “multiplier” and “ni” are such that <code class="docutils literal notranslate"><span class="pre">A**n</span> <span class="pre">=</span> <span class="pre">answer*multiplier**ni</span></code>.</p></li>
+<li><p>The while loop terminates with ni=0. To prove this, note that every time through the loop ni is replaced by a smaller integer, either ni/2 or ni-1.  Therefore the loop executes a finite number of times.  It only terminates if ni=0.</p></li>
+<li><p>After each branch of the if statement, it remains true that <code class="docutils literal notranslate"><span class="pre">A**n</span> <span class="pre">=</span> <span class="pre">answer*multiplier**ni</span></code>. This is a “loop invariant”. This is because in the “even” branch, the multiplier is squared so <code class="docutils literal notranslate"><span class="pre">A**n</span> <span class="pre">=</span> <span class="pre">answer*(multiplier**2)**(ni/2)</span></code>, and in the “odd” branch the answer variable is altered so <code class="docutils literal notranslate"><span class="pre">A**n</span> <span class="pre">=</span> <span class="pre">(answer*multiplier)*(multiplier**(ni-1))</span></code>.</p></li>
+<li><p>When the loop ends, ni=0, so “answer” contains <code class="docutils literal notranslate"><span class="pre">A**n</span></code>.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">A</span><span class="p">),</span> <span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">bipow</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1  1]
+ [-1  1]] [[-2  2]
+ [-2 -2]] [[-2  2]
+ [-2 -2]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The statements below are a kind of “minimal test” of the code above.  The difference between <span class="math notranslate nohighlight">\(A^n\)</span> computed by one method versus <code class="docutils literal notranslate"><span class="pre">bipow(A,n)</span></code> should be zero, and for our examples, it is.  <em>Even though</em> the code contains a proof of correctness using “loop invariants” and induction, one wants to test the code.  By using a random matrix and a bunch of powers, both odd and even, one gains some confidence.</p>
+<p>That code did not run correctly the first time, either!  Even though RMC has been programming for decades, and has written this particular program before in other languages, there were glitches, now fixed.  To find and fix the glitches, he inserted various print statements to look at intermediate results.  Eventually he gave up on using the binary expansion of n to decide whether to square or to multiply because it was too “fiddly” and changed to the more straightforward method above. This code is easier to read, if marginally less efficient.  We tell you this just to let you know that writing code involves dealing with bugs, and that this is <em>always</em> an issue.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">99</span><span class="p">,</span><span class="mi">99</span><span class="p">,(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">A2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">A</span><span class="p">)</span>
+<span class="n">A4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">A2</span><span class="p">,</span><span class="n">A2</span><span class="p">)</span>
+<span class="n">A3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">A2</span><span class="p">,</span><span class="n">A</span><span class="p">)</span>
+<span class="n">A7</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">A4</span><span class="p">,</span><span class="n">A3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bipow</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="n">A2</span><span class="p">,</span> <span class="n">bipow</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="o">-</span> <span class="n">A3</span><span class="p">,</span> <span class="n">bipow</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="o">-</span> <span class="n">A4</span><span class="p">,</span> <span class="n">bipow</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span><span class="o">-</span> <span class="n">A7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]] [[0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]] [[0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]] [[0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]
+ [0 0 0 0 0 0 0 0 0 0]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s use this to generate Fibonacci numbers.  At first, all goes well, but when we try to find <span class="math notranslate nohighlight">\(F_{51}\)</span> by this method, we get a shock.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bipow</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bipow</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bipow</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">30</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bipow</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">51</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[5 3]
+ [3 2]]
+[[8 5]
+ [5 3]]
+[[1346269  832040]
+ [ 832040  514229]]
+[[32951280099 20365011074]
+ [20365011074 12586269025]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we see a <em>truly staggering</em> thing about computers and programs.  We <em>proved</em> our program was correct.  We <em>tested</em> our program.  And now we see that it can give wrong results!  There is <em>no way</em> that raising the Fibonacci matrix to a positive power can produce a matrix with negative entries.</p>
+<p>What <em>on earth</em> happened here?  The answer is in the internal data structure.  Let us look for the first time this happens.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">bipow</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">40</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[165580141 102334155]
+ [102334155  63245986]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">bipow</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">45</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1836311903 1134903170]
+ [1134903170  701408733]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">bipow</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">47</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[4807526976 2971215073]
+ [2971215073 1836311903]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">bipow</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">46</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[2971215073 1836311903]
+ [1836311903 1134903170]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1836311903</span><span class="o">+</span><span class="mi">1134903170</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2971215073
+</pre></div>
+</div>
+</div>
+</div>
+<p>That’s what that entry in the matrix should have been, not -1323752223.  How could this <em>happen</em>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="mi">2971215073</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>34
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="mi">1836311903</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>33
+</pre></div>
+</div>
+</div>
+</div>
+<p>And there is the problem.  Remember that the length of a binary number includes the “0b” at the beginning, so the number that wound up being negative was 32 bits long; whereas the last Fibonacci number that was ok was 31 bits long.  Somehow the code decided that it was using <a class="reference external" href="https://www.quora.com/What-is-a-32-bit-signed-integer">“32 bit integers”</a> instead of the normal Python arbitrary-length integers.  Our “proof” assumed the normal properties of integers—which are needed for the matrix multiplication to be correct—and this kind of assumption is so natural to us we didn’t even notice we used it.</p>
+<p>Welcome to the world of computer programming.  Yes, we have to know about data types.</p>
+<p>We could fix this by writing our own matrix multiply that uses Python long integers (its default) instead of NumPy’s 32 bit integers, and perhaps that’s a useful activity.  We will leave that to linear algebra class though.  Instead we will look a bit more carefully at just what we need here; and we will do so in the main text, not here in the “Report” section.  Instead we just provide (with very little comment) a report for the “divide and conquer” suggested advanced activity.  This code is recursive (but not exponentially expensive), uses “tuples” (the pairs of numbers (<span class="math notranslate nohighlight">\(F_{n-1},F_n\)</span>) ) and recurrence relations derived from the matrix multiplication described in the main text.  It also does <em>not</em> use NumPy and therefore winds up using the default Python long integers, so we get correct answers (provided we don’t call it with zero, or negative integers, or nonsense).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">FibonacciByHalving</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span><span class="mi">1</span> <span class="p">:</span>
+        <span class="k">return</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">m</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># The quotient + remainder (either 0 or 1)</span>
+        <span class="n">fm1</span><span class="p">,</span> <span class="n">fm</span> <span class="o">=</span> <span class="n">FibonacciByHalving</span><span class="p">(</span> <span class="n">m</span> <span class="p">)</span> <span class="c1"># A problem of half the size</span>
+        <span class="k">if</span> <span class="n">r</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">fn</span>  <span class="o">=</span> <span class="n">fm</span><span class="o">*</span><span class="p">(</span><span class="n">fm</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">fm1</span><span class="p">)</span>
+            <span class="n">fn1</span> <span class="o">=</span> <span class="n">fm</span><span class="o">*</span><span class="n">fm</span> <span class="o">+</span> <span class="n">fm1</span><span class="o">*</span><span class="n">fm1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">fn</span>  <span class="o">=</span> <span class="p">(</span><span class="n">fm</span><span class="o">+</span><span class="n">fm1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">fm</span><span class="o">**</span><span class="mi">2</span>
+            <span class="n">fn1</span> <span class="o">=</span> <span class="n">fm</span><span class="o">*</span><span class="p">(</span><span class="n">fm</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">fm1</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">((</span><span class="n">fn1</span><span class="p">,</span><span class="n">fn</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FibonacciByHalving</span><span class="p">(</span><span class="mi">47</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1836311903, 2971215073)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="n">st</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">FibonacciByHalving</span><span class="p">(</span><span class="mi">1000000</span><span class="p">)</span> <span class="c1"># Took 10 seconds on this machine when using &quot;fibo&quot;</span>
+<span class="n">time_taken</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">st</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">time_taken</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.08131885528564453
+</pre></div>
+</div>
+</div>
+</div>
+<p>So that code was more than a hundred times faster than the original “fibo” code.  Not bad.  What about for ten million?  Twenty million?  Remember, <span class="math notranslate nohighlight">\(F_n\)</span> has about 0.694n bits in it—so <span class="math notranslate nohighlight">\(F_{10^7}\)</span> will have more than six million bits; the <em>answer</em> is so large that dealing with it must take time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">st</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">FibonacciByHalving</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">7</span><span class="p">)</span> <span class="c1"># </span>
+<span class="n">time_taken</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">st</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">time_taken</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.1844398975372314
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">st</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">FibonacciByHalving</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">7</span><span class="p">)</span> 
+<span class="n">time_taken</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">st</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">time_taken</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.393733024597168
+</pre></div>
+</div>
+</div>
+</div>
+<p>It looks like <em>doubling</em> the size of the input led to the computation taking roughly <em>four</em> times the time. (Somewhat annoyingly, the times reported are quite variable: on this run it was 3 seconds vs 13 seconds, but <em>sometimes</em> it’s 3 seconds vs 8 seconds, which looks better; to get accurate timings, one has to do many runs.  We don’t do this here, because this is only rough work.)  The factor of 4 (when we see it) seems like quadratic growth, which we were hoping to avoid: the cost seems proportional to <span class="math notranslate nohighlight">\(n^2\)</span>.  But this happens because multiplication is more expensive than addition; even though we are doing fewer operations, we are doing more expensive multiplication; and we have to multiply six million bit integers together, and that takes time.</p>
+<p>We can fix this by using <em>faster methods to multiply integers</em> but that’s Python’s problem.  They should implement the fast multiplication methods.  That’s not our job.</p>
+<p><a class="reference internal" href="../Contents/Computing-with-Fibonacci.html#fibonacciactivity-10"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="fibonacci-activity-11">
+<span id="fibonacciactivityreport-11"></span><h2>Fibonacci Activity 11<a class="headerlink" href="#fibonacci-activity-11" title="Permalink to this headline">#</a></h2>
+<p><em>Which is a better method, using matrices or using Binet’s formula</em>, to compute Fibonacci numbers up to (say) <span class="math notranslate nohighlight">\(F_{200}\)</span>? Does using the iterated squaring help with Binet’s formula as well?  How many decimal digits do you have to compute <span class="math notranslate nohighlight">\(\phi\)</span> to in order to ensure that <span class="math notranslate nohighlight">\(F_n\)</span> is accurate?  You don’t have to <em>prove</em> your formula for number of decimal digits, by the way; experiments are enough for this question.  You will have to figure out how to do variable precision arithmetic in some way (perhaps by searching out a Python package to do it).</p>
+<p>We have demonstrated that <code class="docutils literal notranslate"><span class="pre">FibonacciByHalving</span></code>, which is related to the matrix method, is better than either (it doesn’t waste space, for instance).  While Binet’s formula is useful for a lot of things, the variable precision needed for large <span class="math notranslate nohighlight">\(n\)</span> (if one wants the exact answer) mean that it’s usually simpler to compute with (long) integers.</p>
+<p>As for the <em>precision</em> question, in this case you get out what you put in.  The length of the Fibonacci number that you get out has so many bits of precision, and you can’t get that from an inaccurate value of <span class="math notranslate nohighlight">\(\phi\)</span>.  The question of <em>how much precision do you need</em> is a bit tricky, though.  By theoretical means (see the “Best Approximation” section at the end of the unit) we can deduce that <span class="math notranslate nohighlight">\(F_{n+1}/F_n - \phi\)</span> is about the same size as <span class="math notranslate nohighlight">\(1/F_n^2\)</span>.  This turns the problem on its head: if we could use low-accuracy versions of <span class="math notranslate nohighlight">\(\phi\)</span> to get a good <span class="math notranslate nohighlight">\(F_n\)</span>, then we could turn around and improve the accuracy of <span class="math notranslate nohighlight">\(\phi\)</span>.  This seems like “something for nothing”.  More prosaically, using 5 digits of <span class="math notranslate nohighlight">\(\phi\)</span> gets you the first five or so digits of <span class="math notranslate nohighlight">\(F_n\)</span>, no more; this means that it’s good up to about <span class="math notranslate nohighlight">\(n = 16\)</span>.  When <span class="math notranslate nohighlight">\(n=17\)</span>, <span class="math notranslate nohighlight">\(F_n = 1597\)</span> and <span class="math notranslate nohighlight">\(F_n^2\)</span> is bigger than a million, so <span class="math notranslate nohighlight">\(1/F_n^2\)</span> is smaller than <span class="math notranslate nohighlight">\(10^{-6}\)</span> and so computing an approximation to <span class="math notranslate nohighlight">\(F_{17}\)</span> from the five-digit <span class="math notranslate nohighlight">\(\phi\)</span> doesn’t work.</p>
+<p><a class="reference internal" href="../Contents/Computing-with-Fibonacci.html#fibonacciactivity-11"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="fibonacci-activity-12">
+<span id="fibonacciactivityreport-12"></span><h2>Fibonacci Activity 12<a class="headerlink" href="#fibonacci-activity-12" title="Permalink to this headline">#</a></h2>
+<p><em>Compute the last twenty digits of</em> <span class="math notranslate nohighlight">\(F_n\)</span> where <span class="math notranslate nohighlight">\(n = 7^{k}\)</span> for <span class="math notranslate nohighlight">\(k=1\)</span>, <span class="math notranslate nohighlight">\(k=12\)</span>, <span class="math notranslate nohighlight">\(k=123\)</span>, <span class="math notranslate nohighlight">\(k=1234\)</span>, and so on, all the way up to <span class="math notranslate nohighlight">\(k=123456789\)</span>, or as far as you can go in this progression using “reasonable computer time”.  Record the computing times.  At Clemson the student numbers are eight digits long, and these can be used in place of <span class="math notranslate nohighlight">\(123456789\)</span> in the progression above, for variety.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">FibonacciByHalvingModM</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">M</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span><span class="mi">1</span> <span class="p">:</span>
+        <span class="k">return</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">m</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># The quotient + remainder (either 0 or 1)</span>
+        <span class="n">fm1</span><span class="p">,</span> <span class="n">fm</span> <span class="o">=</span> <span class="n">FibonacciByHalvingModM</span><span class="p">(</span> <span class="n">m</span><span class="p">,</span> <span class="n">M</span> <span class="p">)</span> <span class="c1"># A problem of half the size</span>
+        <span class="k">if</span> <span class="n">r</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+            <span class="n">fn</span>  <span class="o">=</span> <span class="p">(</span><span class="n">fm</span><span class="o">*</span><span class="p">(</span><span class="n">fm</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">fm1</span><span class="p">))</span> <span class="o">%</span> <span class="n">M</span>  <span class="c1"># Extra parens seem to be necessary</span>
+            <span class="n">fn1</span> <span class="o">=</span> <span class="p">(</span><span class="n">fm</span><span class="o">*</span><span class="n">fm</span> <span class="o">+</span> <span class="n">fm1</span><span class="o">*</span><span class="n">fm1</span><span class="p">)</span> <span class="o">%</span> <span class="n">M</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">fn</span>  <span class="o">=</span> <span class="p">((</span><span class="n">fm</span><span class="o">+</span><span class="n">fm1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">fm</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">%</span> <span class="n">M</span>
+            <span class="n">fn1</span> <span class="o">=</span> <span class="p">(</span><span class="n">fm</span><span class="o">*</span><span class="p">(</span><span class="n">fm</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">fm1</span><span class="p">)</span>    <span class="p">)</span> <span class="o">%</span> <span class="n">M</span>
+        <span class="k">return</span><span class="p">((</span><span class="n">fn1</span><span class="p">,</span><span class="n">fn</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FibonacciByHalvingModM</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(26, 75)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">st</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">FibonacciByHalvingModM</span><span class="p">(</span><span class="mi">7</span><span class="o">**</span><span class="mi">123</span><span class="p">,</span><span class="mi">10</span><span class="o">**</span><span class="mi">100</span><span class="p">)</span> 
+<span class="n">time_taken</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">st</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">time_taken</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0013380050659179688
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#st = time.time()</span>
+<span class="c1">#FibonacciByHalvingModM(7**1234,10**100) </span>
+<span class="c1">#time_taken = time.time() - st</span>
+<span class="c1">#print(time_taken)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here’s the error message that occurs when that last cell is uncommented (remove the # from the start of each line)</p>
+<hr class="docutils" />
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">RecursionError</span>                            <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">38</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">1</span> <span class="n">st</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="o">----&gt;</span> <span class="mi">2</span> <span class="n">FibonacciByHalvingModM</span><span class="p">(</span><span class="mi">7</span><span class="o">**</span><span class="mi">1234</span><span class="p">,</span><span class="mi">10</span><span class="o">**</span><span class="mi">100</span><span class="p">)</span> 
+      <span class="mi">3</span> <span class="n">time_taken</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">st</span>
+      <span class="mi">4</span> <span class="nb">print</span><span class="p">(</span> <span class="n">time_taken</span> <span class="p">)</span>
+
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">35</span><span class="p">],</span> <span class="ow">in</span> <span class="n">FibonacciByHalvingModM</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>
+      <span class="mi">4</span> <span class="k">else</span><span class="p">:</span>
+      <span class="mi">5</span>     <span class="n">m</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span> <span class="n">n</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span>  <span class="c1"># The quotient + remainder (either 0 or 1)</span>
+<span class="o">----&gt;</span> <span class="mi">6</span>     <span class="n">fm1</span><span class="p">,</span> <span class="n">fm</span> <span class="o">=</span> <span class="n">FibonacciByHalvingModM</span><span class="p">(</span> <span class="n">m</span><span class="p">,</span> <span class="n">M</span> <span class="p">)</span> <span class="c1"># A problem of half the size</span>
+      <span class="mi">7</span>     <span class="k">if</span> <span class="n">r</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+      <span class="mi">8</span>         <span class="n">fn</span>  <span class="o">=</span> <span class="p">(</span><span class="n">fm</span><span class="o">*</span><span class="p">(</span><span class="n">fm</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">fm1</span><span class="p">))</span> <span class="o">%</span> <span class="n">M</span>  <span class="c1"># Extra parens seem to be necessary</span>
+
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">35</span><span class="p">],</span> <span class="ow">in</span> <span class="n">FibonacciByHalvingModM</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>
+      <span class="mi">4</span> <span class="k">else</span><span class="p">:</span>
+      <span class="mi">5</span>     <span class="n">m</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span> <span class="n">n</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span>  <span class="c1"># The quotient + remainder (either 0 or 1)</span>
+<span class="o">----&gt;</span> <span class="mi">6</span>     <span class="n">fm1</span><span class="p">,</span> <span class="n">fm</span> <span class="o">=</span> <span class="n">FibonacciByHalvingModM</span><span class="p">(</span> <span class="n">m</span><span class="p">,</span> <span class="n">M</span> <span class="p">)</span> <span class="c1"># A problem of half the size</span>
+      <span class="mi">7</span>     <span class="k">if</span> <span class="n">r</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+      <span class="mi">8</span>         <span class="n">fn</span>  <span class="o">=</span> <span class="p">(</span><span class="n">fm</span><span class="o">*</span><span class="p">(</span><span class="n">fm</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">fm1</span><span class="p">))</span> <span class="o">%</span> <span class="n">M</span>  <span class="c1"># Extra parens seem to be necessary</span>
+
+    <span class="p">[</span><span class="o">...</span> <span class="n">skipping</span> <span class="n">similar</span> <span class="n">frames</span><span class="p">:</span> <span class="n">FibonacciByHalvingModM</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">6</span> <span class="p">(</span><span class="mi">2969</span> <span class="n">times</span><span class="p">)]</span>
+
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">35</span><span class="p">],</span> <span class="ow">in</span> <span class="n">FibonacciByHalvingModM</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>
+      <span class="mi">4</span> <span class="k">else</span><span class="p">:</span>
+      <span class="mi">5</span>     <span class="n">m</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span> <span class="n">n</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span>  <span class="c1"># The quotient + remainder (either 0 or 1)</span>
+<span class="o">----&gt;</span> <span class="mi">6</span>     <span class="n">fm1</span><span class="p">,</span> <span class="n">fm</span> <span class="o">=</span> <span class="n">FibonacciByHalvingModM</span><span class="p">(</span> <span class="n">m</span><span class="p">,</span> <span class="n">M</span> <span class="p">)</span> <span class="c1"># A problem of half the size</span>
+      <span class="mi">7</span>     <span class="k">if</span> <span class="n">r</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+      <span class="mi">8</span>         <span class="n">fn</span>  <span class="o">=</span> <span class="p">(</span><span class="n">fm</span><span class="o">*</span><span class="p">(</span><span class="n">fm</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">fm1</span><span class="p">))</span> <span class="o">%</span> <span class="n">M</span>  <span class="c1"># Extra parens seem to be necessary</span>
+
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">35</span><span class="p">],</span> <span class="ow">in</span> <span class="n">FibonacciByHalvingModM</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>
+      <span class="mi">1</span> <span class="k">def</span> <span class="nf">FibonacciByHalvingModM</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">M</span><span class="p">):</span>
+<span class="o">----&gt;</span> <span class="mi">2</span>     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span><span class="mi">1</span> <span class="p">:</span>
+      <span class="mi">3</span>         <span class="k">return</span><span class="p">(</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
+      <span class="mi">4</span>     <span class="k">else</span><span class="p">:</span>
+
+<span class="ne">RecursionError</span><span class="p">:</span> <span class="n">maximum</span> <span class="n">recursion</span> <span class="n">depth</span> <span class="n">exceeded</span> <span class="ow">in</span> <span class="n">comparison</span>
+</pre></div>
+</div>
+<p>So, that recursive code cannot do the <span class="math notranslate nohighlight">\(7^{12345678}\)</span> version, or even <span class="math notranslate nohighlight">\(7^{1234}\)</span>, because recursions are only allowed to nest so deep: the “stack” overflows.  It’s not clear Python could even handle such a big input anyway, without testing.  (But, it seems to work, as seen below).  But to find the final 100 digits of the Fibonacci number for this <span class="math notranslate nohighlight">\(n\)</span>, we’re going to have to work a bit harder to make it possible for the computer to get it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">st</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">big</span> <span class="o">=</span> <span class="mi">7</span><span class="o">**</span><span class="mi">12345678</span><span class="p">;</span> <span class="c1"># Has about 10 million digits when expanded.  Not sure Python gets it right.</span>
+<span class="n">time_taken</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">st</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">time_taken</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11.246104955673218
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Manually translated from the Maple routine combinat[fibonacci]</span>
+<span class="k">def</span> <span class="nf">FibonacciByDoubling</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">n</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span><span class="p">(</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">n</span><span class="p">)</span><span class="o">*</span><span class="n">FibonacciByDoubling</span><span class="p">(</span><span class="o">-</span><span class="n">n</span><span class="p">)</span> <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">n</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">while</span> <span class="n">p</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">m</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span> <span class="n">p</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span>
+            <span class="n">p</span>    <span class="o">=</span> <span class="n">m</span>
+            <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+        <span class="n">f0</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">f1</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="n">f0</span>
+                <span class="k">if</span> <span class="n">i</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+                    <span class="n">f0</span> <span class="o">=</span> <span class="n">f1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">f0</span><span class="o">**</span><span class="mi">2</span>
+                <span class="n">f1</span> <span class="o">=</span> <span class="n">f1</span><span class="o">*</span><span class="p">(</span><span class="n">f1</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">s</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="n">f1</span>
+                <span class="n">f1</span> <span class="o">=</span> <span class="n">f1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">f0</span><span class="o">+</span><span class="n">f1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+                <span class="k">if</span> <span class="n">i</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+                    <span class="n">f0</span> <span class="o">=</span> <span class="n">s</span><span class="o">*</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">f0</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">(</span><span class="n">f1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FibonacciByDoubling</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span> <span class="n">FibonacciByHalving</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>  <span class="c1"># The answer should be the same, both ways, and it is.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(6765, (4181, 6765))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Modular arithmetic folded in</span>
+<span class="k">def</span> <span class="nf">FibonacciByDoublingModM</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">M</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">n</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span><span class="p">(</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">n</span><span class="p">)</span><span class="o">*</span><span class="n">FibonacciByDoublingModM</span><span class="p">(</span><span class="o">-</span><span class="n">n</span><span class="p">,</span><span class="n">M</span><span class="p">)</span> <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">n</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">while</span> <span class="n">p</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">m</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span> <span class="n">p</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span>
+            <span class="n">p</span>    <span class="o">=</span> <span class="n">m</span>
+            <span class="n">b</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+        <span class="n">f0</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">f1</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="n">f0</span>
+                <span class="k">if</span> <span class="n">i</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+                    <span class="n">f0</span> <span class="o">=</span> <span class="p">(</span><span class="n">f1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">f0</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">%</span> <span class="n">M</span>
+                <span class="n">f1</span> <span class="o">=</span> <span class="p">(</span><span class="n">f1</span><span class="o">*</span><span class="p">(</span><span class="n">f1</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">s</span><span class="p">))</span> <span class="o">%</span> <span class="n">M</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="n">f1</span>
+                <span class="n">f1</span> <span class="o">=</span> <span class="p">(</span><span class="n">f1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">f0</span><span class="o">+</span><span class="n">f1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">%</span> <span class="n">M</span>
+                <span class="k">if</span> <span class="n">i</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+                    <span class="n">f0</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span><span class="o">*</span><span class="p">(</span><span class="n">s</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">f0</span><span class="p">))</span> <span class="o">%</span> <span class="n">M</span>
+        <span class="k">return</span><span class="p">(</span><span class="n">f1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">st</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">Final100</span> <span class="o">=</span> <span class="n">FibonacciByDoublingModM</span><span class="p">(</span><span class="mi">7</span><span class="o">**</span><span class="mi">123456</span><span class="p">,</span><span class="mi">10</span><span class="o">**</span><span class="mi">100</span><span class="p">)</span> 
+<span class="n">time_taken</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">st</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">time_taken</span><span class="p">,</span> <span class="n">Final100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23.483269929885864 3303961837047442579487010911533190161514152117063487274236115429253289173645117777960901109522457601
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we seem to be “cooking with gas”!  But the exponent we want is a <em>hundred</em> times larger, so we would have to do (it seems) vastly more work, impractically so.  So, again, we need a <em>better method</em>, not just better programming skills.</p>
+<p><a class="reference internal" href="../Contents/Computing-with-Fibonacci.html#fibonacciactivity-12"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="fibonacci-activity-13">
+<span id="fibonacciactivityreport-13"></span><h2>Fibonacci Activity 13<a class="headerlink" href="#fibonacci-activity-13" title="Permalink to this headline">#</a></h2>
+<p><em>Compute the last hundred digits of <span class="math notranslate nohighlight">\(F_n\)</span> where <span class="math notranslate nohighlight">\(n = 7^{12345678}\)</span> for yourself, and confirm our answer (or prove us wrong)</em>.</p>
+<p>We will need modular arithmetic for <em>very</em> high powers, and it looks like Python’s built-in code has some limitations.  The following answer is, apparently, wrong.  It is certainly not what we expected! Raising seven to a power gets an odd number, surely! In response, we wrote our own code. (But it turns out Python is “right”, it’s just doing something we didn’t expect—more after our own code).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PythonFailure</span> <span class="o">=</span> <span class="mi">7</span><span class="o">**</span><span class="mi">12345678</span> <span class="o">%</span> <span class="mi">15</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">99</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">PythonFailure</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+</pre></div>
+</div>
+</div>
+</div>
+<p>That can’t be right.  It’s certainly not the answer Maple gets.  Well, let’s write our own modular powering, using the same trick as is used in <code class="docutils literal notranslate"><span class="pre">bipow</span></code> above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">BinaryIntegerPowerModM</span><span class="p">(</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">M</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">b</span>
+    <span class="n">answer</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">multiplier</span> <span class="o">=</span> <span class="n">a</span> <span class="o">%</span> <span class="n">M</span>
+    <span class="k">while</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">n</span><span class="o">/</span><span class="mi">2</span>
+            <span class="n">multiplier</span> <span class="o">=</span> <span class="n">multiplier</span> <span class="o">*</span> <span class="n">multiplier</span> <span class="o">%</span> <span class="n">M</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
+            <span class="n">answer</span> <span class="o">=</span> <span class="n">answer</span> <span class="o">*</span> <span class="n">multiplier</span> <span class="o">%</span> <span class="n">M</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">answer</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">st</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">good</span> <span class="o">=</span> <span class="n">BinaryIntegerPowerModM</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">12345678</span><span class="p">,</span> <span class="mi">15</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">99</span><span class="p">)</span>
+<span class="n">time_taken</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">st</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">good</span><span class="p">,</span> <span class="n">time_taken</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10074958745783517956561868690867278026860583978054601497639995184130970247153466763696198800985914449 0.00011515617370605469
+</pre></div>
+</div>
+</div>
+</div>
+<p>That’s the same answer Maple got.  It took us a while to understand Python’s different answer with direct use of %.  We thought at first, possibly some kind of overflow of the long integer? It seemed that it computed the large number first and only then tried to do the modular computation.  But, no.  The problem was we need brackets. But, we learned (by checking the time taken) that Python indeed builds that ten-million-digit number first, and then uses modular arithmetic.  Our code was quite a bit faster. (A factor of 1700 faster on one run, which makes us happy; the timings in this run may differ).</p>
+<p>Now try nine digits.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">st</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">good</span> <span class="o">=</span> <span class="n">BinaryIntegerPowerModM</span><span class="p">(</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">123456789</span><span class="p">,</span> <span class="mi">15</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">99</span> <span class="p">)</span>
+<span class="n">time_taken</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">st</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">good</span><span class="p">,</span> <span class="n">time_taken</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9970146625619845782834561006870277384130667336988626592393064577383315981126385562996947892776429607 0.0001232624053955078
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">st</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">PythonSucceeds</span> <span class="o">=</span> <span class="mi">7</span><span class="o">**</span><span class="mi">12345678</span> <span class="o">%</span> <span class="p">(</span><span class="mi">15</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">99</span><span class="p">)</span>
+<span class="n">time_taken</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">st</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">PythonSucceeds</span><span class="p">,</span> <span class="n">time_taken</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10074958745783517956561868690867278026860583978054601497639995184130970247153466763696198800985914449
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 11.332494020462036
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">st</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">ans</span> <span class="o">=</span> <span class="n">FibonacciByDoublingModM</span><span class="p">(</span><span class="mi">10074958745783517956561868690867278026860583978054601497639995184130970247153466763696198800985914449</span><span class="p">,</span><span class="mi">10</span><span class="o">**</span><span class="mi">100</span><span class="p">)</span> 
+<span class="n">time_taken</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">st</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span> <span class="n">time_taken</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>307317414528301264423288910092883733560870958520339896436368099936463847448493468403352592709652449 0.0011110305786132812
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">st</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">ans</span> <span class="o">=</span> <span class="n">FibonacciByDoublingModM</span><span class="p">(</span><span class="mi">10074958745783517956561868690867278026860583978054601497639995184130970247153466763696198800985914449</span><span class="p">,</span><span class="mi">10</span><span class="o">**</span><span class="mi">10</span><span class="p">)</span> 
+<span class="n">time_taken</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">st</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span> <span class="n">time_taken</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2709652449 0.0006058216094970703
+</pre></div>
+</div>
+</div>
+</div>
+<p><a class="reference internal" href="../Contents/Computing-with-Fibonacci.html#fibonacciactivity-13"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="fibonacci-activity-14">
+<span id="fibonacciactivityreport-14"></span><h2>Fibonacci Activity 14<a class="headerlink" href="#fibonacci-activity-14" title="Permalink to this headline">#</a></h2>
+<p><em>Write down some questions (don’t worry about answers) about Fibonacci numbers or the Binet formula</em>.</p>
+<p>We really do want you to write your own questions.  It’s likely that some of the questions you ask will not be productive (that’s true of the questions we write down, that’s how we know) but <em>because</em> you think about these things differently than we do your chance of coming up with a productive new question is not at all bad.</p>
+<p>Here’s our free-association try at answering this.  What happens if we replace the two initial conditions <span class="math notranslate nohighlight">\(F_0 = 0\)</span> and <span class="math notranslate nohighlight">\(F_1=1\)</span> with <em>boundary</em> conditions, say <span class="math notranslate nohighlight">\(F_0=0\)</span> and <span class="math notranslate nohighlight">\(F_{20} = 100\)</span>?  What happens if you <em>reverse the digits</em> of the Fibonacci numbers?  (0, 1, 1, 2, 3, 5, 8, 31, 12, 55, 98, <span class="math notranslate nohighlight">\(\ldots\)</span>).  (We have no idea if that’s productive or not, but we bet “not”).  What happens if you reverse the <em>bits</em> in the binary expansion?  Is there any linear relation among the results?  (Ok maybe it’s interesting).  What happens if instead of always adding <span class="math notranslate nohighlight">\(F_{n} + F_{n-1}\)</span> one randomly chose between adding and subtracting? (This is quite likely a very interesting question).  Is there a second order difference equation whose solutions grow more slowly than the Fibonacci numbers?  How many papers have been written about Fibonacci numbers?  How many books?  Is there someone in the world who might be considered “the world’s greatest Fibonacci expert?” (Ok, now we’re getting silly.)  What is the “most beautiful” Fibonacci image or sculpture?  Is there Fibonacci-based music?  (Apparently there is Sanskrit poetry that is related, so why not music?)  What is the most practical use of the Fibonacci numbers? (Yes, there are some.)  There are apparently some financial “uses” of Fibonacci numbers in trading: are those just another scam? Remember, <em>caveat emptor</em>.</p>
+<p><em>Afterwards, choose out one of your questions and (if you want) answer it</em></p>
+<p>We’ll take the “boundary value” question, because it’s connected with a number of other mathematical subjects.  We <em>could</em> set this up as a linear system of equations, write down the matrix, and solve it that way.  This connects the problem with linear algebra.  But let’s take a step back, and use a (significantly!) older method, known as <em>Ahmes’ method</em> which we know from the <a class="reference external" href="https://en.wikipedia.org/wiki/Rhind_Mathematical_Papyrus">Rhind papyrus</a>.  This also, in this context, connects with one method for solving boundary value problems for ordinary differential equations that you might meet in a later numerical methods class, but that’s just a bonus.  Ahmes method is to <em>guess</em> what one unknown is, then solve the problem that way, then linearly adjust the guess so that your answer works out correctly.  We will use it in a slightly more systematic way.</p>
+<p>The key here for us is that whatever method we choose for solving the problem, eventually it will specify some value for <span class="math notranslate nohighlight">\(F_1\)</span>.  Call that <span class="math notranslate nohighlight">\(\alpha\)</span>.  So we now have <span class="math notranslate nohighlight">\(F_0 = 0\)</span> and <span class="math notranslate nohighlight">\(F_1 = \alpha\)</span>.  Running the Fibonacci recurrence relation, we get <span class="math notranslate nohighlight">\(F_2 = \alpha\)</span>, <span class="math notranslate nohighlight">\(F_3 = 2\alpha\)</span>.  At this point we realize that we need the letter <span class="math notranslate nohighlight">\(F\)</span> for the original Fibonacci numbers, so we go back and rename everything in the new problem: We want <span class="math notranslate nohighlight">\(B_0 = 0\)</span>, <span class="math notranslate nohighlight">\(B_{20} = 100\)</span>, and <span class="math notranslate nohighlight">\(B_{n+1} = B_n + B_{n-1}\)</span> (B for Boundary).  So we have <span class="math notranslate nohighlight">\(B_1 = \alpha\)</span>, <span class="math notranslate nohighlight">\(B_2 = \alpha\)</span>, <span class="math notranslate nohighlight">\(B_3 = 2\alpha\)</span>, <span class="math notranslate nohighlight">\(B_4 = 3\alpha\)</span>, <span class="math notranslate nohighlight">\(B_5 = 5\alpha\)</span>, and it seems like we will have <span class="math notranslate nohighlight">\(B_n = F_n \alpha\)</span>.  We can prove this by induction.  So, if we are to have <span class="math notranslate nohighlight">\(B_{20} = 100\)</span>, we must have <span class="math notranslate nohighlight">\(\alpha = 100/F_{20} = 100/6765\)</span>.  The following code shows that this actually works.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span>  <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">21</span><span class="p">)]</span> <span class="c1"># Range of independent n</span>
+<span class="n">B</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="o">/</span><span class="mf">6765.0</span><span class="p">]</span> <span class="c1"># Initial conditions that we deduced</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">21</span><span class="p">):</span>
+    <span class="n">nxt</span> <span class="o">=</span> <span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">B</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">B</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nxt</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span> 
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Solution of the Boundary-value problem&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Reports on Fibonacci Activities_100_0.png" src="../_images/Reports on Fibonacci Activities_100_0.png" />
+</div>
+</div>
+<p><a class="reference internal" href="../Contents/Computing-with-Fibonacci.html#fibonacciactivity-14"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="fibonacci-graduate-activities">
+<span id="fibonaccigraduateactivityreport-1"></span><h2>Fibonacci Graduate Activities<a class="headerlink" href="#fibonacci-graduate-activities" title="Permalink to this headline">#</a></h2>
+<p>1. Show that <span class="math notranslate nohighlight">\(F(t+1)/F(t) - \phi\)</span> is exactly zero whenever <span class="math notranslate nohighlight">\(t\)</span> is half-way between integers, and is maximum not when <span class="math notranslate nohighlight">\(t\)</span> is an integer but a fixed amount (with a somewhat strange exact expression, namely <span class="math notranslate nohighlight">\(-\arctan((2/\pi)\ln\phi)/\pi\)</span>) less than an integer.</p>
+<p>This activity is plain algebra and calculus to start.  We did this with a computer algebra system; manipulation by hand is a bit tedious, and at this level there is no advantage to hand computation.  To see that it’s true without calculus, a plot works.  But this is not a proof, although pretty convincing.  One advantage of a plot over a “proof” is that you can see that there are <em>extra features</em> for negative <span class="math notranslate nohighlight">\(t\)</span>, namely singularities when <span class="math notranslate nohighlight">\(F(t) = 0\)</span>.  Indeed this helps to motivate the next activity.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">F</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="n">phi</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">5.0</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
+    <span class="k">return</span><span class="p">((</span><span class="n">phi</span><span class="o">**</span><span class="n">t</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="o">*</span><span class="n">phi</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">t</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">5.0</span><span class="p">))</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mf">0.01</span><span class="p">)</span>  <span class="c1"># Make a fine grid of t values </span>
+<span class="n">phi</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">5.0</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">F</span><span class="p">(</span><span class="n">tau</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">F</span><span class="p">(</span><span class="n">tau</span><span class="p">)</span><span class="o">-</span><span class="n">phi</span> <span class="k">for</span> <span class="n">tau</span> <span class="ow">in</span> <span class="n">t</span><span class="p">]</span>   
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span> <span class="c1"># Cartesian is default, anyway</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> 
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># show intersections</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Growth Factor for F(t) compared to $\phi$&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Reports on Fibonacci Activities_104_0.png" src="../_images/Reports on Fibonacci Activities_104_0.png" />
+</div>
+</div>
+<p>2. Show that <span class="math notranslate nohighlight">\(F(t)\)</span> has an infinite number of real zeros, and these rapidly approach negative half integers as <span class="math notranslate nohighlight">\(t\)</span> goes to <span class="math notranslate nohighlight">\(-\infty\)</span>.</p>
+<p>Since the negative Fibonacci numbers <span class="math notranslate nohighlight">\(F_{-k} = (-1)^{k-1}F_k\)</span> alternate in sign, by the intermediate value theorem there must be a zero between <span class="math notranslate nohighlight">\(F(-1)=1\)</span> and <span class="math notranslate nohighlight">\(F(-2)=-1\)</span>, another between <span class="math notranslate nohighlight">\(F(-2)=-1\)</span> and <span class="math notranslate nohighlight">\(F(-3)=2\)</span>, and so on.  That establishes the first part.  To do the second, use Binet’s formula and notice that <span class="math notranslate nohighlight">\(\phi^t\)</span> gets very small for large negative <span class="math notranslate nohighlight">\(t\)</span>.  This forces the zeros to be very nearly the same as the zeros of <span class="math notranslate nohighlight">\(\cos\pi t\)</span>, which occur at half-integers.  You can use Newton’s method to get the asymptotic formula</p>
+<div class="math notranslate nohighlight">
+\[
+t_{-k-1}^* = -k - \frac{1}{2} + \frac{(-1)^k}{\pi}\phi^{-2k-1} + \cdots
+\]</div>
+<p>This formula already gives for <span class="math notranslate nohighlight">\(k=1\)</span> the answer <span class="math notranslate nohighlight">\(-1.575\)</span>, where the true zero is approximately <span class="math notranslate nohighlight">\(-1.570\)</span>.  The agreement only gets better for larger <span class="math notranslate nohighlight">\(k\)</span>.  By <span class="math notranslate nohighlight">\(k=5\)</span> the formula gives more than five decimals accurately; by <span class="math notranslate nohighlight">\(k=14\)</span> it gives full double precision accuracy.  Since <span class="math notranslate nohighlight">\(\phi = 1.618\ldots\)</span> is bigger than <span class="math notranslate nohighlight">\(1\)</span>, in the limit as <span class="math notranslate nohighlight">\(k \to \infty\)</span> the zeros approach half-integers.</p>
+<p>3. Rearrange the Fibonacci recurrence relation to</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{F(t+1)-F(t-1)}{2} = \frac{1}{2} F(t)
+\]</div>
+<p>and by making an analogy to finite differences argue that the golden ratio <span class="math notranslate nohighlight">\(\phi\)</span> “ought to” be close to <span class="math notranslate nohighlight">\(\exp(1/2)\)</span>.  Show that this is in fact true, to within about <span class="math notranslate nohighlight">\(2\)</span> percent.</p>
+<p>The central difference on the left is a (very crude) approximation to <span class="math notranslate nohighlight">\(F'(t)\)</span>, the derivative at <span class="math notranslate nohighlight">\(t\)</span>.  Solving the differential equation <span class="math notranslate nohighlight">\(F'(t) = F(t)/2\)</span> gives <span class="math notranslate nohighlight">\(F(t) = C\exp(t/2)\)</span>, which grows by a factor <span class="math notranslate nohighlight">\(\exp(1/2)\)</span> when <span class="math notranslate nohighlight">\(t\)</span> is incremented by <span class="math notranslate nohighlight">\(1\)</span>.  But Fibonacci numbers grow by a factor <span class="math notranslate nohighlight">\(\phi\)</span> when <span class="math notranslate nohighlight">\(n\)</span> is incremented by <span class="math notranslate nohighlight">\(1\)</span>.  So <span class="math notranslate nohighlight">\(\exp(1/2) = 1.648\ldots\)</span> ought to be close to <span class="math notranslate nohighlight">\(\phi = 1.618\ldots\)</span>.  And, it is!  We found this fact very surprising, and there may be something deeper going on.</p>
+<p>4. Draw a <a class="reference external" href="https://medium.com/&#64;balidani/phase-portrait-animations-of-complex-functions-f0a44c2477c1">phase portrait</a> showing the <em>complex</em> zeros of <span class="math notranslate nohighlight">\(F(t)\)</span>.  Give an approximate formula (asymptotically correct as <span class="math notranslate nohighlight">\(\Re(t)\)</span> goes to plus infinity) for the locations of these zeros.</p>
+<p>This activity is connected with a (quite new) development in the presentation of complex functions, namely the use of phase portraits, as done at the link above.  This was first used (to our knowledge, anyway) by <a class="reference external" href="https://link.springer.com/book/10.1007/978-3-0348-0180-5">Elias Wegert in his book Visual Complex Functions</a> but has since been used to very great effect.  It turns out that one can, after all, make a <em>useful</em> two-dimensional plot of a complex function, by plotting the <em>argument</em> of <span class="math notranslate nohighlight">\(F(z)\)</span> in colour according to a <em>colour wheel</em> given by the simple plot of the function <span class="math notranslate nohighlight">\(F(z) = z\)</span>.  If your software plots the real axis for that simple function as (say) light blue, then the line of light blue in your plot of the more complicated <span class="math notranslate nohighlight">\(F(z)\)</span> tells you what <span class="math notranslate nohighlight">\(F\)</span> does to the real axis.  Similarly for the sectors.  One key point is that <em>zero</em> (for the simple function <span class="math notranslate nohighlight">\(F(z)=z\)</span>) has <em>all colours touching it</em> and moreover if you circle around zero clockwise you get a particular sequence of colours (say, blue, green, yellow, red) by the time you get back to where you started.  If you see a point in the phase portrait of your complicated function <span class="math notranslate nohighlight">\(F(z)\)</span> which has all colours, in that order clockwise, then you have located a place where <span class="math notranslate nohighlight">\(F(z)=0\)</span>.  You can see the zeros of a complex function on the graph!</p>
+<p>You can also see poles, because the colours will be the same but go clockwise instead.  Branch cuts and other things are also visible.</p>
+<p>It takes a <em>bit</em> of getting used to, but surprisingly little.  And, besides, the pictures are very pretty.</p>
+<p>To find approximate locations of the zeros, set <span class="math notranslate nohighlight">\(F(t) = 0\)</span>.  This gives the equation</p>
+<div class="math notranslate nohighlight">
+\[
+\phi^{2t} = \cos\pi t = \frac{1}{2}\left( e^{i\pi t} + e^{-i\pi t} \right)
+\]</div>
+<p>using the complex expression for cosine.  We now put <span class="math notranslate nohighlight">\(t = \sigma + i\tau\)</span> and explore what happens when both <span class="math notranslate nohighlight">\(\sigma\)</span> and <span class="math notranslate nohighlight">\(\tau\)</span> are large and positive (a similar thing can be done in the lower half plane).  By comparing the <em>magnitudes</em> of the left and right hand side, and neglecting the term in the cosine that is small (being multiplied by <span class="math notranslate nohighlight">\(\exp(-\pi\tau)\)</span>) we get the following approximation:</p>
+<div class="math notranslate nohighlight">
+\[
+2\ln\phi \sigma + \ln 2 = \pi \tau .
+\]</div>
+<p>If we plot this line we see a pretty good match with the line of zeros.</p>
+<p>By comparing the <em>arguments</em> we get a similar-looking equation:</p>
+<div class="math notranslate nohighlight">
+\[
+e^{2i\ln\phi \tau + 2\pi i K} = e^{-i\pi \sigma}
+\]</div>
+<p>where now <span class="math notranslate nohighlight">\(K\)</span> can be <em>any</em> integer.  Setting these exponents to be equal, we get a second (linear) equation relating <span class="math notranslate nohighlight">\(\sigma\)</span> and <span class="math notranslate nohighlight">\(\tau\)</span>.  These two equations can be solved to get the following approximate locations for the zeros.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e1220246-d98a-4241-86e3-a98de778dca5">
+<span class="eqno">(76)<a class="headerlink" href="#equation-e1220246-d98a-4241-86e3-a98de778dca5" title="Permalink to this equation">#</a></span>\[\begin{align}
+\sigma &amp;= -\frac{2 \ln \! \left(2\right) \ln \! \left(\phi \right)}{4 \ln \! \left(\phi \right)^{2}+\pi^{2}} -\frac{2 \pi^{2} K}{4 \ln \! \left(\phi \right)^{2}+\pi^{2}} \\
+\tau &amp;= \frac{\pi  \ln \! \left(2\right)}{4 \ln \! \left(\phi \right)^{2}+\pi^{2}} -\frac{4 \pi  \ln \! \left(\phi \right) K}{4 \ln \! \left(\phi \right)^{2}+\pi^{2}}
+\end{align}\]</div>
+<p>We show four choices of <span class="math notranslate nohighlight">\(K\)</span> (it turns out we need negative integers <span class="math notranslate nohighlight">\(K\)</span>) in the following figure.  The agreement is pretty good even for the smallest magnitude zero, and it only gets better as we compare larger zeros.</p>
+<p>Since the zeros come in conjugate pairs, if <span class="math notranslate nohighlight">\((\sigma,\tau)\)</span> is a zero then so is <span class="math notranslate nohighlight">\((\sigma,-\tau)\)</span>.</p>
+<figure class="align-default" id="fibonacci-zeros">
+<a class="reference internal image-reference" href="../_images/FibonacciZeros.png"><img alt="../_images/FibonacciZeros.png" src="../_images/FibonacciZeros.png" style="height: 600px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">This phase portrait shows the zeros of the continuous Fibonacci function.  The black dots on the top right are from the approximate formula.</span><a class="headerlink" href="#fibonacci-zeros" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>5.  The angles satisfy <span class="math notranslate nohighlight">\(\cos \theta_n = F_n/(2F_{n-1})\)</span>, and these rapidly tend to <span class="math notranslate nohighlight">\(\pi/5\)</span> with cosine <span class="math notranslate nohighlight">\(\phi/2\)</span>.  So the cumulative sum to, say, <span class="math notranslate nohighlight">\(N\)</span> terms is going to approach</p>
+<div class="math notranslate nohighlight">
+\[
+\psi_N = \sum_{n=3}^N \theta_n = (N-3)\frac{\pi}{5} + \cdots
+\]</div>
+<p>and the detailed behaviour of the <span class="math notranslate nohighlight">\(\cdots\)</span> is going to be of interest.  We find (this is an unverified solution, unpublished elsewhere) that</p>
+<div class="math notranslate nohighlight">
+\[
+\psi_t = (t-3)\frac{\pi}{5} + c_0 + c_2\cos(\pi t) \phi^{-2t} + O( \phi^{-4t} )
+\]</div>
+<p>and we have numerically found that <span class="math notranslate nohighlight">\(c_0 \approx -0.565677757047407\)</span> and <span class="math notranslate nohighlight">\(c_2 \approx 1.37638192047117\)</span>.  We’d actually like to know more about this.</p>
+<p><a class="reference internal" href="../Contents/Computing-with-Fibonacci.html#fibonaccigraduateactivity-1"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+<section id="fibonacci-activity-15-truncated-power-series">
+<span id="fibonacciactivityreport-15"></span><h2>Fibonacci Activity 15: Truncated Power Series<a class="headerlink" href="#fibonacci-activity-15-truncated-power-series" title="Permalink to this headline">#</a></h2>
+<p><em>We want you to program the algebraic operations for Truncated Power Series (TPS for short)</em>.</p>
+<p>We describe a very basic implementation of Truncated Power Series in Python.  We are not going to use anything fancy (such as operator overloading, or object-oriented programming) although using those would really make the package easier to use and understand.  The purpose of this is not <em>use</em> per se, but rather <em>practice in programming</em>.  And we are just beginning, here.  So we take it slow.</p>
+<p>The first thing is to decide what data structure to use.  We choose a simple list as our basic data structure: a Truncated Power Series will be represented by a list of its coefficients.  To keep things simple, we make <em>all</em> our lists have the same length, which we will call <code class="docutils literal notranslate"><span class="pre">Order</span></code> (like the Maple variable for its <code class="docutils literal notranslate"><span class="pre">series</span></code> command).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Order</span> <span class="o">=</span> <span class="mi">8</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This series is 0 + 1*x + 0*x^2 + ... + 0*x^{Order-1} + O(x^Order)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">Order</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 0, 0, 0, 0, 0, 0]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">geom</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Order</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 1, 1, 1, 1, 1, 1, 1]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">addTPS</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Order</span><span class="p">):</span>
+        <span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">scalarMultiplyTPS</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Order</span><span class="p">):</span>
+        <span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">scalarMultiplyTPS</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="n">geom</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">addTPS</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">geom</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[13, 13, 13, 13, 13, 13, 13, 13]
+[1, 2, 1, 1, 1, 1, 1, 1]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">multiplyTPS</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Order</span><span class="p">):</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>  <span class="c1"># Why is it i+1 here and not &quot;i&quot; ? (Rhetorical question)</span>
+            <span class="n">tmp</span> <span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">addTPS</span><span class="p">(</span><span class="n">geom</span><span class="p">,</span> <span class="n">geom</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2, 2, 2, 2, 2, 2, 2, 2]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">oneminusx</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">Order</span><span class="p">):</span>
+    <span class="n">oneminusx</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">oneminusx</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">multiplyTPS</span><span class="p">(</span><span class="n">oneminusx</span><span class="p">,</span> <span class="n">geom</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, -1, 0, 0, 0, 0, 0, 0]
+[1, 0, 0, 0, 0, 0, 0, 0]
+</pre></div>
+</div>
+</div>
+</div>
+<p>This represents the “well-known” geometric series fact that</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{1}{1-x} = 1 + x + x^2 + x^3 + \cdots + x^{n-1} + O(x^n) .
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">multiplyTPS</span><span class="p">(</span><span class="n">geom</span><span class="p">,</span> <span class="n">geom</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 5, 6, 7, 8]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can understand this if we know that the derivative of <span class="math notranslate nohighlight">\(1/(1-x)\)</span> is <span class="math notranslate nohighlight">\(1/(1-x)^2\)</span> and the derivative of the geometric series is <span class="math notranslate nohighlight">\(0 + 1 + 2x + 3x^2 + 4x^3 + \cdots\)</span>.  If we don’t know any calculus, we can multiply the TPS out by hand to see that it’s true.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">divideTPS</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="c1"># Will divide by zero if b[0]=0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Order</span><span class="p">):</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">tmp</span> <span class="o">+=</span> <span class="n">b</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">tmp</span><span class="p">)</span><span class="o">/</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Order</span><span class="p">):</span>
+    <span class="n">one</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">newgeom</span> <span class="o">=</span> <span class="n">divideTPS</span><span class="p">(</span><span class="n">one</span><span class="p">,</span> <span class="n">oneminusx</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">newgeom</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The use of <code class="docutils literal notranslate"><span class="pre">/</span></code> in the procedure <code class="docutils literal notranslate"><span class="pre">divideTPS</span></code> meant that the results were automatically <em>floating point numbers</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">divideTPS</span><span class="p">(</span><span class="n">newgeom</span><span class="p">,</span> <span class="n">geom</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">phipoly</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">Order</span><span class="p">):</span>
+    <span class="n">phipoly</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">phipoly</span><span class="p">)</span>
+<span class="n">FibonacciGenerator</span> <span class="o">=</span> <span class="n">divideTPS</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">phipoly</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">FibonacciGenerator</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, -1, -1, 0, 0, 0, 0, 0]
+[0.0, 1.0, 1.0, 2.0, 3.0, 5.0, 8.0, 13.0]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">raisePowerTPS</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
+    <span class="c1"># We implement the JCP Miller recurrence relation to compute a**alpha</span>
+    <span class="n">a0</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">a0</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s2">&quot;Leading coefficient shouldn&#39;t be zero&quot;</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">scalarMultiplyTPS</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">a0</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="c1"># Has leading coefficient 1</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Order</span><span class="p">):</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+            <span class="n">tmp</span> <span class="o">+=</span> <span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">)</span><span class="o">-</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="n">c</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="n">j</span><span class="p">]</span>
+        <span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">tmp</span><span class="o">/</span><span class="n">i</span> <span class="p">)</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">scalarMultiplyTPS</span><span class="p">(</span><span class="n">a0</span><span class="o">**</span><span class="n">alpha</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">square</span> <span class="o">=</span> <span class="n">raisePowerTPS</span><span class="p">(</span><span class="n">geom</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">square</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">half</span> <span class="o">=</span> <span class="n">raisePowerTPS</span><span class="p">(</span><span class="n">square</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">half</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># bad = raisePowerTPS(x, 2)  # Test of error message (leading coeff of &quot;x&quot; is zero)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here’s the error message that occurs when that last cell is uncommented (remove the # from the start of the line)</p>
+<hr class="docutils" />
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">ValueError</span>                                <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">66</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="n">bad</span> <span class="o">=</span> <span class="n">raisepowerTPS</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span>
+
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">63</span><span class="p">],</span> <span class="ow">in</span> <span class="n">raisepowerTPS</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
+      <span class="mi">3</span> <span class="n">a0</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+      <span class="mi">4</span> <span class="k">if</span> <span class="n">a0</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+<span class="o">----&gt;</span> <span class="mi">5</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s2">&quot;Leading coefficient shouldn&#39;t be zero&quot;</span><span class="p">)</span>
+      <span class="mi">6</span> <span class="n">y</span> <span class="o">=</span> <span class="n">scalarMultiplyTPS</span><span class="p">(</span> <span class="mi">1</span><span class="o">/</span><span class="n">a0</span><span class="p">,</span> <span class="n">a</span> <span class="p">)</span> <span class="c1"># Has leading coefficient 1</span>
+      <span class="mi">7</span> <span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="ne">ValueError</span><span class="p">:</span> <span class="n">Leading</span> <span class="n">coefficient</span> <span class="n">shouldn</span><span class="s1">&#39;t be zero</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="../Contents/Computing-with-Fibonacci.html#fibonacciactivity-15"><span class="std std-ref">[Go back to Activity]</span></a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Solutions"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../Appendix/symbolic-computation.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Symbolic Computation: The Pitfalls</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Reports%20on%20Continued%20Fractions%20Activities.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Reports on Continued Fractions Activities</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Neil J. Calkin, Eunice Y.S. Chan, and Robert M. Corless<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

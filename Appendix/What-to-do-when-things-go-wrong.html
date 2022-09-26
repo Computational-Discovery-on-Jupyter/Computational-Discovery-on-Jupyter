@@ -1,0 +1,749 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>What do to when things go wrong &#8212; Computational Discovery on Jupyter</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="shortcut icon" href="../_static/logo.jpg"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The Bare Minimum about Floating-Point" href="floating-point.html" />
+    <link rel="prev" title="Zanshin" href="../Looking-back.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Computational Discovery on Jupyter</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome to Computational Discovery on Jupyter
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Preface
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../preamble.html">
+   Preamble
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Installing-Python-and-Jupyter.html">
+   Before we begin: installing Python and Jupyter
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/Computing-with-Fibonacci.html">
+   Computing with Fibonacci Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/continued-fractions.html">
+   Continued Fractions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/rootfinding.html">
+   Rootfinding, Newton’s Method, and Dynamical Systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/fractals-and-julia-sets.html">
+   Fractals and Julia Sets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/bohemian-matrices.html">
+   Bounded Height Matrices of Integers (Bohemian Matrices)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/mandelbrot.html">
+   Mandelbrot Polynomials and Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Contents/chaos-game-representation.html">
+   Chaos Game Representation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Epilogue
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Looking-back.html">
+   Zanshin
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   What do to when things go wrong
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="floating-point.html">
+   The Bare Minimum about Floating-Point
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="binomials-factorials-combinatorics.html">
+   Binomials, Factorials, and other Combinatorial Things
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="complex-numbers.html">
+   Complex Numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="symbolic-computation.html">
+   Symbolic Computation: The Pitfalls
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reports on Activities
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Reports%20on%20Fibonacci%20Activities.html">
+   Reports on Fibonacci Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Reports%20on%20Continued%20Fractions%20Activities.html">
+   Reports on Continued Fractions Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Reports%20on%20Rootfinding%20Activities.html">
+   Reports on Rootfinding Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Reports%20on%20Julia%20Set%20Activities.html">
+   Reports on Julia Set Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Reports%20on%20Bohemian%20Activities.html">
+   Reports on Bohemian activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Reports%20on%20Mandelbrot%20Activities.html">
+   Reports on Mandelbrot Activities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Solutions/Reports%20on%20Chaos%20Game%20Activities.html">
+   Reports on Chaos Game Activities
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Back Matter
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../acknowledgements.html">
+   Acknowledgements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../about.html">
+   About the authors
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Computational-Discovery-on-Jupyter/Computational-Discovery-on-Jupyter/edit/master/book/Appendix/What-to-do-when-things-go-wrong.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Appendix/What-to-do-when-things-go-wrong.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-general-advice">
+   Some general advice
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#after-you-have-had-some-practice-programming-here-s-a-good-read">
+   After you have had some practice programming, here’s a good read
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-specific-advice">
+   Some specific advice
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rubber-duck-debugging">
+     Rubber Duck Debugging
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#even-for-modestly-sized-projects-use-version-control">
+     Even for modestly sized projects, use version control
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#common-locations-for-errors">
+     Common locations for errors
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-worst-possible-kind-of-errors">
+   The worst possible kind of errors
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>What do to when things go wrong</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-general-advice">
+   Some general advice
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#after-you-have-had-some-practice-programming-here-s-a-good-read">
+   After you have had some practice programming, here’s a good read
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#some-specific-advice">
+   Some specific advice
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rubber-duck-debugging">
+     Rubber Duck Debugging
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#even-for-modestly-sized-projects-use-version-control">
+     Even for modestly sized projects, use version control
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#common-locations-for-errors">
+     Common locations for errors
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-worst-possible-kind-of-errors">
+   The worst possible kind of errors
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="what-do-to-when-things-go-wrong">
+<h1>What do to when things go wrong<a class="headerlink" href="#what-do-to-when-things-go-wrong" title="Permalink to this headline">#</a></h1>
+<section id="some-general-advice">
+<h2>Some general advice<a class="headerlink" href="#some-general-advice" title="Permalink to this headline">#</a></h2>
+<p>First, we bring to mind the words on the cover of <a class="reference external" href="https://en.wikipedia.org/wiki/The_Hitchhiker%27s_Guide_to_the_Galaxy">The Hitchhiker’s Guide to the Galaxy</a>: “Don’t panic”.</p>
+<p>That’s not always a useful thing to say to someone who actually <em>is</em> panicking, of course, but we hope that you are not really panicking, and what you need to hear is that you are already doing the right thing.</p>
+<p>We (the authors) are all mathematical programmers, some with a <em>lot</em> of experience in different computer languages, and “to a first approximation” we <em>always</em> get the code wrong on the first attempt.  We <em>always</em> have to find “bugs” and fix them.  In fact, we do not know of any programmers at all who can count on writing bug-free code on the first try.  Not even Donald Knuth, regarded by some as being one of the best programmers on the planet.</p>
+<p>So, the first thing to do when you have finished (heh, “finished”) writing your code is to <em>assume that it is not working</em>.  Then you try it.  When it doesn’t work (probably with a syntax error), you are not surprised (or disappointed).  You will, of course, be annoyed.</p>
+<p>Next, you swat the bugs you see in your code (the most frustrating ones of all are, of course, <em>not where you are looking</em>) and try it again.  A few iterations of this and you will finally (heh, “finally”) arrive at code that <em>might</em> be working.  At least it runs without throwing an error message at you.</p>
+<p>You will need to <em>test</em> the code, and test it quite thoroughly.  This is true even if you have <em>proved mathematically</em> that your code is correct.  <a class="reference internal" href="../Solutions/Reports%20on%20Fibonacci%20Activities.html#fibonacciactivityreport-10"><span class="std std-ref">Look at Fibonacci Activity Report 10 for a clear example of this</span></a>.</p>
+<p>Then, when your code runs without throwing errors at you, and passes your tests, you can begin to use it.  You might still have bugs (of course) but every successful run will increase your confidence.</p>
+<blockquote class="epigraph">
+<div><p>“Writing [code] is nature’s way of showing us how sloppy our thinking is.”</p>
+<p class="attribution">—attributed to <a class="reference external" href="https://en.wikipedia.org/wiki/Leslie_Lamport">Leslie Lamport</a></p>
+</div></blockquote>
+<p>There’s some truth in that quotation from Leslie Lamport, but there’s some victim-blaming in there, too.  Programming is hard, but it’s even harder to design programming languages that are truly “intuitive”.  (We don’t know of any, in fact.)  The truth is that the designer(s) of the language in question, be it Python or Maple or whatever, came to their decisions based on a way of thinking about things that you (probably) won’t share, at least at first.  To take a simple example, non-programmers think of the “=” sign, <a class="reference external" href="https://mathshistory.st-andrews.ac.uk/Biographies/Recorde/#:~:text=Recorde%20was%20a%20Welsh%20doctor,Whetstone%20of%20Witte%20(1557).">invented by Robert Recorde in 1557</a> “bicause noe 2 thynges can be moare equalle”, as defining equality or identity.  But in Python it means <em>assignment</em>: replace the contents of the thing on the left by the thing indicated on the right.  It’s an <em>action</em>, not a statement.</p>
+<p>While we are on the topic, if you <em>want</em> to check equality, you have to use <code class="docutils literal notranslate"><span class="pre">==</span></code>.  If you try to use <code class="docutils literal notranslate"><span class="pre">=</span></code> you will get an error message, like so:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="k">if</span> <span class="n">x</span><span class="o">=</span><span class="mi">3</span> <span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x is three&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x is not three&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">x</span><span class="o">=</span><span class="mi">3</span> <span class="p">:</span>
+       <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax. Maybe you meant &#39;==&#39; or &#39;:=&#39; instead of &#39;=&#39;?
+</pre></div>
+</div>
+</div>
+</div>
+<p>That was an expected error message, but it not only mentions <code class="docutils literal notranslate"><span class="pre">==</span></code> but also the “walrus operator” <code class="docutils literal notranslate"><span class="pre">:=</span></code>.  <a class="reference external" href="https://medium.com/mlearning-ai/when-and-why-to-use-over-in-python-b91168875453">More about the walrus operator</a>.</p>
+<p>You will have to get used to <em>guessing how the designers thought</em> and that means looking at a lot of code and reading a lot of error messages.  Following and modifying good examples is a good way to learn good habits of thought.  Sometimes, though, you will look at some code construct and think “Whoever thought <em>that</em> was a good idea??”  People can and do think differently about programming.  This is why we have so many different languages, from C to Haskell, from assembly language to Rust. RMC’s favourite was <a class="reference external" href="https://www.forth.com/forth/">FORTH</a>, a language invented for control of telescopes. Niche, but elegant. And Leo Brodie’s two books on it freely available at that link can really teach you something about writing good code in any language.</p>
+<p>One of the things that distinguishes Python is that <em>indentation has semantic meaning</em>.  This is quite unlike most other languages.  In Maple, for instance (which on a deep structure level is actually quite similar to Python) one ends loops with an appropriate <code class="docutils literal notranslate"><span class="pre">end</span></code> statement (and similarly for <code class="docutils literal notranslate"><span class="pre">if</span></code> statements and for procedures).  But for <em>readability</em> people use indentation to indicate to the human reader—usually your own future self—what is going on.  For Python they just decided to make it mandatory.  Another is “indexing from zero” by default.  One gets used to it.</p>
+<p>The science of Human-Computer Interaction includes the study of programming language design, by the way.  It’s very hard.</p>
+</section>
+<section id="after-you-have-had-some-practice-programming-here-s-a-good-read">
+<h2>After you have had some practice programming, here’s a good read<a class="headerlink" href="#after-you-have-had-some-practice-programming-here-s-a-good-read" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745">Best Practices for Scientific Computing</a></p>
+<p>One of the pieces of advice that we like the best is “Write programs for people, not computers”.  This is their first bullet point in their <a class="reference external" href="https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745#pbio-1001745-box001">Box 1 summary</a> and it deserves that place.</p>
+<p>Another piece of advice from that paper (point 6 in their Box 1) is to write your program in the highest-level programming language available for the purpose.  We haven’t spoken much here about “high-level” versus “low-level” languages, but Python (and Maple) are very high-level languages.  Each statement has a lot of power, and before its execution on a physical machine it gets translated into the ultra low-level language that the computer actually understands.  The advantages are that it is easier to match how a human thinks about the problem to code that actually works.  The disadvantages include that (typically) computing time is not optimized; a low-level code to do the same thing typically runs much faster, sometimes orders of magnitude faster.  But the key piece of advice (also in point 6) is to get it working first, and optimize later.</p>
+<p>Writing low-level code directly is possible, and some humans are actually quite good at it, but doing so typically takes a much longer time than a human writing high-level code and subsequently optimizing it (or just optimizing the bits that actually need optimizing).  So while the computing time (ie the time the program takes to run on the final run) might be lower the first way, the overall time taken from the start of the project to the final report can be quite a bit shorter by using a high level language.</p>
+<p>And the result is more reproducible, because high-level programming is typically much more intelligible to other humans (including your future self).</p>
+</section>
+<section id="some-specific-advice">
+<h2>Some specific advice<a class="headerlink" href="#some-specific-advice" title="Permalink to this headline">#</a></h2>
+<p>The simplest thing to do with a syntax error is to <strong>google the error message</strong>.  Yes, we do this too.  It helps if you <em>read</em> the error message as well, but unfortunately error messages can frequently be, well, unhelpful.  Usually they are too terse, which (after you’ve seen it for the tenth time) becomes a good thing.  A google search (or whatever your engine of choice for searching is) can frequently bring you to a discussion of what the error message actually means.</p>
+<p>The next simple bit of advice is <em>really</em> hard for people to take.  It’s based on the observation that if you ask a class of introductory programming students to rate their own abilities, about 80% of them will rate themselves as being “above average”.  This is not true.  But it leads people to believe that they can do “simple” things really quickly, when in fact they can’t.  It took RMC until half-way through his PhD to write a bug-free program on his first try (it was a short program that used finite differences to solve a PDE, and he did it while a friend was watching, which made it all the sweeter).  And this was after two degrees in Computer Science and Mathematics with literally thousands of programs under his belt.</p>
+<p>So, what’s the advice?  <strong>Slow down, and plan it out</strong>.  Diagram your code in a helpful way, <strong>before you touch the keyboard</strong>.  Write it out on paper, even.</p>
+<p>(cue the “Ain’t nobody got time for that” meme, we suppose.  Sad trombone to follow.)</p>
+<p>Another simple bit of advice (much more likely to be followed) is to <strong>develop the habit of starting with small bits</strong>.  Write a small bit of code that successfully does <em>something</em>.</p>
+<blockquote class="epigraph">
+<div><p>“I didn’t know how to start, so I did <em>something</em>.”</p>
+<p class="attribution">—One of NJC’s students, at the beginning of a programming assignment; NJC approves of this remark</p>
+</div></blockquote>
+<p>An important consideration: <strong>Use a consistent, legible style</strong>.  Python enforces indentation, but use it consistently in other languages as well.  Use whitespace well and evenly: <code class="docutils literal notranslate"><span class="pre">Chew(</span> <span class="pre">a,</span> <span class="pre">b</span> <span class="pre">)</span></code> is much more legible than the asymmetric <code class="docutils literal notranslate"><span class="pre">Chew(a,b</span> <span class="pre">)</span></code> and likewise line your statements up neatly if you can.  Some bugs will just leap out off the page at you when you arrange things neatly.</p>
+<p>One more: <strong>document your code</strong>.  The best documentation is accurate and intelligible names for your constructs (variables, programs, data containers).  Then use comments.  Your future self (who is the one most likely to be reading this code six months from now scratching their head wondering what it was supposed to do) will thank you.</p>
+<p>Next most helpful: <strong>insert extra print statements when debugging (and delete them afterwards)</strong>.  Print out intermediate results in your code.  Or simple messages when certain parts of the code are reached, such as <code class="docutils literal notranslate"><span class="pre">print('Starting</span> <span class="pre">the</span> <span class="pre">for</span> <span class="pre">loop</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">next</span> <span class="pre">statement')</span></code> or <code class="docutils literal notranslate"><span class="pre">print('Reached</span> <span class="pre">the</span> <span class="pre">end</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">for</span> <span class="pre">loop')</span></code> or the like.  It helps to be verbose there, but if you are in a hurry you can use numbers, <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(2\)</span>, and so on.  <strong>Delete the print statements afterwards</strong>.  Some programmers use swearwords, but it’s easy to leave those in, accidentally, when you are finished debugging.  So, while possibly cathartic, you might not want to do so.  Some people use prayers instead, though there is no documented evidence that this helps.</p>
+<p>More professionally, you can <strong>use step-by-step debuggers</strong>, like <a class="reference external" href="https://realpython.com/python-debugging-pdb/">pdb</a>.  <a class="reference external" href="https://davidhamann.de/2017/04/22/debugging-jupyter-notebooks/">It works in Jupyter notebooks</a>.  If you are writing a lot of code, or are building a big project, these can really help.  You can use <code class="docutils literal notranslate"><span class="pre">Assert</span></code> statements.  You can use code profilers, which let you know how much computing is done in each piece of code.</p>
+<p>But print statements are very simple, and are a big help.  Everyone uses them (practically speaking).</p>
+<p>Now here is a <em>stupid</em> technique, which works <em>amazingly</em> well:</p>
+<section id="rubber-duck-debugging">
+<h3>Rubber Duck Debugging<a class="headerlink" href="#rubber-duck-debugging" title="Permalink to this headline">#</a></h3>
+<p><strong>Explain your program line by line to a Rubber Duck</strong>.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Rubber_duck_debugging">We are not joking</a></p>
+<p>It works.  It is <em>ridiculous</em> that it works, but it does.  Yes, we use this.</p>
+<p>If you don’t have a rubber duck, use a <em>picture</em> of a rubber duck. Or an <em>imaginary</em> rubber duck.</p>
+<p>We’re sure that it would work if you used any inanimate object—but then it wouldn’t be real rubber duck debugging.</p>
+<p>Now, a more serious-looking tip:</p>
+</section>
+<section id="even-for-modestly-sized-projects-use-version-control">
+<h3>Even for modestly sized projects, use version control<a class="headerlink" href="#even-for-modestly-sized-projects-use-version-control" title="Permalink to this headline">#</a></h3>
+<p>This book uses <a class="reference external" href="https://git-scm.com/">git</a>.  The book is definitely big enough to need version control of some kind.</p>
+</section>
+<section id="common-locations-for-errors">
+<h3>Common locations for errors<a class="headerlink" href="#common-locations-for-errors" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p>At the <em>interfaces</em>: say the procedure is expecting an integer and it’s given a string as input instead.  Or, the user of a routine could be expecting a single real number answer and instead the routine delivers a complex number.  Or a “list” of things.</p></li>
+<li><p>The objects have the <em>wrong datatype</em> .  This can be obnoxious.  Python allows you to be sloppy with datatypes, which is good for getting started, but bad for large projects.</p></li>
+<li><p>In the <em>documentation</em>: The documentation could <em>say</em> the code was taking the square root of something, and maybe the first version really did; but it since got rewritten and now it takes the cube root instead, maybe, and <em>the documentation never got updated</em>.  There is an awful lot of outdated documentation for Python on the web, by the way.  <strong>Things change</strong>.</p></li>
+<li><p>A simple typo: you typed <code class="docutils literal notranslate"><span class="pre">x1</span></code> instead of <code class="docutils literal notranslate"><span class="pre">xl</span></code> for your variable name just once in the routine.  Some programs will catch the use of uninitialized variables, but sometimes it won’t happen.  And by the way, try very hard not to use variables named with an <code class="docutils literal notranslate"><span class="pre">l</span></code> instead of a <code class="docutils literal notranslate"><span class="pre">1</span></code>.  The symbols are, in some fonts, only a single pixel different on your screen.</p></li>
+<li><p>A bad range on a loop, or a failure to increment a loop index in a while loop.  Counting is hard.  (That sounds unsympathetic, but really, it’s inhuman and inhumane to expect people to make no errors when counting.)</p></li>
+<li><p>Failure to catch the base case of a recursion.  Suppose we had only specified <span class="math notranslate nohighlight">\(F_1=1\)</span> and forgotten <span class="math notranslate nohighlight">\(F_0 = 0\)</span> in the Fibonacci code.  Then the recursive version would ask for <span class="math notranslate nohighlight">\(F_0\)</span> which would ask for <span class="math notranslate nohighlight">\(F_{-1}+F_{-2}\)</span> and each of these would ask for more negative indices, and maybe make an infinite loop.  Actually the code would run out of stack space.</p></li>
+<li><p>Passing the correct arguments into a procedure but in the wrong order.  Maybe the code expects its input to be n (an integer) and x (a real number) in that order and you forget and write <code class="docutils literal notranslate"><span class="pre">Fun(x,n)</span></code>.  The code may still run, depending.  But you might get a nonsense answer.  This is why there is a <code class="docutils literal notranslate"><span class="pre">kwarg</span></code> way of calling, by the way (“Keyword Argument”).  (“Argument” in this context is another word for “input”).  You could call <code class="docutils literal notranslate"><span class="pre">Fun(x=3,n=5)</span></code> or <code class="docutils literal notranslate"><span class="pre">Fun(n=5,x=3)</span></code> and get the same answer.</p></li>
+<li><p>An incorrect index into an array or tuple.  You might have asked for <code class="docutils literal notranslate"><span class="pre">a[3]</span></code> but <em>meant</em> to ask for <code class="docutils literal notranslate"><span class="pre">a[2]</span></code>.  This often produces syntax errors, and so is relatively easy to notice, though sometimes very annoying to fix.</p></li>
+<li><p>Using the wrong version of your code.  You have been happily editing one version, but running another.  (This is harder to do in Jupyter, since everything is right in front of you, usually).</p></li>
+<li><p>A transcription error.  You might be solving <span class="math notranslate nohighlight">\(F_n = F_{n-1} + F_{n-2}\)</span> but you really wanted to solve <span class="math notranslate nohighlight">\(F_n = F_{n-2} + F_{n-3}\)</span>.  Your code might be perfect for the first one.  This kind of error can be particularly difficult to notice.</p></li>
+<li><p>A difference in expectation: you might use a routine that someone else wrote, and they expected that the user (this time that’s you) would be calling their routine with (say) small integers, which could fit in the 32 bit integer data type without overflowing.  Whereas you, on the other hand, expect their routine to work with long integers.  This is what happened in Fibonacci Activity 10.  Good documentation can help people to avoid these kinds of errors, but then it’s necessary both for the programmer to <em>write</em> it and the user to <em>read</em> it.  You can see the problem.  The acronym RTFM, for Read The [Fine] Manual, is frequently seen; but sometimes it doesn’t help.</p></li>
+<li><p>Using the wrong kind of fences.  It is really hard to see that you have written <code class="docutils literal notranslate"><span class="pre">(a,b)</span></code> when you needed to have written <code class="docutils literal notranslate"><span class="pre">[a,b]</span></code>. Similarly <code class="docutils literal notranslate"><span class="pre">L(n)</span></code> means the same thing to a human (more or less) as does <code class="docutils literal notranslate"><span class="pre">L[n]</span></code>, but these are <em>not</em> the same to Python.  Incidentally, <code class="docutils literal notranslate"><span class="pre">()</span></code> are called parentheses or parens, <code class="docutils literal notranslate"><span class="pre">{}</span></code> are called braces, and <code class="docutils literal notranslate"><span class="pre">[]</span></code> are called brackets. Then there’s angle brackets (not used in Python as fences) <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> which sometimes get called “bras” and “kets” (this is common in physics).</p></li>
+</ol>
+</section>
+</section>
+<section id="the-worst-possible-kind-of-errors">
+<h2>The worst possible kind of errors<a class="headerlink" href="#the-worst-possible-kind-of-errors" title="Permalink to this headline">#</a></h2>
+<p>Syntax errors are annoying, because you haven’t even started yet.  But actually the interpreter or compiler is trying to help you.  It’s much worse when you type legal Python code that does something, but it’s not what you intended (like the typo of 8 for <code class="docutils literal notranslate"><span class="pre">*</span></code> in the power <code class="docutils literal notranslate"><span class="pre">x*82</span></code> when <code class="docutils literal notranslate"><span class="pre">x**2</span></code> was intended, in the Schroeder iteration example).  Then you would just get wrong answers.</p>
+<p>The very worst kind of error is a <em>wrong</em> but <em>plausible</em> answer.  One used to say “Garbage In, Garbage Out” but unfortunately too many people simply believe computer output.  This gets called “Garbage In, Gospel Out” by people whose cultural background includes the phrase “gospel truth”.</p>
+<p>RMC puts it this way: “Probably the single most common error is <em>believing what you see</em>”.  We encourage skepticism about the results of computer programs.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Appendix"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../Looking-back.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Zanshin</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="floating-point.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The Bare Minimum about Floating-Point</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Neil J. Calkin, Eunice Y.S. Chan, and Robert M. Corless<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
