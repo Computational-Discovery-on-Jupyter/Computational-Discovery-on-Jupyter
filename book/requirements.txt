@@ -4,3 +4,9 @@ numpy
 ipywidgets
 scipy
 sympy
+pillow
+pickle5
+pandas
+scikit-image
+seaborn
+scikit-learn
