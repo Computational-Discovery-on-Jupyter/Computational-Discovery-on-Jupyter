@@ -659,8 +659,8 @@ title="Print to PDF"
 <section id="bohemian-activity-3">
 <span id="bohemianactivityreport-3"></span><h2>Bohemian Activity 3<a class="headerlink" href="#bohemian-activity-3" title="Permalink to this headline">#</a></h2>
 <p>Consider the matrix</p>
-<div class="amsmath math notranslate nohighlight" id="equation-65cd27eb-3ee2-47d0-b144-364ffe3b4bc4">
-<span class="eqno">(77)<a class="headerlink" href="#equation-65cd27eb-3ee2-47d0-b144-364ffe3b4bc4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-645e6dc6-2ab1-491a-b6b5-899e30756b35">
+<span class="eqno">(77)<a class="headerlink" href="#equation-645e6dc6-2ab1-491a-b6b5-899e30756b35" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbf{A} = \begin{bmatrix}
 -5 &amp; 1 &amp; 1 
 \\
@@ -681,8 +681,8 @@ title="Print to PDF"
 <section id="bohemian-activity-4">
 <span id="bohemianactivityreport-4"></span><h2>Bohemian Activity 4<a class="headerlink" href="#bohemian-activity-4" title="Permalink to this headline">#</a></h2>
 <p>Consider the matrix</p>
-<div class="amsmath math notranslate nohighlight" id="equation-24ee4ca6-c69e-44e4-9aa3-0a6c52377546">
-<span class="eqno">(78)<a class="headerlink" href="#equation-24ee4ca6-c69e-44e4-9aa3-0a6c52377546" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c2302c1a-7755-49a1-bdb8-cda51342a45a">
+<span class="eqno">(78)<a class="headerlink" href="#equation-c2302c1a-7755-49a1-bdb8-cda51342a45a" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \mathbf{A} = \begin{bmatrix}
 2 &amp; -1 &amp; 0 
 \\
@@ -803,7 +803,7 @@ What other Bohemian questions can you think of?”</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The population is  [(2+1j), (-2+2j)]
-Program took  0.0011637210845947266  seconds 
+Program took  0.001161813735961914  seconds 
 
 There are  9 distinct characteristic polynomials, vs  16 matrices
 A most common characteristic polynomial was  ((-0+0j), (-0-3j), (1+0j)) which occurred  4 times 
@@ -826,8 +826,8 @@ One of its matrices was  [[-2.+2.j -2.+2.j]
 <p>Mostly the connection is practical: we want a good way to find all the roots of the characteristic polynomial (when we go that route, possibly because of the compression factor).  Newton’s method can be used (sometimes!) to “polish” the roots to greater accuracy, for instance.</p>
 <p>18. Looking back at the Continued Fractions Unit, it seems a stretch to connect them.  Can you find a connection?</p>
 <p><strong>One connection</strong>: We thought of taking a general matrix and letting its entries be the partial quotients of the continued fraction of a number chosen “at random” in <span class="math notranslate nohighlight">\([0,1)\)</span>.  To make that “at random” have the right distribution turned out to be simple enough, because the distribution of partial quotients is known (called the <a class="reference external" href="https://en.wikipedia.org/wiki/Gauss%E2%80%93Kuzmin_distribution">Gauss-Kuzmin distribution</a>) and its relation to the probability distribution of the iterates <span class="math notranslate nohighlight">\(x_n\)</span> of the Gauss map is also known (and called the “Gauss measure”). This is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3a3f46be-2f36-4c87-9e88-33d333471407">
-<span class="eqno">(79)<a class="headerlink" href="#equation-3a3f46be-2f36-4c87-9e88-33d333471407" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8d545804-b85f-45a1-8444-6007321c6c3d">
+<span class="eqno">(79)<a class="headerlink" href="#equation-8d545804-b85f-45a1-8444-6007321c6c3d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 F(x) = \frac{1}{\ln 2}\int_{t=0}^x \frac{1}{1+t}\,dt = \mathrm{lg}(1+x)
 \end{equation}\]</div>
 <p>where the symbol lg means “log to base 2” and is frequently seen in computer science.  We can invert this cumulative distribution by solving <span class="math notranslate nohighlight">\(u=\mathrm{lg}(1+x)\)</span> by raising both sides to the power <span class="math notranslate nohighlight">\(2\)</span>, like so: <span class="math notranslate nohighlight">\(2^u = 1+x\)</span> so <span class="math notranslate nohighlight">\(x=2^u-1\)</span>.  Therefore, sampling <span class="math notranslate nohighlight">\(u\)</span> uniformly on <span class="math notranslate nohighlight">\((0,1)\)</span> will give <span class="math notranslate nohighlight">\(x\)</span> distributed on <span class="math notranslate nohighlight">\((0,1)\)</span> according to the Gauss measure; then taking the fractional part of <span class="math notranslate nohighlight">\(1/x\)</span> will give us the partial quotients with the correct distribution.</p>
@@ -901,7 +901,7 @@ F(x) = \frac{1}{\ln 2}\int_{t=0}^x \frac{1}{1+t}\,dt = \mathrm{lg}(1+x)
 </pre></div>
 </div>
 <img alt="../_images/Reports on Bohemian Activities_29_1.png" src="../_images/Reports on Bohemian Activities_29_1.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Took 12.665669202804565 seconds to compute and plot 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Took 15.85549521446228 seconds to compute and plot 
 </pre></div>
 </div>
 </div>

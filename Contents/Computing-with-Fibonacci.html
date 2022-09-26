@@ -1421,7 +1421,7 @@ As an aside, in our context we use “realistic time” to mean a few seconds or
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.00021791458129882812
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0002429485321044922
 </pre></div>
 </div>
 </div>
@@ -1435,7 +1435,7 @@ As an aside, in our context we use “realistic time” to mean a few seconds or
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0038819313049316406
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.00360107421875
 </pre></div>
 </div>
 </div>
@@ -1449,7 +1449,7 @@ As an aside, in our context we use “realistic time” to mean a few seconds or
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.17116498947143555
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.14645695686340332
 </pre></div>
 </div>
 </div>
@@ -1463,7 +1463,7 @@ As an aside, in our context we use “realistic time” to mean a few seconds or
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13.021584749221802
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13.722503900527954
 </pre></div>
 </div>
 </div>
@@ -1629,11 +1629,11 @@ of bits of output, which we saw earlier was <span class="math notranslate nohigh
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[15, 5]
-0.00018787384033203125
+0.0006089210510253906
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2692537, 832040]
-0.6561810970306396
+0.7372832298278809
 </pre></div>
 </div>
 </div>
@@ -2084,8 +2084,8 @@ F(t) = \frac{1}{\sqrt{5}}\left(\phi^t - \cos\pi t \phi^{-t}\right).
 G(z) = F_0 + F_1 z + F_2 z^2 + F_3 z^3 + \cdots
 \]</div>
 <p>where we take the <span class="math notranslate nohighlight">\(\cdots\)</span> to mean that we take a lot of terms—how many terms?  “Enough”.  In your Calculus class you will learn that in this case this makes sense even when you take an infinite number of terms (provided <span class="math notranslate nohighlight">\(|z| &lt; 1/\phi\)</span>) but we really don’t need that here.  What we do need is a closed form for <span class="math notranslate nohighlight">\(G(z)\)</span>, and some sleight-of-hand algebra shows us what it <em>must</em> be, if it is anything at all.  Multiply <span class="math notranslate nohighlight">\(G(z)\)</span> by <span class="math notranslate nohighlight">\(z\)</span> and by <span class="math notranslate nohighlight">\(z^2\)</span> and add them up with the following signs:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9ca80604-1e96-4427-8de5-74d9b6986573">
-<span class="eqno">(1)<a class="headerlink" href="#equation-9ca80604-1e96-4427-8de5-74d9b6986573" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e2990681-164a-4808-bffb-ecd14a23f5cd">
+<span class="eqno">(1)<a class="headerlink" href="#equation-e2990681-164a-4808-bffb-ecd14a23f5cd" title="Permalink to this equation">#</a></span>\[\begin{align}
 G(z) = F_0 + F_1 z +&amp; F_2z^2 + F_3z^3 + \cdots + F_{n}z^{n} + \cdots \nonumber\\
 -zG(z) =      -F_0 z -&amp; F_1z^2 - F_2z^3 - \cdots - F_{n-1}z^{n} - \cdots \nonumber\\
 -z^2G(z) =         -&amp; F_0 z^2 - F_1z^3 - \cdots - F_{n-2}z^n - \cdots
