@@ -1249,6 +1249,20 @@ You should only need to use two matrices for storage if you are careful.  There 
 </div>
 </div>
 </div>
+<p>For Linux/Unix systems, our program fails at <span class="math notranslate nohighlight">\(n=92\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">bipow</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">92</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-6246583658587674878  7540113804746346429]
+ [ 7540113804746346429  4660046610375530309]]
+</pre></div>
+</div>
+</div>
+</div>
 <p>It turns out that there is such a thing as a <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.intc">thirty-two bit signed integer</a>.  The <em>leading bit</em> of that kind of integer is <code class="docutils literal notranslate"><span class="pre">0</span></code> if the number is positive, but if the leading bit is <code class="docutils literal notranslate"><span class="pre">1</span></code> then the number is taken to be <em>negative</em>.  Thus, on a computer, if the wrong datatype is used, it is possible to <em>add</em> two positive integers and have the result be interpreted as being <em>negative</em>.</p>
 <p>And there is the problem.  Remember that the length of a binary number includes the “0b” at the beginning, so the number that wound up being negative was 32 bits long; whereas the last Fibonacci number that was ok was 31 bits long.  Somehow the code decided that it was using <a class="reference external" href="https://www.quora.com/What-is-a-32-bit-signed-integer">“32 bit integers”</a> instead of the normal Python arbitrary-length integers.  Our “proof” assumed the normal properties of integers—which are needed for the matrix multiplication to be correct—and this kind of assumption is so natural to us we didn’t even notice we used it.</p>
 <p>Welcome to the world of computer programming.  Yes, we have to know about data types.</p>
@@ -1298,7 +1312,7 @@ You should only need to use two matrices for storage if you are careful.  There 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.08283185958862305
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.08402514457702637
 </pre></div>
 </div>
 </div>
@@ -1314,7 +1328,7 @@ You should only need to use two matrices for storage if you are careful.  There 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.23664927482605
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.323323965072632
 </pre></div>
 </div>
 </div>
@@ -1329,7 +1343,7 @@ You should only need to use two matrices for storage if you are careful.  There 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.604432821273804
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11.64668321609497
 </pre></div>
 </div>
 </div>
@@ -1389,7 +1403,7 @@ You should only need to use two matrices for storage if you are careful.  There 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0013499259948730469
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0014760494232177734
 </pre></div>
 </div>
 </div>
@@ -1456,7 +1470,7 @@ You should only need to use two matrices for storage if you are careful.  There 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11.478928089141846
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13.795675992965698
 </pre></div>
 </div>
 </div>
@@ -1549,7 +1563,7 @@ You should only need to use two matrices for storage if you are careful.  There 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>23.718600034713745 3303961837047442579487010911533190161514152117063487274236115429253289173645117777960901109522457601
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>25.377628803253174 3303961837047442579487010911533190161514152117063487274236115429253289173645117777960901109522457601
 </pre></div>
 </div>
 </div>
@@ -1603,7 +1617,7 @@ You should only need to use two matrices for storage if you are careful.  There 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10074958745783517956561868690867278026860583978054601497639995184130970247153466763696198800985914449 0.0001201629638671875
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10074958745783517956561868690867278026860583978054601497639995184130970247153466763696198800985914449 0.0001227855682373047
 </pre></div>
 </div>
 </div>
@@ -1620,7 +1634,7 @@ You should only need to use two matrices for storage if you are careful.  There 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9970146625619845782834561006870277384130667336988626592393064577383315981126385562996947892776429607 0.00012302398681640625
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9970146625619845782834561006870277384130667336988626592393064577383315981126385562996947892776429607 0.00013589859008789062
 </pre></div>
 </div>
 </div>
@@ -1635,7 +1649,7 @@ You should only need to use two matrices for storage if you are careful.  There 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10074958745783517956561868690867278026860583978054601497639995184130970247153466763696198800985914449 11.481483936309814
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10074958745783517956561868690867278026860583978054601497639995184130970247153466763696198800985914449 13.93323302268982
 </pre></div>
 </div>
 </div>
@@ -1650,7 +1664,7 @@ You should only need to use two matrices for storage if you are careful.  There 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>307317414528301264423288910092883733560870958520339896436368099936463847448493468403352592709652449 0.0011110305786132812
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>307317414528301264423288910092883733560870958520339896436368099936463847448493468403352592709652449 0.002080202102661133
 </pre></div>
 </div>
 </div>
@@ -1665,7 +1679,7 @@ You should only need to use two matrices for storage if you are careful.  There 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2709652449 0.0005991458892822266
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2709652449 0.0006058216094970703
 </pre></div>
 </div>
 </div>
@@ -1697,7 +1711,7 @@ You should only need to use two matrices for storage if you are careful.  There 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Reports on Fibonacci Activities_104_0.png" src="../_images/Reports on Fibonacci Activities_104_0.png" />
+<img alt="../_images/Reports on Fibonacci Activities_106_0.png" src="../_images/Reports on Fibonacci Activities_106_0.png" />
 </div>
 </div>
 <p><a class="reference internal" href="../Contents/Computing-with-Fibonacci.html#fibonacciactivity-14"><span class="std std-ref">[Go back to Activity]</span></a></p>
@@ -1725,7 +1739,7 @@ You should only need to use two matrices for storage if you are careful.  There 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Reports on Fibonacci Activities_108_0.png" src="../_images/Reports on Fibonacci Activities_108_0.png" />
+<img alt="../_images/Reports on Fibonacci Activities_110_0.png" src="../_images/Reports on Fibonacci Activities_110_0.png" />
 </div>
 </div>
 <p>2. Show that <span class="math notranslate nohighlight">\(F(t)\)</span> has an infinite number of real zeros, and these rapidly approach negative half integers as <span class="math notranslate nohighlight">\(t\)</span> goes to <span class="math notranslate nohighlight">\(-\infty\)</span>.</p>
@@ -1763,8 +1777,8 @@ t_{-k-1}^* = -k - \frac{1}{2} + \frac{(-1)^k}{\pi}\phi^{-2k-1} + \cdots
 e^{2i\ln\phi \tau + 2\pi i K} = e^{-i\pi \sigma}
 \]</div>
 <p>where now <span class="math notranslate nohighlight">\(K\)</span> can be <em>any</em> integer.  Setting these exponents to be equal, we get a second (linear) equation relating <span class="math notranslate nohighlight">\(\sigma\)</span> and <span class="math notranslate nohighlight">\(\tau\)</span>.  These two equations can be solved to get the following approximate locations for the zeros.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-829068a3-997c-4c2b-ba4a-9c0b8d667516">
-<span class="eqno">(76)<a class="headerlink" href="#equation-829068a3-997c-4c2b-ba4a-9c0b8d667516" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fcc50662-1bc3-4b5e-9765-9c83dd7c6d7d">
+<span class="eqno">(76)<a class="headerlink" href="#equation-fcc50662-1bc3-4b5e-9765-9c83dd7c6d7d" title="Permalink to this equation">#</a></span>\[\begin{align}
 \sigma &amp;= -\frac{2 \ln \! \left(2\right) \ln \! \left(\phi \right)}{4 \ln \! \left(\phi \right)^{2}+\pi^{2}} -\frac{2 \pi^{2} K}{4 \ln \! \left(\phi \right)^{2}+\pi^{2}} \\
 \tau &amp;= \frac{\pi  \ln \! \left(2\right)}{4 \ln \! \left(\phi \right)^{2}+\pi^{2}} -\frac{4 \pi  \ln \! \left(\phi \right) K}{4 \ln \! \left(\phi \right)^{2}+\pi^{2}}
 \end{align}\]</div>
