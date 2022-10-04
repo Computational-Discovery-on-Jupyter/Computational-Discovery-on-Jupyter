@@ -1782,7 +1782,7 @@ We note some special values: when <span class="math notranslate nohighlight">\(m
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In order to find SSIM, need to save figures as an image file. </span>
 <span class="c1"># Below is an example of how you would save your figures as a png file.</span>
@@ -1795,9 +1795,6 @@ We note some special values: when <span class="math notranslate nohighlight">\(m
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;../Supplementary Material/CGR/Output/neanderthal.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/chaos-game-representation_49_0.png" src="../_images/chaos-game-representation_49_0.png" />
 </div>
 </div>
 <p>Once we have saved the images as a .png file, we use Python’s <code class="docutils literal notranslate"><span class="pre">skimage.io.imread()</span></code> function to read in the images as matrices. We also specify in the parameters of this function that this image is greyscale, which returns an <span class="math notranslate nohighlight">\(m\times n\)</span> matrix (<span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> are dependent on the dimensions of the image). If the parameter <code class="docutils literal notranslate"><span class="pre">as_gray</span></code> was not set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, then the output would be a <span class="math notranslate nohighlight">\(m \times n \times 3\)</span>, which accounts for the different color channels (RGB).</p>
@@ -1870,6 +1867,36 @@ We note some special values: when <span class="math notranslate nohighlight">\(m
 </div>
 <div class="cell_output docutils container">
 <img alt="../_images/chaos-game-representation_58_0.png" src="../_images/chaos-game-representation_58_0.png" />
+</div>
+</div>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In order to find SSIM, need to save figures as an image file. </span>
+<span class="c1"># Below is an example of how you would save your figures as a png file.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kiwi_coord</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">kiwi_coord</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:],</span> <span class="s1">&#39;k.&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="s1">&#39;box&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;../Supplementary Material/CGR/Output/greatspottedkiwi.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># In order to find SSIM, need to save figures as an image file. </span>
+<span class="c1"># Below is an example of how you would save your figures as a png file.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pearlfish_coord</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">pearlfish_coord</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:],</span> <span class="s1">&#39;k.&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="s1">&#39;box&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;../Supplementary Material/CGR/Output/pearlfish.png&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">,</span> <span class="n">pad_inches</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 <p>Just visually, the CGR of the mtDNA of the great spotted kiwi looks more similar to the CGRs of the human and neanderthal than the CGR of the pearlfish. Using all of the DSSIM, we can produce what is called a distance matrix, which is a square, real, symmetric matrix where each element is the structural dissimilarity index of two species with corresponds to the row and column. The distance matrix for the four species that we have already produced the CGR for is</p>
@@ -2045,7 +2072,7 @@ $$ --><div class="cell docutils container">
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/chaos-game-representation_68_0.png" src="../_images/chaos-game-representation_68_0.png" />
+<img alt="../_images/chaos-game-representation_70_0.png" src="../_images/chaos-game-representation_70_0.png" />
 </div>
 </div>
 <p>From the plot above, we are able to observe the degree of difference between the four CGRs by the distance between the four points. Since the human and neanderthal points overlap each other, this indicates that their CGRs are very similar, thus implying that the mtDNA of human and neanderthals are also similar. If we were interested in knowing whether humans are more similar to the great spotted kiwi or pearlfish, we can easily see from the plot above that humans are closer related to the great spotted kiwi genetically since the distance between the human and great spotted kiwi points are closer than the distance between the human and pearlfish points.</p>
@@ -2148,7 +2175,7 @@ $$ --><div class="cell docutils container">
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/chaos-game-representation_72_0.png" src="../_images/chaos-game-representation_72_0.png" />
+<img alt="../_images/chaos-game-representation_74_0.png" src="../_images/chaos-game-representation_74_0.png" />
 </div>
 </div>
 <p>The plot above shows a molecular distance map of 4844 animals from various classes from the chordate phylum (meaning that all these animals have a vertebrate), coloured according to their class. The sequences were taken from NCBI Reference Sequence Database (RefSeq). We can see from this figure that this method (Map of Life) does quite a good job in sorting species into different categories. One particular aspect that we want to point out in this figure is where the points representing the lungfish are—they are in the area of where the bony fish, cartilage fish, and amphibians touch. This is truly remarkable as lung fish has qualities of all these classes.</p>
@@ -2178,7 +2205,7 @@ $$ --><div class="cell docutils container">
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/chaos-game-representation_75_0.png" src="../_images/chaos-game-representation_75_0.png" />
+<img alt="../_images/chaos-game-representation_77_0.png" src="../_images/chaos-game-representation_77_0.png" />
 </div>
 </div>
 <p><em>If you are viewing this in jupyter notebook, uncomment the first line of the previous code block and rerun the code block. This will allow you to rotate the 3D plot above! (Before moving on to the following code blocks run the line <code class="docutils literal notranslate"><span class="pre">%matplotlib</span> <span class="pre">inline</span></code> again so that the following plots will render within the notebook.)</em></p>
@@ -2264,7 +2291,7 @@ $$ --><div class="cell docutils container">
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/chaos-game-representation_79_0.png" src="../_images/chaos-game-representation_79_0.png" />
+<img alt="../_images/chaos-game-representation_81_0.png" src="../_images/chaos-game-representation_81_0.png" />
 </div>
 </div>
 <p>Although the results from using the <code class="docutils literal notranslate"><span class="pre">sklearn.manifold.MDS()</span></code> class differs from the result from the <code class="docutils literal notranslate"><span class="pre">cmdscale()</span></code> function, we observe that this plot is still able to group the animals by class quite well.</p>
@@ -2439,7 +2466,7 @@ $$ --><div class="cell docutils container">
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/chaos-game-representation_84_0.png" src="../_images/chaos-game-representation_84_0.png" />
+<img alt="../_images/chaos-game-representation_86_0.png" src="../_images/chaos-game-representation_86_0.png" />
 </div>
 </div>
 <div class="tip admonition" id="cgractivity-6">
@@ -2513,7 +2540,7 @@ This is known as the secondary structure. The two most common structures that ap
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/chaos-game-representation_90_0.png" src="../_images/chaos-game-representation_90_0.png" />
+<img alt="../_images/chaos-game-representation_92_0.png" src="../_images/chaos-game-representation_92_0.png" />
 </div>
 </div>
 <div class="tip admonition" id="cgractivity-7">
@@ -2585,7 +2612,7 @@ This is known as the secondary structure. The two most common structures that ap
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/chaos-game-representation_97_0.png" src="../_images/chaos-game-representation_97_0.png" />
+<img alt="../_images/chaos-game-representation_99_0.png" src="../_images/chaos-game-representation_99_0.png" />
 </div>
 </div>
 <p>Other visualizations for the Fibonacci sequence can be done, such as taking the remainder using a different divisor and using a CGR with different number of vertices.</p>
@@ -2672,20 +2699,20 @@ This is known as the secondary structure. The two most common structures that ap
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/chaos-game-representation_101_0.png" src="../_images/chaos-game-representation_101_0.png" />
+<img alt="../_images/chaos-game-representation_103_0.png" src="../_images/chaos-game-representation_103_0.png" />
 </div>
 </div>
 </section>
 <section id="partial-quotients-of-continued-fractions">
 <h3>Partial Quotients of Continued Fractions<a class="headerlink" href="#partial-quotients-of-continued-fractions" title="Permalink to this headline">#</a></h3>
 <p>We then explored visualizing the sequences taken from the partial quotients of continued fractions, which were taught at the beginning of the course. Continued fractions are fractions written in the following general form <span id="id52">[<a class="reference internal" href="../references.html#id3" title="R. M. Corless. Continued fractions and chaos. The American Mathematical Monthly, 99(3):203–215, March 1992. doi:10.1080/00029890.1992.11995835.">Corless, 1992</a>, <a class="reference internal" href="../references.html#id39" title="C. D. Olds. Continued fractions. Volume 18. Random House New York, 1963.">Olds, 1963</a>]</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e6b3e39c-6292-4cdf-92b2-957d5234247f">
-<span class="eqno">(73)<a class="headerlink" href="#equation-e6b3e39c-6292-4cdf-92b2-957d5234247f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fb31c819-d6bd-4d6d-a5ea-5cd4282f1412">
+<span class="eqno">(73)<a class="headerlink" href="#equation-fb31c819-d6bd-4d6d-a5ea-5cd4282f1412" title="Permalink to this equation">#</a></span>\[\begin{equation}
 	a_0 + \cfrac{1}{a_{1} + \cfrac{1}{a_{2} + \cfrac{1}{a_{3} + \cfrac{1}{a_{4} + \cfrac{1}{\ddots}}}}} ,
 \end{equation}\]</div>
 <p>which produces a sequence of numbers, <span class="math notranslate nohighlight">\(a_{0} + \left[ a_{1}, a_{2}, a_{3}, a_{4}, \cdots\right]\)</span>, called the partial quotients of the continued fraction. This can be demonstrated with an example: we can rewrite <span class="math notranslate nohighlight">\(\frac{9}{7}\)</span> in the form</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7ddd0dc1-5149-4ba5-8777-c7ce07872ef6">
-<span class="eqno">(74)<a class="headerlink" href="#equation-7ddd0dc1-5149-4ba5-8777-c7ce07872ef6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a3d281b8-ee60-470a-a049-92c991074a95">
+<span class="eqno">(74)<a class="headerlink" href="#equation-a3d281b8-ee60-470a-a049-92c991074a95" title="Permalink to this equation">#</a></span>\[\begin{equation}
 	\dfrac{9}{7} = 1 + \dfrac{2}{7} = 1 + \dfrac{1}{\frac{7}{2}} = 1 + \cfrac{1}{3 + \frac{1}{2}} = 1 + \dfrac{1}{3 + \cfrac{1}{1 + \frac{1}{1}}} .
 	\label{eqn:cfrac}
 \end{equation}\]</div>
@@ -2749,12 +2776,12 @@ This is known as the secondary structure. The two most common structures that ap
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/chaos-game-representation_104_0.png" src="../_images/chaos-game-representation_104_0.png" />
+<img alt="../_images/chaos-game-representation_106_0.png" src="../_images/chaos-game-representation_106_0.png" />
 </div>
 </div>
 <p>In fact, the distribution of partial quotients is very well known, owing to the results of Khinchin <span id="id54">[<a class="reference internal" href="../references.html#id34" title="A. Y. Khinchin and T. Teichmann. Continued fractions. Physics Today, 17:70, 1964.">Khinchin and Teichmann, 1964</a>]</span>. As a very startling aside, recently, Bill Gosper has remarked on an amazing identity</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f37eb2ea-da5c-4866-a3ad-86d10a483868">
-<span class="eqno">(75)<a class="headerlink" href="#equation-f37eb2ea-da5c-4866-a3ad-86d10a483868" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e94ac157-7d6c-40cb-aff9-54136d4cec30">
+<span class="eqno">(75)<a class="headerlink" href="#equation-e94ac157-7d6c-40cb-aff9-54136d4cec30" title="Permalink to this equation">#</a></span>\[\begin{equation}
 	\prod k!^{\Delta_{3}\ln k} = K^{\ln 2} ,
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(K\)</span> is Khinchin’s constant. We did not inform our students of Khinchin’s remarkable results because CGR was only done at the end of the course. Next time, perhaps!</p>
